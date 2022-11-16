@@ -46,6 +46,7 @@ const navigation = [
     title: 'Advanced guides',
     links: [
       { title: 'Managing deployment configs', href: '/docs/how-to-manage-deployment-configs' },
+      { title: 'Ad-hoc deploys', href: '/docs/ad-hoc-deploys' },
       { title: 'Policy-based releases', href: '/docs/policy-based-releases' },
       { title: 'Configuring preview environments', href: '/docs/how-to-configure-preview-environments' },
       { title: 'Managing secrets', href: '/docs/how-to-manage-secrets' },
