@@ -80,7 +80,7 @@ Gimlet environments are served with wildcard DNS entries, so `$app.$env.yourcomp
 
 ### Save your deployment configuration
 
-When you hit save, a file will be placed in your application source code. It follows the convention of `.gimlet/$env-$app.yaml` so in our case `.gimlet/staging-demo-app.yaml` will hold the configuration that we just set in the UI.
+When you hit save, a file will be placed in your application source code. It will hold the configuration that we just set on the UI and will be named `.gimlet/staging-demo-app.yaml` as it follows the `.gimlet/$env-$app.yaml` naming convention.
 
 Hit *Save* now. The changes you make on the dashboard are always backed by a git commit. This is ClickOps 🙌
 
