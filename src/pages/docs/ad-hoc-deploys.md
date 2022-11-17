@@ -3,7 +3,7 @@ title: Ad-hoc deploys
 description: Once you added the Gimlet deploy step in your CI workflow, every commit becomes deployable in Gimlet.
 ---
 
-Once you added the Gimlet deploy step in your CI workflow, every commit becomes deployable in Gimlet - given that CI has built the commit and the workflow reached the Gimlet step.
+Once you [added the Gimlet deploy step in your CI workflow](/docs/deploy-your-first-app-to-kubernetes#integrate-ci-with-gimlet), every commit becomes deployable in Gimlet - given that CI has built the commit and the workflow reached the Gimlet step.
 
 This is possible as in the Gimlet step CI passed a large chunk of metadata (called the Gimlet artifact) to the Gimlet API, and Gimlet knows everything about the commit to perform an ad-hoc deploy.
 
@@ -27,7 +27,7 @@ The deploy button becomes available for commits that CI has ran the Gimlet step 
 
 ## Making ad-hoc deploys with the CLI
 
-Once you added the Gimlet step in your CI workflow, every commit that has built an artifact will be deployable in Gimlet.
+Once you added the Gimlet step in your CI workflow, every commit becomes deployable in Gimlet.
 
 ### Listing the releasable artifacts
 
@@ -62,9 +62,13 @@ A commit only becomes available for deployment if the CI has shipped an artifact
 Once you identified the artifact you want to release, issue the following Gimlet CLI command:
 
 ```
-gimlet release make \
+$ gimlet release make \
   --env staging \
   --artifact gimlet-io/demo-app-4d6db203-5a18-471e-8e58-ad9e6402d1cf
+
+🙆‍♀️ Release is now added to the release queue with ID fc495037-523b-44fd-a1ff-d68c828ee361                                                                    
+Track it with:                                                                                                                                                
+gimlet release track fc495037-523b-44fd-a1ff-d68c828ee361
 ```
 
 ### Tracking releases
@@ -72,7 +76,7 @@ gimlet release make \
 You can track the deploy with
 
 ```bash
-gimlet release track gimlet-io/demo-app-4d6db203-5a18-471e-8e58-ad9e6402d1cf
+gimlet release track fc495037-523b-44fd-a1ff-d68c828ee361
 ```
 
 Or query the audit log:
