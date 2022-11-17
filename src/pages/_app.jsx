@@ -64,6 +64,7 @@ const navigation = [
       { title: 'Gimlet Dashboard configuration reference', href: '/docs/gimlet-dashboard-configuration-reference' },
       { title: 'Gimletd configuration reference', href: '/docs/gimletd-configuration-reference' },
       { title: 'Gimlet Agent configuration reference', href: '/docs/gimlet-agent-configuration-reference' },
+      { title: 'CI integration', href: '/docs/ci-integration' },
     ],
   },
   {
