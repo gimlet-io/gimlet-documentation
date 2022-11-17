@@ -92,15 +92,17 @@ Every time you save the configuration, you can inspect the diff of the environme
 
 ## Integrate CI with Gimlet
 
-CI pipelines today lint, test, build and then deploy applications.
+CI pipelines lint, test, build and then deploy applications.
 
-Gimlet [assumes the gitops deployment tasks](/concepts/integration-to-ci) from your CI pipeline and runs them in a centralized service. CI pipelines can call the Gimlet API to deploy, no need to script the deploy in CI.
+Gimlet [assumes the gitops deployment tasks](/concepts/integration-to-ci) from your CI pipeline and runs them centralized. CI pipelines can call the Gimlet API to deploy, no need to script the deploy in CI.
 
 ### Integrate Github Actions
 
 In order to integrate Github Actions with Gimlet, you need to add the Gimlet Github Action in your CI pipeline to deploy your application.
 
-You typically add this after your docker image build step, where you would normally place the deploy step in your pipeline. Gimlet doesn't take control of your CI workflow, you can keep oragnizing your CI pipelines as you desire and call Gimlet's API whenever you need to perform a gitops operation.
+You typically add this after your docker image build step, where you would normally place the deploy step in your pipeline.
+
+Gimlet doesn't take control of your CI workflow, you can keep oragnizing your CI pipelines as you desire and call Gimlet's API whenever you need to perform a gitops operation.
 
 ```yaml
 name: Build
@@ -134,8 +136,8 @@ jobs:
         push: true
         tags: |
           ghcr.io/gimlet-io/demo-app:${{ github.sha }}
-    - name: Gimlet Artifact Shipper Action
-      uses: gimlet-io/gimlet-artifact-shipper-action@v0.7.1
+    - name: 🚀 Deploy / Staging
+      uses: gimlet-io/gimlet-artifact-shipper-action@v0.8.0
       with:
         DEPLOY: "true"
         ENV: "staging"
@@ -149,7 +151,9 @@ jobs:
 
 In order to integrate with CircleCI, you need to add the Gimlet CircleCI Orb in your CI pipeline to deploy your application.
 
-You typically add this after your docker image build step, where you would normally place the deploy step in your pipeline. Gimlet doesn't take control of your CI workflow, you can keep oragnizing your CI pipelines as you desire and call Gimlet's API whenever you need to perform a gitops operation.
+You typically add this after your docker image build step, where you would normally place the deploy step in your pipeline.
+
+Gimlet doesn't take control of your CI workflow, you can keep oragnizing your CI pipelines as you desire and call Gimlet's API whenever you need to perform a gitops operation.
 
 ```yaml
 version: 2.1
@@ -183,7 +187,7 @@ The `Gimlet` [Context](https://circleci.com/docs/contexts) holds two environment
 
 ### Obtain Gimlet API credentials
 
-For the CI deploy steps to work it needs access to the Gimlet API. You need to set two secrets `GIMLET_SERVER` and `GIMLET_TOKEN`.
+For the CI deploy steps to work, you need to provide access to the Gimlet API. You need to set two secrets `GIMLET_SERVER` and `GIMLET_TOKEN`.
 
 - Set `GIMLET_SERVER` to https://gimletd.<<yourcompany.com>>
 - Set `GIMLET_TOKEN` to a Gimlet API key
@@ -194,11 +198,29 @@ To create a Gimlet API key navigate to *Profile* > *Create a new user* in Gimlet
 
 ## Make a dummy commit to see it deploy
 
-Once you made the changes to your CI pipeline and push a dummy commit, CI will call the Gimlet API, and Gimlet will make a gitops based deploy of your application.
+Push a dummy commit once you made the changes to your CI pipeline.
 
-Track your CI step output to verify it:
+CI will call the Gimlet API, and Gimlet will make a gitops based deploy of your application. You can track the CI step output for details.
 
-TODO logs from deploy api deploy
+```
+Deploying..
+Deployment ID is: ff11eb64-2f94-49c3-ac07-e9274735096c
+👉 Request (ff11eb64-2f94-49c3-ac07-e9274735096c) is new 
+	⏳ The release is not processed yet...
+👉 Request (ff11eb64-2f94-49c3-ac07-e9274735096c) is processed 
+	📖 demo-app -> staging, gitops hash 176da9babbd7647fc68f3c5268a86a1d5fc6669a, status is NotReconciled
+👉 Request (ff11eb64-2f94-49c3-ac07-e9274735096c) is processed 
+	📖 demo-app -> staging, gitops hash 176da9babbd7647fc68f3c5268a86a1d5fc6669a, status is DependencyNotReady
+👉 Request (ff11eb64-2f94-49c3-ac07-e9274735096c) is processed 
+	📖 demo-app -> staging, gitops hash 176da9babbd7647fc68f3c5268a86a1d5fc6669a, status is ReconciliationSucceeded
+```
 
-Cross-reference the gitops commit
-see it in the apps repo.
+Gimlet processed the deploy reuqest and generated a gitops commit with hash `176da9babbd7647fc68f3c5268a86a1d5fc6669a`. Then the CI step waited until the gitops commit was applied on the cluster by Flux:
+
+You should see the deployed resources in Kubernetes, and you can also cross-reference the generated gitops commit (With hash `176da9babbd7647fc68f3c5268a86a1d5fc6669a` in the logs above) in the gitops repository.
+
+{% callout title="Can't see the deployed application?" %}
+You can [debug](/docs/bootstrap-gitops-automation-with-gimlet-cli#verify-the-gitops-automation) the gitops automation to see what went wrong.
+{% /callout %}
+
+

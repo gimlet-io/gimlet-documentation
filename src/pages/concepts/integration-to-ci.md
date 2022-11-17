@@ -12,13 +12,14 @@ Let's explore the deploy step so we know what it takes to deploy to a gitops env
 
 - CI takes the application manifest templates (Helm, Kustomize)
 - Sets the release specific values, like the tag of the docker image to be deployed
-- Optionally, it renders the application manifest templates with the release and environment specific values 
+- Sets the environment values, like the urls, environment variables and alike
+- Optionally, it renders the application manifest templates
 - CI clones the gitops repository
 - CI commits the updated (rendered) deployment manifests to a local working copy of the gitops repository
 - CI pushes the gitops commits
 
 Besides the happy path, CI pipelines take care of
-- concurrent write issues when multiple applications are being deployed
+- concurrent write issues when multiple applications are being deployed at the same time
 - special workflow steps like rollbacks
 - gitops repo clone/write speed optimizations
 
@@ -33,15 +34,15 @@ Gimlet assumes the gitops deployment tasks from your CI pipeline and runs them i
 Practically they look like this Github Action:
 
 ```
-   - name: 🚀 Deploy / Staging
-      uses: gimlet-io/gimlet-artifact-shipper-action@v0.8.0
-      with:
-        DEPLOY: "true"
-        ENV: "staging"
-        APP: "gais"
-      env:
-        GIMLET_SERVER: ${{ secrets.GIMLET_SERVER }}
-        GIMLET_TOKEN: ${{ secrets.GIMLET_TOKEN }}
+- name: 🚀 Deploy / Staging
+  uses: gimlet-io/gimlet-artifact-shipper-action@v0.8.0
+  with:
+    DEPLOY: "true"
+    ENV: "staging"
+    APP: "gais"
+  env:
+    GIMLET_SERVER: ${{ secrets.GIMLET_SERVER }}
+    GIMLET_TOKEN: ${{ secrets.GIMLET_TOKEN }}
 ```
 
 You can keep organizing your CI workflows as you desire, and call Gimlet's API whenever you need to perform a gitops operation.
