@@ -158,29 +158,22 @@ Gimlet doesn't take control of your CI workflow, you can keep oragnizing your CI
 ```yaml
 version: 2.1
 orbs:
-  gimlet: gimlet-io/circleci-orb@3.0.1
+  gimlet: gimlet-io/circleci-orb@4.0.0
+
 workflows:
-  build:
+  master-build:
     jobs:
-      - build_and_test:
-          filters:
-            branches:
-              only:
-                - main
-      - build_docker_image:
-          context:
-            - GithubCR
-          filters:
-            branches:
-              only:
-                - main
+      - test: {}
+      - build_docker:
           requires:
-            - build_and_test
+            - test
       - gimlet/gimlet-artifact-push:
-          context:
-            - Gimlet
+          name: 🚀 Deploy / Staging
+          deploy: "true"
+          env: "staging"
+          app: "demo-app"
           requires:
-            - build_docker_image
+            - build_docker
 ```
 
 The `Gimlet` [Context](https://circleci.com/docs/contexts) holds two environment variables in this example: `GIMLET_SERVER` and `GIMLET_TOKEN`.

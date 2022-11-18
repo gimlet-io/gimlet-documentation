@@ -83,7 +83,7 @@ Gimlet doesn't take control of your CI workflow, you can keep oragnizing your CI
 ```yaml
 version: 2.1
 orbs:
-  gimlet: gimlet-io/circleci-orb@3.0.1
+  gimlet: gimlet-io/circleci-orb@4.0.0
 workflows:
   build:
     jobs:
