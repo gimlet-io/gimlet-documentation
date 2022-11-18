@@ -217,6 +217,8 @@ workflows:
             - test
       - gimlet/gimlet-artifact-push:
           name: 🚀 Deploy / Staging
+          context:
+            - Gimlet
           deploy: "true"
           env: "staging"
           app: "demo-app"

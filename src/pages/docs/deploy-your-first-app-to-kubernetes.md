@@ -169,14 +169,14 @@ workflows:
             - test
       - gimlet/gimlet-artifact-push:
           name: 🚀 Deploy / Staging
+          context:
+            - Gimlet
           deploy: "true"
           env: "staging"
           app: "demo-app"
           requires:
             - build_docker
 ```
-
-The `Gimlet` [Context](https://circleci.com/docs/contexts) holds two environment variables in this example: `GIMLET_SERVER` and `GIMLET_TOKEN`.
 
 ### Obtain Gimlet API credentials
 

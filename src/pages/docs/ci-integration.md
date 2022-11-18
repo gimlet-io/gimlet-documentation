@@ -84,28 +84,23 @@ Gimlet doesn't take control of your CI workflow, you can keep oragnizing your CI
 version: 2.1
 orbs:
   gimlet: gimlet-io/circleci-orb@4.0.0
+
 workflows:
-  build:
+  master-build:
     jobs:
-      - build_and_test:
-          filters:
-            branches:
-              only:
-                - main
-      - build_docker_image:
-          context:
-            - GithubCR
-          filters:
-            branches:
-              only:
-                - main
+      - test: {}
+      - build_docker:
           requires:
-            - build_and_test
+            - test
       - gimlet/gimlet-artifact-push:
+          name: 🚀 Deploy / Staging
           context:
             - Gimlet
+          deploy: "true"
+          env: "staging"
+          app: "demo-app"
           requires:
-            - build_docker_image
+            - build_docker
 ```
 
 The `Gimlet` [Context](https://circleci.com/docs/contexts) holds two environment variables in this example: `GIMLET_SERVER` and `GIMLET_TOKEN`.
@@ -232,3 +227,20 @@ For a full set of supported policies, head over to the [Gimlet manifest referenc
 {% callout title="Full set of supported variables" %}
 For a full set of supported variables, head over to the [Gimlet manifest reference](/docs/gimlet-manifest-reference#variable-support) page.
 {% /callout %}
+
+## List of supported CI systems
+
+### Github Actions
+
+- [Sample app](https://github.com/gimlet-io/github-actions-integration-sample/)
+- [Action source code](https://github.com/gimlet-io/gimlet-artifact-shipper-action)
+
+### CircleCI
+
+- [Sample app](https://github.com/gimlet-io/circleci-integration-sample/)
+- [Orb source code](https://github.com/gimlet-io/circleci-orb)
+
+### Woodpecker
+
+- [Sample app](https://github.com/gimlet-io/woodpecker-integration-sample/)
+- [Plugin source code](https://github.com/gimlet-io/woodpecker-plugin)
