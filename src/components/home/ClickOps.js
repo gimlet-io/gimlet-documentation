@@ -44,7 +44,7 @@ export function ClickOps() {
             Dashboards should not be scary.
           </p>
           <div className="mt-4 max-w-3xl space-y-6 text-gray-600 dark:text-gray-300">
-            You don&apos;t have to worry about configuration drift. Every action you take on the Gimlet dashboard is backed by a git commit.
+            Gimlet gives you a dashboard where you can operate your application. You don&apos;t have to worry about configuration drift. Every action you take on the Gimlet dashboard is backed by a git commit.
             <br />You prefer the command line? The Gimlet CLI has got you covered.
           </div>
           <div className='mt-8'>

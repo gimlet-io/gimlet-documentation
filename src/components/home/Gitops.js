@@ -28,7 +28,7 @@ export function Gitops() {
             Gitops
           </h2>
           <p className="mt-4 text-3xl sm:text-4xl text-slate-900 font-extrabold tracking-tight dark:text-slate-50">
-            Keep everything in git - it&apos;s gitops.
+            Keep everything in git - Gimlet is gitops.
           </p>
           <div className="mt-4 max-w-3xl space-y-6 text-gray-600 dark:text-gray-300">
             Gimlet only interacts with git. It writes your Kubernetes manifests to git when you release, and processes the git history for you to know who did what and when.

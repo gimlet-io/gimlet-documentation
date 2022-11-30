@@ -60,6 +60,9 @@ function Header({ navigation }) {
             <a className="hover:text-orange-500 dark:hover:text-orange-400" href="/docs">Docs</a>
           </li>
           <li>
+            <a className="hover:text-orange-500 dark:hover:text-orange-400" href="/pricing">Pricing</a>
+          </li>
+          <li>
             <a className="hover:text-orange-500 dark:hover:text-orange-400" href="/events">Events</a>
           </li>
           <li>
@@ -79,13 +82,25 @@ function Header({ navigation }) {
             <a className="hover:text-orange-500 dark:hover:text-orange-400" href="/docs">Docs</a>
           </li>
           <li>
+            <a className="hover:text-orange-500 dark:hover:text-orange-400" href="/pricing">Pricing</a>
+          </li>
+          <li>
             <a className="hover:text-orange-500 dark:hover:text-orange-400" href="/events">Events</a>
           </li>
           <li>
             <a className="hover:text-orange-500 dark:hover:text-orange-400" href="/events">Blog</a>
           </li>
+          <li>
+            <a className="hover:text-orange-500 dark:hover:text-orange-400" href="https://github.com/gimlet-io#jobs">Jobs</a>
+          </li>
         </ul>
         }
+        
+        { !isDocsPage &&
+        <a href="https://app.gimlet.io" class="inline-block rounded-lg px-3 py-1.5 text-sm font-semibold leading-6 text-gray-900 shadow-sm ring-1 ring-gray-900/10 hover:ring-gray-900/20">Log in</a>
+        }
+        { isDocsPage &&
+        <>
         <ThemeSelector className="relative z-10" />
         <Link href="https://github.com/gimlet-io/gimlet">
           <a className="group">
@@ -99,6 +114,8 @@ function Header({ navigation }) {
             </svg>
           </a>
         </Link>
+        </>
+        }
       </div>
     </header>
   )

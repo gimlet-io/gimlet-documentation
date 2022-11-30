@@ -330,7 +330,7 @@ export function YamlAuthoring() {
           <div className="relative lg:translate-x-8 z-10">
             <img src="/arrow.svg" className="absolute right-0 top-0 -mt-16 mr-32 lg:mr-64 w-24 block dark:hidden" />
             <img src="/arrow-white.svg" className="absolute right-0 top-0 -mt-16 mr-32 lg:mr-64 w-24 hidden dark:block" />
-            <span className="absolute right-0 top-0 -mt-14 mr-4 lg:mr-36 w-32 font-mono font-bold text-xs dark:text-slate-100">What devs write</span>
+            <span className="absolute right-0 top-0 -mt-14 mr-4 lg:mr-36 w-32 font-mono font-bold text-xs dark:text-slate-100">What you write</span>
             {!varsAdded &&
               <>
                 <button
