@@ -6,14 +6,19 @@ import { ClickOps } from './home/ClickOps'
 import { AppPlatform } from './home/AppPlatform'
 import { Footer } from './home/Footer'
 import { Message } from './home/Message'
+import { Integration } from './home/Integration'
+import { Bring } from './home/Bring'
+
 
 export function HomePage({ className, tabs, code, language }) {
   return (
     <>
       <Hero />
       <Message />
-      {/* TODO bring your own infra */}
       <Gitops />
+      <Integration />
+      <Bring />
+      
       <Configuration />
       <ClickOps />
       <YamlAuthoring />
