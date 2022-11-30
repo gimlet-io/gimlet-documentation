@@ -18,7 +18,7 @@ export function Message() {
                   We are also members of cloud native communities, and what everybody confirmed to us is that bridging the Kuberenetes experience gap takes multiple person to build and then maintain.
                   Covering deployment and dev guard rails first, only years in the project you reach the much sought after disaster recovery and security usecases.
                   <br /><br />
-                  That's why we started Gimlet in 2020, to build a gitops based developer platform on top of the de-facto standards of the industry, FluxCD and Helm.
+                  That&apos;s why we started Gimlet in 2020, to build a gitops based developer platform on top of the de-facto standards of the industry, FluxCD and Helm.
                   To give developers and small devops teams tooling that much larger platform teams would build.
                 </p>
               </blockquote>

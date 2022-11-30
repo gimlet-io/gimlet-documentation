@@ -1,6 +1,4 @@
-import { useState } from 'react'
 import { ButtonLink } from '@/components/Button'
-import { CodeWindow } from '@/components/CodeWindow'
 
 export function Integration() {
   return (
@@ -22,7 +20,7 @@ export function Integration() {
             <Widont>Plays well with your CI.</Widont>
           </p>
           <div className="mt-4 max-w-3xl space-y-6 text-gray-600 dark:text-gray-300">
-            You can keep organizing your CI workflows as you desire, and call Gimlet's API whenever you need to perform a gitops operation.
+            You can keep organizing your CI workflows as you desire, and call Gimlet&apos;s API whenever you need to perform a gitops operation.
           </div>
           <div className='mt-8'>
             <ButtonLink href="/docs/onechart-reference" variant="secondary">Learn more</ButtonLink>
