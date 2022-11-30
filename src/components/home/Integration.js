@@ -19,7 +19,7 @@ export function Integration() {
             Integration
           </h2>
           <p className="mt-4 text-3xl sm:text-4xl text-slate-900 font-extrabold tracking-tight dark:text-slate-50">
-            <Widont>Plays well with your CI</Widont>
+            <Widont>Plays well with your CI.</Widont>
           </p>
           <div className="mt-4 max-w-3xl space-y-6 text-gray-600 dark:text-gray-300">
             You can keep organizing your CI workflows as you desire, and call Gimlet's API whenever you need to perform a gitops operation.

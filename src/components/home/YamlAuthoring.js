@@ -314,7 +314,7 @@ export function YamlAuthoring() {
             Yaml Authoring
           </h2>
           <p className="mt-4 text-3xl sm:text-4xl text-slate-900 font-extrabold tracking-tight dark:text-slate-50">
-            <Widont>Reduce the boilerplate.</Widont>
+            <Widont>No boilerplate.</Widont>
           </p>
           <div className="mt-4 max-w-3xl space-y-6 text-gray-600 dark:text-gray-300">
             Our generic Helm chart allows you to write only a minimal configuration.
