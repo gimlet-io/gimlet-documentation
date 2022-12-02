@@ -4,6 +4,7 @@ import { useRouter } from 'next/router'
 import clsx from 'clsx'
 
 import { HomePage } from '@/components/HomePage'
+import { PricingPage } from '@/components/Pricing'
 import { MobileNavigation } from '@/components/MobileNavigation'
 import { Navigation } from '@/components/Navigation'
 import { Prose } from '@/components/Prose'
@@ -126,6 +127,7 @@ export function Layout({ children, title, navigation, tableOfContents, pageProps
   let isDocsPage = router.pathname.startsWith('/docs') || router.pathname.startsWith('/concepts')
   let isEventsPage = router.pathname.startsWith('/events')
   let isBlogPage = router.pathname.startsWith('/blog')
+  let isPricingPage = router.pathname === '/pricing'
   let isHomePage = router.pathname === '/'
 
   let allLinks = navigation.flatMap((section) => section.links)
@@ -157,6 +159,7 @@ export function Layout({ children, title, navigation, tableOfContents, pageProps
       <Header navigation={navigation} />
 
       {isHomePage && <HomePage />}
+      {isPricingPage && <PricingPage />}
 
       {isEventsPage &&
       <div className="relative mx-auto flex max-w-6xl justify-center sm:px-2 lg:px-8 xl:px-12">
