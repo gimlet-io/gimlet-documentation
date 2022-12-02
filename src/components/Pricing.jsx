@@ -30,7 +30,7 @@ const tiers = [
     name: 'Growth',
     href: '/signup',
     priceMonthly: "$299/mo",
-    description: 'Things are getting serious. Let\'s roll out Gimlet for your growing team. 🚀',
+    description: 'Things are getting serious. Let&apos;s roll out Gimlet for your growing team. 🚀',
     includedFeatures: [
       'All Gimlet fearures.',
       'Unlimited users.',
@@ -101,7 +101,7 @@ export function PricingPage() {
                   }
                 </div>
                 <div className="px-6 pt-6 pb-8">
-                  <h3 className="text-sm font-medium text-gray-900">What's included</h3>
+                  <h3 className="text-sm font-medium text-gray-900">What&apos;s included</h3>
                   <ul role="list" className="mt-6 space-y-4">
                     {tier.includedFeatures.map((feature) => (
                       <li key={feature} className="flex space-x-3">
