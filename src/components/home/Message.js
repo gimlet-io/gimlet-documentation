@@ -1,8 +1,8 @@
 
 export function Message() {
   return (
-    <div className="dark:bg-stone-700 py-16 lg:py-16">
-      <div className="max-w-8xl mx-auto px-4 sm:px-6 md:px-8 text-gray-600 dark:text-gray-300">
+    <div className="bg-stone-100 dark:bg-stone-700 py-16 lg:py-16">
+      <div className="max-w-8xl mx-auto px-4 sm:px-6 md:px-8 text-gray-700 dark:text-gray-300">
         <div className="space-y-20 overflow-hidden sm:space-y-32 md:space-y-40">
           <section className="text-center px-8">
             <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
@@ -14,8 +14,8 @@ export function Message() {
                   But most developers are not empowered to use it efficiently. Teams that embark on their Kubernetes journey 
                   are rushing to fill the void that is called Kubernetes developer experience. 
                   <br /><br />
-                  As former cloud consultants, we&apos;ve built platforms featuring the best tools from <a href="https://landscape.cncf.io/" target="_blank" rel="noopener noreferrer" className="font-bold text-orange-500">the cloud native landscape</a>.
-                  We are also members of cloud native communities, and what everybody confirmed to us is that bridging the Kuberenetes experience gap takes multiple person to build and then maintain.
+                  As former cloud consultants, we&apos;ve built platforms featuring the best tools of <a href="https://landscape.cncf.io/" target="_blank" rel="noopener noreferrer" className="font-bold text-orange-500">the cloud native landscape</a>.
+                  We are also members of cloud native communities, and everybody confirmed to us that bridging the Kuberenetes experience gap takes multiple person to build and then maintain.
                   Covering deployment and dev guard rails first, only years in the project you reach the much sought after disaster recovery and security usecases.
                   <br /><br />
                   That&apos;s why we started Gimlet in 2020, to build a gitops based developer platform on top of the de-facto standards of the industry, FluxCD and Helm.

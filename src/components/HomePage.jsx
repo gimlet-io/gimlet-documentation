@@ -8,17 +8,17 @@ import { Footer } from './home/Footer'
 import { Message } from './home/Message'
 import { Integration } from './home/Integration'
 import { Bring } from './home/Bring'
-
+import { Shot } from './home/Shot'
 
 export function HomePage({ className, tabs, code, language }) {
   return (
     <>
       <Hero />
       <Message />
+      <Shot />
       <Gitops />
       <Integration />
       <Bring />
-      
       <Configuration />
       <ClickOps />
       <YamlAuthoring />
@@ -43,7 +43,7 @@ export function HomePage({ className, tabs, code, language }) {
               href="#"
               className="inline-flex items-center justify-center rounded-md border border-transparent bg-indigo-100 px-5 py-3 text-base font-medium text-indigo-700 hover:bg-indigo-200"
             >
-              Or self host Gimlet
+              Or self-host Gimlet
             </a>
           </div>
         </div>

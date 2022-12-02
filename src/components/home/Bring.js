@@ -23,7 +23,7 @@ export function Bring() {
           </p>
           <div className="mt-4 max-w-3xl space-y-6 text-gray-600 dark:text-gray-300">
             Or bring your own namespace. Gimlet is not magic hosting. It was built to work well in your cloud environment.
-            Gimlet only interacts with git and the gitops paradigm allows it to manage your applications, but remain decoupled from your environment.
+            Gimlet only interacts with git and the gitops paradigm allows it to manage your applications and remain decoupled from your cloud setup.
             <br />If you can launch a managed Kubernetes cluster, or have a dedicated namespace, you are good to go. Heck, Gimlet works even with Minikube, k3s or kind.
           </div>
           <div className='mt-8'>
