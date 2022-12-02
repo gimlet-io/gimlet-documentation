@@ -1,11 +1,13 @@
 import { Footer } from './home/Footer'
 import { CheckIcon } from '@heroicons/react/solid'
+import { Fragment, useState } from 'react'
 
 const tiers = [
   {
     name: 'Hobbyist',
     href: '/signup',
     priceMonthly: "Free",
+    priceYearly: "Free",
     description: 'The perfect tier to automate your blog or test-drive Gimlet without commitments.',
     includedFeatures: [
       'All Gimlet fearures.',
@@ -18,6 +20,7 @@ const tiers = [
     name: 'Startup',
     href: '/signup',
     priceMonthly: "$99/mo",
+    priceYearly: "$999/year",
     description: 'Use Gimlet to deploy your MVP. Upgrade when you build more services.',
     includedFeatures: [
       'All Gimlet fearures.',
@@ -30,6 +33,7 @@ const tiers = [
     name: 'Growth',
     href: '/signup',
     priceMonthly: "$299/mo",
+    priceYearly: "$2999/year",
     description: 'Things are getting serious. Let&apos;s roll out Gimlet for your growing team. 🚀',
     includedFeatures: [
       'All Gimlet fearures.',
@@ -43,6 +47,7 @@ const tiers = [
     name: 'Enterprise',
     href: '#',
     priceMonthly: "Get in touch",
+    priceYearly: "Get in touch",
     description: 'We probably know each other by name at this point.',
     includedFeatures: [
       'All Gimlet fearures.',
@@ -55,6 +60,11 @@ const tiers = [
   },
 ]
 export function PricingPage() {
+  const [monthly, setMonthly] = useState(true)
+
+  const selected = 'border-gray-200 bg-white text-gray-900 shadow-sm';
+  const notSelected = 'border-transparent text-gray-700';
+
   return (
     <>
       <div className="bg-white">
@@ -65,15 +75,17 @@ export function PricingPage() {
               Evaluate Gimlet for free, then upgrade to add more services as you roll out. All plans include all features.
             </p>
             <div className="relative mt-6 flex self-center rounded-lg bg-gray-100 p-0.5 sm:mt-8">
-              {/* <button
-                type="button"
-                className="relative ml-0.5 w-1/2 whitespace-nowrap rounded-md border border-transparent py-2 text-sm font-medium text-gray-700 focus:z-10 focus:outline-none focus:ring-2 focus:ring-indigo-500 sm:w-auto sm:px-8"
-              >
-                Monthly billing
-              </button> */}
               <button
                 type="button"
-                className="relative w-full whitespace-nowrap rounded-md border-gray-200 bg-white py-2 text-sm font-medium text-gray-900 shadow-sm focus:z-10 focus:outline-none focus:ring-2 focus:ring-indigo-500 sm:w-auto sm:px-8"
+                onClick={e => setMonthly(true)}
+                className={(monthly ? selected : notSelected) + ' relative w-1/2 whitespace-nowrap rounded-md py-2 text-sm font-medium focus:z-10 focus:outline-none focus:ring-2 focus:ring-indigo-500 sm:w-auto sm:px-8'}
+              >
+                Monthly billing
+              </button>
+              <button
+                type="button"
+                onClick={e => setMonthly(false)}
+                className={(!monthly ? selected : notSelected) + ' ml-0.5 relative w-1/2 whitespace-nowrap rounded-md py-2 text-sm font-medium focus:z-10 focus:outline-none focus:ring-2 focus:ring-indigo-500 sm:w-auto sm:px-8'}
               >
                 Yearly billing
               </button>
@@ -86,7 +98,7 @@ export function PricingPage() {
                   <h2 className="text-lg font-medium leading-6 text-gray-900">{tier.name}</h2>
                   <p className="mt-4 text-sm text-gray-500 h-16">{tier.description}</p>
                   <p className="mt-8">
-                    <span className="text-4xl font-bold tracking-tight text-gray-900">{tier.priceMonthly}</span>
+                    <span className="text-4xl font-bold tracking-tight text-gray-900">{monthly ? tier.priceMonthly : tier.priceYearly}</span>
                   </p>
                   {tier.priceMonthly !== 'Get in touch' &&
                   <a
