@@ -38,7 +38,7 @@ export function Hero() {
               </div>
               <div>
                 <h1 className="text-4xl font-bold tracking-tight sm:text-center sm:text-6xl">Need to deploy on Kubernetes?</h1>
-                <p className="mt-6 text-lg leading-8 text-gray-600 sm:text-center">Not sure how to put things together? We got you covered.</p>
+                <p className="mt-6 text-lg leading-8 text-gray-600 sm:text-center">But not sure how to put things together? We got you covered.</p>
                 <div className="mt-8 flex gap-x-4 sm:justify-center">
                   <a href="#" className="inline-block rounded-lg bg-indigo-600 px-4 py-1.5 text-base font-semibold leading-7 text-white shadow-sm ring-1 ring-indigo-600 hover:bg-indigo-700 hover:ring-indigo-700">
                     Few clicks to get started for free

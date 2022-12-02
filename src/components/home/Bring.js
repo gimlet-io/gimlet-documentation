@@ -22,18 +22,15 @@ export function Bring() {
             <Widont>Bring your own cluster.</Widont>
           </p>
           <div className="mt-4 max-w-3xl space-y-6 text-gray-600 dark:text-gray-300">
-            Or bring your own namespace. Gimlet is not magic hosting. It was built to work well in your cloud environment.
-            Gimlet only interacts with git and the gitops paradigm allows it to manage your applications and remain decoupled from your cloud setup.
+            <p>
+            Or namespace. Gimlet is not magic hosting. <br/>
+            Gimlet only interacts with git and the gitops paradigm allows it to manage your applications but remain decoupled from your cloud setup.
             <br />If you can launch a managed Kubernetes cluster, or have a dedicated namespace, you are good to go. Heck, Gimlet works even with Minikube, k3s or kind.
+            </p>
           </div>
           <div className='mt-8'>
             <ButtonLink href="/docs/onechart-reference" variant="secondary">Learn more</ButtonLink>
           </div>
-        </div>
-
-        <div className="mx-auto grid max-w-2xl grid-cols-1 items-center gap-y-16 px-4 lg:max-w-8xl lg:grid-cols-2 mt-16">
-          
-
         </div>
       </div>
     </section>
