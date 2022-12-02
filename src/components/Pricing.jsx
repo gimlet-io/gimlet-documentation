@@ -5,7 +5,7 @@ import { Fragment, useState } from 'react'
 const tiers = [
   {
     name: 'Hobbyist',
-    href: '/signup',
+    href: 'https://forms.reform.app/p5JfBA/early-access/nbZ6Go',
     priceMonthly: "Free",
     priceYearly: "Free",
     description: 'The perfect tier to automate your blog or test-drive Gimlet without commitments.',
@@ -18,7 +18,7 @@ const tiers = [
   },
   {
     name: 'Startup',
-    href: '/signup',
+    href: 'https://forms.reform.app/p5JfBA/early-access/nbZ6Go',
     priceMonthly: "$99/mo",
     priceYearly: "$999/year",
     description: 'Use Gimlet to deploy your MVP. Upgrade when you build more services.',
@@ -31,7 +31,7 @@ const tiers = [
   },
   {
     name: 'Growth',
-    href: '/signup',
+    href: 'https://forms.reform.app/p5JfBA/early-access/nbZ6Go',
     priceMonthly: "$299/mo",
     priceYearly: "$2999/year",
     description: 'Things are getting serious. Let&apos;s roll out Gimlet for your growing team. 🚀',
@@ -105,7 +105,7 @@ export function PricingPage() {
                     href={tier.href}
                     className="mt-10 block w-full rounded-md border border-indigo-600 bg-indigo-600 py-2 text-center text-sm font-semibold text-white hover:bg-gray-900"
                   >
-                    Get Started
+                    Sign up for Early Access
                   </a>
                   }
                   {(tier.priceMonthly === 'Get in touch') &&
