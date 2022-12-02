@@ -29,7 +29,7 @@ export function Bring() {
             </p>
           </div>
           <div className='mt-8'>
-            <ButtonLink href="/docs/onechart-reference" variant="secondary">Learn more</ButtonLink>
+            <ButtonLink href="/concepts/components" variant="secondary">Learn more</ButtonLink>
           </div>
         </div>
       </div>

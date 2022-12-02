@@ -23,7 +23,7 @@ export function Integration() {
             You can keep organizing your CI workflows as you desire, and call Gimlet&apos;s API whenever you need to perform a gitops operation.
           </div>
           <div className='mt-8'>
-            <ButtonLink href="/docs/onechart-reference" variant="secondary">Learn more</ButtonLink>
+            <ButtonLink href="/concepts/integration-to-ci" variant="secondary">Learn more</ButtonLink>
           </div>
         </div>
       </div>
