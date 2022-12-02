@@ -4,7 +4,7 @@ import { CheckIcon } from '@heroicons/react/solid'
 const tiers = [
   {
     name: 'Hobbyist',
-    href: '#',
+    href: '/signup',
     priceMonthly: "Free",
     description: 'The perfect tier to automate your blog or test-drive Gimlet without commitments.',
     includedFeatures: [
@@ -16,7 +16,7 @@ const tiers = [
   },
   {
     name: 'Startup',
-    href: '#',
+    href: '/signup',
     priceMonthly: "$99/mo",
     description: 'Use Gimlet to deploy your MVP. Upgrade when you build more services.',
     includedFeatures: [
@@ -28,7 +28,7 @@ const tiers = [
   },
   {
     name: 'Growth',
-    href: '#',
+    href: '/signup',
     priceMonthly: "$299/mo",
     description: 'Things are getting serious. Let\'s roll out Gimlet for your growing team. 🚀',
     includedFeatures: [
@@ -62,7 +62,7 @@ export function PricingPage() {
           <div className="sm:align-center sm:flex sm:flex-col">
             <h1 className="text-5xl font-bold tracking-tight text-gray-900 sm:text-center">Pricing Plans</h1>
             <p className="mt-5 text-xl text-gray-500 sm:text-center">
-              Evaluate Gimlet for free, then upgrade to add more services as you roll out Gimlet. All plans include all features.
+              Evaluate Gimlet for free, then upgrade to add more services as you roll out. All plans include all features.
             </p>
             <div className="relative mt-6 flex self-center rounded-lg bg-gray-100 p-0.5 sm:mt-8">
               <button
@@ -91,7 +91,7 @@ export function PricingPage() {
                   {tier.priceMonthly !== 'Get in touch' &&
                   <a
                     href={tier.href}
-                    className="mt-10 block w-full rounded-md border border-gray-800 bg-gray-800 py-2 text-center text-sm font-semibold text-white hover:bg-gray-900"
+                    className="mt-10 block w-full rounded-md border border-indigo-600 bg-indigo-600 py-2 text-center text-sm font-semibold text-white hover:bg-gray-900"
                   >
                     Get Started
                   </a>
