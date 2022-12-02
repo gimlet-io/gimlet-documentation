@@ -19,8 +19,8 @@ const tiers = [
   {
     name: 'Startup',
     href: 'https://forms.reform.app/p5JfBA/early-access/nbZ6Go',
-    priceMonthly: "$99/mo",
-    priceYearly: "$999/year",
+    priceMonthly: "$?/mo",
+    priceYearly: "$?/year",
     description: 'Use Gimlet to deploy your MVP. Upgrade when you build more services.',
     includedFeatures: [
       'All Gimlet fearures.',
@@ -32,8 +32,8 @@ const tiers = [
   {
     name: 'Growth',
     href: 'https://forms.reform.app/p5JfBA/early-access/nbZ6Go',
-    priceMonthly: "$299/mo",
-    priceYearly: "$2999/year",
+    priceMonthly: "$?/mo",
+    priceYearly: "$?/year",
     description: 'Things are getting serious. Let&apos;s roll out Gimlet for your growing team. 🚀',
     includedFeatures: [
       'All Gimlet fearures.',
