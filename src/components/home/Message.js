@@ -5,7 +5,7 @@ export function Message() {
       <div className="max-w-8xl mx-auto px-4 sm:px-6 md:px-8 text-gray-700 dark:text-gray-300">
         <div className="space-y-20 overflow-hidden sm:space-y-32 md:space-y-40">
           <section className="text-center px-8">
-            <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
+            <h2 className="text-3xl font-bold tracking-tight text-gray-900 dark:text-slate-50 sm:text-4xl">
               Kubernetes is the standard in application deployment
             </h2>
             <figure>

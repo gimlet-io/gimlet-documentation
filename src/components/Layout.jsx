@@ -97,10 +97,10 @@ function Header({ navigation }) {
         </ul>
         }
         
-        { !isDocsPage &&
+        {/* { !isDocsPage &&
         <a href="https://app.gimlet.io" className="inline-block rounded-lg px-3 py-1.5 text-sm font-semibold leading-6 text-gray-900 shadow-sm ring-1 ring-gray-900/10 hover:ring-gray-900/20">Log in</a>
-        }
-        { isDocsPage &&
+        } */}
+       
         <>
         <ThemeSelector className="relative z-10" />
         <Link href="https://github.com/gimlet-io/gimlet">
@@ -116,7 +116,7 @@ function Header({ navigation }) {
           </a>
         </Link>
         </>
-        }
+        
       </div>
     </header>
   )
