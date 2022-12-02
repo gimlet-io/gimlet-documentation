@@ -29,7 +29,7 @@ export function HomePage({ className, tabs, code, language }) {
           <span className="block">Ready to give it a try?</span>
           <span className="block">The SaaS version takes just a few clicks.</span>
         </h2>
-        <div className="mt-8 flex justify-center">
+        <div className="mt-8 md:flex justify-center">
           <div className="inline-flex rounded-md shadow">
             <a
               href="/signup"
@@ -38,7 +38,7 @@ export function HomePage({ className, tabs, code, language }) {
               Try the SaaS version
             </a>
           </div>
-          <div className="ml-3 inline-flex">
+          <div className="mt-4 md:mt-0 ml-3 inline-flex">
             <a
               href="/docs/installation"
               className="inline-flex items-center justify-center rounded-md border border-transparent bg-indigo-100 px-5 py-3 text-base font-medium text-indigo-700 hover:bg-indigo-200"
