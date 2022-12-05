@@ -14,9 +14,9 @@ By signing up to our hosted version and authenticating with Github or Gitlab, yo
 
 Kubernetes is the standard in application deployment, but the state of the empire is that Kubernetes is not for direct consumption. Even though dev teams are longing for the standardized experience, they are not empowered to use it efficiently.
 
-On the two extremes there are the vertically indegrated clouds with a PaaS experience, and platform engineering efforts to build an internal developer platform out of open-source tools.
+On the two extremes there are the vertically integrated clouds with a PaaS experience, and platform engineering efforts to build an internal developer platform out of open-source tools.
 
-The problem with PaaS is that it works like magic, something that often falls short when you need to extend it; platform engineering efforts on the other hand are highly customizable but takes forever to build them. A costly effort in the current economic environment.
+The problem with PaaS is that it works like magic, something that often falls short when you need to extend it; platform engineering efforts on the other hand are highly customizable but take forever to build. A costly effort in the current economic environment.
 
 Gimlet is coming to this landscape with a very specific vision: we wanted to build a gitops based developer platform on top of the de-facto standards of the industry, FluxCD and Helm. To give developers and small devops teams tooling that much larger platform teams would build.
 
@@ -34,11 +34,11 @@ You will be able to deploy a single service to Kubernetes for free forever. Whet
 
 ## Gimlet plays well with your choices
 
-We know that in this landscape one size does not fit all, therefore we wanted to give the most value without setting much of the choices in stone.
+We know that in this landscape one size does not fit all, therefore we wanted to give the most value without setting the choices in stone.
 
 Gimlet plays well with most CI, which means you can keep organizing your CI workflows as you desire, and call Gimlet's API whenever you need to perform a gitops operation. We have CI plugins for Github Actions, CircleCI, Gitlab and Woodpecker CI.
 
-We also don't want to dictate your cloud choices. Gimlet needs a Kubernetes cluster to deploy to, but not interested in how that cluster came to life. So bring your own cluster or namespace as Gimlet only interacts with git and leaves the gitops paradigm to manage your applications. Gimlet remains decoupled from your cloud setup.
+We also don't want to dictate your cloud choices. Gimlet needs a Kubernetes cluster to deploy to, but is not interested in how that cluster came to life. So bring your own cluster or namespace as Gimlet only interacts with git and leaves the gitops paradigm to manage your applications. Gimlet remains decoupled from your cloud setup.
 
 Gimlet is not magic hosting. If you can launch a managed Kubernetes cluster, or have a dedicated namespace, you are good to go. Heck, Gimlet works even with Minikube, k3s or kind running on your laptop.
 
@@ -46,11 +46,11 @@ Gimlet is not magic hosting. If you can launch a managed Kubernetes cluster, or 
 
 We are set out to bring the Netlify experience onto Kubernetes and the cloud native ecosystem.
 
-And just like in Netlify, you sign up, find your Github or Gitlab repository and with a few clicks of deployment configuration you are able to deploy your application to a Kubernetes cluster. This vision, and the work we put in to Gimlet, shines best in the SaaS version.
+And just like in Netlify, you sign up, find your Github or Gitlab repository and with a few clicks of deployment configuration you are able to deploy your application to a Kubernetes cluster. This vision, and the work we put into Gimlet, shines best in the SaaS version.
 
 We think that even though we put good work into the Gimlet self-hosted installer, it is still too much friction to get to Gimlet's deploy experience.
 
-Plus every open-source project needs a businness model. This is ours.
+Plus every open-source project needs a business model. This is ours.
 
 Speaking of which, in case you wonder what happens to the open-source version..
 
@@ -58,7 +58,7 @@ Speaking of which, in case you wonder what happens to the open-source version..
 
 tldr: nothing bad.
 
-The SaaS and open-source versions are going to match one-to-one as we are going to run the upstream open-source Gimlet in the SaaS version. But the the SaaS version is going to see some limitation in the number of deployed services.
+The SaaS and open-source versions are going to match one-to-one as we are going to run the upstream open-source Gimlet in the SaaS version. But the SaaS version is going to see some limitation in the number of deployed services.
 
 If you continue to self-host Gimlet, you get all Gimlet features without any limitation.
 
