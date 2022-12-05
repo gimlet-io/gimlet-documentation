@@ -17,11 +17,11 @@ export function HomePage({ className, tabs, code, language }) {
       <Message />
       <Shot />
       <Gitops />
+      <ClickOps />
       <Integration />
       <Bring />
       <YamlAuthoring />
       <Configuration />
-      <ClickOps />
       <AppPlatform />
       <div>
       <div className="mx-auto max-w-7xl py-12 px-4 text-center sm:px-6 lg:py-32 lg:px-8">

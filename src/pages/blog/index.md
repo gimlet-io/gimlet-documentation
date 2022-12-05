@@ -2,6 +2,10 @@
 title: Blog
 ---
 
+{% post name="Announcing the Gimlet SaaS Early Access" image="three-problems-with-gitops.png" link="/blog/announcing-the-gimlet-saas-early-access" date="2022-11-01" %}
+...
+{% /post %}
+
 {% post name="Three problems with GitOps as deployment history, and how we overcome them" image="three-problems-with-gitops.png" link="/blog/three-problems-with-gitops-as-deployment-history-and-how-we-overcome-them" date="2022-11-01" %}
 One often mentioned property of gitops is that it gives you a deployment history by nature. As you keep updating your desired deployment state in git, it builds up to a trail of changes that you can use to tell what version was deployed at a given time.
 
