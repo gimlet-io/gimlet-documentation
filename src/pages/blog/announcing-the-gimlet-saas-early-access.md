@@ -12,7 +12,7 @@ By signing up to our hosted version and authenticating with Github or Gitlab, yo
 
 ## Kubernetes is the standard in application deployment
 
-Kubernetes is the standard in application deployment, but the state of the empire is that Kubernetes is not for direct consumption. Even though dev teams are longing for the standardized experience, they are not empowered to use it efficiently.
+Kubernetes is the standard in application deployment, but the state of the union is that Kubernetes is not for direct consumption. Even though dev teams are longing for the standardized experience, they are not empowered to use it efficiently.
 
 On the two extremes there are the vertically integrated clouds with a PaaS experience, and platform engineering efforts to build an internal developer platform out of open-source tools.
 
