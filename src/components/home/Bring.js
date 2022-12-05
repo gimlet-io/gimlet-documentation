@@ -25,7 +25,7 @@ export function Bring() {
             <p>
             Or namespace. Gimlet is not magic hosting. <br/>
             Gimlet only interacts with git and the gitops paradigm allows it to manage your applications but remain decoupled from your cloud setup.
-            <br />If you can launch a managed Kubernetes cluster, or have a dedicated namespace, you are good to go. Heck, Gimlet works even with Minikube, k3s or kind.
+            <br />If you can launch a managed Kubernetes cluster, or have a dedicated namespace, you are good to go. Heck, Gimlet works even with Minikube, k3s or kind running on your laptop.
             </p>
           </div>
           <div className='mt-8'>

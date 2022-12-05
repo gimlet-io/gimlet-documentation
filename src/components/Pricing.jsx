@@ -45,7 +45,7 @@ const tiers = [
   },
   {
     name: 'Enterprise',
-    href: '#',
+    href: 'mailto:laszlo@gimlet.io',
     priceMonthly: "Get in touch",
     priceYearly: "Get in touch",
     description: 'We probably know each other by name at this point.',
@@ -108,8 +108,13 @@ export function PricingPage() {
                     Sign up for Early Access
                   </a>
                   }
-                  {(tier.priceMonthly === 'Get in touch') &&
-                  <div className='h-20'></div>
+                  {tier.priceMonthly === 'Get in touch' &&
+                  <a
+                    href={tier.href}
+                    className="mt-10 block w-full rounded-md border border-indigo-600 bg-indigo-600 py-2 text-center text-sm font-semibold text-white hover:bg-gray-900"
+                  >
+                    Get in touch
+                  </a>
                   }
                 </div>
                 <div className="px-6 pt-6 pb-8">
@@ -134,6 +139,14 @@ export function PricingPage() {
                 <div className="mt-2 text-base leading-7 text-gray-600">
                   You can get 24/7 Slack support, Gimlet and bespoke consultancy for any tier.
                 </div>
+              </div>
+              <div>
+                <a
+                  href="mailto:laszlo@gimlet.io"
+                  className="mt-10 block w-full rounded-md border border-indigo-600 bg-indigo-600 py-2 px-4 text-center text-sm font-semibold text-white hover:bg-gray-900"
+                >
+                  Get in touch<span aria-hidden="true">&rarr;</span>
+                </a>
               </div>
             </div>
           </div>

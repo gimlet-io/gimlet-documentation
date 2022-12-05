@@ -3,7 +3,7 @@ title: Blog
 ---
 
 {% post name="Announcing the Gimlet SaaS Early Access" image="three-problems-with-gitops.png" link="/blog/announcing-the-gimlet-saas-early-access" date="2022-11-01" %}
-...
+We have something really exciting to share with you: Gimlet is going SaaS. In other words, you will be able to use Gimlet's unparalleled Kubernetes deploy experience with even fewer clicks than before.
 {% /post %}
 
 {% post name="Three problems with GitOps as deployment history, and how we overcome them" image="three-problems-with-gitops.png" link="/blog/three-problems-with-gitops-as-deployment-history-and-how-we-overcome-them" date="2022-11-01" %}
