@@ -2,8 +2,8 @@
 layout: post
 title: Announcing the Gimlet SaaS Early Access
 date: "2022-12-05"
-image: three-problems-with-gitops.png
-description: "..."
+image: saas-early-access.png
+description: "We have something really exciting to share with you: Gimlet is going SaaS. In other words, you will be able to use Gimlet's unparalleled Kubernetes deploy experience with even fewer clicks than before."
 ---
 
 We have something really exciting to share with you: Gimlet is going SaaS. In other words, you will be able to use Gimlet's unparalleled Kubernetes deploy experience with even fewer clicks than before.
