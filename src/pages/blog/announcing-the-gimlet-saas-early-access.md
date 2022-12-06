@@ -14,7 +14,7 @@ By signing up to our hosted version and authenticating with Github or Gitlab, yo
 
 Kubernetes is the standard in application deployment, but the state of the union is that Kubernetes is not for direct consumption. Even though dev teams are longing for the standardized experience, they are not empowered to use it efficiently.
 
-On the two extremes there are the vertically integrated clouds with a PaaS experience, and platform engineering efforts to build an internal developer platform out of open-source tools.
+There are a growing number of solutions trying to solve the Kubernetes DX question: on one end of the landscape there are the vertically integrated clouds with a PaaS like experience, on the other end there are the DIY platform engineering efforts to build an internal developer platform out of open-source tools.
 
 The problem with PaaS is that it works like magic, something that often falls short when you need to extend it; platform engineering efforts on the other hand are highly customizable but take forever to build. A costly effort in the current economic environment.
 
@@ -22,7 +22,9 @@ Gimlet is coming to this landscape with a very specific vision: we wanted to bui
 
 So if you need to deploy on Kubernetes, but not sure how to put things together.. we got you covered!
 
-## Today we are announcing our new SaaS Early Access program
+![Gimlet Dashboard](/shot.png)
+
+## Today we are announcing our SaaS Early Access program
 
 We are looking for early access partners: developers, dev teams and DevOps professionals who need to deploy on Kubernetes but don't feel empowered today.
 
@@ -40,7 +42,7 @@ Gimlet plays well with CI platforms, which means you can keep organizing your CI
 
 We also don't want to dictate your cloud choices. Gimlet needs a Kubernetes cluster to deploy to, but is not interested in how that cluster came to life. So bring your own cluster or namespace as Gimlet only interacts with git and leaves the gitops paradigm to manage your applications. Gimlet remains decoupled from your cloud setup.
 
-Gimlet is not magic hosting. If you can launch a managed Kubernetes cluster, or have a dedicated namespace, you are good to go. Heck, Gimlet works even with Minikube, k3s or kind running on your laptop.
+Gimlet is not magic hosting. If you launch a managed Kubernetes cluster, or have a dedicated namespace, you are good to go. Heck, Gimlet works even with Minikube, k3s or kind running on your laptop.
 
 ## Why SaaS?
 
@@ -64,6 +66,6 @@ If you continue to self-host Gimlet, you get all Gimlet features without any lim
 
 ## Onwards
 
-If you like what you see, go and evaluate Gimlet. It is just a few clicks.
+If you like what you see, sign-up to the Gimlet SaaS early Access program. It takes only a few clicks.
 
 [Sign up now!](https://forms.reform.app/p5JfBA/early-access/nbZ6Go)

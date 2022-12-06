@@ -318,7 +318,7 @@ export function YamlAuthoring() {
           </p>
           <div className="mt-4 max-w-3xl space-y-6 text-gray-600 dark:text-gray-300">
             Our generic Helm chart allows you to write only a minimal configuration.
-            All common web application usecases are covered so you don&apos;t have to look up the Kubernetes documentation,
+            All common web application usecases are covered so you don&apos;t have to look up the Kubernetes documentation
             or blog posts every turn. Plus you can make sure that your application yamls are following a common blueprint.
           </div>
           <div className='mt-8'>
