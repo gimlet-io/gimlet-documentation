@@ -2,6 +2,9 @@
 title: Blog
 ---
 
+{% post name="The Many Shades of Platform Engineering" image="" link="/blog/the-many-shades-of-platform-engineering" date="2022-12-28" %}
+{% /post %}
+
 {% post name="Announcing the Gimlet SaaS Early Access" image="saas-early-access.png" link="/blog/announcing-the-gimlet-saas-early-access" date="2022-12-05" %}
 We have something really exciting to share with you: Gimlet is going SaaS. In other words, you will be able to use Gimlet's unparalleled Kubernetes deploy experience with even fewer clicks than before.
 {% /post %}
