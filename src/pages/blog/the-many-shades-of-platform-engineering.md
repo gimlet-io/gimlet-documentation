@@ -81,6 +81,7 @@ And without further due, here is the final image! Enjoy!
 
 ps.: since this is a large number of tools, we keep the right to be wrong. If you think a tool was missjudged, do reach out and we are happy to be corrected.
 
+ps.: tools' relative position of within a categort does not mean they are less or more abstract than the other. Tools within the same category, like "Dev Focused Abstraction" has roughly the same level of abstraction, their vertical position is just a matter of comfortable placement.
 
 {% wide %}
 ![The Platform Engineering Map](/full.png)
@@ -107,6 +108,22 @@ Team:     1-10
 Funding:  N/A
 ```
 
+### FluxCD
+
+```
+URL:      https://fluxcd.io
+Founded:  Open-Source
+```
+
+### Carvel
+
+```
+URL:      https://carvel.dev/
+Founded:  Open-Source
+```
+
+Set of tools to build a platform out of.
+
 ## PaaS tools
 
 There is a high level dev focused abstraction, you don't know what is underneath, or how it works. Even if you want to know it, or extend it as a platform eng. We don't explore PaaS tools here, just mention them.
@@ -120,6 +137,8 @@ railway
 Northflank
 platform.sh
 Dokku
+Tsuru.io
+amazee.io
 
 ## Inventory tools
 
@@ -196,6 +215,24 @@ HQ:       Brooklyn, New York
 Team:     1-10
 Funding:  $2.3M
 ```
+
+### ArgoCD
+
+```
+URL:      https://argoproj.github.io/cd/
+Funding:  Open-Source
+```
+
+### Weave Gitops
+
+```
+URL:      https://github.com/weaveworks/weave-gitops
+Funding:  Open-Source
+```
+
+Really just a GUI for Flux.
+Inventory style 100%.
+
 
 ## Tools with dev focused abstractions
 Tools that try to abstract parts of the complexity, using a language devs are comfortable with. As a Platform eng, you still have to know what is underneath to operate these platforms.
@@ -314,6 +351,7 @@ building block to DIY platforms, or perhaps an emerging standard
 single service, not multiservice
 
 ### kubevela
+
 ```
 URL:      https://kubevela.io
 Funding:  Open-Source
@@ -368,59 +406,128 @@ makers of a movement
 investment, size
 not OSS
 
----
-
 ### armory cloud
+
+```
+URL:      https://devtron.ai
+Founded:  2016
+HQ:       India
+Team:     101-250
+Funding:  $82M
+```
+
 spinakker as a service
+nope: "No, CD-as-a-Service is a brand new declarative deployment offering, initially targeting Kubernetes. It aims to simplify common use cases we’ve seen while helping elite development organizations succeed with Spinnaker."
+uses argo rollouts (and argo?)
 
-### spinakker.io
+### spinnaker.io
 
+```
+URL:      https://spinnaker.io
+Funding:  Open-Source
+```
 
-Tsuru.io
-Kubero
-waypoint
-argocd
-fluxcd
-flux oss
-weave gitops
+heavy java app
+controls rollout, wraps CI (webhooks in and out)
 
-https://carvel.dev/
-Set of tools to build a platform out of.
-DIY
+### Kubero
 
-Vmware Tanzu
-Redhat Openshift
-K8s provisioning
-The enterprise K8s platform options.
+```
+URL:      https://kubero.dev
+Funding:  Open-Source
+```
 
-octant.dev
-Tanzu's backstage?
+Kubero is basically a Kubernetes Operator with a UI, API, and CLI.
+Kubero comes with an integrated CI/CD pipeline
+Addons are deployed with Kubernetes Operators which are configurable over the UI.
+buildpacks
 
-devfile.io
+### Waypoint
+
+```
+URL:      https://www.waypointproject.io/
+Funding:  Open-Source project of Hashicorp
+```
+
+app-centric abstraction
+multiple deploy targets: k8s, ecs, lambda
+monitoring after deployment
+
+### devfile.io
+
+```
+URL:      https://devfile.io
+Funding:  Open-Source
+```
+
 Take control of your development environmentapplication model, only dev
 
-devspace.sh
+### DevSpace
 
-Lagoon.sh
-application delivery platform"A system that allows developers to locally develop their code and their services with Docker and run the exact same system in production. The same container images, the same service configurations and the same code."
+```
+URL:      https://devspace.sh
+Funding:  Open-Source
+```
 
-amazee.io
-Proprietary
+"Automate your deployment workflow with DevSpace and develop software directly inside Kubernetes. "
+Inner loop tool
 
-Mia platform
+### Lagoon.sh
 
-https://getporter.org/
+```
+URL:      https://lagoon.sh/
+Funding:  Open-Source
+```
 
-tanka.dev
-Tanka"Tanka is a composable configuration utility for Kubernetes. It leverages the Jsonnet language to realize flexible, reusable and concise configuration."
-Grafana
+application delivery platform
+"A system that allows developers to locally develop their code and their services with Docker and run the exact same system in production. The same container images, the same service configurations and the same code."
 
-shipa
+### Mia Platform
 
+```
+URL:      https://mia-platform.eu
+Founded:  2016
+HQ:       Lombardia, Italy
+Team:     101-250
+Funding:  N/A
+```
 
-keptn
+### Shipa
 
+```
+URL:      https://shipa.io
+Founded:  2019
+HQ:       Santa Clara, California
+Team:     11-50
+Funding:  $3.8M
+```
 
-Todo product card
+"It’s all about the application."
+$5 per app
 
-Todo flying ToC
+### keptn
+
+```
+URL:      https://keptn.sh
+Funding:  Open-Source
+```
+
+It is really about ops metrics, SLOs
+
+### VMWare Tanzu
+
+```
+URL:      https://tanzu.vmware.com
+```
+
+### Redhat Openshift
+
+```
+URL:      https://www.redhat.com/en/technologies/cloud-computing/openshift
+```
+
+---
+
+TODO:
+- product card
+- flying ToC
