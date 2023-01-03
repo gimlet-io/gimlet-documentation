@@ -2,8 +2,8 @@
 layout: post
 title: The Many Shades of Platform Engineering
 date: "2022-12-28"
-image: 
-description: ""
+image: map-cover.png
+description: "We examined close to fifty tools in the Platform Engineering space, and decided to put them on a map."
 ---
 
 2022 was the year when Platform Engineering broke out of the niches and it became the term to take home from devops conferences.
@@ -83,22 +83,21 @@ ps.: since this is a large number of tools, we keep the right to be wrong. If yo
 
 ps.: tools' relative position of within a categort does not mean they are less or more abstract than the other. Tools within the same category, like "Dev Focused Abstraction" has roughly the same level of abstraction, their vertical position is just a matter of comfortable placement.
 
-{% wide %}
 ![The Platform Engineering Map](/full.png)
-{% /wide %}
+## Tools
 
-## DIY tools
+### DIY tools
 
 DIY by platform teams, you piece everything together from OSS tools, you need to self host
 
-### Backstage
+##### Backstage
 
 ```
 URL:      https://backstage.io
 Founded:  Open-Source
 ```
 
-### roadie.io
+##### roadie.io
 
 ```
 URL:      https://roadie.io
@@ -108,14 +107,14 @@ Team:     1-10
 Funding:  N/A
 ```
 
-### FluxCD
+##### FluxCD
 
 ```
 URL:      https://fluxcd.io
 Founded:  Open-Source
 ```
 
-### Carvel
+##### Carvel
 
 ```
 URL:      https://carvel.dev/
@@ -124,7 +123,7 @@ Founded:  Open-Source
 
 Set of tools to build a platform out of.
 
-## PaaS tools
+### PaaS tools
 
 There is a high level dev focused abstraction, you don't know what is underneath, or how it works. Even if you want to know it, or extend it as a platform eng. We don't explore PaaS tools here, just mention them.
 
@@ -140,12 +139,12 @@ Dokku
 Tsuru.io
 amazee.io
 
-## Inventory tools
+### Inventory tools
 
 Tools that require understanding of the underlying infrastrcucture. These tools don't hide the complexity, instead they make it managable at scale by providing the inventory of various resources, their status and configuration data.
 container management: ops focus, inventory style
 
-### Octopus Deploy
+#### Octopus Deploy
 
 ```
 URL:      https://octopus.com
@@ -169,7 +168,7 @@ Why the placement?
 It is a procedural deploy tool. You have to piece it together and need to understand platform components.
 You can deploy to test and production envs, hence spanning accross..
 
-### Harness
+#### Harness
 
 ```
 URL:      https://harness.io
@@ -187,7 +186,7 @@ Why the placement?
 Harness has many modules, CI/CD to cover deployment to test and production envs, then modules that help operating your platform, cloud costs, feature flags, etc, hence spanning into day2.
 It is a deploy tool at core, hence the 
 
-### plural.sh
+#### plural.sh
 
 ```
 URL:      https://plural.sh
@@ -202,7 +201,7 @@ deploying infra tools"Build and scale infrastructure within minutes"for managing
 plus cost management, and recommendationsops people focused
 this is good, just like stackthis is gimlet stack
 
-### Shipyard
+#### Shipyard
 on demand envs
 it works with a docker compose file
 and basically just a gui override of existing compose files
@@ -216,14 +215,14 @@ Team:     1-10
 Funding:  $2.3M
 ```
 
-### ArgoCD
+#### ArgoCD
 
 ```
 URL:      https://argoproj.github.io/cd/
 Funding:  Open-Source
 ```
 
-### Weave Gitops
+#### Weave Gitops
 
 ```
 URL:      https://github.com/weaveworks/weave-gitops
@@ -234,11 +233,11 @@ Really just a GUI for Flux.
 Inventory style 100%.
 
 
-## Tools with dev focused abstractions
+### Tools with dev focused abstractions
 Tools that try to abstract parts of the complexity, using a language devs are comfortable with. As a Platform eng, you still have to know what is underneath to operate these platforms.
 application model (CRD), proprietary formats: score.dev, garden.io, Gimlet's thin model
 
-### Okteto
+#### Okteto
 
 ```
 URL:      https://www.okteto.com
@@ -252,7 +251,7 @@ Funding:  $18M
 not production? no prod
 dev envs, preview envsremote dev env"bunch of data that needs cloning, we ensure you get a realistic replica of your production environment quickly and with minimal effort.""Okteto works with your already existing Helm charts, docker-compose, or Kubernetes manifests right out of the box!" uhworks from compose.covers the inner loop and the preview envs
 
-### garden.io
+#### garden.io
 
 ```
 URL:      https://garden.io
@@ -264,7 +263,7 @@ Funding:  $18M
 
 garden.iodev test and production envsown k8s style yaml format - like every tool, multiserviceone descriptor and a cli that can spin this upscore.dev is a competitork8s and docker pluginshot reloadbasically score.devnot a bad approachoss CLIcall us for pricinggimlet competitor
 
-### ReleaseHub
+#### ReleaseHub
 
 ```
 URL:      https://releasehub.com/
@@ -280,7 +279,7 @@ project templatesfrom docker-compose or package.jsonproprietary env format:
 call us pricing
 no word on production. How does production happens then? issue for the whole class of tools
 
-### ambassador
+#### ambassador
 
 ```
 URL:      https://getambassador.com/
@@ -302,7 +301,7 @@ telepresence is inner loop and dev abstraction
 Ambassador cloud is clickops and abstracts
 gaeway prodicyt is not abstract, but who cares
 
-### gimlet
+#### gimlet
 
 ```
 URL:      https://gimlet.io/
@@ -318,7 +317,7 @@ patr.cloud
 deploy fast, all kind of workloads
 hosting included, probably a PaaSstart with dockerfile, push an image, then configure on gui
 
-### skaffold.dev
+#### skaffold.dev
 inner loop tool
 
 ```
@@ -326,7 +325,7 @@ URL:      https://skaffold.dev/
 Founded:  Open-Source by Google
 ```
 
-### getdeck.dev
+#### getdeck.dev
 
 ```
 URL:      https://getdeck.dev/
@@ -338,7 +337,7 @@ Funding:  N/A
 
 A CLI that creates reproducible Kubernetes environments for development and testing."score.dev, garden.io ballpark"Getdeck does not interfere with production-close Kubernetes systems. It also does not support production deployments."again, dead end"Getdeck does not provide these resources. These manifests (mostly YAML-files) have to exist in any way"you do the yaml authoring
 
-### score.dev
+#### score.dev
 
 ```
 URL:      https://score.dev
@@ -350,7 +349,7 @@ can be compiled to different deployment targets
 building block to DIY platforms, or perhaps an emerging standard
 single service, not multiservice
 
-### kubevela
+#### kubevela
 
 ```
 URL:      https://kubevela.io
@@ -360,7 +359,7 @@ Funding:  Open-Source
 OAM Open application model
 proprietary format, disguised as a standard, OAM is only implemented by Kubevela CRD 
 
-### dyrector.io
+#### dyrector.io
 
 ```
 URL:      https://dyrector.io
@@ -370,7 +369,7 @@ Team:     1-10
 Funding:  N/A
 ```
 
-### devtron.ai
+#### devtron.ai
 
 ```
 URL:      https://devtron.ai
@@ -389,7 +388,7 @@ they integrate CI/CD
 bunch of inventory views
 wants to be everything
 
-### Humanitec
+#### Humanitec
 
 ```
 URL:      https://humanitec.com
@@ -406,7 +405,7 @@ makers of a movement
 investment, size
 not OSS
 
-### armory cloud
+#### armory cloud
 
 ```
 URL:      https://devtron.ai
@@ -420,7 +419,7 @@ spinakker as a service
 nope: "No, CD-as-a-Service is a brand new declarative deployment offering, initially targeting Kubernetes. It aims to simplify common use cases we’ve seen while helping elite development organizations succeed with Spinnaker."
 uses argo rollouts (and argo?)
 
-### spinnaker.io
+#### spinnaker.io
 
 ```
 URL:      https://spinnaker.io
@@ -430,7 +429,7 @@ Funding:  Open-Source
 heavy java app
 controls rollout, wraps CI (webhooks in and out)
 
-### Kubero
+#### Kubero
 
 ```
 URL:      https://kubero.dev
@@ -442,7 +441,7 @@ Kubero comes with an integrated CI/CD pipeline
 Addons are deployed with Kubernetes Operators which are configurable over the UI.
 buildpacks
 
-### Waypoint
+#### Waypoint
 
 ```
 URL:      https://www.waypointproject.io/
@@ -453,7 +452,7 @@ app-centric abstraction
 multiple deploy targets: k8s, ecs, lambda
 monitoring after deployment
 
-### devfile.io
+#### devfile.io
 
 ```
 URL:      https://devfile.io
@@ -462,7 +461,7 @@ Funding:  Open-Source
 
 Take control of your development environmentapplication model, only dev
 
-### DevSpace
+#### DevSpace
 
 ```
 URL:      https://devspace.sh
@@ -472,7 +471,7 @@ Funding:  Open-Source
 "Automate your deployment workflow with DevSpace and develop software directly inside Kubernetes. "
 Inner loop tool
 
-### Lagoon.sh
+#### Lagoon.sh
 
 ```
 URL:      https://lagoon.sh/
@@ -482,7 +481,7 @@ Funding:  Open-Source
 application delivery platform
 "A system that allows developers to locally develop their code and their services with Docker and run the exact same system in production. The same container images, the same service configurations and the same code."
 
-### Mia Platform
+#### Mia Platform
 
 ```
 URL:      https://mia-platform.eu
@@ -492,7 +491,7 @@ Team:     101-250
 Funding:  N/A
 ```
 
-### Shipa
+#### Shipa
 
 ```
 URL:      https://shipa.io
@@ -505,7 +504,7 @@ Funding:  $3.8M
 "It’s all about the application."
 $5 per app
 
-### keptn
+#### keptn
 
 ```
 URL:      https://keptn.sh
@@ -514,20 +513,14 @@ Funding:  Open-Source
 
 It is really about ops metrics, SLOs
 
-### VMWare Tanzu
+#### VMWare Tanzu
 
 ```
 URL:      https://tanzu.vmware.com
 ```
 
-### Redhat Openshift
+#### Redhat Openshift
 
 ```
 URL:      https://www.redhat.com/en/technologies/cloud-computing/openshift
 ```
-
----
-
-TODO:
-- product card
-- flying ToC

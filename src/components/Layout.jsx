@@ -186,7 +186,7 @@ export function Layout({ children, title, navigation, tableOfContents, pageProps
       }
 
       {isBlogPage &&
-      <div className="relative mx-auto flex max-w-4xl justify-center sm:px-2 lg:px-8 xl:px-12">
+      <div className="relative mx-auto flex max-w-6xl justify-center sm:px-2 lg:px-8 xl:px-12">
         <div className="min-w-0 max-w-2xl flex-auto px-4 py-16 lg:max-w-none lg:pr-0 lg:pl-8 xl:px-16">
           <article>
             {(title || section) && (
@@ -211,6 +211,58 @@ export function Layout({ children, title, navigation, tableOfContents, pageProps
             }
             <Prose className="mt-16">{children}</Prose>
           </article>
+        </div>
+        <div className="hidden xl:sticky xl:top-[4.5rem] xl:-mr-6 xl:block xl:h-[calc(100vh-4.5rem)] xl:flex-none xl:overflow-y-auto xl:py-16">
+          <nav aria-labelledby="on-this-page-title" className="w-56">
+            {tableOfContents.length > 0 && (
+              <>
+                <h2
+                  id="on-this-page-title"
+                  className="font-display text-sm font-medium text-slate-900 dark:text-white"
+                >
+                  On this page
+                </h2>
+                <ul className="mt-4 space-y-3 text-sm">
+                  {tableOfContents.map((section) => (
+                    <li key={section.id}>
+                      <h3>
+                        <Link href={`#${section.id}`}>
+                          <a
+                            className={clsx(
+                              isActive(section)
+                                ? 'text-sky-500'
+                                : 'font-normal text-slate-500 hover:text-slate-700 dark:text-slate-400 dark:hover:text-slate-300'
+                            )}
+                          >
+                            {section.title}
+                          </a>
+                        </Link>
+                      </h3>
+                      {section.children.length > 0 && (
+                        <ul className="mt-2 space-y-3 pl-5 text-slate-500 dark:text-slate-400">
+                          {section.children.map((subSection) => (
+                            <li key={subSection.id}>
+                              <Link href={`#${subSection.id}`}>
+                                <a
+                                  className={
+                                    isActive(subSection)
+                                      ? 'text-sky-500'
+                                      : 'hover:text-slate-600 dark:hover:text-slate-300'
+                                  }
+                                >
+                                  {subSection.title}
+                                </a>
+                              </Link>
+                            </li>
+                          ))}
+                        </ul>
+                      )}
+                    </li>
+                  ))}
+                </ul>
+              </>
+            )}
+          </nav>
         </div>
       </div>
       }
@@ -277,7 +329,7 @@ export function Layout({ children, title, navigation, tableOfContents, pageProps
             )}
           </dl>
         </div>
-        <div className="hidden xl:sticky xl:top-[4.5rem] xl:-mr-6 xl:block xl:h-[calc(100vh-4.5rem)] xl:flex-none xl:overflow-y-auto xl:py-16 xl:pr-6">
+        <div className="hidden xl:sticky xl:top-[4.5rem] xl:block xl:h-[calc(100vh-4.5rem)] xl:flex-none xl:overflow-y-auto xl:py-16 xl:pr-6">
           <nav aria-labelledby="on-this-page-title" className="w-56">
             {tableOfContents.length > 0 && (
               <>
