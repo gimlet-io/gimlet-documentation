@@ -2,8 +2,8 @@
 title: Blog
 ---
 
-{% post name="The Many Shades of Platform Engineering" image="map-cover.png" link="/blog/the-many-shades-of-platform-engineering" date="2022-12-28" %}
-We examined close to fifty tools in the Platform Engineering space, and decided to put them on a map.
+{% post name="The Platform Engineering Map" image="map-cover.png" link="/blog/the-platform-engineering-map" date="2022-12-28" %}
+We examined close to fifty tools in the Platform Engineering space. And put them on a map.
 {% /post %}
 
 {% post name="Announcing the Gimlet SaaS Early Access" image="saas-early-access.png" link="/blog/announcing-the-gimlet-saas-early-access" date="2022-12-05" %}
