@@ -3,7 +3,7 @@ layout: post
 title: The Platform Engineering Map
 date: "2022-12-28"
 image: map-cover.png
-description: "We examined close to fifty tools in the Platform Engineering. And put them on a map."
+description: "We examined close to fifty tools in the Platform Engineering space. And put them on a map."
 ---
 
 2022 was the year when Platform Engineering broke out of the niches and it became the term to take home from devops conferences.
