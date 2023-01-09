@@ -202,7 +202,7 @@ Harness started out as a CI/CD tool back in 2016 but today it aims at a much lar
 
 It is a modular system, that reflects in the pricing too. Priced per module in a bit convoluted way.
 
-What is notable that Harness tries to address day-2 operations as well with modules to track cloud costs and handling feature flags.
+It is notable that Harness also tries to address day-2 operations with modules to track cloud costs and handling feature flags.
 
 #### plural.sh
 
@@ -214,7 +214,7 @@ Team:     1-10
 Funding:  $7M
 ```
 
-Plural has a distinct scope of deploying and managing 3rd party open-source tools in production.
+With Plural you can deploy and manage 3rd party open-source tools in production.
 It's offering is unique among the listed tools.
 
 While its marketplace is not big at this point, the offering can become valuable. Data focused open-source applications in particular are not easy to self-host, but companies are looking to save cost by hosting data analytics tools themselves.
@@ -223,6 +223,8 @@ In essence Plural writes all the Helm, Terraform, and YAML needed for the 3rd pa
 They mention that the configuration is "fully ejectable" that lowers the overall risk of going with them.
 
 Priced at $400 per cluster with a $50 seat price on top.
+
+Plural reminds us of Bitnami.
 
 #### Shipyard
 
@@ -236,7 +238,7 @@ Funding:  $2.3M
 
 "A New Environment for Every Pull Request"
 
-Shipyard works with existing Docker Compose files and host the preview environments on their infrastructure.
+Shipyard works with existing Docker Compose files and hosts the preview environments on their infrastructure.
 
 Their GUI adds possibilities to manage your compose files and alter them prior to deployment.
 
@@ -251,7 +253,7 @@ ArgoCD is a graduated CNCF project.
 
 It is one of the most popular GitOps tools that is responsible to keep the clusters in sync with the desired system state stored in git.
 
-ArgoCDs traction can be originated to the fact that it has a GUI that is often exposed to developers, often in read only mode, so they can navigate Kubernetes resources.
+ArgoCD's traction can be traced back to the fact that it has a GUI that is often exposed to developers, often in read only mode, so they can navigate Kubernetes resources.
 
 ArgoCD fills a similar role in developer platforms as FluxCD. Argo covers more usecases and has a few higher level abstractions but platform engineering work is required to address all developer workflows.
 
@@ -287,11 +289,11 @@ URL:      https://spinnaker.io
 Funding:  Open-Source
 ```
 
-Spinnaker was one of the first tools to target the deployment space.
+Spinnaker was one of the first tools to target the continuous deployment space.
 
-It wraps the CI process, that builds the deployable software artifacts, and allows the user to design sophisticated deployment workflows.
+It wraps the CI process, that builds the deployable software artifacts, and allows the user to design sophisticated deployment workflows like blue-green deployments.
 
-The self-hosting setup and operation is not trivial
+Spinnaker feels a bit dated in terms of resource requirements and self-hosting experience.
 
 #### VMWare Tanzu
 
@@ -299,11 +301,15 @@ The self-hosting setup and operation is not trivial
 URL:      https://tanzu.vmware.com
 ```
 
+VMWare's container management platform.
+
 #### Redhat Openshift
 
 ```
 URL:      https://www.redhat.com/en/technologies/cloud-computing/openshift
 ```
+
+Redhat's container management platform.
 
 ### Tools with developer focused abstractions
 
@@ -327,7 +333,7 @@ Funding:  $18M
 
 Okteto is focusing on developer's inner-loop. The feedback loop that developers use to write and test code. The challenge in the inner-loop is that it has to be tight, otherwise developers lose the flow. 
 
-Okteto is trying to keep the inner-loop tight by deploying dev environments in the cloud and showing code changes live on the cloud as soon as develoeprs hit save. It works with existing cloud native resources like Helm charts, Docker Compose files and Kubernetes manifests.
+Okteto is trying to keep the inner-loop tight by deploying dev environments in the cloud and showing code changes live as soon as developers hit save. It works with existing cloud native resources like Helm charts, Docker Compose files and Kubernetes manifests.
 
 Okteto is not dealing with production usecases.
 
@@ -423,7 +429,7 @@ URL:      https://skaffold.dev/
 Funding: Open-Source by Google
 ```
 
-It is a "inner-loop" tool that helps developers to stay in the flow. Skaffold shows code changes live on the cloud as soon as develoeprs hit save.
+It is a "inner-loop" tool that helps developers to stay in the flow. Skaffold shows code changes live on the cloud as soon as developers hit save.
 
 #### getdeck.dev
 
@@ -473,7 +479,7 @@ Team:     1-10
 Funding:  N/A
 ```
 
-Dyrector.io has a dashboard first approach to application deployment. You can define products, set their version and deploy them on-demand. Dyrector.io aims to be the source of truth for workload definitions. They can be managed on the GUI or with JSON based APIs.
+Dyrector.io has a dashboard first approach to application deployment. You can define products, set their version and deploy them on-demand. Dyrector.io aims to be the source of truth for workload definitions, which can be managed on the GUI or with JSON based APIs.
 
 Dyrector.io has 3rd-party open-source tool templates to deploy well known tools of the ecosystem like Gitlab and Wordpress.
 
@@ -489,17 +495,11 @@ Funding:  $12M
 
 Devtron has a large vision, in their words they are a "Tool integration platform for Kubernetes".
 
-They have a Helm chart that serves for a workload definition
+- They have a Helm chart that serves for a workload definition
+- Devtron can be installed with an embedded CI platform.
+- Devtron integrates deeply with ArgoCD to implement GitOps for gitops based continuous delivery.
 
-TODO
-
-"Helm apps"
-CI/CD + gitops
-operations metrics
-They have a onechart like chart
-they integrate CI/CD
-bunch of inventory views
-wants to be everything
+Devtron has great support for application debugging, they bring together Kubernetes events and manifests, applications logs and basic metrics in one view.
 
 #### Humanitec
 
@@ -513,9 +513,11 @@ Funding:  N/A
 
 Humanitec is a proprietary SaaS tool that popularized the Internal Developer Platform, IDP term.
 
-They further the platform engineering trend by organizing the first ever PlatformCon, and they are also the ones who created the Platform Engineering Slack group as well. They are also the founder-leader of the score.dev workload spec project.
+They further the platform engineering trend by organizing the first ever PlatformCon, and they are also the ones who created the Platform Engineering Slack group. They are also the founder-leader of the score.dev workload specification project.
 
-TODO more about the product.
+Humanitec has a declarative workload specification format that is rendered into environment configurations on-demand.
+
+It has a GUI first approach and it stores workload definitions in its database, being the source of truth for environment definitions. TODO verify on https://humanitec.com/product
 
 #### Armory Cloud
 
@@ -527,11 +529,11 @@ Team:     101-250
 Funding:  $82M
 ```
 
-Armory is the company behind Spinnaker, the open-source continouous delivery pioneer.
+Armory is the company behind Spinnaker, the open-source continuous delivery pioneer.
 
 Their new Armory Cloud product on the other hand is not a Spinnaker SaaS. In their own words, "No, CD-as-a-Service is a brand new declarative deployment offering, initially targeting Kubernetes. It aims to simplify common use cases we’ve seen while helping elite development organizations succeed with Spinnaker."
 
-Armory Cloud looks to be built on top of ArgoCD and Argo Rollouts.
+Armory Cloud is built on top of ArgoCD and Argo Rollouts.
 
 #### Kubero
 
@@ -555,9 +557,9 @@ Funding:  Open-Source project of Hashicorp
 
 Hashicorp's tool to cover the deployment and platform engineering space.
 
-It has an app-centric abstraction and supports multiple deploy targets: k8s, ecs, lambda.
+It has an app-centric abstraction and supports multiple deploy targets: k8s, ECS and lambda.
 
-It also supports monitoring usecases after deployment.
+It also supports application monitoring usecases.
 
 #### devfile.io
 
@@ -579,7 +581,7 @@ Funding:  Open-Source
 
 "Automate your deployment workflow with DevSpace and develop software directly inside Kubernetes. "
 
-It is a "inner-loop" tool that helps developers to stay in the flow. Code changes are reflected live on the cloud as soon as develoeprs hit save.
+It is a "inner-loop" tool that helps developers to stay in the flow. Code changes are reflected live on the cloud as soon as developers hit save.
 
 #### Lagoon.sh
 
@@ -612,7 +614,13 @@ Funding:  $3.8M
 
 "It’s all about the application."
 
+Shipa also features its own workload definition, puts great emphesis on policies for secure application configuration.
+
+Shipa spans CD and infrastructure, facilitating deployment, policy-setting, and observability.
+
 Pricing is $5 per app.
+
+TODO make Shipa span into day-2 usecases.
 
 #### keptn
 
@@ -621,4 +629,6 @@ URL:      https://keptn.sh
 Funding:  Open-Source
 ```
 
-Keptn's highly opinionated delivery platform allows it provide high level application operations metric, SLOs and alike.
+Keptn provides with ready-made deployment pipelines.
+
+It's highly opinionated approach allows it provide high level application operations metrics, SLOs, and metric based canary releases.
