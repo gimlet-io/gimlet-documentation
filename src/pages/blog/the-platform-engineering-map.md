@@ -517,7 +517,7 @@ They further the platform engineering trend by organizing the first ever Platfor
 
 Humanitec has a declarative workload specification format that is rendered into environment configurations on-demand.
 
-It has a GUI first approach and it stores workload definitions in its database, being the source of truth for environment definitions. TODO verify on https://humanitec.com/product
+It has a GUI first approach and it stores workload definitions in its database, being the source of truth for environment definitions.
 
 #### Armory Cloud
 
@@ -620,8 +620,6 @@ Shipa spans CD and infrastructure, facilitating deployment, policy-setting, and 
 
 Pricing is $5 per app.
 
-TODO make Shipa span into day-2 usecases.
-
 #### keptn
 
 ```
@@ -629,6 +627,6 @@ URL:      https://keptn.sh
 Funding:  Open-Source
 ```
 
-Keptn provides with ready-made deployment pipelines.
+Keptn provides ready-made deployment pipelines.
 
 It's highly opinionated approach allows it provide high level application operations metrics, SLOs, and metric based canary releases.
