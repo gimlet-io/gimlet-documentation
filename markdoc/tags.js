@@ -3,6 +3,7 @@ import { LinkGrid } from '@/components/LinkGrid'
 import { Video } from '@/components/Video'
 import { Event } from '@/components/Event'
 import { Post } from '@/components/Post'
+import { Raw } from '@/components/Raw'
 import { Signup } from '@/components/Signup'
 
 const tags = {
@@ -41,6 +42,12 @@ const tags = {
       date: { type: String },
     },
     render: Post,
+  },
+  raw: {
+    attributes: {
+      link: {type: String},
+    },
+    render: Raw,
   },
   signup: {
     attributes: {

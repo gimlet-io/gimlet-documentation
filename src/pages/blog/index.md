@@ -2,6 +2,10 @@
 title: Blog
 ---
 
+{% post name="The Platform Engineering Map" image="map-cover.png" link="/blog/the-platform-engineering-map" date="2022-12-28" %}
+We examined close to fifty tools in the Platform Engineering space. And put them on a map.
+{% /post %}
+
 {% post name="Announcing the Gimlet SaaS Early Access" image="saas-early-access.png" link="/blog/announcing-the-gimlet-saas-early-access" date="2022-12-05" %}
 We have something really exciting to share with you: Gimlet is going SaaS. In other words, you will be able to use Gimlet's unparalleled Kubernetes deploy experience with even fewer clicks than before.
 {% /post %}
