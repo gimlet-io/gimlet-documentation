@@ -1,5 +1,5 @@
 ---
-title: Bootstrap gitops automation with Gimlet CLI
+title: Bootstrap gitops automation with Gimlet CLI using one github repository 
 description: In this guide you will use GimletCLI to bootstrap the gitops workflow, then write application manifests to the gitops repository and see it deploy.
 ---
 
@@ -76,20 +76,18 @@ Flux uses the `gitrepository` custom resource to point to git repository locatio
 
 ```bash
 ➜ kubectl get gitrepositories -A
-NAMESPACE     NAME                                         URL                                                   AGE   READY   STATUS
-flux-system   gitops-repo-gimlet-io-gitops-deleteme-apps    ssh://git@github.com/gimlet-io/gitops-deleteme-apps    60s   True    stored artifact for revision 'main/bb32202a9968cc290ff757f2a75bb17863d46e6e'
-flux-system   gitops-repo-gimlet-io-gitops-deleteme-infra   ssh://git@github.com/gimlet-io/gitops-deleteme-infra   60s   True    stored artifact for revision 'main/c29545f11e677479a44cfad85549b3b92af0a3c2'
+NAMESPACE     NAME                                                    URL                                                              AGE    READY   STATUS
+flux-system   gitops-repo-gimlet-boostraping-tutorial   ssh://git@github.com/gimlet/gimlet-boostraping-tutorial   125m   True    stored artifact for revision 'main/f4a2a676bbcc04f38120b24463ca1c66cc099ab4'
+
 ```
 
 If the git repositories are in ready state, validate the `kustomization` custom resources. These resources point to a path in a git repository to apply yamls from. If they are in ready state, you can be sure the Flux applied your latest manifests.
 
 ```bash
 ➜  kubectl get kustomizations -A 
-NAMESPACE     NAME                                                      AGE   READY   STATUS
-flux-system   gitops-repo-gimlet-io-gitops-deleteme-apps                 60s   True    Applied revision: main/bb32202a9968cc290ff757f2a75bb17863d46e6e
-flux-system   gitops-repo-gimlet-io-gitops-deleteme-apps-dependencies    60s   True    Applied revision: main/bb32202a9968cc290ff757f2a75bb17863d46e6e
-flux-system   gitops-repo-gimlet-io-gitops-deleteme-infra                60s   True    Applied revision: main/c29545f11e677479a44cfad85549b3b92af0a3c2
-flux-system   gitops-repo-gimlet-io-gitops-deleteme-infra-dependencies   60s   True    Applied revision: main/c29545f11e677479a44cfad85549b3b92af0a3c2
+NAMESPACE     NAME                                                                 AGE    READY   STATUS
+flux-system   gitops-repo-gimlet-boostraping-tutorial                127m   True    Applied revision: main/f4a2a676bbcc04f38120b24463ca1c66cc099ab4
+flux-system   gitops-repo-gimlet-boostraping-tutorial-dependencies   127m   True    Applied revision: main/f4a2a676bbcc04f38120b24463ca1c66cc099ab4
 ```
 
 Now that the gitops automation is in place, every manifest you put in the gitops repositories will be applied on the cluster by the gitops controller.
@@ -115,6 +113,35 @@ First get some dummy yaml to deploy an Nginx container. Gimlet's OneChart Helm c
 
 ```
 helm template dummy-app -n staging onechart/onechart > manifest.yaml
+```
+Or use the following manifest file:
+```
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: dummy-app
+  namespace: default
+spec:
+  replicas: 3
+  strategy:
+    type: RollingUpdate
+  selector:
+    matchLabels:
+      application: dummy-app
+  template:
+    metadata:
+      labels:
+        application: dummy-app
+    spec:
+      containers:
+      - name: dummy-app
+        image: nginx
+        ports:
+          - containerPort: 80
+        resources:
+          requests:
+            cpu: 100m
+            memory: 100Mi
 ```
 
 Commit and push the file to the gitops repo under `dummy-app` a new folder called dummy-app.
