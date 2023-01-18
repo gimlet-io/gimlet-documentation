@@ -1,6 +1,6 @@
 ---
-title: Bootstrap gitops automation with Gimlet CLI using one github repository 
-description: In this guide you will use GimletCLI to bootstrap the gitops workflow, then write application manifests to the gitops repository and see it deploy.
+title: Bootstrap gitops automation with Gimlet CLI
+description: In this guide you will use Gimlet CLI to bootstrap the gitops workflow, then write application manifests to the gitops repository and see it deploy.
 ---
 
 In this tutorial you will use the Gimlet CLI to bootstrap the gitops automation. You will also write application manifests to the gitops repository and see them deploy.
@@ -77,7 +77,7 @@ Flux uses the `gitrepository` custom resource to point to git repository locatio
 ```bash
 ➜ kubectl get gitrepositories -A
 NAMESPACE     NAME                                                    URL                                                              AGE    READY   STATUS
-flux-system   gitops-repo-gimlet-boostraping-tutorial   ssh://git@github.com/gimlet/gimlet-boostraping-tutorial   125m   True    stored artifact for revision 'main/f4a2a676bbcc04f38120b24463ca1c66cc099ab4'
+flux-system   gitops-repo-gimlet-bootstraping-tutorial   ssh://git@github.com/gimlet/gimlet-bootstraping-tutorial   125m   True    stored artifact for revision 'main/f4a2a676bbcc04f38120b24463ca1c66cc099ab4'
 
 ```
 
@@ -86,8 +86,8 @@ If the git repositories are in ready state, validate the `kustomization` custom 
 ```bash
 ➜  kubectl get kustomizations -A 
 NAMESPACE     NAME                                                                 AGE    READY   STATUS
-flux-system   gitops-repo-gimlet-boostraping-tutorial                127m   True    Applied revision: main/f4a2a676bbcc04f38120b24463ca1c66cc099ab4
-flux-system   gitops-repo-gimlet-boostraping-tutorial-dependencies   127m   True    Applied revision: main/f4a2a676bbcc04f38120b24463ca1c66cc099ab4
+flux-system   gitops-repo-gimlet-bootstraping-tutorial                127m   True    Applied revision: main/f4a2a676bbcc04f38120b24463ca1c66cc099ab4
+flux-system   gitops-repo-gimlet-bootstraping-tutorial-dependencies   127m   True    Applied revision: main/f4a2a676bbcc04f38120b24463ca1c66cc099ab4
 ```
 
 Now that the gitops automation is in place, every manifest you put in the gitops repositories will be applied on the cluster by the gitops controller.
@@ -103,18 +103,14 @@ kubectl logs -f deploy/source-controller -n flux-system
 ```
 {% /callout %}
 
-## Deploy your an app with gitops
+## Deploy your app with gitops
 
 Now let's deploy a dummy application now with gitops. To do that, you need to place application manifests in the gitops repository and push your commit.
 
 ### A dummy app
 
-First get some dummy yaml to deploy an Nginx container. Gimlet's OneChart Helm chart is perfect for that:
+First you need a dummy yaml to deploy an Nginx container. 
 
-```
-helm template dummy-app -n staging onechart/onechart > manifest.yaml
-```
-Or use the following manifest file:
 ```
 apiVersion: apps/v1
 kind: Deployment
@@ -138,10 +134,6 @@ spec:
         image: nginx
         ports:
           - containerPort: 80
-        resources:
-          requests:
-            cpu: 100m
-            memory: 100Mi
 ```
 
 Commit and push the file to the gitops repo under `dummy-app` a new folder called dummy-app.
