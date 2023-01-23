@@ -1,8 +1,8 @@
 ---
-title: "Kubernetes pod autoscaling - how it should have been from the get go"
+title: "Options for Kubernetes pod autoscaling"
 date: "2023-01-23"
 description: "The Gimlet.io team put together this blog to show common usecases of autoscaling: based on CPU, custom Prometheus metrics and RabbitMQ queue length. Furthermore, we are aiming to clear up the differences between the Horizontal Pod Autoscaler (HPA), the Prometheus Adapter and KEDA."
-image: 
+image: autoscaling.png
 author: Youcef Guichi
 authorAvatar: /youcef.jpg
 ---

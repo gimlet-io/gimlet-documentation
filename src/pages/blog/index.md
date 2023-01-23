@@ -2,7 +2,7 @@
 title: Blog
 ---
 
-{% post name="Options for Kubernetes pod autoscaling" image="saas-early-access.png" link="/blog/options-for-kubernetes-pod-autoscaling" date="2023-01-23" %}
+{% post name="Options for Kubernetes pod autoscaling" image="autoscaling.png" link="/blog/options-for-kubernetes-pod-autoscaling" date="2023-01-23" %}
 The Gimlet.io team put together this blog to show common usecases of autoscaling:
 - based on CPU
 - custom Prometheus metrics
