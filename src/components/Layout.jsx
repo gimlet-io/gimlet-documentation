@@ -127,6 +127,7 @@ export function Layout({ children, title, navigation, tableOfContents, pageProps
   let isDocsPage = router.pathname.startsWith('/docs') || router.pathname.startsWith('/concepts')
   let isEventsPage = router.pathname.startsWith('/events')
   let isBlogPage = router.pathname.startsWith('/blog')
+  let isBlogSubPage = isBlogPage && !router.pathname.endsWith('/blog') && !router.pathname.endsWith('/blog/')
   let isPricingPage = router.pathname === '/pricing'
   let isHomePage = router.pathname === '/'
 
@@ -153,6 +154,16 @@ export function Layout({ children, title, navigation, tableOfContents, pageProps
   const image = pageProps.markdoc?.frontmatter.image
   const imageAuthor = pageProps.markdoc?.frontmatter.image_author
   const imageURL = pageProps.markdoc?.frontmatter.image_url
+
+  let author = pageProps.markdoc?.frontmatter.author
+  let authorAvatar = pageProps.markdoc?.frontmatter.authorAvatar
+
+  if (!author) {
+    author = "Laszlo Fogas"
+  }
+  if (!authorAvatar) {
+    authorAvatar = "/laszlo.jpg"
+  }
 
   return (
     <>
@@ -201,6 +212,12 @@ export function Layout({ children, title, navigation, tableOfContents, pageProps
                   <h1 className="font-display text-3xl tracking-tight text-slate-900 dark:text-white mb-2">
                     {title}
                   </h1>
+                  {isBlogSubPage &&
+                  <div className='flex items-center py-2'>
+                    <img className="inline-block h-12 w-12 rounded-full" alt={author} src={authorAvatar} />
+                    <h5 className="pl-2 text-slate-900 dark:text-white font-medium">{author}</h5>
+                  </div>
+                  }
                   <div className="text-slate-900 dark:text-white">{date}</div>
                   </>
                 )}
