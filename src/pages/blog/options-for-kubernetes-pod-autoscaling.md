@@ -27,7 +27,9 @@ To be more precise, HPA is a general purpose autoscaler, but by default only CPU
 
 Its data source is the Kubernetes Metrics API, which by the way also powers the `kubectl top` command, and backed by data provided by the `metrics-server` component. This component runs on your cluster and it is installed by default on GKE, AKS, CIVO and k3s clusters, but it needs to be manually installed on many others, like on Digital Ocean, EKS and Linode.
 
-The HPA resource is moderatelly well documented in the Kubernetes documentation; most headaches arrise when you try to scale on resource metrics other than CPU and memory. In order to scale pods - let's say - based on HTTP metrics or queue length, you need to make the Kubernetes API aware of these metrics. Luckilly there are open-source metrics backends implemented, and the best known is Prometheus Adapter.
+The HPA resource is moderatelly well documented in the Kubernetes documentation. Some confusion arrises from the fact that there are blog posts out there showcasing different Kubernetes API versions: `autoscaling/v2` is not backwards compatible to v1!
+
+More headaches arrise when you try to scale on resource metrics other than CPU and memory. In order to scale pods - let's say - based on number of HTTP requests or queue length, you need to make the Kubernetes API aware of these metrics. Luckilly there are open-source metrics backends implemented, and the best known is Prometheus Adapter.
 
 ## Prometheus Adapter
 
@@ -53,7 +55,7 @@ KEDA does two things:
 
 Now that you have an overview, let's take a step further and show you can autoscale with KEDA!
 
-## Autoscaling based on CPU usage
+## Autoscaling example based on CPU usage
 
 In order to autoscale your application with KEDA, you need to define a `ScaledObject` resource.
 
@@ -76,11 +78,11 @@ spec:
       value: "50"
 ```
 
-## Autoscaling based on custom metrics
+## Autoscaling example based on custom metrics
 
 To use custom metrics, you need to make changes in the `triggers` section:
 
-### Based on custom Prometheus metrics 
+### Scaling example based on custom Prometheus metrics 
 
 ```yaml
 triggers:
@@ -93,7 +95,7 @@ triggers:
     activationThreshold: '5.5'
 ```
 
-### Based on RabbitMQ queue length
+### Scaling example based on RabbitMQ queue length
 
 ```yaml
 triggers:
