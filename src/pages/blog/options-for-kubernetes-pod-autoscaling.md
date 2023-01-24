@@ -5,6 +5,8 @@ description: "The Gimlet.io team put together this blog to show common usecases 
 image: autoscaling.png
 author: Youcef Guichi
 authorAvatar: /youcef.jpg
+coAuthor: Laszlo Fogas
+coAuthorAvatar: /laszlo.jpg
 ---
 
 Kubernetes autoscaling was supposed to be easy. Even though one of the selling points of Kubernetes is scaling, the built-in autoscaling support is basic at best. You can only scale based on CPU or memory consumption, anything more advanced requires additional tooling that is often not trivial.
@@ -27,17 +29,17 @@ To be more precise, HPA is a general purpose autoscaler, but by default only CPU
 
 Its data source is the Kubernetes Metrics API, which by the way also powers the `kubectl top` command, and backed by data provided by the `metrics-server` component. This component runs on your cluster and it is installed by default on GKE, AKS, CIVO and k3s clusters, but it needs to be manually installed on many others, like on Digital Ocean, EKS and Linode.
 
-The HPA resource is moderatelly well documented in the Kubernetes documentation. Some confusion arrises from the fact that there are blog posts out there showcasing different Kubernetes API versions: `autoscaling/v2` is not backwards compatible to v1!
+The HPA resource is moderatelly well documented in the Kubernetes documentation. Some confusion arrises from the fact that there are blog posts out there showcasing different Kubernetes API versions: keep in mind that `autoscaling/v2` is not backwards compatible with v1!
 
-More headaches arrise when you try to scale on resource metrics other than CPU and memory. In order to scale pods - let's say - based on number of HTTP requests or queue length, you need to make the Kubernetes API aware of these metrics. Luckilly there are open-source metrics backends implemented, and the best known is Prometheus Adapter.
+More headaches arrise when you try to scale on resource metrics other than CPU and memory. In order to scale pods - let's say - based on number of HTTP requests or queue length, you need to make the Kubernetes API aware of these metrics first. Luckilly there are open-source metrics backends implemented, and the best known is Prometheus Adapter.
 
 ## Prometheus Adapter
 
 Prometheus Adapter is a Kubernetes Custom Metrics API implementation which exposes selected Prometheus metrics through the Kubernetes API for the Horizontal Pod Autoscaler (HPA) to scale on.
 
-Essentially you configure the Prometheus Adapter to read your desired metric from Prometheus, and serve it to HPA to scale on. This can be an HTTP request rate, or a RabbitMQ queue length or any metric from Prometheus.
+Essentially you configure the Prometheus Adapter to read your desired metric from Prometheus, and it will serve it to HPA to scale on. This can be an HTTP request rate, or a RabbitMQ queue length or any metric from Prometheus.
 
-Prometheus Adapter does the job, but in our experience its configuration is cryptic. While there are several blog posts out there explaining its configuration syntax, we could not make it work sufficiently reliably with the our custom metrics scaling needs.
+Prometheus Adapter does the job, but in our experience its configuration is cryptic. While there are several blog posts out there explaining its configuration syntax, we could not make it work sufficiently reliably with our custom metrics scaling needs.
 
 That is essentially why we have brought you here today, to share our experience with a Prometheus Adapter alternative, called KEDA.
 
@@ -53,7 +55,7 @@ KEDA does two things:
 - it exposes the selected metrics to the Kubernetes Custom Metrics API - just like Prometheus Adapter
 - and it creates the Horizontal Pod Autoscaler resource. Ultimately this HPA does the scaling.
 
-Now that you have an overview, let's take a step further and show you can autoscale with KEDA!
+Now that you have an overview, let's take a step further and show how you can autoscale with KEDA!
 
 ## Autoscaling example based on CPU usage
 
@@ -78,11 +80,25 @@ spec:
       value: "50"
 ```
 
+`scaleTargetRef` is where you refer to your deployment, and `triggers` is where you define the metrics and threshold that will trigger the scaling.
+
+In this sample we trigger based on the CPU usage, the `ScaledObject` will manage the number of replicas automatically for you and maintain a maximum 50% CPU usage per pod.
+
+As usual with Kubernetes custom resources, you can `kubectl get` and `kubectl describe` the resource once you deployed it on the cluster.
+
+```
+$ kubectl get scaledobject
+NAME                    SCALETARGETKIND      SCALETARGETNAME      MIN   MAX   TRIGGERS  READY   ACTIVE
+cpu-based-scaledobject  apps/v1.Deployment   test-app-deployment   2     10    cpu      True    True
+```
+
+To have an in-depth understanding of what is happening in the background, you can see the logs of the keda operator pod, and you can also `kubectl describe` the HPA resource that KEDA created.
+
 ## Autoscaling example based on custom metrics
 
-To use custom metrics, you need to make changes in the `triggers` section:
+To use custom metrics, you need to make changes to the `triggers` section.
 
-### Scaling example based on custom Prometheus metrics 
+Scaling example based on custom Prometheus metrics:
 
 ```yaml
 triggers:
@@ -95,7 +111,7 @@ triggers:
     activationThreshold: '5.5'
 ```
 
-### Scaling example based on RabbitMQ queue length
+Scaling example based on RabbitMQ queue length:
 
 ```yaml
 triggers:

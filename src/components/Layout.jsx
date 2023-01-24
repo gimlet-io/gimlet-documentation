@@ -157,6 +157,8 @@ export function Layout({ children, title, navigation, tableOfContents, pageProps
 
   let author = pageProps.markdoc?.frontmatter.author
   let authorAvatar = pageProps.markdoc?.frontmatter.authorAvatar
+  const coAuthor = pageProps.markdoc?.frontmatter.coAuthor
+  const coAuthorAvatar = pageProps.markdoc?.frontmatter.coAuthorAvatar
 
   if (!author) {
     author = "Laszlo Fogas"
@@ -213,9 +215,17 @@ export function Layout({ children, title, navigation, tableOfContents, pageProps
                     {title}
                   </h1>
                   {isBlogSubPage &&
-                  <div className='flex items-center py-2'>
-                    <img className="inline-block h-12 w-12 rounded-full" alt={author} src={authorAvatar} />
-                    <h5 className="pl-2 text-slate-900 dark:text-white font-medium">{author}</h5>
+                  <div className="flex">
+                    <div className='flex items-center py-2'>
+                      <img className="inline-block h-12 w-12 rounded-full" alt={author} src={authorAvatar} />
+                      <h5 className="pl-2 text-slate-900 dark:text-white font-medium">{author}</h5>
+                    </div>
+                    {coAuthor &&
+                    <div className='flex items-center py-2 pl-8'>
+                      <img className="inline-block h-12 w-12 rounded-full" alt={coAuthor} src={coAuthorAvatar} />
+                      <h5 className="pl-2 text-slate-900 dark:text-white font-medium">{coAuthor}</h5>
+                    </div>
+                    }
                   </div>
                   }
                   <div className="text-slate-900 dark:text-white">{date}</div>
