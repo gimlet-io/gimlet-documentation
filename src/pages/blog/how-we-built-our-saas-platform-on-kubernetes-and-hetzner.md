@@ -34,7 +34,7 @@ We only need a few things to run our platform, and among those the things that w
 
 - first and foremost we need Kubernetes, we would use managed Kubernetes if it would be available
 - we need a highly available SQL database, but RDS or CloudSQL is not available
-- we need networking and security products and secure defaults that hyperscalers get right. We have to work even for the basics on Hetzner.
+- virtual networks and security groups, we had to work even for basic network and host security on Hetzner
 
 ### Addressing the missing managed Kubernetes
 
@@ -52,6 +52,27 @@ Even though we cut many of the difficult parts short in our setup, we expect a f
 
 ### No RDS, what now?
 
+A managed database is really something that I happily pay a premium for. High-availability, point-in-time backups in a click of a button is not something that is easy to replicate.
+
+Postgresql is also something that is critical for Gimlet's SaaS platform. We keep all state in Postgresql databases. Not just client data, but the Kubernetes control plane is also stored in an SQL database. So we needed to build a highly available, secure Postgresql cluster, and had to handle proper off-site backups.
+
+What gave us confidence in the process is that we had experience in running replicated Postgres clusters back in the pre-Postgres-RDS days. Feels like a lifetime away, but Postgres on RDS is not yet ten years old today.
+
+To keep things simple we built the cluster outside of Kubernetes and containers. Not that it would have been a big issue otherwise, but we would have pinned the Postgres pods onto specific nodes anyways. We didn't opt to clustered Postgres operators, like Patroni, just yet.
+
+There is one significant shortcut that we took here. Failover is designed to be manual at this point. This could be a considerable source of downtime, and we may improve this practice in further iterations of our platform.
+
+It is important to note why we took this risk: to enable automatic failover we would have to write a bulletproof failover script that maxmimizes availability and minimizes data consistency risks. With a bug in the failover automation, we could risk data consistency issues that are potentionally more difficult to handle than downtimes. Basically we optimized for operational simplicity, and a good enough uptime.
+
+Now judging a good enough uptime is comes down to the reader, as Gimlet does not provide an SLA at this point, but let me leave you with two thoughts:
+
+- A 99,5% availability, that is pretty standard in SaaS platform, means a yearly 1.83 days of downtime. A 99% availability means a 3.65 days downtime a year. This last one practically means that our whole team could be on vacation in the jungles of Brazil, travel back to Europe, open their laptops and do the database failover. It goes without saying that we are not planning to travel to the jungles of Brazil without anyobe being on call.
+
+- What SLA Amazon's RDS databases provide? Well, they are kind of mushy on the topic: *"AWS will use commercially reasonable efforts to make each Multi-AZ DB Instance and each Multi-AZ DB Cluster available with a Monthly Uptime Percentage as shown in the table below during any monthly billing cycle"*
+
+
+
+
 ### Networking and security, the most work
 
 
@@ -63,3 +84,5 @@ Even though we cut many of the difficult parts short in our setup, we expect a f
 ## How Hetzner has been so far?
 
 
+
+Follow up blog post due in twelve months.
