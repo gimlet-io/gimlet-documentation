@@ -160,8 +160,6 @@ At rest:
 - we used hetzner a couple of years earlier. It has been stable enough back than and today too.
 - One improvement since our previous ride has been the VLAN feature. Has been easy to setup and stable. One thing we couldn't achive though: connecting our dedicated nodes with Hetzner Cloud VMs.
 
-## Follow up blog post due in twelve months.
-
 this is a snapshot where we are.
 
 if you need xxx
