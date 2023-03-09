@@ -108,11 +108,11 @@ By default Hetzner assigns a public IP to nodes, and hands out root SSH access f
 
 ### Kubernetes
 
-k3s
+We use k3s.
 
 ### Postgresql
 
-Streaming replication, active - passive cluster.
+We built a streaming replication based active - passive Postgresql cluster.
 
 ### Gitops: drinking our own champagne
 
@@ -120,16 +120,50 @@ We run Gimlet to manage Gimlet instances that our users provision.
 
 Each user that signs up gets a new Gimlet instance that is identical to the latest release of the open-source version. Each user configuration is stored in gitops.
 
-Besides Gimlet instances, we also manage our cluster components in gitops.
+Besides Gimlet instances, we also manage our cluster components with gitops.
 
 ### Backups
 
+We store state in a single location only, in our Postgresql cluster.
+
+For everything else, the source of truth is our infrastructure as code repositories: Ansible and gitops.
+
+We backup our Postgresql cluster, encrypt and ship our backups to an off-site location.
+
 ### Disaster recovery
+
+Our disaster recorvery strategy builds on two pillars: our backups and infrastructure as code repositories.
+
+During our platform building we rebuilt the whole stack numerous times from code. Before launching the early access program, we rebuilt everything from scratch. We also ran synthetic database restore tests as well.
 
 ### Encryption
 
+We encrypt data in numerous places.
+
+In transit:
+- We encrypt all traffic on our internal Wireguard based VPN mesh.
+- We use SSL between our applications and Postgresql.
+- Between our services.
+- Between our applications and our ingress controller.
+- Between our ingress controller and Cloudflare.
+- Between Cloudflare and endusers.
+
+At rest:
+- We encrypt our node disks.
+- We encrypt our backups.
+- Gimlet instances encrypt sensitive database fields in the database.
+- K3s encrypts its secrets that are stored in Postgresql.
+
 ## How Hetzner has been so far?
 
+- node provisioning time: we use stock node types. Only expect linear scaleup. provisioning has been manual, but fast: 15mins.
+- we used hetzner a couple of years earlier. It has been stable enough back than and today too.
+- One improvement since our previous ride has been the VLAN feature. Has been easy to setup and stable. One thing we couldn't achive though: connecting our dedicated nodes with Hetzner Cloud VMs.
 
+## Follow up blog post due in twelve months.
 
-Follow up blog post due in twelve months.
+this is a snapshot where we are.
+
+if you need xxx
+
+Onwards!
