@@ -8,7 +8,7 @@ description: "Hetzner is 5 times cheaper for us than the hyperscalers. This blog
 
 Hello everyone, Laszlo here, the founder of Gimlet.io 👋. In this blog post I try to address various aspects of how and why we built our SaaS platform on Kubernetes and Hetzner and not on one of the hyperscaler cloud providers.
 
-It is an interesting time. While we were building our platform on Hetzner, David Heinemeier Hansson, the founder of 37Signals has also broke ground on their new project to leave AWS in favor of a managed data ceneter. His posts on the topic had a good run on social media. While DHH is a contratian and sometimes good at starting trends, we are not here to start or join any movement. In this post I simply want to share our choices and experiences with Hetzner with the curious minded. Show what tools we used, what trade-offs we had to consider, what are the pros and cons in early 2023 of not using one of the big cloud providers. So let's get started, shall we?
+It is an interesting time. While we were building our platform on Hetzner, David Heinemeier Hansson, the founder of 37Signals has also broke ground on their new project to leave AWS in favor of a managed data center. His posts on the topic had a good run on social media. While DHH is a contrarian and sometimes good at starting trends, we are not here to start or join any movement. In this post I simply want to share our choices and experiences with Hetzner with the curious minded. Show what tools we used, what trade-offs we had to consider, what are the pros and cons in early 2023 of not using one of the big cloud providers. So let's get started, shall we?
 
 First things first, why Hetzner?
 
@@ -19,7 +19,7 @@ I don't want to drag it out too long: it is price.
 We built our compute nodes on the EX43 model, the newest staple machine of Hetzner. The hexa-core, Alder Lake CPU with 64GB RAM and 2x512GB NVMe SSD comes in at 52.1 EUR in one of Hetzner's German datacenter. No VAT in our case.
 
 Comparing this to
-- AWS's `m6a.2xlarge` and `m6i.2xlarge` instances costing $281 and $312 respectively in `ew-west-1`
+- AWS's `m6a.2xlarge` and `m6i.2xlarge` instances costing $281 and $312 respectively in `eu-west-1`
 - and Google Cloud's `c3-standard-8` and `n2-standard-8` comes in $277 and $311 in `europe-west4`
 
 there is a significant price advantage on Hetzner's side.
@@ -40,7 +40,7 @@ We only need a few things to run our platform, and among those, the things we mi
 
 Managing Kubernetes is not something we prefer doing and usually we rely on the managed Kubernetes offerings, but on Hetzner it is just not possible.
 
-Even though we manage Kubernetes ourselves, we tried to minimize the moving parts. Simplicity is key for us, therefor we chose to use the k3s project. K3s is a fully compliant Kubernetes distribution with a few notable simplifications:
+Even though we manage Kubernetes ourselves, we tried to minimize the moving parts. Simplicity is key for us, therefore we chose to use the k3s project. K3s is a fully compliant Kubernetes distribution with a few notable simplifications:
 
 - k3s is using an SQL database as storage, so we don't have to deal with etcd at all.
 - It is packaged as a single binary and it has a matching configuration experience. All cluster operations - like managing certificates - are reduced to either an argument of the k3s binary, or a CLI command
@@ -50,7 +50,7 @@ We took one more notable architectural decision that eased our Kubernetes cluste
 
 Even though we cut many of the difficult parts short in our setup, we expect a few days of maintenance, sometimes immediate action, in the coming year that will be releated to our self-managed Kubernetes.
 
-But nodes die also on managed Kubernetes offerings and disks fill up. Maybe in our case rebuilding a node will be longer (starting a new node, running Ansible scripts, etc) than on hyperscalers, but the number of issues and the severity we don't expect to become unmanagable. Famous last words, right? A follow up blog post is due in 12 months.
+But nodes die also on managed Kubernetes offerings and disks fill up. Maybe in our case rebuilding a node will be longer (starting a new node, running Ansible scripts, etc) than on hyperscalers, but the number of issues and the severity we don't expect to become unmanageable. Famous last words, right? A follow up blog post is due in 12 months.
 
 ### No RDS, what now?
 
@@ -102,13 +102,13 @@ To keep things simple we built the cluster outside of Kubernetes and containers.
 
 There is one significant shortcut that we took here. Failover is designed to be manual at this point. This could be a considerable source of downtime, and we may improve this practice in further iterations of our platform.
 
-It is important to note why we took this risk: to enable automatic failover we would have to write a bulletproof failover script that maximizes availability and minimizes data consistency risks. With a bug in the failover automation, we could risk data consistency issues that are potentionally more difficult to handle than downtimes. Basically we optimized for operational simplicity, and a good enough uptime.
+It is important to note why we took this risk: to enable automatic failover we would have to write a bulletproof failover script that maximizes availability and minimizes data consistency risks. With a bug in the failover automation, we could risk data consistency issues that are potentially more difficult to handle than downtimes. Basically we optimized for operational simplicity, and a good enough uptime.
 
 Now judging a good enough uptime comes down to the reader as Gimlet does not provide an SLA at this point, but let me leave you with two thoughts:
 
 - A 99,5% availability, an industry wide standard for SaaS platforms, means a yearly 1.83 days of downtime. A 99% availability means a 3.65 days downtime a year. This last one practically means that our whole team could be on vacation in the jungles of Brazil, travel back to Europe, open their laptops and do the database failover and we would still be faster than three days. It goes without saying that we are not planning to travel to the jungles of Brazil without anyone being on call.
 
-- It is good to look up at this point what [SLA Amazon's RDS databases provide](https://aws.amazon.com/rds/sla/). They are kind of mushy on the topic: *"AWS will use commercially reasonable efforts"* and if they fail, they give your money back in credits. Ten percent if they are between 99-99.95% availability, 25% percent if they between 95 and 99 percent, and all the money otherwise. In practical terms, they can be down for 18days a year and you only get back one fourth of your money.
+- It is good to look up at this point what [SLA Amazon's RDS databases provide](https://aws.amazon.com/rds/sla/). They are kind of mushy on the topic: *"AWS will use commercially reasonable efforts"* and if they fail, they give your money back in credits. Ten percent if they are between 99-99.95% availability, 25% percent if they are between 95 and 99 percent, and all the money otherwise. In practical terms, they can be down for 18 days a year and you only get back one fourth of your money.
 
 
 ### Gitops: drinking our own champagne
@@ -127,7 +127,7 @@ We backup our Postgresql cluster, encrypt and ship our backups to an off-site lo
 
 ### Disaster recovery
 
-Our disaster recorvery strategy builds on two pillars: our backups and infrastructure as code repositories.
+Our disaster recovery strategy builds on two pillars: our backups and infrastructure as code repositories.
 
 During our platform building efforts we rebuilt the whole stack numerous times from code. Before launching the early access program, we rebuilt everything from scratch. We also ran synthetic database restore tests.
 
@@ -153,11 +153,11 @@ At rest:
 
 We use a Prometheus / Grafana stack for monitoring, UptimeRobot for uptime monitoring, and PagerDuty for our on-call.
 
-## How Hetzner has been so far?
+## How has Hetzner been so far?
 
-We used Hetzner a couple of years back. It has been stable enough back than and also today.
+We used Hetzner a couple of years back. It has been stable enough back then, and also today.
 
-We use stock node types and only expect linear scaling. We provision nodes manually which takes around fifteen minutes until we can log in. We heared from friends, that this is not the case for custom machine types, but we will cross this bridge when we get there.
+We use stock node types and only expect linear scaling. We provision nodes manually which takes around fifteen minutes until we can log in. We heard from friends that this is not the case for custom machine types, but we will cross this bridge when we get there.
 
 An improvement since our previous ride with Hetzner is the VLAN feature. It was straightforward to set up based on the documentation and it has been stable so far. One thing we could not achieve though: connecting our dedicated nodes with Hetzner Cloud VMs. We are using dedicated nodes, but we could spin up VMs for small tasks if the VLAN would work between those.
 
