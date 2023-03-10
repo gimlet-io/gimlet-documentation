@@ -1,6 +1,6 @@
 ---
 layout: post
-title: How we built our SaaS platform on Kubernetes and Hetzner
+title: The how and why we built our SaaS platform on Kubernetes and Hetzner
 date: "2023-03-08"
 image: saas-early-access.png
 description: "Hetzner is 5 times cheaper for us than the hyperscalers. This blog posts enumerates the how and why we built our SaaS on a discount bare metal provider. Gotchas included."
@@ -46,44 +46,25 @@ Even though we manage Kubernetes ourselves, we tried to minimize the moving part
 - It is packaged as a single binary and it has a matching configuration experience. All cluster operations - like managing certificates - are reduced to either an argument of the k3s binary, or a CLI command
 - It is secure by default with reasonable defaults for lightweight environments
 
-There is one notable architectural decision that eased our Kubernetes cluster building: we keep our state in SQL databases, so we did not have to install and maintain a clustered filesystem for persistent volumes.
+We took one more notable architectural decision that eased our Kubernetes cluster building: we keep our state in SQL databases, so we did not have to install and maintain a clustered filesystem for persistent volumes.
 
 Even though we cut many of the difficult parts short in our setup, we expect a few days of maintenance, sometimes immediate action, in the coming year that will be releated to our self-managed Kubernetes.
 
-But nodes die also on managed Kubernetes offerings and disks fill up. Maybe in our case rebuilding a node will be longer (starting a new node, running Ansible scripts, etc) than on hyperscalers, but the number of issues and the severity we don't expect to become unmanagable. Famous last words, right? A follow up blog post is due 12 months from now.
+But nodes die also on managed Kubernetes offerings and disks fill up. Maybe in our case rebuilding a node will be longer (starting a new node, running Ansible scripts, etc) than on hyperscalers, but the number of issues and the severity we don't expect to become unmanagable. Famous last words, right? A follow up blog post is due in 12 months.
 
 ### No RDS, what now?
 
 A managed database is really something that I happily pay a premium for. High-availability, point-in-time backups in a click of a button is not something that is easy to replicate.
 
-Postgresql is also something that is critical for Gimlet's SaaS platform. We keep all state in Postgresql databases. Not just client data, but the Kubernetes control plane is also stored in an SQL database. So we needed to build a highly available, secure Postgresql cluster, and had to handle proper off-site backups.
+Postgresql is also something that is critical for Gimlet's SaaS platform as we keep all state in Postgresql databases. Not just client data, but the Kubernetes control plane is also stored in an SQL database. So we needed to build a highly available, secure Postgresql cluster, and had to handle proper off-site backups.
 
 What gave us confidence in the process is that we had experience in running replicated Postgres clusters back in the pre-Postgres-RDS days. Feels like a lifetime away, but Postgres on RDS is not yet ten years old today.
-
-To keep things simple we built the cluster outside of Kubernetes and containers. Not that it would have been a big issue otherwise, but we would have pinned the Postgres pods onto specific nodes anyways. We didn't opt to use Kubernetes Postgres operators, like Patroni just yet.
-
-There is one significant shortcut that we took here. Failover is designed to be manual at this point. This could be a considerable source of downtime, and we may improve this practice in further iterations of our platform.
-
-It is important to note why we took this risk: to enable automatic failover we would have to write a bulletproof failover script that maximizes availability and minimizes data consistency risks. With a bug in the failover automation, we could risk data consistency issues that are potentionally more difficult to handle than downtimes. Basically we optimized for operational simplicity, and a good enough uptime.
-
-Now judging a good enough uptime comes down to the reader as Gimlet does not provide an SLA at this point, but let me leave you with two thoughts:
-
-- A 99,5% availability, an industry wide standard for SaaS platforma, means a yearly 1.83 days of downtime. A 99% availability means a 3.65 days downtime a year. This last one practically means that our whole team could be on vacation in the jungles of Brazil, travel back to Europe, open their laptops and do the database failover and we would still be faster than three days. It goes without saying that we are not planning to travel to the jungles of Brazil without anyone being on call.
-
-- It is good to look up at this point what [SLA Amazon's RDS databases provide](https://aws.amazon.com/rds/sla/). They are kind of mushy on the topic: *"AWS will use commercially reasonable efforts"* and if they fail, they give your money back in credits. Ten percent if they are between 99-99.95% availability, 25% percent if they between 95 and 99 percent, and all the money otherwise. In practical terms, they can be down for 18days a year and you only get back one fourth of your money.
 
 ### Networking and security, the big one
 
 We spent most of the time on the networking setup and security considerations.
 
 By default, Hetzner gives you root access over SSH, there are no virtual networks, or security groups. If you start a server process on your node, it will be instantly accessible to the whole internet. Not a friendly default, and the lack of VPCs and Security Groups have been the biggest pain we had to solve.
-
-How we built our network:
-- There is basic VLAN support in Hetzner, we could connect our nodes with an unmetered, internal network connection.
-- We also built a Wireguard based VPN mesh on this internal network. Essentially encrypting all traffic between our nodes.
-- We installed a firewall on all nodes, and bound only port 80 and 443 to the public network IP addresses.
-- We front all web traffic with a Cloudflare Loadbalancer and Web Application Firewall. Traffic is only accepted from Cloudflare's servers.
-- We also ran numerours hardening playbooks on the nodes.
 
 ## Building infrastructure from the ground up on bare metal in 2023
 
@@ -99,8 +80,9 @@ The first Ansible playbooks we wrote were the node hardening ones. Unattended up
 
 ### Network security
 
-By default Hetzner assigns a public IP to nodes, and hands out root SSH access for you to start using the nodes. Also every port you open, it is opened to the internet. No private networks, or security groups by default. So we started by building one.
+By default Hetzner assigns a public IP to nodes, and hands out root SSH access for you to start using the nodes. Also, every port you open is open to the internet. No private networks, or security groups by default. So we started by building one.
 
+How we built our network:
 - There is basic VLAN support in Hetzner, we could connect our nodes with an unmetered, internal network connection.
 - We also built a Wireguard based VPN mesh on this internal network. Essentially encrypting all traffic between our nodes.
 - We installed a firewall on all nodes, and bound only port 80 and 443 to the public network IP addresses.
@@ -108,17 +90,30 @@ By default Hetzner assigns a public IP to nodes, and hands out root SSH access f
 
 ### Kubernetes
 
-We use k3s.
+We use k3s. Its single binary distribution and config experience made the job easier, furthermore we could back it with an SQL database, which removed etcd from the mix. We don't know etcd, so that was amazing.
+
+We took one more notable architectural decision that eased our Kubernetes cluster building: we keep our state in SQL databases, so we did not have to install and maintain a clustered filesystem for persistent volumes.
 
 ### Postgresql
 
 We built a streaming replication based active - passive Postgresql cluster.
 
+To keep things simple we built the cluster outside of Kubernetes and containers. Not that it would have been a big issue otherwise, but we would have pinned the Postgres pods onto specific nodes anyways. We didn't opt to use Kubernetes Postgres operators, like Patroni just yet.
+
+There is one significant shortcut that we took here. Failover is designed to be manual at this point. This could be a considerable source of downtime, and we may improve this practice in further iterations of our platform.
+
+It is important to note why we took this risk: to enable automatic failover we would have to write a bulletproof failover script that maximizes availability and minimizes data consistency risks. With a bug in the failover automation, we could risk data consistency issues that are potentionally more difficult to handle than downtimes. Basically we optimized for operational simplicity, and a good enough uptime.
+
+Now judging a good enough uptime comes down to the reader as Gimlet does not provide an SLA at this point, but let me leave you with two thoughts:
+
+- A 99,5% availability, an industry wide standard for SaaS platforms, means a yearly 1.83 days of downtime. A 99% availability means a 3.65 days downtime a year. This last one practically means that our whole team could be on vacation in the jungles of Brazil, travel back to Europe, open their laptops and do the database failover and we would still be faster than three days. It goes without saying that we are not planning to travel to the jungles of Brazil without anyone being on call.
+
+- It is good to look up at this point what [SLA Amazon's RDS databases provide](https://aws.amazon.com/rds/sla/). They are kind of mushy on the topic: *"AWS will use commercially reasonable efforts"* and if they fail, they give your money back in credits. Ten percent if they are between 99-99.95% availability, 25% percent if they between 95 and 99 percent, and all the money otherwise. In practical terms, they can be down for 18days a year and you only get back one fourth of your money.
+
+
 ### Gitops: drinking our own champagne
 
-We run Gimlet to manage Gimlet instances that our users provision.
-
-Each user that signs up gets a new Gimlet instance that is identical to the latest release of the open-source version. Each user configuration is stored in gitops.
+Each user that signs up gets a new Gimlet instance that is identical to the latest release of the open-source version. Each user configuration is stored in gitops and we run Gimlet to manage those Gimlet instances.
 
 Besides Gimlet instances, we also manage our cluster components with gitops.
 
@@ -134,7 +129,7 @@ We backup our Postgresql cluster, encrypt and ship our backups to an off-site lo
 
 Our disaster recorvery strategy builds on two pillars: our backups and infrastructure as code repositories.
 
-During our platform building we rebuilt the whole stack numerous times from code. Before launching the early access program, we rebuilt everything from scratch. We also ran synthetic database restore tests as well.
+During our platform building efforts we rebuilt the whole stack numerous times from code. Before launching the early access program, we rebuilt everything from scratch. We also ran synthetic database restore tests.
 
 ### Encryption
 
@@ -154,14 +149,20 @@ At rest:
 - Gimlet instances encrypt sensitive database fields in the database.
 - K3s encrypts its secrets that are stored in Postgresql.
 
+### Monitoring
+
+We use a Prometheus / Grafana stack for monitoring, UptimeRobot for uptime monitoring, and PagerDuty for our on-call.
+
 ## How Hetzner has been so far?
 
-- node provisioning time: we use stock node types. Only expect linear scaleup. provisioning has been manual, but fast: 15mins.
-- we used hetzner a couple of years earlier. It has been stable enough back than and today too.
-- One improvement since our previous ride has been the VLAN feature. Has been easy to setup and stable. One thing we couldn't achive though: connecting our dedicated nodes with Hetzner Cloud VMs.
+We used Hetzner a couple of years back. It has been stable enough back than and also today.
 
-this is a snapshot where we are.
+We use stock node types and only expect linear scaling. We provision nodes manually which takes around fifteen minutes until we can log in. We heared from friends, that this is not the case for custom machine types, but we will cross this bridge when we get there.
 
-if you need xxx
+An improvement since our previous ride with Hetzner is the VLAN feature. It was straightforward to set up based on the documentation and it has been stable so far. One thing we could not achieve though: connecting our dedicated nodes with Hetzner Cloud VMs. We are using dedicated nodes, but we could spin up VMs for small tasks if the VLAN would work between those.
+
+That's it for now. It is a snapshot of where we are currently, expect a follow up post in 12 months, or earlier if something changes significantly.
+
+As always, if you want to deploy to Kubernetes using the best of open-source tools out of the box, our self-serve SaaS early access is open on [https:/gimlet.io/signup](https:/gimlet.io/signup).
 
 Onwards!
