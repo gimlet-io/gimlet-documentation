@@ -2,7 +2,7 @@
 layout: post
 title: The how and why we built our SaaS platform on Kubernetes and Hetzner
 date: "2023-03-08"
-image: saas-early-access.png
+image: why-hetzner.png
 description: "Hetzner is 5 times cheaper for us than the hyperscalers. This blog posts enumerates the how and why we built our SaaS on a discount bare metal provider. Gotchas included."
 ---
 
