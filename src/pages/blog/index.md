@@ -2,7 +2,7 @@
 title: Blog
 ---
 
-{% post name="The how and why we built our SaaS platform on Kubernetes and Hetzner" image="why-hetzner.png" link="/blog/how-we-built-our-saas-platform-on-kubernetes-and-hetzner" date="2023-03-08" %}
+{% post name="The how and why we built our SaaS platform on Hetzner and Kubernetes" image="why-hetzner.png" link="/blog/how-we-built-our-saas-platform-on-kubernetes-and-hetzner" date="2023-03-08" %}
 Hetzner is 5 times cheaper for us than the hyperscalers. This blog posts enumerates the how and why we built our SaaS on a discount bare metal provider. Gotchas included.
 {% /post %}
 
