@@ -6,7 +6,7 @@ image: why-hetzner.png
 description: "Hetzner is 5 times cheaper for us than the hyperscalers. This blog posts enumerates the how and why we built our SaaS on a discount bare metal provider. Gotchas included."
 ---
 
-Hello everyone, Laszlo here, the founder of Gimlet.io 👋. In this blog post I try to address various aspects of how and why we built our SaaS platform on Kubernetes and Hetzner and not on one of the hyperscaler cloud providers.
+Hello everyone, Laszlo here, the founder of Gimlet.io 👋. In this blog post I try to address various aspects of how and why we built our SaaS platform on Hetzner and Kubernetes and not on one of the hyperscaler cloud providers.
 
 It is an interesting time. While we were building our platform on Hetzner, David Heinemeier Hansson, the founder of 37Signals has also broke ground on their new project to leave AWS in favor of a managed data center. His posts on the topic had a good run on social media. While DHH is a contrarian and sometimes good at starting trends, we are not here to start or join any movement. In this post I simply want to share our choices and experiences with Hetzner with the curious minded. Show what tools we used, what trade-offs we had to consider, what are the pros and cons in early 2023 of not using one of the big cloud providers. So let's get started, shall we?
 
@@ -54,7 +54,7 @@ But nodes die also on managed Kubernetes offerings and disks fill up. Maybe in o
 
 ### No RDS, what now?
 
-A managed database is really something that I happily pay a premium for. High-availability, point-in-time backups in a click of a button is not something that is easy to replicate.
+A managed database is really something that I happily pay a premium for. High-availability, point-in-time restores in a click of a button is not something that is easy to replicate.
 
 Postgresql is also something that is critical for Gimlet's SaaS platform as we keep all state in Postgresql databases. Not just client data, but the Kubernetes control plane is also stored in an SQL database. So we needed to build a highly available, secure Postgresql cluster, and had to handle proper off-site backups.
 
@@ -64,7 +64,9 @@ What gave us confidence in the process is that we had experience in running repl
 
 We spent most of the time on the networking setup and security considerations.
 
-By default, Hetzner gives you root access over SSH, there are no virtual networks, or security groups. If you start a server process on your node, it will be instantly accessible to the whole internet. Not a friendly default, and the lack of VPCs and Security Groups have been the biggest pain we had to solve.
+By default, Hetzner gives you root access over SSH, there are no virtual networks, or security groups. If you start a server process on your node, it will be instantly accessible on the internet. Not a friendly default, and the lack of VPCs and Security Groups have been the biggest pain we had to solve.
+
+This was also the place where we involved external help. A review of our setup by two independent consultants icreased our confidence in the process.
 
 ## Building infrastructure from the ground up on bare metal in 2023
 
@@ -108,7 +110,7 @@ Now judging a good enough uptime comes down to the reader as Gimlet does not pro
 
 - A 99,5% availability, an industry wide standard for SaaS platforms, means a yearly 1.83 days of downtime. A 99% availability means a 3.65 days downtime a year. This last one practically means that our whole team could be on vacation in the jungles of Brazil, travel back to Europe, open their laptops and do the database failover and we would still be faster than three days. It goes without saying that we are not planning to travel to the jungles of Brazil without anyone being on call.
 
-- It is good to look up at this point what [SLA Amazon's RDS databases provide](https://aws.amazon.com/rds/sla/). They are kind of mushy on the topic: *"AWS will use commercially reasonable efforts"* and if they fail, they give your money back in credits. Ten percent if they are between 99-99.95% availability, 25% percent if they are between 95 and 99 percent, and all the money otherwise. In practical terms, they can be down for 18 days a year and you only get back one fourth of your money.
+- It is good to look up at this point what [SLA](https://aws.amazon.com/rds/sla/) Amazon's RDS database provides. They are kind of mushy on the topic: *"AWS will use commercially reasonable efforts"* and if they fail, they give your money back in credits. Ten percent if they are between 99-99.95% availability, 25% percent if they are between 95 and 99 percent, and all the money otherwise. In practical terms, they can be down for 18 days a year and you only get back one fourth of your money.
 
 
 ### Gitops: drinking our own champagne
@@ -129,7 +131,7 @@ We backup our Postgresql cluster, encrypt and ship our backups to an off-site lo
 
 Our disaster recovery strategy builds on two pillars: our backups and infrastructure as code repositories.
 
-During our platform building efforts we rebuilt the whole stack numerous times from code. Before launching the early access program, we rebuilt everything from scratch. We also ran synthetic database restore tests.
+During our platform building efforts we rebuilt the whole stack numerous times from code and before launching the early access program, we rebuilt everything from scratch. We also ran synthetic database restore tests.
 
 ### Encryption
 
