@@ -111,7 +111,7 @@ But we do think that there is a subset of problems in platform engineering where
 
 Ultimately, clickops must know its boundaries. Otherwise it will turn into an endless effort of replicating the possibilities of existing devops configuration langugages.
 
-But if scope is limited, clickops should adhere to a few musts to not limit the uesrin order to not be limiting.
+But if scope is limited, clickops should adhere to a few musts to not limit the user.
 
 ## Clickops must be robust
 
@@ -124,6 +124,20 @@ It must respect the edits made directly to infrastructure as code:
 - The infrastructure as code repository must be accessible for peoplpe who prefer to work outside of clickops tools.
 - Clickops must fit the workflows, like merge request reviews, that people follow when making code changes.
 
+## Who is clickops for
+
+Unlike popular belief, dashboards are not made for the inexperienced.
+
+Clickops is made for the otherwise smart people, who understand what is going on, but 
+
+- not confident enough
+- too busy to
+- focusing on other part of the software lifecycle
+
+to write the yaml bits from scratch for errorprone and otherwise repetative tasks.
+
+If you don't believe us, we are happy to circle back Corey's points: we are pretty sure you are not reading this article in a command line browser.
+
 ## Tools using the clickops approach
 
 - [Codefresh](https://codefresh.io/)
@@ -131,3 +145,5 @@ It must respect the edits made directly to infrastructure as code:
 - and us, [Gimlet](https://gimlet.io)
 
 If you are aware of other tools following this approach, reach out on Twitter.
+
+Onwards!
