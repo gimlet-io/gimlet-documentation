@@ -8,39 +8,94 @@ description: "Doing cloud operations by clicking on a dashboard that generates a
 
 ## Definition
 
-ClickOps.
+Clickops.
 
-Not as in clicking on the AWS console, but doing cloud operations by clicking on a dashboard that generates a stream of infrastructure as code changes.
+Not as in clicking on the AWS console.
+
+But clickops: doing cloud operations by clicking on a dashboard that is backed by a stream of infrastructure as code changes.
 
 ## Prior art
 
 We did not invent the clickops term. In fact, it has been used sporadically to describe the practice when people work with cloud resources through the cloud provider's web console.
 
-We are latching our clickops definition on [Corey Quinn's recent blogpost](https://www.lastweekinaws.com/blog/clickops/). Corey articulates that the problem with AWS's web console is not that it is a GUI, but that it doesn't work together with infrastructure as code approaches. He continues with a vision:
+We are latching our clickops definition on [Corey Quinn's recent blogpost](https://www.lastweekinaws.com/blog/clickops/). Corey articulates that the problem with AWS's web console is not that it is a GUI, but that it does not work together with infrastructure as code approaches. He continues with a vision:
 
 > I envision a world in which I can set things up in the AWS console [..] via the magic of clicking things. The provider captures what I set up and renders it into code or configuration somewhere, [..], then automatically generates diffs in the correct repository, or updates its [..] environment as it exists at the current moment.
 
 We share this vision at Gimlet. And we believe that the state of the art in the gitops ecosystem allows us to achieve it.
 
-By 2023, gitops became the de-facto operation model of the Kubernetes ecosystem. We are standing on the shoulders of open-source giants. Weaveworks and the ArgoCD project put immense effort in popularizing the gitops approach, while the Crossplane project opened new horizons in what is possible, by allowing the creation of cloud resources as custom Kubernetes resources.
+By 2023, gitops became the de-facto operation model of the Kubernetes ecosystem. We are standing on the shoulders of open-source giants: Weaveworks and the ArgoCD project put immense effort in popularizing the gitops approach, while the Crossplane project opened new horizons in what is possible.
 
-## ClickOps over GitOps, the tech
+## Clickops over gitops, the tech
 
 The tech matters. It sets the scope where we think clickops is viaable.
 
-Definitions are often not prescriptive enough, so here we are: when we talk about clickops, we mean clickops over gitops. And when we say gitops, we mean Flux and ArgoCD to deliver Kubernetes resources, custom and built-in.
+Definitions are often not prescriptive enough, so here we are: when we talk about clickops, we mean clickops over gitops. And when we say gitops, we mean Flux and ArgoCD delivering custom and built-in Kubernetes resources to the cluster.
 
-If you are not familiar with these tools, you will surely make sense the following yaml bits:
+Even if you are not familiar with these tools, you will surely be able to make sense the following yaml bits:
 
 - this is how you bind your application to a URL
 
+```yaml
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: my-ingress
+spec:
+  rules:
+  - host: "foo.bar.com"
+    http:
+      paths:
+      - pathType: Prefix
+        path: "/"
+        backend:
+          service:
+            name: my-service
+            port:
+              number: 80
+```
+
 - this is how you add a persistent volume to your application
+
+```yaml
+apiVersion: v1
+kind: Pod
+metadata:
+  name: test-ebs
+spec:
+  containers:
+  - image: registry.k8s.io/test-webserver
+    name: test-container
+    volumeMounts:
+    - mountPath: /test-ebs
+      name: test-volume
+  volumes:
+  - name: test-volume
+    awsElasticBlockStore:
+      volumeID: "<volume id>"
+      fsType: ext4
+```
 
 - and this is how you create an Amazon RDS resource
 
-All very descriptive yaml files. Controllers on Kubernetes are looking for these resources, and if you create a new one, they will create the matching infrastructure resources. Kubernetes resources and their matching controllers reduced infrastructure privisioning into putting yaml files into a git repository.
+```yaml
+apiVersion: database.aws.crossplane.io/v1beta1
+kind: RDSInstance
+metadata:
+  name: rdspostgresql
+spec:
+  forProvider:
+    region: us-east-1
+    dbInstanceClass: db.t2.small
+    masterUsername: masteruser
+    allocatedStorage: 20
+    engine: postgres
+    engineVersion: "12"
+```
 
-This declarative approach allows clickops tools to just render a stream of yaml templates based user clicks. How those cloud resources come to life is handled by the ecosystem.
+All are descriptive yaml files. Controllers on Kubernetes are looking for these resources, and if you create a new one, they will create the matching infrastructure.
+
+Kubernetes resources and their controllers reduced infrastructure privisioning into putting yaml files into a git repository. This declarative approach allows clickops tools to just render a stream of yaml templates based on user clicks. How those cloud resources come to life is handled by the ecosystem.
 
 ## Scope matters
 
@@ -54,16 +109,25 @@ But we do think that there is a subset of problems in platform engineering where
 - spinning up QA environments
 - provisioning application dependencies like cloud databases
 
-Ultimately, clickops must know its boundaries. Otherwise it will turn into an endless effort of replicating the possibilities of existing devops tools.
+Ultimately, clickops must know its boundaries. Otherwise it will turn into an endless effort of replicating the possibilities of existing devops configuration langugages.
 
-## The musts
+But if scope is limited, clickops should adhere to a few musts to not limit the uesrin order to not be limiting.
 
-transparency: PRs
+## Clickops must be robust
 
-robustness: must respect changes made outside of clickops
+It must respect the edits made directly to infrastructure as code: 
+- It must not break if someone edits the source code.
+- It must not lose custom edits.
+
+## Clickops must be transparent
+
+- The infrastructure as code repository must be accessible for peoplpe who prefer to work outside of clickops tools.
+- Clickops must fit the workflows, like merge request reviews, that people follow when making code changes.
 
 ## Tools using the clickops approach
 
-- https://gimlet.io
-- Codefresh
-- Ambassador Labs
+- [Codefresh](https://codefresh.io/)
+- [Ambassador Cloud](https://www.getambassador.io/products/ambassador-cloud)
+- and us, [Gimlet](https://gimlet.io)
+
+If you are aware of other tools following this approach, reach out on Twitter.
