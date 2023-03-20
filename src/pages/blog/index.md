@@ -2,7 +2,7 @@
 title: Blog
 ---
 
-{% post name="Clickops" image="clickops.png" link="/blog/clickops" date="2023-03-16" %}
+{% post name="Clickops over gitops" image="clickops.png" link="/blog/clickops-over-gitops" date="2023-03-16" %}
 Doing cloud operations by clicking on a dashboard that generates a stream of infrastructure as code changes.
 {% /post %}
 
