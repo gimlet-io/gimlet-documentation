@@ -5,7 +5,7 @@ description: How to install Gimlet on k3s / k3d or Rancher / Docker Desktop or M
 
 On this page you can learn how to install Gimlet on any Kubernetes cluster.
 
-By the end of this tutorial you will access the dashboard with a kubectl port-forward command, later you can [move the installation to a real domain and HTTPS](/docs/exposing-gimlet-on-a-hostname).
+By the end of this tutorial you will access the dashboard with a kubectl port-forward command, later you can [move the installation to a real domain and HTTPS](/docs/exposing-gimlet-on-a-domain-name).
 
 ## Pre-requisites
 
@@ -99,10 +99,14 @@ The `/etc/hosts` file entry already exists, you only need to port-forward Gimlet
 kubectl port-forward -n infrastructure svc/gimlet 9000:9000
 ```
 
+![Step 1 screenshot](https://images.tango.us/public/screenshot_1e63095f-b057-4e58-8722-fdfd572c5b7f.png?crop=focalpoint&fit=crop&fp-x=0.5053&fp-y=0.2449&fp-z=2.6872&w=1200&mark-w=0.2&mark-pad=0&mark64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL21hZGUtd2l0aC10YW5nby13YXRlcm1hcmsucG5n&ar=3840%3A1960)
+
 ## Where to go next
 
 Congratulations, now you have a fully functioning Gimlet dashboard available for evaluation.
 
-If you installed Gimlet on a cloud provider, now you can continue and [move the installation to a real domain and HTTPS](/docs/installation#moving-the-installation-to-a-real-domain-and-https).
+If you installed Gimlet on a cloud provider, now you can continue and [move the installation to a real domain and HTTPS](/docs/exposing-gimlet-on-a-domain-name).
 
 If you installed Gimlet on your laptop, you can still proceed and use a service called Ngrok to expose Gimlet for external parties, like CI platforms.
+
+Should you have any trouble installing or have questions [join our community](/docs#getting-help).

@@ -13,7 +13,7 @@ If you are evaulating Gimlet locally, you can use a service called Ngrok to expo
 
 Gimlet integrates with source code managers and CI servers. These platforms need to access your in-cluster Gimlet installation. To fully experience Gimlet, you have to make the Gimlet API available to them.
 
-On local Kubernetes clusters, you can use *ngrok* to make this happen.
+On local Kubernetes clusters, you can use [ngrok](https://ngrok.com/docs/getting-started/#step-2-install-the-ngrok-agent) to make this happen.
 
 [Gmilet's CI integration](/docs/deploy-your-first-app-to-kubernetes#integrate-ci-with-gimlet) takes two parameters: Gimlet's API location and an API token. Local installations can be exposed by the following ngrok command, then you can use the ngrok URL in the `GIMLET_SERVER` secret in CI.
 
@@ -21,7 +21,7 @@ On local Kubernetes clusters, you can use *ngrok* to make this happen.
 ngrok http 127.0.0.1:9000
 ```
 
-For local Kubernetes clusters, this is all what is needed. You can continue to [Deploy your first app to Kubernetes](/docs/deploy-your-first-app-to-kubernetes)
+For local Kubernetes clusters, this is all that is needed. You can continue to [Deploy your first app to Kubernetes](/docs/deploy-your-first-app-to-kubernetes)
 
 ## Exposing Gimlet with an ingress
 
@@ -31,18 +31,35 @@ Ingress controllers route traffic to your applications on Kubernetes clusters. T
 
 Depending on your Kubernetes provider, you may already have an ingress controller installed. To gain better control over your ingress, you will install the Nginx ingress controller now with gitops.
 
-TODO how to set up ingress with gitops.
+### Installing the Ingress Nginx component with gitops
 
-Set the ingress controller host name 
+Navigate to *Environments > your-env > Infrastructure components* and Nginx to edit.
 
-Update the ingress controller host name from `trial` to `testing.yourcompany.com` given that you named your environment *testing* and your preferred domain name is `yourcompany.com`. You can skip the `testing` prefix if this is your production environment.
+![Step 1 screenshot](https://images.tango.us/public/screenshot_74d34c1d-a951-4114-b984-5d8ed568fc92.png?crop=focalpoint&fit=crop&fp-x=0.3250&fp-y=0.2505&fp-z=2.5296&w=1200&mark-w=0.2&mark-pad=0&mark64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL21hZGUtd2l0aC10YW5nby13YXRlcm1hcmsucG5n&ar=3840%3A1960)
 
-Your ingress controller host name is under *Infrastructure Components > Ingress > Nginx*
+On the *Config* tab enable Nginx and provide the domain name you dedicate for this Gimlet environment.
 
+Gimlet assumes a wildcard DNS entry to exist, 
+- so if this is your staging environment, you may set `staging.yourcompany.com` in the host field and later you will create the `*.staging.yourcompany.com` DNS entry.
+- For the production environment you may set `yourcompany.com` in the host field and later you will create the `*.yourcompany.com` DNS entry. Your existing subdomains under *yourcompany.com*, like *docs.yourcompany.com* and *marketing.yourcompany.com* will continue to work as in DNS, the more specific entries take precedence.
 
-### Setting a wildcard DNS name
+![Step 2 screenshot](https://images.tango.us/public/edited_image_69245999-ad79-4170-bce1-8156ea96d7a2.png?crop=focalpoint&fit=crop&fp-x=0.4107&fp-y=0.4383&fp-z=2.0000&w=1200&mark-w=0.2&mark-pad=0&mark64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL21hZGUtd2l0aC10YW5nby13YXRlcm1hcmsucG5n&ar=3840%3A1960)
 
-Locate the IP address of the Nginx ingress controller:
+Hit *Save components*, inspect and merge the pull request that Gimlet creates in your infrastructure gitops repository.
+
+You can monitor Nginx as it comes alive:
+
+```
+$ kubectl get pods -n infrastructure -w
+NAME                                             READY   STATUS    RESTARTS      AGE
+ingress-nginx-controller-66455d768d-v8pgh        1/1     Running   0             8s
+```
+
+or you can [follow more closely the gitops automation](/docs/bootstrap-gitops-automation-with-gimlet-cli#verify-the-gitops-automation).
+
+### Creating a DNS entry
+
+Locate the IP address of the Nginx ingress controller, then set a wildcard domain name pointing to this IP.
 
 ```
 $ kubectl get svc -n infrastructure
@@ -51,39 +68,45 @@ NAME                                 TYPE           EXTERNAL-IP
 ingress-nginx-controller             LoadBalancer   74.220.27.134
 ```
 
-Then set a wildcard domain name pointing to this IP. Point `*. testing.yourcompany.com` to the Nginx public IP address, given that you named your environment *testing* and your preferred domain name is `yourcompany.com`. You can skip the `testing` prefix if this is your production environment.
-
-### Update the domain name to a real one
-
-When you started the installer with the `curl -L -s https://get.gimlet.io | bash -s trial` command, the *trial* parameter was the domain name Gimlet used as a suffix to create the ingresses.
-
-Gimlet is currently reachable on [http://gimlet.trial:9000](http://gimlet.trial:9000) using kubectl port-forward.
-
-It is time to reconfigure your Gimlet to be hosted on your preferred domain name. To reconfigure your stack, follow one of the methods described in [Managing infrastructure components](/docs/managing-infrastructure-components).
-
-#### Update the Gimlet Dashboard host name
-
-Gimlet should know about where it is hosted. Update the *Gimlet > Config > Host* setting to the real domain name. Use a full domain name with the protocol included eg.: `https://gimlet.testing.yourcompany.com`.
+Point `*.testing.yourcompany.com` to the Nginx public IP address, given that you named your environment *testing* and your preferred domain name is *yourcompany.com*. You can skip the `testing` prefix if this is your production environment.
 
 ### Install Cert-Manager
 
-Enable the Cert-Manager component under *Infrastructure Components > Ingress > CertManager*.
+Once you made sure that the DNS entry propagated, enable the Cert-Manager component under *Infrastructure Components > Ingress > CertManager*.
 
-### Write changes to the gitops repo
+Follow the same process to review and merge the pull request.
 
-Press *Infrastructure Components > Save components* and watch the gitops commit manifest on the cluster.
+### Reconfigure Gimlet to use the domain name
+
+When you started the installer with the `curl -L -s https://get.gimlet.io | bash -s trial` command, the *trial* parameter was the domain name and thus Gimlet is currently reachable on [http://gimlet.trial:9000](http://gimlet.trial:9000) using kubectl port-forward.
+
+It is time to reconfigure your Gimlet to access it on your preferred domain name. To reconfigure your stack with gitops, you will follow the same process as with the Nginx ingress controller: navigate to *Environments > your-env > Infrastructure components* and locate Gimlet to edit it.
+
+Gimlet should know about where it is hosted. Update the *Gimlet > Config > Host* setting to your preferred domain name. Use a full domain name with the protocol included eg.: `https://gimlet.testing.yourcompany.com`.
+
+Press *Infrastructure Components > Save components*, review and merge the PR and watch [how the gitops automation](/docs/bootstrap-gitops-automation-with-gimlet-cli#verify-the-gitops-automation) redeploys Gimlet.
 
 ### Update OAuth configuration
 
-For the OAuth authentication to work, you also need to update the URLs in 
+For the OAuth authentication to work, you also need to update the URLs in Github or Gitlab. 
 
 #### Github
-your Github application settings on Github.com under *Settings > Developer settings > GitHub Apps > Your Gimlet Application*
+Edit your Github application settings on Github.com under *Settings > Developer settings > GitHub Apps > Your Gimlet Application*
 
 - Update *Homepage URL* from `http://gimlet.trial:9000` to `https://gimlet.testing.yourcompany.com`
 - Update *Callback URL* from `http://gimlet.trial:9000/auth` to `https://gimlet.testing.yourcompany.com/auth`
 - Update *Webhook URL* from `http://gimlet.trial:9000/hook` to `https://gimlet.testing.yourcompany.com/hook`
 
-### Gitlab
+#### Gitlab
 
 TODO
+
+## Where to go next
+
+Congratulations, now you can access Gimlet on your preferred domain name, like *https://gimlet.testing.yourcompany.com* and learned in the process how to configure infrastructure with gitops.
+
+You can continue to 
+- [deploy your first application from the dashboard](/docs/deploy-your-first-app-to-kubernetes), or from [CLI](/docs/deploy-your-first-app-to-kubernetes-with-gimlet-cli)
+- or learn how to fully [configure your Kubernetes cluster](/docs/make-kubernetes-an-application-platform), also using only the [CLI](/docs/make-kubernetes-an-application-platform-with-gimlet-cli)
+
+Should you have any trouble installing or have questions [join our community](/docs#getting-help).
