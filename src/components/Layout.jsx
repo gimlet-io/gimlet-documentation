@@ -183,7 +183,7 @@ export function Layout({ children, title, navigation, tableOfContents, pageProps
 
   return (
     <>
-      {!isTOSPage &&
+      {!isTOSPage && !isYamlGeneratorPage &&
       <Header navigation={navigation} />
       }
 

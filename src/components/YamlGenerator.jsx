@@ -1,10 +1,9 @@
 import { useState } from 'react';
-import { Footer } from './home/Footer';
 import HelmUI from "helm-react-ui";
 import ReactDiffViewer from 'react-diff-viewer-continued';
 import { CodeWindow } from '@/components/CodeWindow'
 import * as schema from '@/components/values.schema.json'
-import { helmUIJson } from '@/components/helmuijson'
+import { helmUIJson } from '@/components/helmUIJson'
 
 export function YamlGenerator() {
     const [values, setValues] = useState({
@@ -91,7 +90,6 @@ export function YamlGenerator() {
                     </div>
                 </div>
             </div>
-            <Footer />
         </>
     )
 }
