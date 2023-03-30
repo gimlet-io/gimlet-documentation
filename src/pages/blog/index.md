@@ -2,6 +2,14 @@
 title: Blog
 ---
 
+{% post name="Git: the ironclad system" image="git-ironclad.png" link="/blog/git-the-ironclad-system" date="2023-03-30" %}
+Git is the most feared tool amongst the tools we use everyday. Over the years I developed an ironclad approach to git, to not get into trouble, and if I did, how to get out of it. This is the first thing I pass on to the Gimlet team in our onboarding, and now making it public.
+{% /post %}
+
+{% post name="Don't group environment variables" image="dont-group.png" link="/blog/clickops-over-gitops" date="2023-03-16" %}
+I don't know who need to hear this, but don't group environment variables! `APP_ENV=staging` is a big devops booboo.
+{% /post %}
+
 {% post name="Clickops over gitops" image="clickops.png" link="/blog/clickops-over-gitops" date="2023-03-16" %}
 Doing cloud operations by clicking on a dashboard that generates a stream of infrastructure as code changes.
 {% /post %}
