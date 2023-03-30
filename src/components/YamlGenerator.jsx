@@ -23,10 +23,10 @@ export function YamlGenerator() {
     return (
         <div className="bg-white dark:bg-gray-900">
             <div className="mx-auto p-2 sm:p-4 lg:p-6">
-                <h1 className="text-gray-900 text-xl font-semibold text-center mb-8">Kubernetes YAML Generator</h1>
+                <h1 className="text-gray-900 dark:text-slate-50 text-xl font-semibold text-center mb-8">Kubernetes YAML Generator</h1>
                 <div className="sm:align-center sm:flex sm:flex-col space-y-2">
                     <div className="space-y-4 sm:grid sm:grid-cols-2 sm:gap-2 sm:space-y-0 xl:grid-cols-2">
-                        <div className="border-2 p-4 rounded-md">
+                        <div className="dark:bg-white border-2 p-4 rounded-md">
                             <HelmUI
                                 schema={schema}
                                 config={helmUIJson}
