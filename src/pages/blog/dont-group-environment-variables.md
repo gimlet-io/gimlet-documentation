@@ -3,8 +3,6 @@ layout: post
 title: Don't group environment variables
 date: "2023-04-03"
 image: dont-group.png
-image_author: Mike Arney
-image_url: https://unsplash.com/photos/rJ5vHo8gr2U
 description: "This is a preiodic reminder for application developers to not group environment variables. `APP_ENV=staging` easily becomes a blocker when you do application operation."
 ---
 
