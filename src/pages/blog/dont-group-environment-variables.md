@@ -14,7 +14,7 @@ Nowadays it is called platform engineering, but when we started these projects -
 
 tldr: we see hundreds of apps every year.
 
-There is one particular practice that popped up recently more often than I would have expected, and that is grouping environment variables.
+There is one particular practice that popped up recently more often than we would have expected, and that is grouping environment variables.
 
 ## Grouping environment variables
 
@@ -22,7 +22,7 @@ If the name does not ring a bell, it is the practice when an app requires a vari
 
 If APP_ENV equals staging, use this database connection string, if production use another. You get the gist, kind of like `NODE_ENV` and `RAILS_ENV`, but supercharged.
 
-I am not saying that those frameworks promote a bad practice, but I do believe that developers get inspired by this environment concept and sometimes build hard to change assumptions into the code about the environment the app runs in.
+We are not saying that those frameworks promote a bad practice, but we do believe that developers get inspired by this environment concept and sometimes build hard to change assumptions into the code about the environment the app runs in.
 
 This bad practice was well described in the [The Twelve-Factor App](https://12factor.net/config) methodology, which by the way is twelve years old this year. This post is a periodic reminder about the practices 12factor promotes and an example how grouping environment variables makes devops life difficult.
 
