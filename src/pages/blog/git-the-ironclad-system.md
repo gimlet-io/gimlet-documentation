@@ -91,8 +91,9 @@ Good, now you know where you are. You also need to know where you want to go, an
 
 ### Navigating
 
-### Staging, working copy
+### Staging
 
+working copy
 git reset HEAD, not hard
 unstage
 git diff
@@ -104,8 +105,6 @@ Merging
 Rebasing
 Squashing
 Cherry picking
-
-## How to get back to a safety?
 
 ### Git is trying to help
 
@@ -124,5 +123,6 @@ no amount of git knowledge will save you from merge conflicts
 - don't use gitflow and friends
 
 ## Onwards
-
+Anything you want to pick up?
 What does work for you?
+Do you have a system?

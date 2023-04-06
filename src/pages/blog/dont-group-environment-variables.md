@@ -6,7 +6,7 @@ image: dont-group.png
 description: "This is a preiodic reminder for application developers to not group environment variables. `APP_ENV=staging` easily becomes a blocker when you do application operation."
 ---
 
-We have a consulting background. We join teams who want to adopt containers and Kubernetes, and we create the guardrails for developers who want to efficiently use these technologies.
+At Gimlet.io, we have a consulting background. We join teams who want to adopt containers and Kubernetes, and we create the guardrails for developers who want to efficiently use these technologies.
 
 Nowadays it is called platform engineering, but when we started these projects - and made our off-the-shelf IDP, Gimlet - it was just called devops tooling work.
 
@@ -16,7 +16,7 @@ There is one particular practice that popped up recently more often than we woul
 
 ## Grouping environment variables
 
-If the name does not ring a bell, it is the practice when an app requires a variable like `APP_ENV`, takes predefined values like `staging`, `production`, then there is a switch case in the code that sets further values based on the environment.
+If the term does not ring a bell, it is the practice when an app requires a variable like `APP_ENV`, takes predefined values like `staging` or `production`, then there is a switch case in the code that sets further values based on the environment.
 
 If APP_ENV equals staging, use this database connection string, if production use another. You get the gist, kind of like `NODE_ENV` and `RAILS_ENV`, but supercharged.
 
@@ -36,10 +36,11 @@ It happened to us during a disaster recovery plan rehearsal. It is one of the be
 export const BACKEND_URL = {
   development: 'https://xx.staging.mycompany.com',
   staging: 'https://xx.staging.mycompany.com',
-  production: 'https://xx.mycompany.com',
+  production: 'https://xx.mycompany.com'
+}
 ```
 
-This practice may have helped in codifying development setups, but during the disaster recovery rehearsal, it meant that we needed to change many of the apps so they take BACKEND_URL directly from the environment.
+This practice may have helped codifying development setups, but during the disaster recovery rehearsal, it meant that we needed to change many of the apps so they take BACKEND_URL directly from the environment. Practically, it meant pull requests and waiting.
 
 ## Grouping environment variables causes friction
 
