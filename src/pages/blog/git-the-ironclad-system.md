@@ -106,13 +106,24 @@ Rebasing
 Squashing
 Cherry picking
 
+## How to get back to a safety?
+
+Things go wrong with git. Routinely. If your `git status` is not what you thougt it is, or there are conflicts, you have a situation to resolve.
+
 ### Git is trying to help
+
+Remember git is trying to help. The output of `git status` often contains possible next commands you can run. They are sometimes enough to get you out of trouble.
 
 ### Let's start over
 
-git status
-reset
-checkout
+When you want to get back to a safe space with git, you need to know if you have changes that are in risk.
+
+If you don't, you can just `git reset` yourself out of the situation
+`git reset --hard HEAD` or `git reset --hard main` will get you to well known points.
+
+If you have uncomitted changes, and yo care about them, commit them first.
+
+If you have everything committed, but you are doint branch operations you are not sure about, best to make a backup pointer to your current state. `git branch backup` will make a new branch called backup that is your current state. Should you mess up something and you want to try again.
 
 ##  Assumptions
 
