@@ -14,7 +14,7 @@ Now there are technologies even after fifteen years in this business which I goo
 
 Not because I know git inside out, but because I have a closed system where a minimum amount of knowledge keeps me safe. And if I wander from my safe space, I know how to get back.
 
-I've been sharing my approach in the teams I worked in, and now putting it into a blog post. If you pick up a few things from it, I will be more than happy. It is not a git 101, but a general approach. With many examples.
+I've been sharing my approach in the teams I worked in, and now putting it into a blog post. If you pick up a few things from it, I will be more than happy. It is not a git 101, but a general approach. With practical, lesser known examples.
 
 But first things, it needs a fancy name: The Ironclad System 🤡. It is fitting: it is compact, it is closed, it is unpenetratable.
 
@@ -123,29 +123,46 @@ Git lola is my second most used command after git status.
 
 Git users often use `git pull` to get the latest version. But git pull does two things:
 - it fetches the remote state
-- then tries to bring your working copy up tp date with the latest remote state.
+- then tries to bring your working copy up to date with the latest remote state.
 
 It is much less errorprone if instead of using git pull, you run `git fetch` first,then decide on the strategy to move your working copy version to the latest version. 
 
-`git fetch` fits better the ironclad system as it answers the *where am I question* and just that. Git pull on the other hand does not give you a good answer to that question. It tries to modify your working copy, before you can judge what to do based on the fetched remote state.
+`git fetch` fits better the ironclad system as it answers the *where am I question* and just that. Git pull on the other hand does not allow you to orient yourself before modifying your working copy and you may end up in states you didn't intend to.
 
-`git fetch`
-`git lola`
-`git reset --hard`
-`git stash`
+I always run
+- `git fetch` to get the remote state
+- then a quick `git status` and `git lola` just to orient myself
+- and for quick fast-forward situations, I call `git pull --rebase` to get the latest version
 
 ## What do I want to do?
 
-Good, now you know where you are. You also need to know where you want to go, and you have to have a few options to get there.
+When you oriented yourself with `git status` and `git lola` and you know *what you want to do*, it is good if you have a couple of plans to get there. This section highlights a few lesser known techniques to extend your options.
 
 ### Navigating
 
+You certainly know how to change branches and move around in git. I just want to highlight a tecnique that quickens many navigation operations. It also has a risk of losing data, so it takes some practice to get a feel for it.
+
+It is `git reset --hard`
+
+- It throws away all working copy changes
+- And resets a branch pointer to another hash
+
+If you are on a branch and you want that branch to have the exact same state as another, you run `git reset --hard <another branch>`.
+
+If you have various working copy changes and want to start over, you run `git reset --hard HEAD`. It resets your branch to the latest commit hash, thus throwing away working copy changes.
+
+If you made a few commits locally on a *feature-branch*, but you realized it is a moot effort, you run `git reset --hard origin/feature-branch`. This throws away the commits that you recently made, and you can continue from the state that you have in the remote.
+
+I use `git reset` and its `--hard` flag in versatile situations. There is just one thing to keep in mind. If a commit is not reachable from any pointer, aka branch or tag, that commit is gone. You can't get it back.
+
 ### Staging
 
-working copy
-git reset HEAD, not hard
-unstage
-git diff
+Staging is the process when you mark files to be included in the next commit.
+
+`git status` is your biggest ally in this process, and its hints to add or remove files from the stagign area. Besides git status, I run `git diff` a lot in this process.
+
+- If I want to unstage a file, I use `git checkout path/to/file`
+- or if I want to unstage all files and start over the staging process, I run `git reset HEAD`. This time without the `--hard` as it throws away all changes, while running reset without hard, is just resetting the staging area.
 
 ### Integrating 
 Branching
