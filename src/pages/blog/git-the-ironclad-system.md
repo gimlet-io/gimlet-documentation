@@ -90,7 +90,7 @@ But `git log` is powerful, you only need an obnioxious amount of switches to mak
 git log --graph --oneline --all
 ```
 
-![CICD and Flux](/branches.png)
+![git lola](/branches.png)
 
 I created an alias for it in my `~/.gitconfig` and named it `git lola`. Why lola? Not sure, I borrowed it from a colleague 12 years ago. Thanks Peter!
 
@@ -136,11 +136,11 @@ I always run
 
 There is another problem with using `git pull` to get remote changes. If you and your colleague work on the same feature branch, git pull will do a git merge every time you get your colleague's commits. This complicates an otherwise straight line of commits with placing merge commits in the history. 
 
-TODO picture merge commits
+![git pull](/gitpull.png)
 
 If you use `git pull --rebase`, git puts your unpushed commits on top of your colleagues changes and you always get a straight line in your history.
 
-TODO show the same with rebase on a picture
+![git pull --rebase](/gitpullrebase.png)
 
 ## What do I want to do?
 
@@ -182,7 +182,7 @@ There are two ways to bring code from one branch to another: merging and rebasin
 
 Merge is the straightforward way. You have two code tree lines, and they become one in the form of a merge commit. 
 
-TODO picture merge commit.
+![Merge commit](/merge-commit.png)
 
 This is the desired behavior when you integrate a feature branch to the main line. Anyone who browses git history will understand that a feature was developed on a branch and it was integrated at a given moment.
 
@@ -192,7 +192,11 @@ Other times history is less important than simplicity. A straight line of histor
 
 Rebasing takes a commit line, cuts it at the moment of branch creation, and places on top of another branch. That way the history will be a straight line, and the fact that the code was originally written on a branch is discarded.
 
-TODO picture rebase
+Before rebase, the feature branch and main:
+![Before rebase](/before-rebase.png)
+
+After rebase, the feature branch cut and moved on top of main:
+![rRebase](/rebase.png)
 
 I often rebase when I am working alone on my branches, and historical correctness would not help anyone. Straight line histories do on the other hand.
 
