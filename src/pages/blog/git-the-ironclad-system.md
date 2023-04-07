@@ -213,11 +213,18 @@ While practicing, sometimes you just want to give up and start over. Getting bac
 
 ## How to get back to a safety?
 
-Things go wrong with git. Routinely. If your `git status` is not what you thougt it is, or there are conflicts, you have a situation to resolve.
+Things go wrong with git. Routinely. If your `git status` is not what you thougt it is, or there are conflicts, you have a situation to resolve. It gives you confidence if you know that whatever you try, you can always get back to a safe point and start over.
 
 ### Git is trying to help
 
 Remember git is trying to help. The output of `git status` often contains possible next commands you can run. They are sometimes enough to get you out of trouble.
+
+Even in the most complex rebase operations, git status suggests an option how to start over:
+
+```
+hint: To abort and get back to the state before "git rebase", 
+  run "git rebase --abort".
+```
 
 ### Let's start over
 
@@ -226,19 +233,29 @@ When you want to get back to a safe space with git, you need to know if you have
 If you don't, you can just `git reset` yourself out of the situation
 `git reset --hard HEAD` or `git reset --hard main` will get you to well known points.
 
-If you have uncomitted changes, and yo care about them, commit them first.
+If you have uncomitted changes, and you care about them, commit them first.
 
-If you have everything committed, but you are doint branch operations you are not sure about, best to make a backup pointer to your current state. `git branch backup` will make a new branch called backup that is your current state. Should you mess up something and you want to try again.
+If you have everything committed, but you are doing operations you are not sure about, best to make a backup pointer to your current state. `git branch backup` will create a restore point. Should you mess up something, you can git reset your current branch to the backup spot by `git reset --hard backup`.
 
 ##  Assumptions
 
-- integrate often
-no amount of git knowledge will save you from merge conflicts
-- don't branch from branches
+This blog post worked with several assumptions. These are fairly known, but let me run through them so you better understand the context this system was meant to be used in.
 
-- don't use gitflow and friends
+#### Integrate often
+
+No amount of git knowledge will save you from merge conflicts if they are building up for weeks across several branches. Best to integrate frequently and solve merge conflicts in small, managable units.
+
+#### Don't branch from branches
+
+If your team frequently create branches from branches, it will be very complex task to integrate often.
+
+Branching from branches also make git history complicated, making it difficult for you to orient yourself in `git lola`
+
+#### Don't use git flow and friends
+
+Branching strategies that build on long running branches go against best practices, causing unnecessairy complexity for you to handle with git.
 
 ## Onwards
-Anything you want to pick up?
-What does work for you?
-Do you have a system?
+
+This was a long one, if you pick up a few things from it, I will be more than happy.
+Do you have a system? What does work for you?
