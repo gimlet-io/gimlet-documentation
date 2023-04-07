@@ -123,7 +123,7 @@ Git lola is my second most used command after git status.
 
 Git users often use `git pull` to get the latest version. But git pull does two things:
 - it fetches the remote state
-- then tries to bring your working copy up to date with the latest remote state.
+- then tries to bring your working copy up to date with the latest remote state by doing a merge.
 
 It is much less errorprone if instead of using git pull, you run `git fetch` first,then decide on the strategy to move your working copy version to the latest version. 
 
@@ -133,6 +133,14 @@ I always run
 - `git fetch` to get the remote state
 - then a quick `git status` and `git lola` just to orient myself
 - and for quick fast-forward situations, I call `git pull --rebase` to get the latest version
+
+There is an other problem with using `git pull` to get remote changes. If you and your colleague work on the same feature branch, git pull will do a git merge every time you get your colleague's commits. This complicates an otherwise straight line of commits with placing merge commits in the history. 
+
+TODO picture merge commits
+
+If you use `git pull --rebase`, git puts your unpushed commits on top of your colleagues changes and you always get a straight line in your history.
+
+TODO show the same with rebase on a picture
 
 ## What do I want to do?
 
@@ -159,18 +167,49 @@ I use `git reset` and its `--hard` flag in versatile situations. There is just o
 
 Staging is the process when you mark files to be included in the next commit.
 
-`git status` is your biggest ally in this process, and its hints to add or remove files from the stagign area. Besides git status, I run `git diff` a lot in this process.
+`git status` is your biggest ally in this process, and as a reminder it also hints how you can add or remove files from the staging area. Besides git status, I run `git diff` a lot in this process.
 
 - If I want to unstage a file, I use `git checkout path/to/file`
 - or if I want to unstage all files and start over the staging process, I run `git reset HEAD`. This time without the `--hard` as it throws away all changes, while running reset without hard, is just resetting the staging area.
 
-### Integrating 
-Branching
+### Integrating
 
-Merging
-Rebasing
-Squashing
-Cherry picking
+Integration is the process when you bring changes from a branch to the main code line.
+
+There are two ways to bring code from one branch to another: merging and rebasing.
+
+#### Merging
+
+Merge is the straightforward way. You have two lines of code, and they become one in the form of a merge commit. 
+
+TODO picture merge commit.
+
+This is the desired behavior when you integrate a feature branch to the main line. Anyone who browses git history will understand that a feature was developed on a branch and it was integrated at a given moment.
+
+#### Rebasing
+
+Other times historical correctness is less important than simlicity. A straight line of history is a lot easier to understand than a web of branches and merges. Those cases I favor rebase over merging.
+
+Rebasing takes a commit line, cut it at the moment of branch creation, and places on top of another branch. That way the history will be a straight line, and the fact that the code was originally written on a branch is discarded.
+
+TODO picture rebase
+
+I often rebase when I am working alone on my branches, and historical correctness would not help anyone. Straight line histories do on the other hand.
+
+There are edge cases when rebasing is a pain to use. Since rebase puts a branch on top another branch commit by commit, you may have to resolve commits in every one of those commits. Sometimes you even have to resolve conflicts that happened ealier in your branch's life, and they are not there in the latest version. In those cases I just use git merge, and resolve the conflicts that exist in my final version of code.
+
+#### Cherry picking
+When I only want to integrate a single commit with another branch, sometimes I just take that one commit and place it on top of the target branch.
+
+`git cherry-pick <hash>` is a quick way to intagrate a sigle commit, or two.
+
+#### Squashing
+
+When you experiment a lot, sometimes it is benefitial to keep the history clean of your experiments. Those cases you can squash your commits into a single commit.
+
+`git rebase -i HEAD~10` squashes your last ten commits into one. Since this process is `-i` interactive, mastering it can be difficult but worths to practice.
+
+While practicing, sometimes you just want to give up and start over. Getting back to safety is a very important skill in git.
 
 ## How to get back to a safety?
 
