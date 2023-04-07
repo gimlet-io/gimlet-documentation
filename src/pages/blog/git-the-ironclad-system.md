@@ -8,17 +8,17 @@ description: "Git is the most feared tool amongst the tools we use everyday. Ove
 
 Hello everyone, Laszlo here from Gimlet.io 👋.
 
-It's been a while when I learned git. Perhaps I am not the best one to relate to situations when you lose a days work because git shenanigens, but I do recall occasions when colleagues with all different seniorities feared merging, conflicts or rebasing.
+It's been a while when I learned git. Perhaps I am not the best one to relate to situations when you lose a day's work because git shenanigans, but I do recall occasions when colleagues with all different seniorities feared merging, conflicts or rebasing.
 
-Now there are technologies even after fifteen years in this business which I google everytime I use. Writing an if condition in bash? Installing a package on alpine linux? Gets me everytime. But git is not one those.
+Now there are technologies even after fifteen years in this business which I google every time I use. Writing an if condition in bash? Installing a package on alpine linux? Gets me everytime. But git is not one of those.
 
 Not because I know git inside out, but because I have a closed system where a minimum amount of knowledge keeps me safe. And if I wander from my safe space, I know how to get back.
 
 I've been sharing my approach in the teams I worked in, and now putting it into a blog post. If you pick up a few things from it, I will be more than happy. It is not a git 101, but a general approach. With practical, lesser known examples.
 
-But first things, it needs a fancy name: The Ironclad System 🤡. It is fitting: it is compact, it is closed, it is unpenetratable.
+But first things first, it needs a fancy name: The Ironclad System 🤡. It is fitting: it is compact, it is closed, it is impenetrable.
 
-Let's get into it. Shell we?
+Let's get into it. Shall we?
 
 ## The ironclad checklist
 
@@ -28,9 +28,9 @@ If you are able to answer these three questions, you will never get into trouble
 
 - Where am I?
 - What do I want to do?
-- How to get back to a safety?
+- How to get back to safety?
 
-These are the questions I perculate in my head before every git operation I do. Let's explore them now.
+These are the questions I percolate in my head before every git operation I do. Let's explore them now.
 
 ## Where am I?
 
@@ -42,7 +42,7 @@ When you perform a git command, often you don't end up where you intended to, th
 
 I run `git status` before and after every command. Partly because my command may not do what I intended it to, and second, git is trying to help me. I know it feels just the opposite sometimes, but if you read the output of git status carefully, you will find possible commands that you should run next.
 
-Like in this example with changes in my working copy. It tells how I can stage files to be comitted, but also how to undo changes.
+Like in this example with changes in my working copy. It tells how I can stage files to be committed, but also how to undo changes.
 
 ```bash
 $ git status
@@ -76,7 +76,7 @@ Knowing the basics of git's data model will help you in your everyday git operat
 
 Git history is a tree. Its root is a single commit and all commits descend from it. Each commit knows its parent, and what diff it introduces to it.
 
-When you branch out, you just create a new commit that has the same parent as an other commit on an other tree branch.
+When you branch out, you just create a new commit that has the same parent as another commit on another tree branch.
 
 Branches. Branches are just named pointers. So as tags. So as main. They don't exist.
 
@@ -84,7 +84,7 @@ The only two properties branches have are their name, and the commit they point 
 
 Now git has a great limitation in the command line. The default `git log` experience does not give you a good overview to reason about the code tree, so many people resort to git GUIs.
 
-But `git log` is powerful, you only need abnioxious amount of switches to make it useful. Here is my favorite:
+But `git log` is powerful, you only need obnioxious amount of switches to make it useful. Here is my favorite:
 
 ```
 git log --graph --oneline --all
@@ -125,7 +125,7 @@ Git users often use `git pull` to get the latest version. But git pull does two 
 - it fetches the remote state
 - then tries to bring your working copy up to date with the latest remote state by doing a merge.
 
-It is much less errorprone if instead of using git pull, you run `git fetch` first,then decide on the strategy to move your working copy version to the latest version. 
+It is much less error prone if instead of using git pull, you run `git fetch` first,then decide on the strategy to move your working copy version to the latest version. 
 
 `git fetch` fits better the ironclad system as it answers the *where am I question* and just that. Git pull on the other hand does not allow you to orient yourself before modifying your working copy and you may end up in states you didn't intend to.
 
@@ -134,7 +134,7 @@ I always run
 - then a quick `git status` and `git lola` just to orient myself
 - and for quick fast-forward situations, I call `git pull --rebase` to get the latest version
 
-There is an other problem with using `git pull` to get remote changes. If you and your colleague work on the same feature branch, git pull will do a git merge every time you get your colleague's commits. This complicates an otherwise straight line of commits with placing merge commits in the history. 
+There is another problem with using `git pull` to get remote changes. If you and your colleague work on the same feature branch, git pull will do a git merge every time you get your colleague's commits. This complicates an otherwise straight line of commits with placing merge commits in the history. 
 
 TODO picture merge commits
 
@@ -148,7 +148,7 @@ When you oriented yourself with `git status` and `git lola` and you know *what y
 
 ### Navigating
 
-You certainly know how to change branches and move around in git. I just want to highlight a tecnique that quickens many navigation operations. It also has a risk of losing data, so it takes some practice to get a feel for it.
+You certainly know how to change branches and move around in git. I just want to highlight a technique that quickens many navigation operations. It also has a risk of losing data, so it takes some practice to get a feel for it.
 
 It is `git reset --hard`
 
@@ -188,26 +188,26 @@ This is the desired behavior when you integrate a feature branch to the main lin
 
 #### Rebasing
 
-Other times historical correctness is less important than simlicity. A straight line of history is a lot easier to understand than a web of branches and merges. Those cases I favor rebase over merging.
+Other times historical correctness is less important than simplicity. A straight line of history is a lot easier to understand than a web of branches and merges. Those cases I favor rebase over merging.
 
-Rebasing takes a commit line, cut it at the moment of branch creation, and places on top of another branch. That way the history will be a straight line, and the fact that the code was originally written on a branch is discarded.
+Rebasing takes a commit line, cuts it at the moment of branch creation, and places on top of another branch. That way the history will be a straight line, and the fact that the code was originally written on a branch is discarded.
 
 TODO picture rebase
 
 I often rebase when I am working alone on my branches, and historical correctness would not help anyone. Straight line histories do on the other hand.
 
-There are edge cases when rebasing is a pain to use. Since rebase puts a branch on top another branch commit by commit, you may have to resolve commits in every one of those commits. Sometimes you even have to resolve conflicts that happened ealier in your branch's life, and they are not there in the latest version. In those cases I just use git merge, and resolve the conflicts that exist in my final version of code.
+There are edge cases when rebasing is a pain to use. Since rebase puts a branch on top of another branch commit by commit, you may have to resolve commits in every one of those commits. Sometimes you even have to resolve conflicts that happened earlier in your branch's life, and they are not there in the latest version. In those cases I just use git merge, and resolve the conflicts that exist in my final version of code.
 
 #### Cherry picking
 When I only want to integrate a single commit with another branch, sometimes I just take that one commit and place it on top of the target branch.
 
-`git cherry-pick <hash>` is a quick way to intagrate a sigle commit, or two.
+`git cherry-pick <hash>` is a quick way to integrate a single commit, or two.
 
 #### Squashing
 
-When you experiment a lot, sometimes it is benefitial to keep the history clean of your experiments. Those cases you can squash your commits into a single commit.
+When you experiment a lot, sometimes it is beneficial to keep the history clean of your experiments. Those cases you can squash your commits into a single commit.
 
-`git rebase -i HEAD~10` squashes your last ten commits into one. Since this process is `-i` interactive, mastering it can be difficult but worths to practice.
+`git rebase -i HEAD~10` squashes your last ten commits into one. Since this process is `-i` interactive, mastering it can be difficult but worths practicing.
 
 While practicing, sometimes you just want to give up and start over. Getting back to safety is a very important skill in git.
 
@@ -228,12 +228,12 @@ hint: To abort and get back to the state before "git rebase",
 
 ### Let's start over
 
-When you want to get back to a safe space with git, you need to know if you have changes that are in risk.
+When you want to get back to a safe space with git, you need to know if you have changes that are at risk.
 
 If you don't, you can just `git reset` yourself out of the situation
 `git reset --hard HEAD` or `git reset --hard main` will get you to well known points.
 
-If you have uncomitted changes, and you care about them, commit them first.
+If you have uncommitted changes, and you care about them, commit them first.
 
 If you have everything committed, but you are doing operations you are not sure about, best to make a backup pointer to your current state. `git branch backup` will create a restore point. Should you mess up something, you can git reset your current branch to the backup spot by `git reset --hard backup`.
 
@@ -243,17 +243,17 @@ This blog post worked with several assumptions. These are fairly known, but let 
 
 #### Integrate often
 
-No amount of git knowledge will save you from merge conflicts if they are building up for weeks across several branches. Best to integrate frequently and solve merge conflicts in small, managable units.
+No amount of git knowledge will save you from merge conflicts if they are building up for weeks across several branches. Best to integrate frequently and solve merge conflicts in small, manageable units.
 
 #### Don't branch from branches
 
-If your team frequently create branches from branches, it will be very complex task to integrate often.
+If your team frequently creates branches from branches, it will be a very complex task to integrate often.
 
 Branching from branches also make git history complicated, making it difficult for you to orient yourself in `git lola`
 
 #### Don't use git flow and friends
 
-Branching strategies that build on long running branches go against best practices, causing unnecessairy complexity for you to handle with git.
+Branching strategies that build on long running branches go against best practices, causing unnecessary complexity for you to handle with git.
 
 ## Onwards
 
