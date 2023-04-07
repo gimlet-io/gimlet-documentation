@@ -55,30 +55,69 @@ Changes not staged for commit:
 	modified:   src/pages/blog/git-the-ironclad-system.md
 ```
 
-In this more complex situation I tried to rebase my branch on main, but there were conflicts. Git is giving me very specific instructions on how I can continue the rebase.
+In this more complex situation I tried to rebase my branch on main, but there were conflicts. Git is giving me very specific instructions on how I can 
+- resolve the conflict and continue the rebase
+- or abort the change.
 
 ```bash
-TODO example with rebase conflict
+Auto-merging src/pages/blog/git-the-ironclad-system.md
+CONFLICT (content): Merge conflict in src/pages/blog/git-the-ironclad-system.md
+error: could not apply 7aab195... conflict
+hint: Resolve all conflicts manually, mark them as resolved with
+hint: "git add/rm <conflicted_files>", then run "git rebase --continue".
+hint: You can instead skip this commit: run "git rebase --skip".
+hint: To abort and get back to the state before "git rebase", run "git rebase --abort".
+Could not apply 7aab195... conflict
 ```
 
 ### Git history is a tree with pointers
+
+Knowing the basics of git's data model will help you in your everyday git operations.
 
 Git history is a tree. Its root is a single commit and all commits descend from it. Each commit knows its parent, and what diff it introduces to it.
 
 When you branch out, you just create a new commit that has the same parent as an other commit on an other tree branch.
 
-Yes, branches. Branches are just named pointers. So as tags. So as main. They don't exist.
+Branches. Branches are just named pointers. So as tags. So as main. They don't exist.
 
-The only two properties branches have are their name, and the commit they point to. That is the branch's head, but if you think about it, branches don't identify any code tree. They identify a a single commit, and that commit is on a tree. The identified commit knows its parent, the parent then knows its parent.. until we reach the first commit that has no parent. That's it, this is git's data model.
+The only two properties branches have are their name, and the commit they point to. That is the branch HEAD, but if you think about it, branches don't identify any code tree. They identify a single commit, and that commit is on a tree branch. The identified commit knows its parent, the parent then knows its parent.. until we reach the first commit that has no parent. That's it, this is git's data model.
 
-Now there is one limitation of using git in the command line. The default `git log` experience simply not good enough. You don'y get an overview and many people resort to git GUIs to get that overview.
+Now git has a great limitation in the command line. The default `git log` experience does not give you a good overview to reason about the code tree, so many people resort to git GUIs.
 
 But `git log` is powerful, you only need abnioxious amount of switches to make it useful. Here is my favorite:
-`TODO git log --oneline pretty..`
 
-I just use an alias for it in my `.gitconfig` and that is `git lola`. Why lola? Not sure, I borrowed it from a colleagues gitconfig 12 years ago. Thanks Peter!
+```
+git log --graph --oneline --all
+```
 
-git lola is my second most used command after git status.
+![CICD and Flux](/branches.png)
+
+I created an alias for it in my `~/.gitconfig` and named it `git lola`. Why lola? Not sure, I borrowed it from a colleague 12 years ago. Thanks Peter!
+
+```
+[color]
+    branch = always
+    diff = always
+    grep = always
+    interactive = always
+    pager = true
+    showbranch = always
+    status = always
+    ui = always
+[push]
+    default = tracking
+[log]
+    decorate = short
+[pretty]
+    default = %C(yellow)%h%Creset -%C(auto)%d%Creset %s %Cgreen(%cr) %C(bold blue)%an%Creset
+    parents = %C(yellow)%h%Creset - %C(red)%p%C(reset) -%C(auto)%d%Creset %s %Cgreen(%cr) %C(bold blue)%an%Creset
+[alias]
+    st = status
+    lola = log --graph --oneline --all
+    fp = fetch --prune
+```
+
+Git lola is my second most used command after git status.
 
 ### Remote state
 
