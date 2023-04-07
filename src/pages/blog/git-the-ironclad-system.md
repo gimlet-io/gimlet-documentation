@@ -40,7 +40,7 @@ When you perform a git command, often you don't end up where you intended to, th
 
 ### Git is trying to help
 
-I run `git status` before and after every command. Partly because my command may not do what I intended it to, and second, git is trying to help me. I know it feels just the opposite sometimes, but if you read the output of git status carefully, you will find possible commands that you should run next.
+I run `git status` before and after every command. Partly because my command may not do what I intended it to, and second, git is trying to help me. I know it feels just the opposite sometimes, but if you read the output of git status carefully, you will find possible commands that you could run next.
 
 Like in this example with changes in my working copy. It tells how I can stage files to be committed, but also how to undo changes.
 
@@ -84,7 +84,7 @@ The only two properties branches have are their name, and the commit they point 
 
 Now git has a great limitation in the command line. The default `git log` experience does not give you a good overview to reason about the code tree, so many people resort to git GUIs.
 
-But `git log` is powerful, you only need obnioxious amount of switches to make it useful. Here is my favorite:
+But `git log` is powerful, you only need an obnioxious amount of switches to make it useful. Here is my favorite:
 
 ```
 git log --graph --oneline --all
@@ -170,7 +170,7 @@ Staging is the process when you mark files to be included in the next commit.
 `git status` is your biggest ally in this process, and as a reminder it also hints how you can add or remove files from the staging area. Besides git status, I run `git diff` a lot in this process.
 
 - If I want to unstage a file, I use `git checkout path/to/file`
-- or if I want to unstage all files and start over the staging process, I run `git reset HEAD`. This time without the `--hard` as it throws away all changes, while running reset without hard, is just resetting the staging area.
+- or if I want to unstage all files and start over the staging process, I run `git reset HEAD`. This time without the `--hard` as it throws away all changes, while running reset without hard only resets the git staging area.
 
 ### Integrating
 
@@ -180,7 +180,7 @@ There are two ways to bring code from one branch to another: merging and rebasin
 
 #### Merging
 
-Merge is the straightforward way. You have two lines of code, and they become one in the form of a merge commit. 
+Merge is the straightforward way. You have two code tree lines, and they become one in the form of a merge commit. 
 
 TODO picture merge commit.
 
@@ -188,7 +188,7 @@ This is the desired behavior when you integrate a feature branch to the main lin
 
 #### Rebasing
 
-Other times historical correctness is less important than simplicity. A straight line of history is a lot easier to understand than a web of branches and merges. Those cases I favor rebase over merging.
+Other times history is less important than simplicity. A straight line of history is a lot easier to understand than a web of branches and merges. Those cases I favor rebase over merging.
 
 Rebasing takes a commit line, cuts it at the moment of branch creation, and places on top of another branch. That way the history will be a straight line, and the fact that the code was originally written on a branch is discarded.
 
@@ -196,12 +196,12 @@ TODO picture rebase
 
 I often rebase when I am working alone on my branches, and historical correctness would not help anyone. Straight line histories do on the other hand.
 
-There are edge cases when rebasing is a pain to use. Since rebase puts a branch on top of another branch commit by commit, you may have to resolve commits in every one of those commits. Sometimes you even have to resolve conflicts that happened earlier in your branch's life, and they are not there in the latest version. In those cases I just use git merge, and resolve the conflicts that exist in my final version of code.
+There are edge cases when rebasing is a pain to use. Since rebase puts a branch on top of another branch commit by commit, you may have to resolve conflicts in every one of those commits. Sometimes you even have to resolve conflicts that happened earlier in your branch's life, and they are not there in the latest version. In those cases I just use git merge, and resolve the conflicts that exist in my final version of code.
 
 #### Cherry picking
 When I only want to integrate a single commit with another branch, sometimes I just take that one commit and place it on top of the target branch.
 
-`git cherry-pick <hash>` is a quick way to integrate a single commit, or two.
+`git cherry-pick <hash>` is a quick way to integrate a single commit.
 
 #### Squashing
 
@@ -235,7 +235,7 @@ If you don't, you can just `git reset` yourself out of the situation
 
 If you have uncommitted changes, and you care about them, commit them first.
 
-If you have everything committed, but you are doing operations you are not sure about, best to make a backup pointer to your current state. `git branch backup` will create a restore point. Should you mess up something, you can git reset your current branch to the backup spot by `git reset --hard backup`.
+If you have everything committed, but you are doing branching operations you are not sure about, best to make a backup pointer to your current HEAD. `git branch backup` will create a restore point. Should you mess up something, you can git reset your current branch to the backup spot by `git reset --hard backup`.
 
 ##  Assumptions
 
@@ -257,5 +257,6 @@ Branching strategies that build on long running branches go against best practic
 
 ## Onwards
 
-This was a long one, if you pick up a few things from it, I will be more than happy.
+This was a long one, if you picked up a few things from it, I will be more than happy.
+
 Do you have a system? What does work for you?
