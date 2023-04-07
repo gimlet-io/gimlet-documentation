@@ -14,9 +14,9 @@ Now there are technologies even after fifteen years in this business which I goo
 
 Not because I know git inside out, but because I have a closed system where a minimum amount of knowledge keeps me safe. And if I wander from my safe space, I know how to get back.
 
-I've been sharing my approach in the teams I worked in, and now putting it into a blog post. If you pick up a few things from it, I will be more than happy. It is not a git 101, but a general approach to working with git with many examples.
+I've been sharing my approach in the teams I worked in, and now putting it into a blog post. If you pick up a few things from it, I will be more than happy. It is not a git 101, but a general approach. With many examples.
 
-But first things, first it needs a fancy name: The Ironclad System 🤡. It is fitting: it is compact, it is closed, it is unpenetratable.
+But first things, it needs a fancy name: The Ironclad System 🤡. It is fitting: it is compact, it is closed, it is unpenetratable.
 
 Let's get into it. Shell we?
 
@@ -34,13 +34,13 @@ These are the questions I perculate in my head before every git operation I do. 
 
 ## Where am I?
 
-Before every git command you perform, you need to orient yourself first. If you don't know where you are, how can you expect to get where you want to. This is especially true with git.
+Before every git command, I need to orient myself. If I don't know where I am, I can't expect to get where I want to. This is especially true with git.
 
-When you perform a git command often you don't end up where you intended to, therefore before every action I take, I run `git status`. It is my single most used command with git.
+When you perform a git command, often you don't end up where you intended to, therefore run `git status` before every action. It is my single most used command with git.
 
 ### Git is trying to help
 
-I run `git status` before and after every command I run. Partly because my command may not do what I intended it to, and second, git is trying to help me. I know it feels just the opposite sometimes, but if you read carefully the output of git status, you will find possible commands that you should run next.
+I run `git status` before and after every command. Partly because my command may not do what I intended it to, and second, git is trying to help me. I know it feels just the opposite sometimes, but if you read the output of git status carefully, you will find possible commands that you should run next.
 
 Like in this example with changes in my working copy. It tells how I can stage files to be comitted, but also how to undo changes.
 
@@ -63,9 +63,13 @@ TODO example with rebase conflict
 
 ### Git history is a tree with pointers
 
-Git is an upside-down tree. Its root is a single commit and all commits descend from it.
+Git history is a tree. Its root is a single commit and all commits descend from it. Each commit knows its parent, and what diff it introduces to it.
 
-You can also think of commits as members of linked lists. Each commit knows who is its parent, and what diff it introduces compared to it. If you think about it this way, when you branch out, you just create a new commit that has a same parent that a commit that is on another tree branch. Yes, branches. Branches are just named pointers. So as tags. So as main. They don't exist. The only two properties they have are their name, and the commit has they point to. That is the branch's head, but if you think about it, branches don't identify any code tree. They identify a a single commit, and that commit is on a tree. The identified commti knows its parent, the parent then knows its parent.. and soo on until we reach the first commit that has no parent. That's it, this is git's data model.
+When you branch out, you just create a new commit that has the same parent as an other commit on an other tree branch.
+
+Yes, branches. Branches are just named pointers. So as tags. So as main. They don't exist.
+
+The only two properties branches have are their name, and the commit they point to. That is the branch's head, but if you think about it, branches don't identify any code tree. They identify a a single commit, and that commit is on a tree. The identified commit knows its parent, the parent then knows its parent.. until we reach the first commit that has no parent. That's it, this is git's data model.
 
 Now there is one limitation of using git in the command line. The default `git log` experience simply not good enough. You don'y get an overview and many people resort to git GUIs to get that overview.
 
@@ -78,7 +82,13 @@ git lola is my second most used command after git status.
 
 ### Remote state
 
-Git users often use `git pull` to get the latest version. It is much less errorprone if you to not use git pull for that, but first do a `git fetch` then decide on the strategy to move your working copy version to the latest version.
+Git users often use `git pull` to get the latest version. But git pull does two things:
+- it fetches the remote state
+- then tries to bring your working copy up tp date with the latest remote state.
+
+It is much less errorprone if instead of using git pull, you run `git fetch` first,then decide on the strategy to move your working copy version to the latest version. 
+
+`git fetch` fits better the ironclad system as it answers the *where am I question* and just that. Git pull on the other hand does not give you a good answer to that question. It tries to modify your working copy, before you can judge what to do based on the fetched remote state.
 
 `git fetch`
 `git lola`
