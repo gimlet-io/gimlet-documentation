@@ -14,7 +14,7 @@ Now there are technologies even after fifteen years in this business which I goo
 
 Not because I know git inside out, but because I have a closed system where a minimum amount of knowledge keeps me safe. And if I wander from my safe space, I know how to get back.
 
-I've been sharing my approach in the teams I worked in, and now putting it into a blog post. If you pick up a few things from it, I will be more than happy. It is not a git 101, but a general approach. With practical, lesser known examples.
+I've been sharing my approach in the teams I worked in, and now putting it into a blog post. If you pick up a few things from it, I will be more than happy. It is not a git 101, but a general approach to organize your existing knowledge. With practical examples.
 
 But first things first, it needs a fancy name: The Ironclad System 🤡. It is fitting: it is compact, it is closed, it is impenetrable.
 
@@ -153,7 +153,7 @@ You certainly know how to change branches and move around in git. I just want to
 It is `git reset --hard`
 
 - It throws away all working copy changes
-- And resets a branch pointer to another hash
+- And sets a branch pointer to another hash
 
 If you are on a branch and you want that branch to have the exact same state as another, you run `git reset --hard <another branch>`.
 
@@ -170,9 +170,9 @@ Staging is the process when you mark files to be included in the next commit.
 `git status` is your biggest ally in this process, and as a reminder it also hints how you can add or remove files from the staging area. Besides git status, I run `git diff` a lot in this process.
 
 - If I want to unstage a file, I use `git checkout path/to/file`
-- or if I want to unstage all files and start over the staging process, I run `git reset HEAD`. This time without the `--hard` as it throws away all changes, while running reset without hard only resets the git staging area.
+- or if I want to unstage all files and start over the staging process, I run `git reset HEAD`. This time without the `--hard` flag as that would throw away all changes, while running reset without hard only resets the git staging area and it keeps my changes.
 
-### Integrating
+### Integration
 
 Integration is the process when you bring changes from a branch to the main code line.
 
@@ -200,7 +200,7 @@ After rebase, the feature branch cut and moved on top of main:
 
 I often rebase when I am working alone on my branches, and historical correctness would not help anyone. Straight line histories do on the other hand.
 
-There are edge cases when rebasing is a pain to use. Since rebase puts a branch on top of another branch commit by commit, you may have to resolve conflicts in every one of those commits. Sometimes you even have to resolve conflicts that happened earlier in your branch's life, and they are not there in the latest version. In those cases I just use git merge, and resolve the conflicts that exist in my final version of code.
+There are edge cases when rebasing is a pain to use. Since rebase puts a branch on top of another branch commit by commit, you may have to resolve conflicts in every one of those commits. Sometimes you even have to resolve conflicts that happened earlier in your branch's life and are not part of the latest version. In those cases I just use git merge, and resolve the conflicts that exist in my final version of code.
 
 #### Cherry picking
 When I only want to integrate a single commit with another branch, sometimes I just take that one commit and place it on top of the target branch.
@@ -221,7 +221,7 @@ Things go wrong with git. Routinely. If your `git status` is not what you thougt
 
 ### Git is trying to help
 
-Remember git is trying to help. The output of `git status` often contains possible next commands you can run. They are sometimes enough to get you out of trouble.
+Remember, git is trying to help. The output of `git status` often contains possible next commands you can run. They are sometimes enough to get you out of trouble.
 
 Even in the most complex rebase operations, git status suggests an option how to start over:
 
@@ -232,7 +232,7 @@ hint: To abort and get back to the state before "git rebase",
 
 ### Let's start over
 
-When you want to get back to a safe space with git, you need to know if you have changes that are at risk.
+When you want to get back to a safe state with git, you need to know if you have changes that are at risk.
 
 If you don't, you can just `git reset` yourself out of the situation
 `git reset --hard HEAD` or `git reset --hard main` will get you to well known points.
@@ -262,5 +262,7 @@ Branching strategies that build on long running branches go against best practic
 ## Onwards
 
 This was a long one, if you picked up a few things from it, I will be more than happy.
+
+Many people knows many git commands, but I find that sometimes they use it without a general concept. Hope answering the systems three questions help to be more mindful about your git approach.
 
 Do you have a system? What does work for you?
