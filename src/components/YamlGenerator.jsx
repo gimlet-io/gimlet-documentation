@@ -42,8 +42,8 @@ helm template my-release onechart/onechart -f values.yaml
       <div className="mx-auto p-2 sm:p-4 lg:p-6">
         <h1 className="text-gray-900 dark:text-slate-50 text-2xl font-semibold text-center mb-8">Kubernetes YAML Generator</h1>
         <div className="sm:align-center sm:flex sm:flex-col space-y-2">
-          <div className="space-y-4 sm:grid sm:grid-cols-2 sm:gap-2 sm:space-y-0 xl:grid-cols-2">
-            <div className="dark:bg-white border-2 p-4 rounded-md">
+          <div className="space-y-4 sm:grid sm:grid-cols-2 sm:gap-2 sm:space-y-0 xl:grid-cols-8">
+            <div className="dark:bg-white border-2 p-4 rounded-md col-span-5">
               <HelmUI
                 schema={schema}
                 config={helmUIJson}
@@ -54,7 +54,7 @@ helm template my-release onechart/onechart -f values.yaml
                 validationCallback={validationCallback}
               />
             </div>
-            <div className="p-2 rounded-md bg-diff-viewer-dark">
+            <div className="p-2 rounded-md bg-diff-viewer-dark col-span-3">
               <svg onClick={() => copyToClipboard(kubernetesYaml)} xmlns="http://www.w3.org/2000/svg" className="cursor-pointer float-left h-6 w-6 text-gray-100" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                 <path strokeLinecap="round" strokeLinejoin="round" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" />
               </svg>
