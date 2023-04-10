@@ -11,7 +11,7 @@ description: "There is a meme here somewhere. But as kubernetes is becoming *the
 
 There is a meme here somewhere.
 
-But as kubernetes is becoming *the* deployment platform, there are legitimate cases to deploy your static site on it. We show you how to.
+But as kubernetes is becoming *the* deployment platform, there are legitimate cases to deploy your static site on it. We show you a simplified way to do it.
 
 But first, let's review your options outside of kubernetes.
 
@@ -60,22 +60,35 @@ Another popular solution to deploy static sites is to use cloud buckets. You upl
 
 ![Noooooo](/noooooo.jpeg)
 
+## Reasons to deploy static sites to kubernetes
+
+Kubernetes is the standard at your company
+Compliance, network / access options 
+
+ssl is there
+CDN is probably not, but your main usecases are docs, and random things. Not webshops
+
 ## Deploying to Kubernetes from scratch
 
-on k8s
+Vanilla kubernetes requires a lot of work to deploy a static site.
+
 - CI script to build
 - dockerfile
 - yaml
 - given you have a platform
 - cdn
 
-our approach:
-build command
-git url
 
+
+## Using the `onechart/static-site` Helm chart to deploy static sites
 
 {% tweet link="https://twitter.com/memenetes/status/1516084604666581003" %}
 {% /tweet %}
 
-## Using the `onechart/static-site` Helm chart to deploy static sites
+our approach:
+build command
+git url
 
+## If you need configuration options
+
+## Conclusion
