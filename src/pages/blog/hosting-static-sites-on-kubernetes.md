@@ -77,7 +77,7 @@ For them, deploying this static site on kubernetes was significantly simpler the
 
 Should they needed to start from scratch, kubernetes wouldn't have been the best choice.
 
-## Deploying to Kubernetes from scratch
+## Deploying on kubernetes from scratch
 
 Deploying a static site from scratch is a daunting task.
 
