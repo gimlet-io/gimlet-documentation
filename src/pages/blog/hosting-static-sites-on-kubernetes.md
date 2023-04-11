@@ -125,7 +125,7 @@ buildScript: |
     ./hugo
 EOF
 
-helm template my-static-site onechart/static-site -f values.yaml > manifest.yaml
+helm template my-hugo-site onechart/static-site -f values.yaml > manifest.yaml
 kubectl apply -f manifest.yaml
 
 kubectl port-forward svc/my-hugo-site 8000:80
@@ -135,9 +135,11 @@ kubectl port-forward svc/my-hugo-site 8000:80
 The majority of the code in the above example was setting up Hugo itself. With a react based site, the values.yaml can be as small as:
 
 ```yaml
-gitCloneUrl: https://github.com/my/react-site.git
+gitCloneUrl: https://github.com/gimlet-io/react-tutorial-solutions.git
 buildImage: node
-buildScript: npm run build
+buildTag: 16.20-buster
+buildScript: npm install && npm run build
+builtAssets: build/
 ```
 
 Or if you just want to test drive the solution, just run `helm template my-static-site onechart/static-site` to get an example Hugo site up and running, as every chart we make has demonstrative defaults.
@@ -205,15 +207,17 @@ kubectl port-forward svc/my-hugo-site 8000:80
 
 Blaming Kubernetes for complexity is a good source of memes. We do amuse ourselves with [such memes](https://twitter.com/memenetes) but it is fair to say that there are cases when deploying static sites on Kubernetes is the best option.
 
-And thanks to `onechart/static-site` the configuration need is not much worse than Netlify:
+And thanks to `onechart/static-site` the configuration need is not much worse than with Netlify:
 
 ```bash
 helm repo add onechart https://chart.onechart.dev
 
 cat << EOF > values.yaml
-gitCloneUrl: https://github.com/my/react-site.git
+gitCloneUrl: https://github.com/gimlet-io/react-tutorial-solutions.git
 buildImage: node
-buildScript: npm run build
+buildTag: 16.20-buster
+buildScript: npm install && npm run build
+builtAssets: build/
 EOF
 
 helm template my-static-site onechart/static-site -f values.yaml > manifest.yaml
