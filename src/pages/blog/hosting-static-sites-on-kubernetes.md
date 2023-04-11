@@ -46,7 +46,7 @@ Github Pages has a well integrated workflow to source code management with simpl
 
 ### Amazon S3, cloud buckets
 
-Another popular solution to deploy static sites is to use cloud buckets. You upload the built assets to a bucket, enable website hosting on the bucket, then further configure the bucket to enable SSL encryption.
+Another popular solution to deploy static sites is to use cloud buckets. You upload the built assets to a bucket, enable website hosting setting, then further configure the bucket to enable SSL encryption.
 
 #### Pros
 - Highly scalable
@@ -62,20 +62,20 @@ Another popular solution to deploy static sites is to use cloud buckets. You upl
 
 ## Reasons to deploy static sites on kubernetes
 
-While even our website is hosted on Netlify and our Helm charts are hosted on Github Pages, we see usecases where it does make sense to deploy on kubernetes.
+While our website is hosted on Netlify and our Helm charts are hosted on Github Pages, we see usecases where it does make sense to deploy on kubernetes.
 
 When you have a kubernetes based platform with standardized deployment tooling, with an ingress setup with automated SSL certificates, it starts to make more an more sense to just use that. You would still have to containerize your static site, and have a CI pipeline to build and deploy it.
 
-If your kubernetes based platform also caters to your custom networking needs, deploying your static site there could become your best option. Your compliance setup will sure prefer using something that you already have, over onboarding another tool to your compliance framework.
+If your kubernetes based platform also caters to your custom networking needs, deploying your static site there could become your best option. Your compliance setup surely prefers using something that you already have, over onboarding another tool to your compliance framework.
 
 In a recent case, we helped a client deploying a documentation site, who
-- has a kubernetes based developer platform
-- with ingress and automatic DNS and SSL setup
+- has a kubernetes based developer platform,
+- with ingress and automatic DNS and SSL setup,
 - with an OAuth proxy that verifies Google email / Github org membership.
 
 For them, deploying this static site on kubernetes was significantly simpler then any of the other options as they knew their platform already, and parts of the documentation was meant to be internally accessible only.
 
-Should they needed to start from scratch, this is what they would have to deal with.
+Should they needed to start from scratch, kubernetes wouldn't have been the best choice.
 
 ## Deploying to Kubernetes from scratch
 
@@ -89,7 +89,7 @@ Deploying a static site from scratch is a daunting task.
 - write deployment manifests,
 - have a CI script to build and deploy.
 
-This is not something we wish on anybody. So we made a Helm chart to ease parts of this setup.
+This is not something we wish to anybody. So we made a Helm chart to ease parts of this setup.
 
 {% tweet link="https://twitter.com/memenetes/status/1516084604666581003" %}
 {% /tweet %}
@@ -132,7 +132,7 @@ kubectl port-forward svc/my-hugo-site 8000:80
 
 ```
 
-And the majority of the code here is setting up Hugo itself. With a react based site, the values.yaml can be as small as:
+The majority of the code in the above example was setting up Hugo itself. With a react based site, the values.yaml can be as small as:
 
 ```yaml
 gitCloneUrl: https://github.com/my/react-site.git
@@ -140,7 +140,7 @@ buildImage: node
 buildScript: npm run build
 ```
 
-or if you just want to test drive the solution, every chart we make has sensible defaults. Just run `helm template my-static-site onechart/static-site` to get an example Hugo site up and running.
+Or if you just want to test drive the solution, just run `helm template my-static-site onechart/static-site` to get an example Hugo site up and running, as every chart we make has demonstrative defaults.
 
 ## If you need configuration options
 
