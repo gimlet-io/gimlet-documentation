@@ -220,10 +220,10 @@ buildScript: npm install && npm run build
 builtAssets: build/
 EOF
 
-helm template my-static-site onechart/static-site -f values.yaml > manifest.yaml
+helm template my-react-site onechart/static-site -f values.yaml > manifest.yaml
 kubectl apply -f manifest.yaml
 
-kubectl port-forward svc/my-hugo-site 8000:80
+kubectl port-forward svc/my-react-site 8000:80
 ```
 
 Onwards!
