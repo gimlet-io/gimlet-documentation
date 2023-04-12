@@ -107,6 +107,11 @@ To ease this process we made a Helm chart so you can provide as little informati
 - your git url
 - and build command.
 
+Using the `onechart/static-site` Helm chart:
+- you don't have to containerize your static site, the manifests include an Nginx container that hosts your site
+- you don't have to write deployment manifests,
+- you don't have to write a CI script to build your site, you only need to add the generated manifest to your deployment process.
+
 The following example generates the kubernetes manifests to build a Hugo site in an init-container and host it in an Nginx container:
 
 ```yaml
