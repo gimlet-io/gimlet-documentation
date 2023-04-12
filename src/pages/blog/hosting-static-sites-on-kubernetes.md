@@ -3,7 +3,7 @@ layout: post
 title: Hosting static sites on kubernetes
 date: "2023-04-08"
 image_social: agyuvalverebre.jpg
-description: "There is a meme here somewhere. But as kubernetes is becoming *the* deployment platform, there are legitimate cases to deploy your static site on it. We show you how to."
+description: "There is a meme here somewhere. But as kubernetes is becoming *the* deployment platform, there are legitimate cases to deploy your static site on it. We will show you how to."
 ---
 
 {% tweet link="https://twitter.com/memenetes/status/1587127455495618563" %}
@@ -34,7 +34,7 @@ Netlify is a vertically integrated solution. You provide your source code from g
 - Since it is easy to get started with, Netlify often becomes part of shadow IT, operating outside of your compliance processes.
 
 ### Github Pages
-Github Pages has a well integrated workflow to source code management with simplified configuration paths. You build assets with CI, then place them accoring to the conventions. CDN and SSL is automatically configured.
+Github Pages has a well integrated workflow to source code management with simplified configuration paths. You build assets with CI, then place them according to the conventions. CDN and SSL are automatically configured.
 
 #### Pros
 - Integrated into source code management.
@@ -56,7 +56,7 @@ Another popular solution to deploy static sites is to use cloud buckets. You upl
 - Considered as a go to option, but it does require scripting and configuration work
 - Access configuration is somewhat cryptic
 - SSL options often not as streamlined as with Let's Encrypt
-- CDN often configured separatelly
+- CDN often configured separately
 
 ![Noooooo](/noooooo.jpeg)
 
@@ -64,7 +64,7 @@ Another popular solution to deploy static sites is to use cloud buckets. You upl
 
 While our website is hosted on Netlify and our Helm charts are hosted on Github Pages, we see usecases where it does make sense to deploy on kubernetes.
 
-When you have a kubernetes based platform with standardized deployment tooling, with an ingress setup with automated SSL certificates, it starts to make more an more sense to just use that. You would still have to containerize your static site, and have a CI pipeline to build and deploy it.
+When you have a kubernetes based platform with standardized deployment tooling, with an ingress setup with automated SSL certificates, it starts to make more and more sense to just use that. You would still have to containerize your static site, and have a CI pipeline to build and deploy it.
 
 If your kubernetes based platform also caters to your custom networking needs, deploying your static site there could become your best option. Your compliance setup surely prefers using something that you already have, over onboarding another tool to your compliance framework.
 
@@ -75,7 +75,7 @@ In a recent case, we helped a client deploying a documentation site, who
 
 For them, deploying this static site on kubernetes was significantly simpler then any of the other options as they knew their platform already, and parts of the documentation was meant to be internally accessible only.
 
-Should they needed to start from scratch, kubernetes wouldn't have been the best choice.
+Should they need to start from scratch, kubernetes wouldn't have been the best choice.
 
 ## Deploying on kubernetes from scratch
 
@@ -89,7 +89,7 @@ Deploying a static site from scratch is a daunting task.
 - write deployment manifests,
 - have a CI script to build and deploy.
 
-This is not something we wish to anybody. So we made a Helm chart to ease parts of this setup.
+This is not something we wish for anybody. So we made a Helm chart to ease parts of this setup.
 
 {% tweet link="https://twitter.com/memenetes/status/1516084604666581003" %}
 {% /tweet %}
@@ -105,7 +105,7 @@ Given you have a kubernetes platform already, to deploy a static site to kuberne
 To ease this process we made a Helm chart so you can provide as little information as if you were using Netlify:
 
 - your git url
-- and build command.
+- and build commands.
 
 Using the `onechart/static-site` Helm chart:
 - you don't have to containerize your static site, the manifests include an Nginx container that hosts your site
@@ -155,7 +155,7 @@ Or if you just want to test drive the solution, just run `helm template my-stati
 
 If you are more into kubernetes manifests, you can use `onechart/onechart` to host static sites. By doing so, you get access to the init-container, volumes, and every aspect of the deployment.
 
-The example bellow uses Hugo.
+The example below uses Hugo.
 - Uses an init container to setup Hugo, clone the source from git and build the site
 - The built site is then copied to a shared volume
 - Nginx serves the built site from the volume
