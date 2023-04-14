@@ -101,7 +101,7 @@ helm template my-release onechart/onechart -f values.yaml
                 }} />
             </div>
             <p className='pt-8 text-base text-blue-500'>Are you new to Helm? Check out <a href="/concepts/the-sane-helm-guide" className="underline">our SANE guide</a>.</p>
-            <p className='text-base text-blue-500'>Curious about the onechart/onechart's configuration options? See <a href="/concepts/the-sane-helm-guide" className="underline">the reference</a>.</p>
+            <p className='text-base text-blue-500'>Curious about the onechart/onechart&apos;s configuration options? See <a href="/concepts/the-sane-helm-guide" className="underline">the reference</a>.</p>
           </div>
         </div>
       </div>
