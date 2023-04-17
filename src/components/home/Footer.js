@@ -49,17 +49,18 @@ export function Footer() {
                   <ul className="mt-3 space-y-2">
                     {items.map((item) => (
                       <li key={item.href}>
-                        <div className="flex items-center">
-                          {item.logo &&
-                            <div className="mr-1">
-                              {item.logo}
-                            </div>}
-                          <Link href={item.href}>
-                            <a className="hover:text-slate-900 dark:hover:text-slate-300">
+                        <Link href={item.href}>
+                          <a className="flex items-center hover:text-slate-900 dark:hover:text-slate-300">
+                            {item.logo && (
+                              <div className="mr-1 cursor-pointer">
+                                {item.logo}
+                              </div>
+                            )}
+                            <div>
                               {item.title}
-                            </a>
-                          </Link>
-                        </div>
+                            </div>
+                          </a>
+                        </Link>
                       </li>
                     ))}
                   </ul>
