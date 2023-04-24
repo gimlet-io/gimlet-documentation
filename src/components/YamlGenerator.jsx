@@ -26,12 +26,34 @@ export function YamlGenerator() {
   }
 
   useEffect(() => {
+    const queryParams = new URLSearchParams(window.location.search);
+    const stateString = queryParams.get("values");
+
+    if (stateString) {
+      const decodedString = atob(stateString);
+      const parsedObject = JSON.parse(decodedString);
+      setValues(parsedObject);
+      setNonDefaultValues(parsedObject);
+    }
+  }, []);
+
+  useEffect(() => {
+    const nonDefaultValuesString = JSON.stringify(nonDefaultValues)
+    const base64ObjectState = btoa(nonDefaultValuesString)
+    const newUrl = window.location.origin + window.location.pathname + '?values=' + base64ObjectState;
+    if (nonDefaultValuesString !== "{}") {
+      window.history.pushState(null, '', newUrl);
+    }
+  }, [nonDefaultValues]);
+
+
+  useEffect(() => {
     postWithAxios("https://yaml-generator.gimlet.io", nonDefaultValues).then(data => {
       setKubernetesYaml(data)
     }).catch(err => {
       console.error(`Error: ${err}`);
     });
-  }, [nonDefaultValues]);
+  }, [nonDefaultValues, kubernetesYaml]);
 
   const diffBody = `cat << EOF > values.yaml
 ${YAML.stringify(nonDefaultValues)}
