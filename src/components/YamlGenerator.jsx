@@ -6,6 +6,7 @@ import YAML from "json-to-pretty-yaml";
 import * as schema from '@/components/values.schema.json'
 import { helmUIJson } from '@/components/helmUIJson'
 import axios from "axios";
+import CopyButton from './CopyButton';
 
 export function YamlGenerator() {
   const [values, setValues] = useState({})
@@ -62,9 +63,10 @@ helm template my-release onechart/onechart -f values.yaml
               />
             </div>
             <div className="p-2 rounded-md bg-diff-viewer-dark col-span-3">
-              <svg onClick={() => copyToClipboard(kubernetesYaml)} xmlns="http://www.w3.org/2000/svg" className="cursor-pointer float-left h-6 w-6 text-gray-100" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                <path strokeLinecap="round" strokeLinejoin="round" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" />
-              </svg>
+              <CopyButton
+                text={kubernetesYaml}
+                style="light"
+              />
               <ReactDiffViewer
                 oldValue={kubernetesYaml}
                 newValue={kubernetesYaml}
@@ -88,9 +90,10 @@ helm template my-release onechart/onechart -f values.yaml
             <p className="pt-4">A Helm chart that you can also use on your terminal.</p>
             <p className="pt-4">Try this:</p>
             <div className="mt-8 p-2 rounded-md border-2 bg-diff-viewer-light">
-              <svg onClick={() => copyToClipboard(diffBody)} xmlns="http://www.w3.org/2000/svg" className="cursor-pointer float-left h-6 w-6 text-gray-800" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                <path strokeLinecap="round" strokeLinejoin="round" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" />
-              </svg>
+              <CopyButton
+                text={diffBody}
+                style="dark"
+              />
               <ReactDiffViewer
                 oldValue={diffBody}
                 newValue={diffBody}
@@ -130,27 +133,4 @@ const postWithAxios = async (path, body) => {
     this.onError(error.response);
     throw error.response;
   }
-}
-
-function copyToClipboard(copyText) {
-  if (navigator.clipboard && window.isSecureContext) {
-    navigator.clipboard.writeText(copyText);
-  } else {
-    unsecuredCopyToClipboard(copyText);
-  }
-}
-
-function unsecuredCopyToClipboard(text) {
-  const textArea = document.createElement("textarea");
-  textArea.value = text;
-  textArea.style.position = "fixed";
-  textArea.style.opacity = "0";
-  document.body.appendChild(textArea);
-  textArea.select();
-  try {
-    document.execCommand('copy');
-  } catch (err) {
-    console.error('Unable to copy to clipboard', err);
-  }
-  document.body.removeChild(textArea);
 }
