@@ -1,12 +1,13 @@
 import { useState, useEffect } from 'react';
 import HelmUI from "helm-react-ui";
 import { ThemeSelector } from './ThemeSelector';
-import ReactDiffViewer from 'react-diff-viewer-continued';
 import YAML from "json-to-pretty-yaml";
 import * as schema from '@/components/values.schema.json'
 import { helmUIJson } from '@/components/helmUIJson'
 import axios from "axios";
 import CopyButton from './CopyButton';
+import Highlight, { defaultProps } from 'prism-react-renderer'
+import clsx from 'clsx'
 
 export function YamlGenerator() {
   const [values, setValues] = useState({})
@@ -62,26 +63,34 @@ helm template my-release onechart/onechart -f values.yaml
                 validationCallback={validationCallback}
               />
             </div>
-            <div className="p-2 rounded-md bg-diff-viewer-dark col-span-3">
+            <div className="p-2 rounded-md bg-highlight-dark col-span-3 flex flex-col">
               <CopyButton
                 text={kubernetesYaml}
                 style="light"
               />
-              <ReactDiffViewer
-                oldValue={kubernetesYaml}
-                newValue={kubernetesYaml}
-                splitView={false}
-                showDiffOnly={false}
-                hideLineNumbers={true}
-                useDarkTheme={true}
-                styles={{
-                  diffContainer: {
-                    backgroundColor: "#044B53",
-                    overflowX: "auto",
-                    display: "block",
-                    "& pre": { whiteSpace: "pre" }
-                  }
-                }} />
+              <Highlight
+                {...defaultProps}
+                code={kubernetesYaml}
+                language="bash"
+                theme={undefined}
+              >
+                {({
+                  className,
+                  style,
+                }) => (
+                  <pre
+                    className={clsx(
+                      className,
+                      'flex overflow-x-auto pb-6'
+                    )}
+                    style={style}
+                  >
+                    <code className="px-4">
+                      {kubernetesYaml}
+                    </code>
+                  </pre>
+                )}
+              </Highlight>
             </div>
           </div>
           <div className="container max-w-5xl mx-auto dark:text-slate-50 pt-16 font-medium text-xl">
@@ -89,25 +98,34 @@ helm template my-release onechart/onechart -f values.yaml
             <p className="pt-4">The YAML is generated with a Helm chart.</p>
             <p className="pt-4">A Helm chart that you can also use on your terminal.</p>
             <p className="pt-4">Try this:</p>
-            <div className="mt-8 p-2 rounded-md border-2 bg-diff-viewer-light">
+            <div className="mt-8 p-2 rounded-md border-2 bg-highlight-light flex flex-col">
               <CopyButton
                 text={diffBody}
                 style="dark"
               />
-              <ReactDiffViewer
-                oldValue={diffBody}
-                newValue={diffBody}
-                splitView={false}
-                showDiffOnly={false}
-                hideLineNumbers={true}
-                styles={{
-                  diffContainer: {
-                    backgroundColor: "#fafbfc",
-                    overflowX: "auto",
-                    display: "block",
-                    "& pre": { whiteSpace: "pre" }
-                  }
-                }} />
+              <Highlight
+                {...defaultProps}
+                code={diffBody}
+                language="bash"
+                theme={undefined}
+              >
+                {({
+                  className,
+                  style,
+                }) => (
+                  <pre
+                    className={clsx(
+                      className,
+                      'flex overflow-x-auto pb-6'
+                    )}
+                    style={style}
+                  >
+                    <code className="px-4 text-gray-800">
+                      {diffBody}
+                    </code>
+                  </pre>
+                )}
+              </Highlight>
             </div>
             <p className='pt-8 text-base text-blue-500'>Are you new to Helm? Check out <a href="/concepts/the-sane-helm-guide" className="underline">our SANE guide</a>.</p>
             <p className='text-base text-blue-500'>Curious about the onechart/onechart&apos;s configuration options? See <a href="/concepts/the-sane-helm-guide" className="underline">the reference</a>.</p>

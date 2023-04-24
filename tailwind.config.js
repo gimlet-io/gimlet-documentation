@@ -22,8 +22,8 @@ module.exports = {
     },
     extend: {
       colors: {
-        'diff-viewer-dark': '#044B53',
-        'diff-viewer-light': '#fafbfc',
+        'highlight-dark': '#044B53',
+        'highlight-light': '#fafbfc',
       },
       fontFamily: {
         sans: ['Inter', ...defaultTheme.fontFamily.sans],
