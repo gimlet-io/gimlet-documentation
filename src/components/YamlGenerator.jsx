@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import HelmUI from "helm-react-ui";
+import { ThemeSelector } from './ThemeSelector';
 import ReactDiffViewer from 'react-diff-viewer-continued';
 import YAML from "json-to-pretty-yaml";
 import * as schema from '@/components/values.schema.json'
@@ -41,7 +42,12 @@ helm template my-release onechart/onechart -f values.yaml
   return (
     <div className="bg-white dark:bg-gray-900">
       <div className="mx-auto p-2 sm:p-4 lg:p-6">
-        <h1 className="text-gray-900 dark:text-slate-50 text-2xl font-semibold text-center mb-8">Kubernetes YAML Generator</h1>
+        <header className="grid grid-cols-3 items-center mb-8">
+          <h1 className="text-gray-900 dark:text-slate-50 text-2xl font-semibold text-center col-start-2">Kubernetes YAML Generator</h1>
+          <div className="col-start-3 justify-self-end mr-10">
+            <ThemeSelector className="relative z-10 items-end" />
+          </div>
+        </header>
         <div className="sm:align-center sm:flex sm:flex-col space-y-2">
           <div className="space-y-4 sm:grid sm:grid-cols-2 sm:gap-2 sm:space-y-0 xl:grid-cols-8">
             <div className="dark:bg-white border-2 p-4 rounded-md col-span-5">
