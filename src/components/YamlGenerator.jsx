@@ -26,8 +26,7 @@ export function YamlGenerator() {
   }
 
   useEffect(() => {
-    const queryParams = new URLSearchParams(window.location.search);
-    const stateString = queryParams.get("values");
+    const stateString = window.location.hash.substr(1); // remove the '#'
 
     if (stateString) {
       const decodedString = atob(stateString);
@@ -40,7 +39,7 @@ export function YamlGenerator() {
   useEffect(() => {
     const nonDefaultValuesString = JSON.stringify(nonDefaultValues)
     const base64ObjectState = btoa(nonDefaultValuesString)
-    const newUrl = window.location.origin + window.location.pathname + '?values=' + base64ObjectState;
+    const newUrl = window.location.origin + window.location.pathname + '#' + base64ObjectState;
     if (nonDefaultValuesString !== "{}") {
       window.history.pushState(null, '', newUrl);
     }
