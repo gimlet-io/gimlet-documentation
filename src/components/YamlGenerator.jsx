@@ -62,12 +62,17 @@ helm repo add onechart https://chart.onechart.dev
 helm template my-release onechart/onechart -f values.yaml
 `
 
-if (kubernetesYaml === "") {
-  return null;
-}
+  if (kubernetesYaml === "") {
+    return null;
+  }
 
   return (
     <div className="bg-white dark:bg-gray-900">
+      <div aria-live="assertive" className="inset-2 flex px-4 pt-6 pointer-events-none items-start">
+        <span className="-mr-20 w-24 font-mono font-bold text-xs dark:text-slate-100">Share the link!</span>
+        <img src="/arrow.svg" className="rotate-180 -mt-20 mr-16 w-32 block dark:hidden" />
+        <img src="/arrow-white.svg" className="rotate-180 -mt-20 mr-16 w-32 hidden dark:block" />
+      </div>
       <div className="mx-auto p-2 sm:p-4 lg:p-6">
         <header className="grid grid-cols-3 items-center mb-8">
           <h1 className="text-gray-900 dark:text-slate-50 text-2xl font-semibold text-center col-start-2">Kubernetes YAML Generator</h1>
