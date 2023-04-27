@@ -52,7 +52,7 @@ export function YamlGenerator() {
     }).catch(err => {
       console.error(`Error: ${err}`);
     });
-  }, [nonDefaultValues, kubernetesYaml]);
+  }, [nonDefaultValues]);
 
   const diffBody = `cat << EOF > values.yaml
 ${YAML.stringify(nonDefaultValues)}
@@ -61,6 +61,10 @@ EOF
 helm repo add onechart https://chart.onechart.dev
 helm template my-release onechart/onechart -f values.yaml
 `
+
+if (kubernetesYaml === "") {
+  return null;
+}
 
   return (
     <div className="bg-white dark:bg-gray-900">
