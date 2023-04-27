@@ -52,7 +52,7 @@ export function YamlGenerator() {
     }).catch(err => {
       console.error(`Error: ${err}`);
     });
-  }, [nonDefaultValues]);
+  }, [nonDefaultValues, kubernetesYaml]);
 
   const diffBody = `cat << EOF > values.yaml
 ${YAML.stringify(nonDefaultValues)}
