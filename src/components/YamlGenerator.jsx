@@ -55,12 +55,10 @@ export function YamlGenerator() {
   }, [nonDefaultValues, kubernetesYaml]);
 
   const diffBody = `cat << EOF > values.yaml
-${YAML.stringify(nonDefaultValues)}
-EOF
+${YAML.stringify(nonDefaultValues)}EOF
 
 helm repo add onechart https://chart.onechart.dev
-helm template my-release onechart/onechart -f values.yaml
-`
+helm template my-release onechart/onechart -f values.yaml`
 
   if (kubernetesYaml === "") {
     return null;
@@ -68,14 +66,16 @@ helm template my-release onechart/onechart -f values.yaml
 
   return (
     <div className="bg-white dark:bg-gray-900">
-      <div aria-live="assertive" className="inset-2 flex px-4 pt-6 pointer-events-none items-start">
-        <span className="-mr-20 w-24 font-mono font-bold text-xs dark:text-slate-100">Share the link!</span>
-        <img src="/arrow.svg" className="rotate-180 -mt-20 mr-16 w-32 block dark:hidden" />
-        <img src="/arrow-white.svg" className="rotate-180 -mt-20 mr-16 w-32 hidden dark:block" />
+      <div aria-live="assertive" className="absolute inset-x-0 top-0 pointer-events-none hidden lg:block opacity-75">
+        <span className="float-right flex mr-96 -mt-12">
+        <img src="/arrow.svg" className="scale-75 w-32 block dark:hidden flip"/>
+        <img src="/arrow-white.svg" className="scale-75 w-32 hidden dark:block flip" />
+        <span className="mt-24 -ml-4 font-mono font-bold text-xs dark:text-slate-100">Shareable link!</span>
+        </span>
       </div>
       <div className="mx-auto p-2 sm:p-4 lg:p-6">
-        <header className="grid grid-cols-3 items-center mb-8">
-          <h1 className="text-gray-900 dark:text-slate-50 text-2xl font-semibold text-center col-start-2">Kubernetes YAML Generator</h1>
+        <header className="grid sm:grid-cols-3 items-center mt-36 mb-20">
+          <h1 className="text-gray-900 dark:text-slate-50 sm:text-4xl font-semibold text-center sm:col-start-2">Kubernetes YAML Generator</h1>
           <div className="col-start-3 justify-self-end mr-10">
             <ThemeSelector className="relative z-10 items-end" />
           </div>
@@ -123,12 +123,15 @@ helm template my-release onechart/onechart -f values.yaml
               </Highlight>
             </div>
           </div>
-          <div className="container max-w-5xl mx-auto dark:text-slate-50 pt-16 font-medium text-xl">
+          <div className="container max-w-5xl mx-auto dark:text-slate-50 py-32 font-medium text-xl">
             <p className="">This is not magic.</p>
-            <p className="pt-4">The YAML is generated with a Helm chart.</p>
-            <p className="pt-4">A Helm chart that you can also use on your terminal.</p>
+            <p className="pt-4">
+              The YAML is generated with a Helm chart.<br />
+              A Helm chart that you can also use on your terminal.
+            </p>
+            <p className="pt-4"></p>
             <p className="pt-4">Try this:</p>
-            <div className="mt-8 p-2 rounded-md border-2 bg-highlight-light flex flex-col">
+            <div className="mt-8 p-2 rounded-md border-2 bg-highlight-light flex flex-col text-sm">
               <CopyButton
                 text={diffBody}
                 style="dark"
@@ -157,8 +160,8 @@ helm template my-release onechart/onechart -f values.yaml
                 )}
               </Highlight>
             </div>
-            <p className='pt-8 text-base text-blue-500'>Are you new to Helm? Check out <a href="/concepts/the-sane-helm-guide" className="underline">our SANE guide</a>.</p>
-            <p className='text-base text-blue-500'>Curious about the onechart/onechart&apos;s configuration options? See <a href="/concepts/the-sane-helm-guide" className="underline">the reference</a>.</p>
+            <p className='pt-16 text-base text-blue-500'>Are you new to Helm? Check out <a href="/concepts/the-sane-helm-guide" className="underline">our SANE Helm guide</a>.</p>
+            <p className='text-base text-blue-500'>Curious about onechart/onechart? See <a href="/concepts/the-sane-helm-guide" className="underline">the reference</a>.</p>
           </div>
         </div>
       </div>
