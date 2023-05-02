@@ -57,197 +57,104 @@ What all approaches share is the separation of deployment manifests from the app
 - A cleaner audit log with only configuration changes in the Git history.
 - Common repository structures that we discuss in this chapter are also enabled by the separation.
 
-## Monorepo
-A monorepo is a single Git repository that contains all the configuration files and scripts for both infrastructure and the application.
+### Monorepo - Folder per environment
+A monorepo is a single git repository that contains all the deployment manifests for both applications and infrastructure components for all environments.
 
-people can use different appraoches within the monorepo strategy.
+In a monorepo, folders are used to separate apps, infrastructure components and environments.
 
-### Folder based environment separation
+#### Kustomize
+
+If you use Kustomize, you can use the following structure:
 
 ```
-repo-name
-|
 ├── apps
-│   ├── dev
-|     |-- folder1
-|     |-- folder2
-│   ├── prod
-|     |-- folder1
-|     |-- folder2
+│   ├── base
+│   ├── production 
+│   └── staging
 ├── infrastructure
-|   ├── dev
-|     |-- folder1
-|     |-- folder2    
-|   ├── prod
-|     |-- folder1
-|     |-- folder2    
+│   ├── base
+│   ├── production 
+│   └── staging
+└── environments
+    ├── production
+    └── staging
+```
+
+To define each environment state, a dedicated folder like `environments/production` is used to reference the specific apps and infrastructure overlays.
+
+The separation of apps and infrastructure makes it possible to define the order in which an environment is reconciled. For instance, the cluster addons and other Kubernetes controllers can be reconciled first, followed by the applications.
+
+#### Helm
+If you use Helm or raw manifests, you can use the following structure:
 
 ```
-#### Pros:
+├── staging
+|   ├── apps
+|   │   ├── app1
+|   │   ├── app2
+|   │   └── app..n
+|   └── infrastructure
+|       ├── component1
+|       ├── component2
+|       └── component..n
+└── production
+    ├── apps
+    │   ├── app1
+    │   ├── app2
+    │   └── app..n
+    └── infrastructure
+        ├── component1
+        ├── component2
+        └── component..n
+```
+
+#### Pros
 
 * Easy collaboration and versioning across all the components.
 * A single source of truth for all changes.
-* good for small projects and temporary trials.
+* good for small projects and trials.
 
-#### Cons:
+#### Cons
 * Can become difficult to manage as it grow.
 * Can be challenging to separate concerns.
-* if you have the access to the repo you have acces to everything.
+* If you have the access to the repo you have acces to everything.
 
+### Repo per environment
 
-### Branches based environment separation
-the idea is to create two long live branches dev and prod, where the changes on the dev branch get merged to production,
+With the repo per environment approach, the folder structure becomes shallower than in monorepos.
 
 ```
-dev-branch
-|
 ├── apps
-│   ├── folder1
-│   ├── folder2
-├── infrastructure
-    ├── folder1
-    ├── folder2
-prod-branch
-|
-├── apps
-│   ├── folder1
-│   ├── folder2
-├── infrastructure
-    ├── folder1
-    ├── folder2    
-```
-#### Pros:
-
-* extra layer pf security only valide changes can be submited to the prod branch. 
-* bla bla 
-* bla bla 
-
-#### Cons:
-* huge mess between application branches and environment branches.
-* still challenging to separate concerns.
-
-## Multirepo
-A multirepo approach involves creating separate Git repositories for each type of component.
-bla bal 
-bla 
-bla bla 
-bla bla 
-
-### Namespace-based MultiRepo
-
-A namespace-based repository approach is based on organizing Git repositories according to namespaces. prod namespace and dev namespace are two different branches, how ever infrastructure and application reseources are still separated using folders.
-
-```
-dev-repo
-|
-├── apps
-│   ├── folder1
-│   ├── folder2
-├── infrastructure
-    ├── folder1
-    ├── folder2
-    
-prod-repo
-|
-├── apps
-│   ├── folder1
-│   ├── folder2
-├── infrastructure
-    ├── folder1
-    ├── folder2    
+|   ├── app1
+|   ├── app2
+|   └── app..n
+└── infrastructure
+    ├── component1
+    ├── component2
+    └── component..n
 ```
 
+#### Dedicated repo for infrastructure components
 
-#### Pros:
-
-* More granular control over each infrastructure component.
-* Easier to separate concerns.
-* Better isolation and fewer risks of conflicts between changes in different repos.
-#### Cons:
-
-* Can be challenging to manage dependencies across multiple repositories.
-* More difficult to enforce security policies and collaboration standards.
-* May require more management and tools to orchestrate the updates.
-
-
-### Resource-based MultiRepo 
-A Resource-based repository approach is based on organizing Git repositories according to resources. infrastructure and application are two different repositories, how ever prod and app namespaces are still separated using folders.
+And if you break infrastructure components to their dedicated repo, it becomes even simpler.
 
 ```
-infrastructure-repo
-|
-├── dev
-│   ├── folder1
-│   ├── folder2
-├── prod
-    ├── folder1
-    ├── folder2
-    
-application-repo
-|
-├── dev
-│   ├── folder1
-│   ├── folder2
-├── prod
-    ├── folder1
-    ├── folder2    
+├── app1
+├── app2
+└── app..n
 ```
-#### Pros:
 
-* easy to separate concerns 
-* Collaboration multiple repositories can help you organize your team's work by allowing you to assign specific repositories to specific team members
-* can increase security by separating the environments using bracnhes, only valide changes submitted to prod environment.
+and
 
-#### Cons:
-
-* needs to manage changes acrross multiple repositories  
-* bla bla bla 
-* bla bla bla 
-
-### Context-based MultiRepo (Gimlet) 
-at gimlet each repo represent a context `resource@namespace` , were we separate environment into staging and production, and resources into infrastructure and application. 
-
-given that, we will have the following repositories.
-
-* `staging@infrastructure`
-* `prod@infrastructure`
-* `staging@application`
-* `prod@application`
-
-we use the following convetion for naming:
-`gitops-namespace-resource`
-
-bla bla ....
 ```
-resource@namespace
-|
-├── folder1
-│   ├── file1
-│   ├── file2
-├── folder2
-    ├── file1
-    ├── file2
-
-example:
-gitops-staging-infra
-|
-├── folder1
-│   ├── file1
-│   ├── file2
-├── folder2
-    ├── file1
-    ├── file2    
+├── componenent1
+├── component2
+└── component..n
 ```
-#### Pros:
 
-* effective way to separate concerns 
-* Collaboration multiple repositories can help you organize your team's work by allowing you to assign specific repositories to specific team members
-* can increase security by separating the environments using bracnhes, only valide changes submitted to prod environment.
-#### Cons:
+#### Pros
 
-* needs to sync changes accross multiple repositories  
-* bla bla bla 
-* bla bla bla 
+#### Cons
 
 ## Key considerations
 
@@ -261,3 +168,7 @@ By carefully planning and organizing your repository structure, you can improve 
 By following best practices and taking the time to design a thoughtful repository structure, you can set yourself up for success and make it easier to maintain and evolve your project over time.
 
 Remember that there is no one-size-fits-all approach to gitops repository structuring, and that it's important to experiment and iterate as you go to find the structure that works best for your team and your project's goals.
+
+We are opinionated at Gimlet. If you want to cut throught the experimentation, see what practices we support in our product: [Gitops Conventions](/concepts/gitops-conventions).
+
+Onwards!
