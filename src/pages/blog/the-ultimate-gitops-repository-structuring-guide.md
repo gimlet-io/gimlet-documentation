@@ -16,7 +16,46 @@ One important aspect of gitops is the structure of the git repository used to ma
 
 In this article, we'll explore different approaches to structuring your gitops repository so you gain a better understanding of how to structure your gitops repository to optimize your deployment process.
 
-Ok. On to the good stuff! 
+Ok. On to the good stuff!
+
+## Approaches to structure gitops repositories
+
+Since we use git to store deployment manifests, there are only limited options available to structure things:
+
+- utilizing folders,
+- branches
+- or repositories.
+
+Moreover, based on experience, long-running branches for each environment (such as QA, staging, and production) with pull requests to promote changes through them are not a real option. Although it may seem like a good idea initially, in practice, promoting changes is seldom a simple git merge but a manual process of selecting good changes and rejecting bad changes to reach production.
+
+Allow me to provide you with some examples:
+- Environment variables are frequently included in the configuration verbatim.
+- Infrastructure configuration is distinct from code changes due to the existence of environment-specific strings such as host names.
+- Certain long-running tasks may exclusively target a specific environment, such as load tests or penetration tests that necessitate temporary yet prolonged settings.
+
+Additionally, popular tools in the ecosystem such as Kustomize utilize environment overlays represented as files or Helm, which advocates for having a values file for each environment. These approaches differ from utilizing branches.
+
+Now that we know we can only use folders and repositories to structure the gitops repository, let's continue with what should we model.
+
+## What to model in the gitops repository
+
+The gitops repository should model the following:
+
+- Applications: These are the primary focus of deployment and should be modeled.
+- Infrastructure components: This includes logs shippers, metric agents, ingress controllers and other auxilary components that facilitate application operations.
+- Environment: The gitops repository should also model environments to enable deploying distinct application configurations to each environment.
+
+As a best practice, the gitops repository should avoid modeling real-world topologies such as cluster, namespace, or team membership, wherever possible. This approach allows for reshaping clusters or namespaces without having to handle gitops changes.
+
+In advanced cases, it may be necessary to model real-world topologies, such as when certain tenant instances must be deployed in a Europe-based cluster and others in the US. Both deployments are part of the production environment, but cluster membership must be modeled. In simpler situations, this may fit into the concept of an environment, such as `production-eu` and `production-us`. However, with multiple clusters, cluster modeling may warrant a top-level model category.
+
+## Common approaches
+
+What all approaches share is the separation of deployment manifests from the application source code. This separation allows for greater flexibility in workflows and structure, such as:
+
+- Developers who are developing the application may not be the same individuals who push to production environments.
+- A cleaner audit log with only configuration changes in the Git history.
+- Common repository structures that we discuss in this chapter are also enabled by the separation.
 
 ## Monorepo
 A monorepo is a single Git repository that contains all the configuration files and scripts for both infrastructure and the application.
