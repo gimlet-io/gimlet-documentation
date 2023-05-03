@@ -35,15 +35,15 @@ Allow me to provide you with some examples:
 
 Additionally, popular tools in the ecosystem such as Kustomize utilize environment overlays represented as files or Helm, which advocates for having a values file for each environment. These approaches differ from utilizing branches.
 
-Now that we know we can only use folders and repositories to structure the gitops repository, let's continue with what should we model.
+Now that we know we can only use folders and repositories to structure the gitops repository, let's continue with what we should model.
 
 ## What to model in the gitops repository
 
 The gitops repository should model the following:
 
 - Applications: These are the primary focus of deployment and should be modeled.
-- Infrastructure components: This includes logs shippers, metric agents, ingress controllers and other auxilary components that facilitate application operations.
-- Environment: The gitops repository should also model environments to enable deploying distinct application configurations to each environment.
+- Infrastructure components: This includes logs shippers, metric agents, ingress controllers and other auxiliary components that facilitate application operations.
+- Environments: The gitops repository should also model environments to enable deploying distinct application configurations to each environment.
 
 As a best practice, the gitops repository should avoid modeling real-world topologies such as cluster, namespace, or team membership, wherever possible. This approach allows for reshaping clusters or namespaces without having to handle gitops changes.
 
@@ -55,7 +55,7 @@ What all approaches share is the separation of deployment manifests from the app
 
 - Developers who are developing the application may not be the same individuals who push to production environments.
 - A cleaner audit log with only configuration changes in the Git history.
-- Common repository structures that we discuss in this chapter are also enabled by the separation.
+- The common repository structures that we discuss in this chapter are also enabled by the separation.
 
 ### Monorepo - Folder per environment
 A monorepo is a single git repository that contains all the deployment manifests for both applications and infrastructure components for all environments.
@@ -108,20 +108,20 @@ If you use Helm or raw manifests, you can use the following structure:
         └── component..n
 ```
 
-#### Pros
+#### Pros of using monorepos
 
 * Easy collaboration and versioning across all the components.
 * A single source of truth for all changes.
-* good for small projects and trials.
+* Good for small projects and trials.
 
-#### Cons
+#### Cons of using monorepos
 * Can become difficult to manage as it grow.
 * Can be challenging to separate concerns.
-* If you have the access to the repo you have acces to everything.
+* Source Code Managers like Github and Gitlab don't provide fine-grained access control options inside repositories. If you have access to the repository, you have access to everything. A `CODEOWNERS` file may help in restricting write access, but read access can't be limited.
 
-### Repo per environment
+### Repository per environment
 
-With the repo per environment approach, the folder structure becomes shallower than in monorepos.
+With the repo per environment approach, each environment gets a dedicated git repository. The folder structure becomes shallower than in monorepos:
 
 ```
 ├── apps
@@ -134,9 +134,9 @@ With the repo per environment approach, the folder structure becomes shallower t
     └── component..n
 ```
 
-#### Dedicated repo for infrastructure components
+#### Dedicated repository for infrastructure components
 
-And if you break infrastructure components to their dedicated repo, it becomes even simpler.
+And if you factor infrastructure components into their dedicated git repository, the structure becomes even simpler.
 
 ```
 ├── app1
@@ -152,9 +152,14 @@ and
 └── component..n
 ```
 
-#### Pros
+#### Pros of using a repository per environment
 
-#### Cons
+- Better separation of concerns.
+- Better access control.
+
+#### Cons of using a repository per environment
+
+- Too many repositories that are unmanageable without tooling.
 
 ## Key considerations
 
@@ -167,8 +172,6 @@ By carefully planning and organizing your repository structure, you can improve 
 
 By following best practices and taking the time to design a thoughtful repository structure, you can set yourself up for success and make it easier to maintain and evolve your project over time.
 
-Remember that there is no one-size-fits-all approach to gitops repository structuring, and that it's important to experiment and iterate as you go to find the structure that works best for your team and your project's goals.
-
-We are opinionated at Gimlet. If you want to cut throught the experimentation, see what practices we support in our product: [Gitops Conventions](/concepts/gitops-conventions).
+We are opinionated at Gimlet. If you want to cut through the experimentation, see what practices we support in our product: [Gitops Conventions](/concepts/gitops-conventions).
 
 Onwards!
