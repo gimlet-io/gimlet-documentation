@@ -59,6 +59,7 @@ const navigation = [
   {
     title: 'Reference',
     links: [
+      { title: 'Gimlet environment variables', href: '/docs/environment-variables' },
       { title: 'Gimlet manifest reference', href: '/docs/gimlet-manifest-reference' },
       { title: 'OneChart reference', href: '/docs/onechart-reference' },
       { title: 'Gitops bootstrapping reference', href: '/docs/gitops-bootstrapping-reference' },
