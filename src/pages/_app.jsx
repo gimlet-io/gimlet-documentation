@@ -59,12 +59,10 @@ const navigation = [
   {
     title: 'Reference',
     links: [
-      { title: 'Gimlet environment variables', href: '/docs/environment-variables' },
       { title: 'Gimlet manifest reference', href: '/docs/gimlet-manifest-reference' },
       { title: 'OneChart reference', href: '/docs/onechart-reference' },
       { title: 'Gitops bootstrapping reference', href: '/docs/gitops-bootstrapping-reference' },
-      { title: 'Gimlet Dashboard configuration reference', href: '/docs/gimlet-dashboard-configuration-reference' },
-      { title: 'Gimletd configuration reference', href: '/docs/gimletd-configuration-reference' },
+      { title: 'Gimlet configuration reference', href: '/docs/gimlet-configuration-reference' },
       { title: 'Gimlet Agent configuration reference', href: '/docs/gimlet-agent-configuration-reference' },
       { title: 'CI integration', href: '/docs/ci-integration' },
     ],
