@@ -1,6 +1,6 @@
 ---
 title: Gimlet environment variables
-description: TODO description
+description: Environment variables that can be used with the Gimlet Dashboard
 ---
 
 The following environment variables can be used with the Gimlet Dashboard:
