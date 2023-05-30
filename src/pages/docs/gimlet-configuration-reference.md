@@ -49,4 +49,4 @@ This page is a full configuration reference should you need to adjust the config
 | `GIT_SSH_ADDRESS_FORMAT`    | The format or template for the SSH address used in Git operations.|
 | `RELEASE_STATS`             | Periodically processes the state of GitOps repositories for different environments. It can be acitvated with `enable`.|
 | `FEATURE_TERMS_OF_SERVICE`  | A feature flag variable for enabling the Terms and Conditions link on the signin page.|
-| `FEATURE_CHART_VERSION_UPDATER` | IF set to true, it scans all git repositories daily and updates the chart version to the version set in `CHART_*` |
+| `FEATURE_CHART_VERSION_UPDATER` | If set to true, it scans all git repositories daily and updates the chart version to the version set in `CHART_*` |
