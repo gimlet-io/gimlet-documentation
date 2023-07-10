@@ -15,7 +15,7 @@ export function HomePage({ className, tabs, code, language }) {
   return (
     <>
       <Hero />
-      <Message />
+      {/* <Message />
       <Shot />
       <Gitops />
       <ClickOps />
@@ -24,7 +24,7 @@ export function HomePage({ className, tabs, code, language }) {
       <YamlAuthoring />
       <Configuration />
       <AppPlatform />
-      <CTA />
+      <CTA /> */}
       <Footer />
     </>
   )
