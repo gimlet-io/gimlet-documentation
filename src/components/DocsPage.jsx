@@ -1,8 +1,31 @@
+import { useRouter } from 'next/router'
+
+import { useCallback, useEffect, useState } from 'react'
 import { Navigation } from '@/components/Navigation'
 import clsx from 'clsx'
 import Link from 'next/link'
+import { Prose } from '@/components/Prose'
 
-export function DocsPage({ children, className, tabs, code, language, title, section }) {
+export function DocsPage({ children, tableOfContents, className, tabs, code, language, title, section, navigation }) {
+  let router = useRouter()
+
+  let allLinks = navigation.flatMap((section) => section.links)
+  let linkIndex = allLinks.findIndex((link) => link.href === router.pathname)
+  let previousPage = allLinks[linkIndex - 1]
+  let nextPage = allLinks[linkIndex + 1]
+  
+  let currentSection = useTableOfContents(tableOfContents)
+
+  function isActive(section) {
+    if (section.id === currentSection) {
+      return true
+    }
+    if (!section.children) {
+      return false
+    }
+    return section.children.findIndex(isActive) > -1
+  }
+
   return (
     <div className="relative mx-auto flex max-w-8xl justify-center sm:px-2 lg:px-8 xl:px-12">
         <div className="hidden lg:relative lg:block lg:flex-none">
@@ -12,7 +35,7 @@ export function DocsPage({ children, className, tabs, code, language, title, sec
             <div className="absolute top-28 bottom-0 right-0 hidden w-px bg-slate-800 dark:block" />
             <Navigation
               navigation={navigation}
-              isDocsPage={isDocsPage}
+              isDocsPage={true}
               className="w-64 pr-8 xl:w-72 xl:pr-16"
             />
           </div>
@@ -120,4 +143,63 @@ export function DocsPage({ children, className, tabs, code, language, title, sec
         </div>
       </div>
   )
+}
+
+export function useTableOfContents(tableOfContents) {
+  let [currentSection, setCurrentSection] = useState(tableOfContents[0]?.id)
+
+  let getHeadings = useCallback(() => {
+    function* traverse(node) {
+      if (Array.isArray(node)) {
+        for (let child of node) {
+          yield* traverse(child)
+        }
+      } else {
+        let el = document.getElementById(node.id)
+        if (!el) return
+
+        let style = window.getComputedStyle(el)
+        let scrollMt = parseFloat(style.scrollMarginTop)
+
+        let top = window.scrollY + el.getBoundingClientRect().top - scrollMt
+        yield { id: node.id, top }
+
+        for (let child of node.children ?? []) {
+          yield* traverse(child)
+        }
+      }
+    }
+
+    return Array.from(traverse(tableOfContents))
+  }, [tableOfContents])
+
+  useEffect(() => {
+    let headings = getHeadings()
+    if (tableOfContents.length === 0 || headings.length === 0) return
+    function onScroll() {
+      let sortedHeadings = headings.concat([]).sort((a, b) => a.top - b.top)
+
+      let top = window.pageYOffset
+      let current = sortedHeadings[0].id
+      for (let i = 0; i < sortedHeadings.length; i++) {
+        if (top >= sortedHeadings[i].top) {
+          current = sortedHeadings[i].id
+        }
+      }
+      setCurrentSection(current)
+    }
+    window.addEventListener('scroll', onScroll, {
+      capture: true,
+      passive: true,
+    })
+    onScroll()
+    return () => {
+      window.removeEventListener('scroll', onScroll, {
+        capture: true,
+        passive: true,
+      })
+    }
+  }, [getHeadings, tableOfContents])
+
+  return currentSection
 }
