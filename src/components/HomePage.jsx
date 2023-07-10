@@ -45,6 +45,11 @@ export function HomePage({ className, tabs, code, language }) {
           onClick={() => Fathom.trackGoal('VEWYCI7B', 0)}
         >
           Documentation
+          USP: deploy any commit
+          USP: know what is who deployed what and when, see commits and not a real auditlog, something gitops hasn't delivered
+          USP: Ejectable, composable design. Gimlet is Flux underneath, plus workfllows that otherwise you would have to build
+          USP: gitops unbroken ci feedback loop
+          USP: stair-step, as little, no steep ramp up
         </a>
       </div>
       {/* <Message />
