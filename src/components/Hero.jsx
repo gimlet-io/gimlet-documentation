@@ -42,8 +42,16 @@ export function Hero() {
                 </div>
               </div>
               <div>
-                <h1 className="text-4xl font-bold tracking-tight dark:text-slate-100 sm:text-center sm:text-6xl">Kubernetes tooling packaged for small businesses, agencies and growing startups.</h1>
-                <p className="mt-6 text-lg leading-8 text-gray-600 dark:text-gray-300 sm:text-center">Gimlet is a gitops based developer platform that gives you the best of open-source out of the box. The platform you would build, given enough time.</p>
+                <p className="mb-6 text-lg leading-8 text-gray-600 dark:text-gray-300 sm:text-center">
+                  Adopting Kubernetes is a big endevaur. But it is the deployment platform today.
+                </p>
+                <h1 className="text-4xl font-bold tracking-tight dark:text-slate-100 sm:text-center sm:text-5xl">
+                  As little Kubernetes as you want.
+                </h1>
+                <p className="mt-6 text-lg leading-8 text-gray-600 dark:text-gray-300 sm:text-center">
+                  With Gimlet you can start with one-click-deploys, then stair-step your way to a gitops based application delivery platform when you need to.
+                  Gimlet features the best of open-source out of the box, it is ejectable and open-source. It is the tooling you would build - given enough time.
+                </p>
                 <div className="mt-8 md:flex md:space-x-4 space-x-2 sm:justify-center">
                   <a
                     href="https://accounts.gimlet.io/signup/"
