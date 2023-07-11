@@ -49,12 +49,12 @@ export function Hero() {
                   As little Kubernetes as you want.
                 </h1>
                 <p className="mt-6 text-lg leading-8 text-gray-600 dark:text-gray-300 sm:text-center">
-                  With Gimlet you can start with one-click-deploys, then stair-step your way to a gitops based application delivery platform when you need to.
+                  With Gimlet, you can start with one-click-deploys then stair-step your way to a gitops based application delivery platform when you need to.
                   It is ejectable and features the best of open-source out of the box.
                 </p>
                 <div className="mt-8 md:flex md:space-x-4 space-x-2 sm:justify-center">
                   <a
-                    href="/docs"
+                    href="/docs/installation"
                     className="inline-block rounded-lg bg-indigo-600 px-8 py-1.5 text-base font-semibold leading-7 text-white shadow-sm ring-1 ring-indigo-600 hover:bg-indigo-700 hover:ring-indigo-700"
                     onClick={() => Fathom.trackGoal('VEWYCI7B', 0)}
                   >

@@ -10,44 +10,20 @@ import * as Fathom from "fathom-client";
 
 const navigation = [
   {
-    title: 'Introduction',
+    title: 'Getting started',
     links: [
-      { title: 'Getting started', href: '/docs' },
-    ],
-  },
-  {
-    title: 'Core concepts',
-    links: [
+      { title: 'Installation', href: '/docs/installation' },
       { title: 'Components', href: '/concepts/components' },
-      { title: 'Gitops conventions', href: '/concepts/gitops-conventions' },
-      { title: 'ClickOps', href: '/concepts/clickops' },
-      { title: 'Escape hatches', href: '/concepts/escape-hatches' },
-      { title: 'Integration to CI', href: '/concepts/integration-to-ci' },
-      { title: 'Gimlet compared to...', href: '/concepts/compared-to' },
+      { title: 'Deploy your first app', href: '/docs/deploy-your-first-app' },
+      { title: 'Map your app to a domain name', href: '' },
+      { title: 'Using a Dockerfile', href: '' },
+      { title: 'Integrate with CI', href: '' },
     ],
   },
   {
-    title: 'Installation',
-    links: [
-      { title: 'Installing Gimlet CLI', href: '/docs/installing-gimlet-cli' },
-      { title: 'Installing Gimlet', href: '/docs/installation' },
-      { title: 'Exposing Gimlet on a domain name', href: '/docs/exposing-gimlet-on-a-domain-name' }
-    ],
-  },
-  {
-    title: 'Tutorials',
-    links: [
-      { title: 'Deploy your first app to Kubernetes', href: '/docs/deploy-your-first-app-to-kubernetes' },
-      { title: 'Deploy your first app to Kubernetes with Gimlet CLI', href: '/docs/deploy-your-first-app-to-kubernetes-with-gimlet-cli' },
-      { title: 'Make Kubernetes an application platform', href: '/docs/make-kubernetes-an-application-platform' },
-      { title: 'Make Kubernetes an application platform with Gimlet CLI', href: '/docs/make-kubernetes-an-application-platform-with-gimlet-cli' },
-    ],
-  },
-  {
-    title: 'Advanced guides',
+    title: 'Guides',
     links: [
       { title: 'Managing deployment configs', href: '/docs/how-to-manage-deployment-configs' },
-      { title: 'Ad-hoc deploys', href: '/docs/ad-hoc-deploys' },
       { title: 'Policy-based releases', href: '/docs/policy-based-releases' },
       { title: 'Configuring preview environments', href: '/docs/how-to-configure-preview-environments' },
       { title: 'Managing secrets', href: '/docs/how-to-manage-secrets' },
@@ -70,6 +46,7 @@ const navigation = [
   {
     title: 'Appendix',
     links: [
+      { title: 'Gimlet compared to...', href: '/concepts/compared-to' },
       { title: 'The SANE gitops guide', href: '/concepts/the-sane-gitops-guide' },
       { title: 'The SANE Helm guide', href: '/concepts/the-sane-helm-guide' },
       { title: 'Boostrap gitops automation with Gimlet CLI', href: '/docs/bootstrap-gitops-automation-with-gimlet-cli' },

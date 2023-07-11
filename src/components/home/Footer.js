@@ -72,7 +72,7 @@ export function Footer() {
           <Link href="/">
             <a className="block lg:w-auto">
               <span className="sr-only">Home page</span>
-              <img src="/logo.svg" alt="Gimlet" className='h-8 sm:h-10 w-auto block dark:hidden' />
+              <img src="/logo2.svg" alt="Gimlet" className='h-8 sm:h-10 w-auto block dark:hidden' />
               <img src="/logo-dark.svg" alt="Gimlet" className='h-8 sm:h-10 w-auto hidden dark:block' />
             </a>
           </Link>

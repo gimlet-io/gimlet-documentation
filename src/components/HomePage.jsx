@@ -27,7 +27,7 @@ export function HomePage({ className, tabs, code, language }) {
       <div className="pt-16 pb-32 sm:pb-32">
         <YourCommits />
       </div>
-      <div className="pb-32 sm:pb-32">
+      <div className="pt-16 pb-32 sm:pb-32">
         <GitopsPromises />
       </div>
       {/* <div className="pb-32 sm:pb-32">

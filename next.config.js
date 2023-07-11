@@ -21,6 +21,11 @@ const redirects = {
   async redirects() {
     return [
       {
+        source: '/docs',
+        destination: '/docs/installation',
+        permanent: false,
+      },
+      {
         source: '/signup',
         destination: 'https://accounts.gimlet.io/signup/',
         permanent: false,
