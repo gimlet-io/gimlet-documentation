@@ -9,7 +9,7 @@ const features = [
   {
     name: 'No steep on ramp',
     description:
-      'There is no major abstraction that you need to adopt in order to get started with Gimlet. We packaged the standard Kubernetes workflow and tools.',
+      'There is no major abstraction that you need to adopt in order to get started with Gimlet. We packaged the standard Kubernetes workflows and tools.',
     // icon: LockClosedIcon,
   },
   {
@@ -31,7 +31,7 @@ export function For() {
     <div className="bg-white py-24 sm:py-32">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="mx-auto max-w-4xl lg:text-center">
-          <p className="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
+          <p className="mt-2 text-2xl font-bold tracking-tight text-gray-900 sm:text-3xl">
             For people who appreciate Kubernetes, and standardized tooling.
           </p>
           <p className="mt-6 text-lg leading-8 text-gray-600">
@@ -42,11 +42,11 @@ export function For() {
           <dl className="grid max-w-xl grid-cols-1 gap-x-8 gap-y-20 lg:max-w-none lg:grid-cols-4">
             {features.map((feature) => (
               <div key={feature.name} className="flex flex-col">
-                <dt className="flex items-center gap-x-3 text-base font-semibold leading-7 text-gray-900">
+                <dt className="flex items-center gap-x-3 text-base font-semibold leading-relaxed text-gray-900">
                   {/* <feature.icon className="h-5 w-5 flex-none text-indigo-600" aria-hidden="true" /> */}
                   {feature.name}
                 </dt>
-                <dd className="mt-4 flex flex-auto flex-col text-base leading-7 text-gray-600">
+                <dd className="mt-2 flex flex-auto flex-col text-base leading-relaxed text-gray-600">
                   <p className="flex-auto">{feature.description}</p>
                 </dd>
               </div>

@@ -25,13 +25,13 @@ export function GitopsPromises() {
         <div className="mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 sm:gap-y-20 lg:mx-0 lg:max-w-none lg:grid-cols-2">
           <div className="lg:ml-auto lg:pl-4 lg:pt-4">
             <div className="lg:max-w-lg">
-              <p className="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Gitops promises delivered</p>
-              <p className="mt-6 text-lg leading-8 text-gray-600">
-                Gitops supposed to give us an auditlog. But all we got is cross-referencing technical commits between many repos. Gimlet pulled this together.
+              <p className="mt-2 text-2xl font-bold tracking-tight text-gray-900 sm:text-3xl">Gitops promises delivered</p>
+              <p className="mt-6 text-base leading-relaxed text-gray-600">
+                Gitops was supposed to give us an auditlog. But all we got is manually cross-referencing technical commits between many repos. Gimlet pulled this together.
               </p>
-              <dl className="mt-10 max-w-xl space-y-8 text-base leading-7 text-gray-600 lg:max-w-none">
+              <dl className="mt-10 max-w-xl space-y-6 text-base leading-relaxed text-gray-600 lg:max-w-none">
                 {features.map((feature) => (
-                  <div key={feature.name} className="relative pl-9">
+                  <div key={feature.name} className="relative pl-6">
                     <dt className="inline font-semibold text-gray-900">
                       {/* <feature.icon className="absolute left-1 top-1 h-5 w-5 text-indigo-600" aria-hidden="true" /> */}
                       {feature.name}
