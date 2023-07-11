@@ -13,7 +13,7 @@ const features = [
     // icon: LockClosedIcon,
   },
   {
-    name: 'Extendable and ejectable, ',
+    name: 'Extendable and ejectable',
     description:
       'All Gimlet does is writing standard yaml bits to a git repository.'
     // icon: LockClosedIcon,
@@ -35,7 +35,7 @@ export function For() {
             For people who appreciate Kubernetes, and standardized tooling.
           </p>
           <p className="mt-6 text-lg leading-8 text-gray-600">
-            But don't want to invest in boilerplate.
+            But don&apos;t want to invest in boilerplate.
           </p>
         </div>
         <div className="mx-auto mt-16 max-w-5xl sm:mt-20 lg:mt-24 lg:max-w-none">
