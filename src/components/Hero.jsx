@@ -43,7 +43,7 @@ export function Hero() {
               </div> */}
               <div>
                 <p className="mb-6 text-lg leading-8 text-gray-600 dark:text-gray-300 sm:text-center">
-                  Adopting Kubernetes is a big endevaur. But it is the deployment platform today.
+                  Adopting Kubernetes is a big endevaur. But it is the standard today.
                 </p>
                 <h1 className="text-4xl font-bold tracking-tight dark:text-slate-100 sm:text-center sm:text-5xl">
                   As little Kubernetes as you want.
@@ -68,10 +68,10 @@ export function Hero() {
                     Sign up
                   </a> */}
                 </div>
-                <div className="mt-8 p-4 bg-gray-900 text-yellow-100 rounded-lg">
+                <div className="my-12 p-4 bg-gray-900 text-yellow-100 rounded-lg">
                   <div className="whitespace-pre-wrap">
                     <p className="text-green-100"># Install Gimlet on any Kubernetes cluster.</p>
-                    <p className="text-green-100"># Even on a cluster running on your laptop - we recommend using <a className="underline cursor-pointer">k3d</a>. </p>
+                    <p className="text-green-100"># Even on a cluster running on your laptop (we recommend using <a className="underline cursor-pointer">k3d</a>). </p>
                     <p className="text-green-100"># Install with:</p>
 
                     <p className="font-semibold my-4">kubectl apply -f https://raw.githubusercontent.com/gimlet-io/gimlet/main/deploy/gimlet.yaml</p>

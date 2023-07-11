@@ -1,4 +1,7 @@
 import { Hero } from '@/components/Hero'
+import { YourCommits } from './home/YourCommits'
+import { GitopsPromises } from './home/GitopsPromises'
+import { For } from './home/For'
 import { Footer } from './home/Footer'
 import Link from 'next/link'
 
@@ -21,6 +24,16 @@ export function HomePage({ className, tabs, code, language }) {
       <div className="pt-20 pb-32 sm:pt-20 sm:pb-32">
         <Hero />
       </div>
+      <div className="pb-32 sm:pb-32">
+        <YourCommits />
+      </div>
+      <div className="pb-32 sm:pb-32">
+        <GitopsPromises />
+      </div>
+      <div className="pb-32 sm:pb-32">
+        <For />
+      </div>
+
       
       {/* <Message />
       <Shot />
