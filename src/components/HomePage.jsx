@@ -21,13 +21,13 @@ export function HomePage({ className, tabs, code, language }) {
           </a>
         </Link>
       </div>
-      <div className="pt-20 pb-32 sm:pt-20 sm:pb-32">
+      <div className="pt-20 pb-16 sm:pt-20 sm:pb-32">
         <Hero />
       </div>
-      <div className="pt-16 pb-32 sm:pb-32">
+      <div className="pt-16 pb-16 sm:pb-32">
         <YourCommits />
       </div>
-      <div className="pt-16 pb-32 sm:pb-32">
+      <div className="pt-16 pb-16 sm:pb-32">
         <GitopsPromises />
       </div>
       {/* <div className="pb-32 sm:pb-32">
@@ -45,7 +45,7 @@ export function HomePage({ className, tabs, code, language }) {
       <Configuration />
       <AppPlatform />
       <CTA /> */}
-      <div className="text-center py-16 text-gray-900 text-3xl font-bold">
+      <div className="text-center px-2 md:px-16 py-4 lg:py-16 text-gray-900 text-3xl font-bold">
         Follow for updates on <a href="https://twitter.com/gimlet_io" className="">{twitterLogo}</a>
         , star it on <a href="https://github.com/gimlet-io/gimlet" className="">{githubLogo}</a> and join our <a href="https://github.com/gimlet-io/gimlet" className="">{discordLogo}</a>
       </div>

@@ -25,9 +25,9 @@ export function Layout({ children, title, navigation, tableOfContents, pageProps
 
   return (
     <>
-      {/* {!isTOSPage && !isYamlGeneratorPage &&
+      {!isTOSPage && !isYamlGeneratorPage &&
         <Header navigation={navigation} />
-      } */}
+      }
 
       {isHomePage && <HomePage />}
       {isPricingPage && <PricingPage />}
