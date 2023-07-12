@@ -76,7 +76,7 @@ export function Hero() {
 
                     <p className="text-yellow-100 dark:text-zinc-300 font-semibold my-4">kubectl apply -f https://raw.githubusercontent.com/gimlet-io/gimlet/main/deploy/gimlet.yaml</p>
 
-                    <p className=""># Or start deploying your applications on our <a href="" className="underline cursor-pointer">hosted version</a>.</p>
+                    <p className=""># Or start deploying your applications on our <a href="https://accounts.gimlet.io/signup/" className="underline cursor-pointer">hosted version</a>. (<a href="/pricing" className="underline cursor-pointer">Pricing</a>)</p>
                     <p className=""># We have a free tier, that <a href="" className="underline cursor-pointer">won&apos;t make you think</a> every corner.</p>
                   </div>
                 </div>
