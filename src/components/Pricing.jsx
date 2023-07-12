@@ -1,6 +1,7 @@
 import { Footer } from './home/Footer'
 import { CheckIcon } from '@heroicons/react/solid'
-import { Fragment, useState } from 'react'
+import { useState } from 'react'
+import Link from 'next/link'
 
 const tiers = [
   {
@@ -83,7 +84,15 @@ export function PricingPage() {
   return (
     <>
       <div>
-        <div className="mx-auto max-w-8xl py-24 px-4 sm:px-6 lg:px-8">
+        <div className="text-center pt-12 sm:pt-16">
+          <Link href="/">
+            <a>
+              <span className="sr-only">Home page</span>
+              <img src="/logo.svg" alt="Gimlet" className='h-10 sm:h-16 inline' />
+            </a>
+          </Link>
+        </div>
+        <div className="mx-auto max-w-8xl pt-12 px-4 sm:px-6 lg:px-8">
           <div className="sm:align-center sm:flex sm:flex-col">
             <h1 className="text-5xl font-bold tracking-tight text-zinc-900 sm:text-center dark:text-zinc-50">Pricing Plans</h1>
             <p className="mt-5 text-xl text-zinc-500 sm:text-center dark:text-zinc-300">
@@ -168,7 +177,7 @@ export function PricingPage() {
         </div>
         </div>
       </div>
-      <div className="mt-16">
+      <div className="pt-32">
         <Footer />
       </div>
     </>
