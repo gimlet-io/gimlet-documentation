@@ -1,0 +1,5 @@
+- we introduce the app config
+- pull request to the app repo
+- we add ingress
+- magic deploy uses this app config (by convention the one that is called as the repo)
+- we use nip.io for DNS

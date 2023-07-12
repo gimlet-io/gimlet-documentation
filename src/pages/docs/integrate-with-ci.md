@@ -1,0 +1,4 @@
+- Using a Dockerfile
+- we use a forked repo with github actions
+- we introduce the gimlet plugin
+- we not use the magic deploy

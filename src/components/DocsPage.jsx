@@ -54,7 +54,7 @@ export function DocsPage({ children, tableOfContents, className, tabs, code, lan
                   </p>
                 )}
                 {title && (
-                  <h1 className="font-display text-3xl tracking-tight text-slate-900 dark:text-white">
+                  <h1 className="font-display text-3xl tracking-tight text-zinc-900 dark:text-zinc-100">
                     {title}
                   </h1>
                 )}
@@ -62,15 +62,15 @@ export function DocsPage({ children, tableOfContents, className, tabs, code, lan
             )}
             <Prose>{children}</Prose>
           </article>
-          <dl className="mt-12 flex border-t border-slate-200 pt-6 dark:border-slate-800">
+          <dl className="mt-12 flex border-t border-zinc-200 pt-6 dark:border-zinc-800">
             {previousPage && (
               <div>
-                <dt className="font-display text-sm font-medium text-slate-900 dark:text-white">
+                <dt className="font-display text-sm font-medium text-zinc-900 dark:text-white">
                   Previous
                 </dt>
                 <dd className="mt-1">
                   <Link href={previousPage.href}>
-                    <a className="text-base font-semibold text-slate-500 hover:text-slate-600 dark:text-slate-400 dark:hover:text-slate-300">
+                    <a className="text-base font-semibold text-zinc-500 hover:text-zinc-600 dark:text-zinc-400 dark:hover:text-zinc-300">
                       &larr; {previousPage.title}
                     </a>
                   </Link>
@@ -79,12 +79,12 @@ export function DocsPage({ children, tableOfContents, className, tabs, code, lan
             )}
             {nextPage && (
               <div className="ml-auto text-right">
-                <dt className="font-display text-sm font-medium text-slate-900 dark:text-white">
+                <dt className="font-display text-sm font-medium text-zinc-900 dark:text-white">
                   Next
                 </dt>
                 <dd className="mt-1">
                   <Link href={nextPage.href}>
-                    <a className="text-base font-semibold text-slate-500 hover:text-slate-600 dark:text-slate-400 dark:hover:text-slate-300">
+                    <a className="text-base font-semibold text-zinc-500 hover:text-zinc-600 dark:text-zinc-400 dark:hover:text-zinc-300">
                       {nextPage.title} &rarr;
                     </a>
                   </Link>
@@ -99,7 +99,7 @@ export function DocsPage({ children, tableOfContents, className, tabs, code, lan
               <>
                 <h2
                   id="on-this-page-title"
-                  className="font-display text-sm font-medium text-slate-900 dark:text-white"
+                  className="font-display text-sm font-medium text-zinc-900 dark:text-white"
                 >
                   On this page
                 </h2>
@@ -112,7 +112,7 @@ export function DocsPage({ children, tableOfContents, className, tabs, code, lan
                             className={clsx(
                               isActive(section)
                                 ? 'text-sky-500'
-                                : 'font-normal text-slate-500 hover:text-slate-700 dark:text-slate-400 dark:hover:text-slate-300'
+                                : 'font-normal text-zinc-500 hover:text-zinc-700 dark:text-zinc-400 dark:hover:text-zinc-300'
                             )}
                           >
                             {section.title}
@@ -120,7 +120,7 @@ export function DocsPage({ children, tableOfContents, className, tabs, code, lan
                         </Link>
                       </h3>
                       {section.children.length > 0 && (
-                        <ul className="mt-2 space-y-3 pl-5 text-slate-500 dark:text-slate-400">
+                        <ul className="mt-2 space-y-3 pl-5 text-zinc-500 dark:text-zinc-400">
                           {section.children.map((subSection) => (
                             <li key={subSection.id}>
                               <Link href={`#${subSection.id}`}>
@@ -128,7 +128,7 @@ export function DocsPage({ children, tableOfContents, className, tabs, code, lan
                                   className={
                                     isActive(subSection)
                                       ? 'text-sky-500'
-                                      : 'hover:text-slate-600 dark:hover:text-slate-300'
+                                      : 'hover:text-zinc-600 dark:hover:text-zinc-300'
                                   }
                                 >
                                   {subSection.title}

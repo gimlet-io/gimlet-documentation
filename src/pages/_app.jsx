@@ -15,9 +15,8 @@ const navigation = [
       { title: 'Installation', href: '/docs/installation' },
       { title: 'Components', href: '/concepts/components' },
       { title: 'Deploy your first app', href: '/docs/deploy-your-first-app' },
-      { title: 'Map your app to a domain name', href: '' },
-      { title: 'Using a Dockerfile', href: '' },
-      { title: 'Integrate with CI', href: '' },
+      { title: 'Map your app to a domain name', href: '/docs/map-your-app-to-a-domain-name' },
+      { title: 'Integrate with CI', href: '/docs/integrate-with-ci' },
     ],
   },
   {
