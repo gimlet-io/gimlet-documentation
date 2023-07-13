@@ -13,9 +13,11 @@ You can skip ahead if you use our hosted SaaS platform.
 - A [Github.com](https://github.com) personal or organization account.
 - A Kubernetes cluster running on your laptop or on a cloud provider. [We recommend using k3d](TODO) on your laptop.
 
-## Install with a oneliner
+## Validate kubectl access
+k3d install with no traefik locally
+or recommend use a CIVO/Linode/whatever cluster
 
-First make sure your Kubernetes context points to the right cluster:
+Then make sure your Kubernetes context points to the right cluster:
 
 ```
 $ kubectl get nodes
@@ -23,7 +25,9 @@ $ kubectl get nodes
 xxxx
 ```
 
-This is my dummy k3d cluster, so I am safe to run the following:
+This is my dummy k3d cluster, so I am safe to proceed
+
+## Install with a oneliner
 
 ```
 kubectl apply -f https://raw.githubusercontent.com/gimlet-io/gimlet/main/deploy/gimlet.yaml
