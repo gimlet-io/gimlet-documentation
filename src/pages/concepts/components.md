@@ -7,7 +7,7 @@ the Flux and Helm. It eliminates much of the decisions you have to make and gets
 
 ![Gimlet components](/components.svg)
 
-## Gimlet
+## Dashboard
 The Gimlet dashboard is where you get a comprehensive overview quickly, manage your gitops environments and deployment configurations. 
 
 - It displays realtime Kubernetes information about your deployments.
@@ -20,7 +20,7 @@ Gimlet is the release manager. It has write access to the gitops repositories, a
 
 Working on the dashboard is gitops: every action you take on the dashboard is backed by a git commit. The integration is bi-directional, custom git or CLI actions show up in the dashboard too and don't break the UI.
 
-## Gimlet CLI
+## CLI
 Gimlet CLI is a command line tool with the same power as the Gimlet Dashboard.
 
 - You can look at the release log.
@@ -29,11 +29,11 @@ Gimlet CLI is a command line tool with the same power as the Gimlet Dashboard.
 - Initiate and manage gitops environments.
 - Render manifests locally for debug purposes.
 
+## Agent
+Gimlet Agent runs in your Kubernetes clusters. It collects realtime information about your deployments, and forwards it to the Gimlet dashboard.
+
 ## CI
 Your CI/CD pipelines implemented with your preferred provider. Gimlet fits into your existing pipelines, replacing your deploy steps. See how [How Gimlet integrates to CI workflows](TODO).
-
-## Gimlet Agent
-Gimlet Agent runs in your Kubernetes clusters. It collects realtime information about your deployments, and forwards it to the Gimlet dashboard.
 
 ## Flux
 Flux is the gitops controller. It pulls manifests from gitops repositories and applies them on Kubernetes clusters.
