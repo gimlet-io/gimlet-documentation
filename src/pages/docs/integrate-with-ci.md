@@ -1,7 +1,7 @@
 ## Prereq
-We build on the setting dns, enabling https tutorial
-
-(alternatively this is a standalone tutorial and we use port-forward to access Gimlet and ngrok)
+This is a standalone tutorial and we use port-forward to access Gimlet and ngrok
+(We could build on the setting dns, enabling https tutorial, but devs don't have a DNS
+we mention that if you completed the dns/https tutorial, you can use the real host name)
 
 ## Step
 - we use a forked repo with github actions
