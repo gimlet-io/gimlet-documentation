@@ -25,7 +25,7 @@ export function YourCommits() {
         <div className="mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 sm:gap-y-20 lg:mx-0 lg:max-w-none lg:grid-cols-2">
           <div className="lg:pr-8 lg:pt-4">
             <div className="lg:max-w-lg">
-              <p className="mt-2 text-2xl font-bold tracking-tight sm:text-3xl text-zinc-900 dark:text-zinc-100">Centered around your commits</p>
+              <p className="mt-2 text-2xl font-bold tracking-tight sm:text-3xl text-zinc-900 dark:text-zinc-100">Focus on your commits</p>
               <p className="mt-6 text-base leading-normal">
                 Gimlet is not an inventory of Kubernetes resources: Pods, Igresses, and ConfigMaps. You focus on your source code.
               </p>
