@@ -23,12 +23,12 @@ const navigation = [
     title: 'Guides',
     links: [
       { title: 'Managing deployment configs', href: '/docs/how-to-manage-deployment-configs' },
-      { title: 'Policy-based releases', href: '/docs/policy-based-releases' },
       { title: 'Configuring preview environments', href: '/docs/how-to-configure-preview-environments' },
-      { title: 'Managing secrets', href: '/docs/how-to-manage-secrets' },
       { title: 'Rolling back', href: '/docs/rolling-back' },
+      { title: 'Managing secrets', href: '/docs/how-to-manage-secrets' },
       { title: 'When Helm is limiting', href: '/docs/when-helm-is-limiting' },
       { title: 'Managing infrastructure components', href: '/docs/managing-infrastructure-components' },
+      { title: 'Upgrading Flux', href: '/docs/gitops-bootstrapping-reference' },
     ],
   },
   {
@@ -36,10 +36,7 @@ const navigation = [
     links: [
       { title: 'Gimlet manifest reference', href: '/docs/gimlet-manifest-reference' },
       { title: 'OneChart reference', href: '/docs/onechart-reference' },
-      { title: 'Gitops bootstrapping reference', href: '/docs/gitops-bootstrapping-reference' },
-      { title: 'Gimlet configuration reference', href: '/docs/gimlet-configuration-reference' },
-      { title: 'Gimlet Agent configuration reference', href: '/docs/gimlet-agent-configuration-reference' },
-      { title: 'CI integration', href: '/docs/ci-integration' },
+      { title: 'Gimlet configuration reference', href: '/docs/gimlet-configuration-reference + /docs/gimlet-agent-configuration-reference' },
     ],
   },
   {
@@ -48,11 +45,8 @@ const navigation = [
       { title: 'Gimlet compared to...', href: '/concepts/compared-to' },
       { title: 'The SANE gitops guide', href: '/concepts/the-sane-gitops-guide' },
       { title: 'The SANE Helm guide', href: '/concepts/the-sane-helm-guide' },
-      { title: 'Boostrap gitops automation with Gimlet CLI', href: '/docs/bootstrap-gitops-automation-with-gimlet-cli' },
       { title: 'Flux CRDs', href: '/docs/flux-crds' },
-      { title: 'Gimlet Stack concepts', href: '/concepts/gimlet-stack-concepts' },
       { title: 'Stack authoring', href: '/docs/stack-authoring' },
-      { title: 'Helm React UI', href: '/blog/helm-react-ui-a-react-component-to-render-ui-for-helm-charts' },
     ],
   },
 ]
