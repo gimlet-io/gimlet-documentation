@@ -65,5 +65,7 @@ TODO Screen shot with login page
 Password is in the logs
 
 ```
-$ kubectl logs -f deploy/gimlet | grep xxx
+$ kubectl logs deploy/gimlet | grep "Admin auth key"
+
+time="2023-07-14T14:28:59Z" level=info msg="Admin auth key: 1c04722af2e830c319e590xxxxxxxx" file="[dashboard.go:55]"
 ```
