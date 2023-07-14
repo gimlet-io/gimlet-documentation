@@ -60,7 +60,9 @@ Access with port-forward.
 $ kubectl port-forward svc/gimlet 9000:9000
 ```
 
-TODO Screen shot with login page
+[http://127.0.0.1:9000](http://127.0.0.1:9000)
+
+![](/admin-login.png)
 
 Password is in the logs
 
