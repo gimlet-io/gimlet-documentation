@@ -1,17 +1,13 @@
-## Prereq
-- None
-- We use a forked repo
-- This is a standalone tutorial and we use port-forward to access Gimlet and ngrok
-  - (We could build on the setting dns, enabling https tutorial, but devs don't have a DNS
-  - we mention that if you completed the dns/https tutorial, you can use the real host name)
+## Prerequisites
+- Running Gimlet installation (with Github connection and a connected env)
 
-## Step
-- we use a forked repo with github actions
+## Fork the example repository
   - Using a Dockerfile
   - Using a CI script
+  - repo with github actions
 
+## Extend the CI workflow with a deploy step
 - we introduce the gimlet plugin
 - we not use the magic deploy, but artifact deploy
 
-## End result
-- we use portforward to access the app
+## Access with port-forward

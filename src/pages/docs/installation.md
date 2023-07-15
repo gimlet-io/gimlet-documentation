@@ -8,7 +8,7 @@ On this page you can learn how to install Gimlet on any Kubernetes cluster.
 
 You can skip ahead if you use our hosted SaaS platform.
 
-## Pre-requisites
+## Prerequisites
 
 - A [Github.com](https://github.com) personal or organization account.
 - A Kubernetes cluster running on your laptop or on a cloud provider. [We recommend using k3d](/blog/running-kubernetes-on-your-laptop-with-k3d) on your laptop.
@@ -71,3 +71,13 @@ $ kubectl logs deploy/gimlet | grep "Admin auth key"
 
 time="2023-07-14T14:28:59Z" level=info msg="Admin auth key: 1c04722af2e830c319e590xxxxxxxx" file="[dashboard.go:55]"
 ```
+
+## Basic configuration
+
+### Connect your repositories
+- repo grant
+
+### Connect your cluster
+
+- CLI install
+- env connect
