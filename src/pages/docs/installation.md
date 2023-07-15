@@ -24,7 +24,7 @@ curl -s https://raw.githubusercontent.com/k3d-io/k3d/main/install.sh | bash
 Launch a cluster with:
 
 ```
-$ k3d cluster create gimlet-cluster --k3s-arg "--disable=traefik@server:0"
+$ k3d cluster create gimlet-cluster
 
 INFO[0000] Prep: Network                                
 INFO[0000] Created network 'k3d-gimlet-cluster'       

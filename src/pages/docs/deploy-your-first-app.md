@@ -55,7 +55,7 @@ sudo sh -c 'echo 127.0.0.1 myapp.gimlet.trial >> /etc/hosts'
 Open [http://myapp.gimlet.trial:8000/](http://myapp.gimlet.trial:8000/)
 
 #### Option 2 - on a cloud cluster
-using ingress LB IP (on cloud k8s, or k3d on non macs without traefik )
+using ingress LB IP (on cloud k8s )
 
   - validate ingress IP
 ```
