@@ -46,11 +46,11 @@ export function Hero() {
                   Adopting Kubernetes is a big endevaur. But it is the standard today.
                 </p>
                 <h1 className="text-4xl font-bold tracking-tight text-zinc-900 dark:text-zinc-100 sm:text-center sm:text-5xl">
-                  As little Kubernetes as you want.
+                  As little, or as much Kubernetes as you want.
                 </h1>
                 <p className="mt-6 text-lg leading-8 sm:text-center">
                   With Gimlet, you can start with one-click-deploys then stair-step your way to a gitops based application delivery platform when you need to.
-                  It is ejectable and features the best of open-source out of the box.
+                  It features the best of open-source out of the box.
                 </p>
                 <div className="mt-8 md:flex md:space-x-4 space-x-2 sm:justify-center">
                   <a

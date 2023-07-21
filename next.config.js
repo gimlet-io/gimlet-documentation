@@ -26,6 +26,11 @@ const redirects = {
         permanent: false,
       },
       {
+        source: '/concepts/components',
+        destination: '/docs/concepts',
+        permanent: false,
+      },
+      {
         source: '/signup',
         destination: 'https://accounts.gimlet.io/signup/',
         permanent: false,

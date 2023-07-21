@@ -13,8 +13,8 @@ const navigation = [
     title: 'Getting started',
     links: [
       { title: 'Installation', href: '/docs/installation' },
-      { title: 'Components', href: '/concepts/components' },
       { title: 'Deploying your first app', href: '/docs/deploy-your-first-app' },
+      { title: 'Concepts', href: '/docs/concepts' },
       { title: 'Using a Dockerfile and CI', href: '/docs/integrate-with-ci' },
       { title: 'Setting up DNS and HTTPS', href: '/docs/enable-https' },
     ],
