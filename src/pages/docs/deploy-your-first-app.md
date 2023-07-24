@@ -5,6 +5,9 @@ description: In this guide, you will deploy your application to Kubernetes witho
 
 ## Prerequisites
 - installation tutorial
+- see your repos
+- have a connected cluster: Connect your cluster from install repo tutorial
+no blue box on repo view. This is a todo for saas as well.
 
 ## Deploy the app
 - magic deploy

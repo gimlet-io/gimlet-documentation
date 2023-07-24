@@ -9,24 +9,20 @@ const footerNav = [
   {
     'Getting Started': [
       { title: 'Installation', href: '/docs/installation' },
-      { title: 'Deploy your first app to Kubernetes', href: '/docs/deploy-your-first-app-to-kubernetes' },
-      { title: 'Make Kubernetes an application platform', href: '/docs/make-kubernetes-an-application-platform' },
+      { title: 'Deploy your first app', href: '/docs/deploy-your-first-app' },
+      { title: 'Concepts', href: '/docs/concepts' },
     ],
-    'Core Concepts': [
-      { title: 'Components', href: '/concepts/components' },
-      { title: 'Gitops conventions', href: '/concepts/gitops-conventions' },
-      { title: 'ClickOps', href: '/concepts/clickops' },
-      { title: 'Escape hatches', href: '/concepts/escape-hatches' },
-      { title: 'Integration to CI', href: '/concepts/integration-to-ci' },
-      { title: 'Gimlet compared to...', href: '/concepts/compared-to' },
+    'Navigation': [
+      { title: 'Blog', href: '/blog' },
+      { title: 'Pricing', href: '/pricing' },
     ],
-    Community: [
+    'Community': [
       { logo: githubLogo, title: 'GitHub', href: 'https://github.com/gimlet-io/gimlet' },
       { logo: discordLogo, title: 'Discord', href: 'https://discord.com/invite/ZwQDxPkYzE' },
       { logo: twitterLogo, title: 'Twitter', href: 'https://twitter.com/gimlet_io' },
       { logo: youtubeLogo, title: 'YouTube', href: 'https://www.youtube.com/channel/UCMQj-27fzpOWGTKL5nutajA' },
     ],
-    Company: [
+    'Company': [
       { title: 'Terms of Service', href: 'https://gimlet.io/tos' },
     ],
   },
