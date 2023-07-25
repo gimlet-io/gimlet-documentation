@@ -35,6 +35,11 @@ Once the git connection inside the cluster pulled the latest changes, you will s
 
 ![](/deployed.png)
 
+{% callout title="Your application is not building?" %}
+Automatic container image building has its limitations.
+
+If your application is not building, you can restart this tutorial with one of the sample repositories we provide, or look for image building options [here](/docs/when-the-image-is-not-building).
+{% /callout %}
 ## Access with port-forward
 
 Applications running on Kubernetes are only accessible on the internal container network by default.
@@ -50,6 +55,7 @@ Forwarding from [::1]:8080 -> 8080
 
 Where `reactjs-test-app` is your repository name, and `8080` is the port your application listening on.
 
+{% callout title="Not sure about the port?" %}
 If you are unsure about the port your application is listening on, try checking the application logs to find it:
 
 ```
@@ -60,6 +66,7 @@ You can now view react-app in the browser.
   Local:            http://localhost:8080
   On Your Network:  http://10.42.0.31:8080
 ```
+{% /callout %}
 
 ## Map it to a domain name
 
