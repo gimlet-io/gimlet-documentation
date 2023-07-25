@@ -108,7 +108,7 @@ Edit the `.github/workflows/build.yaml` file by adding the following step after 
 It will call the Gimlet API and deploy the `gimlet-sample-app` to the `brief-pond` environment.
 
 ```
-- name: 🍍Deploy with Gimlet
+- name: 🍍 Deploy with Gimlet
   uses: gimlet-io/gimlet-artifact-shipper-action@v0.8.3
   env:
     GIMLET_SERVER: ${{ secrets.GIMLET_SERVER }}
@@ -136,8 +136,7 @@ In this case we recommend using [ngrok.com](https://ngrok.com) and the `ngrok ht
 
 Once you made a commit with the workflow changes and watched the CI finish successfully, you will see the deployed application in Gimlet.
 
-TODO screenshot
-![](/deployed.png)
+![](/deployed-from-ci.png)
 
 Applications running on Kubernetes are only accessible on the internal container network by default.
 
