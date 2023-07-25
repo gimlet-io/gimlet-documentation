@@ -1,13 +1,15 @@
 ---
 title: Deploy your first app
-description: In this guide, you will deploy your application to Kubernetes without writing lengthy deployment manifests.
+description: "In this tutorial, you will deploy your first application to Kubernetes and access it on a port-forward."
 ---
 
+In this tutorial, you will deploy your first application to Kubernetes and access it on a port-forward.
+
+Later you will map a dummy domain name to the deployed application, so you can skip using IP addresses.
+
 ## Prerequisites
-- installation tutorial
-- see your repos
-- have a connected cluster: Connect your cluster from install repo tutorial
-no blue box on repo view. This is a todo for saas as well.
+- You have finished the [installation](/docs/installation) tutorial, thus you see your git repositories in Gimlet and you have connected a cluster.
+- You have an application to deploy. It can be any web application, written in any language. If you need something to play with, fork this [ReactJS]() app, or this [NodeJS/ExpressJS]() app, this [Remix]() app, or this [Django]() app.
 
 ## Deploy the app
 - magic deploy

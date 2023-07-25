@@ -12,7 +12,7 @@ If you prefer to use our hosted SaaS platform, [sign up here](https://gimlet.io/
 ## Prerequisites
 
 - A [Github.com](https://github.com) personal or organization account.
-- A Kubernetes cluster running on your laptop or on a cloud provider. [We recommend using k3d](/blog/running-kubernetes-on-your-laptop-with-k3d) on your laptop if you are evaluating Gimlet.
+- A Kubernetes cluster running on your laptop or on a cloud provider. We recommend using k3d on your laptop if you are evaluating Gimlet. It takes only a single command to start one, and it runs in a container.
 
 ### Launching k3d on your laptop - optional
 
