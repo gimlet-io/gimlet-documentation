@@ -38,6 +38,7 @@ Automatic container image building has its limitations.
 
 If your application is not building, you can restart this tutorial with one of the sample repositories we provide, or look for image building options [here](/docs/when-the-image-is-not-building).
 {% /callout %}
+
 ## Access with port-forward
 
 Applications running on Kubernetes are only accessible on the internal container network by default.

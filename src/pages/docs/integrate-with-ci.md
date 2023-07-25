@@ -68,30 +68,86 @@ Navigate to [https://github.com/users/<<youruser>>/packages/container/package/gi
 
 ## Gimlet deployment configuration
 
-Gimlet to deploy the built container image instead of the static image tag that you set up in the "Deploy a sample application" guide.
-Edit the Gimlet environment configuration.
+Now it is time to configure the deployment in Gimlet.
 
+Locate and open the forked repository on the Repositories tab, use the "Refresh repositories" button if necessary.
 
-This is where the container image is referenced.
-Set the Repository field to your Github container registry URL. It will be something like 
-ghcr.io/<<youruser>>/gimlet-sample-app
+To configure the deployment, click the "New deployment configuration" button.
 
-Then set the Tag field to the image tag that you use on each git push. 
+- Set `gimlet-sample-app` as application name
+- Set the Basics / Image / Repository field to your Github container registry URL to `ghcr.io/<<youruser>>/gimlet-sample-app`. Mind the placeholder.
+- Then set the Tag field to the image tag that you use on each git push. 
 
 You may have noticed that the CI workflow uses the git commit hash to tag container images.
 
-Gimlet supports a set of built-in variables, so set {{ .SHA }} to indicate that each deploy should use the matching git commit hash as a container image tag.
+Gimlet supports a set of built-in variables, so set `{{ .SHA }}` as tag to indicate that each deploy should use the matching git commit hash as a container image tag.
+
+![](/image-tag.png)
 
 Save the environment configuration.
 
-notice the file created
+This opens a pull request to your forked git repository as Gimlet manifest files are stored under the `.gimlet` folder of your application source code repository. One file per environment.
 
+Review and merge the pull request.
 
 ## Gimlet CI integration
 
-Add Gimlet Github Action
+### Create a Gimlet API token
 
-set explicit deploy config
+Navigate to the Settings page in the top right corner.
+
+Add a API key now. Name it as `github-actions-gimlet-sample-app` and hit "Create" then save the token for the next step.
+
+### Add the Gimlet Github Action step
+
+The missing piece is integrating Gimlet with the CI workflow.
+
+Gimlet provides CI plugins to most CI platforms.
+
+Edit the `.github/workflows/build.yaml` file by adding the following step after the container image is built.
+It will call the Gimlet API and deploy the `gimlet-sample-app` to the `brief-pond` environment.
+
+```
+- name: 🍍Deploy with Gimlet
+  uses: gimlet-io/gimlet-artifact-shipper-action@v0.8.3
+  env:
+    GIMLET_SERVER: ${{ secrets.GIMLET_SERVER }}
+    GIMLET_TOKEN: ${{ secrets.GIMLET_TOKEN }}
+  with:
+    DEPLOY: "true"
+    ENV: "brief-pond"
+    APP: "gimlet-sample-app"
+```
+
+Notice that the code refers to two secrets: `GIMLET_SERVER` and `GIMLET_TOKEN`.
+
+Add these secrets on Github in the repository settings. If you are not sure how to add secrets for Github Actions, follow [this guide](https://docs.github.com/en/actions/security-guides/encrypted-secrets#creating-encrypted-secrets-for-a-repository).
+
+- `GIMLET_SERVER` should be the url you access Gimlet on, like `https://<<myinstance>>.gimlet.io`
+- `GIMLET_TOKEN` is the API token that you created just moments ago.
+
+{% callout title="If you evaluate Gimlet locally" %}
+If you are running Gimlet on a local cluster and access it through a port-forward, normally Github Actions won't be able to talk to it.
+
+In this case we recommend using [ngrok.com](https://ngrok.com) and the `ngrok http 127.0.0.1:9000` command to get a remotely accessible address for your local Gimlet. Put that address in the `GIMLET_SERVER` variable.
+{% /callout %}
 
 ## Access with port-forward
 
+Once you made a commit with the workflow changes and watched the CI finish successfully, you will see the deployed application in Gimlet.
+
+TODO screenshot
+![](/deployed.png)
+
+Applications running on Kubernetes are only accessible on the internal container network by default.
+
+To bridge this gap and to quickly validate your running application, you can forward your application's port to your laptop:
+
+```
+$ kubectl port-forward deploy/gimlet-sample-app 8080:80
+
+Forwarding from 127.0.0.1:8080 -> 80
+Forwarding from [::1]:8080 -> 80
+```
+
+Once forwarded, visit the application on [http://127.0.0.1:8080](http://127.0.0.1:8080) 🎉
