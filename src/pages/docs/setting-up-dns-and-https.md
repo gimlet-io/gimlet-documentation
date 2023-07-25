@@ -20,7 +20,7 @@ Navigate to the "Environments" tab to get started.
 
 ### Convert to a gitops environment to be able to make changes
 
-Gimlet generated a dummy environment at first start that you used so far to deploy applications.
+Gimlet generated a dummy environment at first start. You used that environment so far to deploy applications.
 
 You are going to continue using this dummy environment in this tutorial and set up Nginx in it. But before you can make changes to this built-in environment,  you have to convert it to a gitops environment. Practically, you have to push the "convert it to a gitops environment" link in the notice bellow.
 
@@ -30,11 +30,25 @@ It will create two repositories on Github, one for application manifests, and on
 
 ### Enabling Nginx
 
-  - configure the nginx ingress
-    - we use a dummy domain name: "gimlet.trial", grafana, and others will go under "grafana.gimlet.trial"
+Enable Nginx under Environments > Brief-Pond > Infrastructure components tab > Nginx > Config tab, where brief-pond is the name of my dummy environment.
 
-  - wait for infra repo sync
-    - TODO kustomization status task
+If you have a real domain name to map your application to, add that under the host field. Later you will set a wildcard DNS entry for it. If you use the `test.mycompany.com` DNS name, services will be put under `*.test.mycompany.com`.
+
+Set `test.mycompany.com` in the host field.
+
+If you don't have a real domain name, set the value `tbd` for now.
+
+Save the configuration with the "Save componentes" button. Inspect and merge the pull request that is created by Gimlet.
+
+![](/nginx-tbd.png)
+
+Save the configuration with the "Save componentes" button. Inspect and merge the pull request that is created by Gimlet.
+
+Once you merged the pull request, the changes will be synchronized to your cluster.
+
+You can track the syncronization status on the bottom toolbar.
+
+![](/gitops-status.png)
 
 ### Locate the external IP address
 
