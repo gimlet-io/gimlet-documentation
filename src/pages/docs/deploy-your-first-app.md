@@ -7,7 +7,7 @@ In this tutorial, you will deploy your first application to Kubernetes and acces
 
 ## Prerequisites
 - You have finished the [installation](/docs/installation) tutorial, thus you see your git repositories in Gimlet and you have connected a cluster.
-- You have an application to deploy. It can be any web application, written in any language. If you need something to play with, fork this [ReactJS](https://github.com/gimlet-io/reactjs-test-app) app, or this [NodeJS/ExpressJS]() app, this [Remix]() app, or this [Django]() app.
+- You have an application to deploy. It can be any web application, written in any language. If you need something to play with, fork this [ReactJS](https://github.com/gimlet-io/reactjs-test-app) app, or this [NodeJS/ExpressJS](https://github.com/gimlet-io/expressjs-test-app) app, this [Remix](https://github.com/gimlet-io/remix-test-app) app, or this [Django](https://github.com/gimlet-io/django-test-app) app.
 
 ## Deploy the app
 
@@ -51,7 +51,7 @@ Forwarding from 127.0.0.1:8080 -> 8080
 Forwarding from [::1]:8080 -> 8080
 ```
 
-Where `reactjs-test-app` is your repository name, and `8080` is the port your application listening on.
+Where `reactjs-test-app` is your repository name, and `8080` is the port your application is listening on.
 
 Once forwarded, visit your application on [http://127.0.0.1:8080](http://127.0.0.1:8080) 🎉
 
