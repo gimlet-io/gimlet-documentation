@@ -12,7 +12,7 @@ In this tutorial, you will map a DNS name to your app and enable HTTPS.
 
 ## Setting up an Nginx ingress controller
 
-In this section you are going to install an Nginx server that will be accessible on a publicly available IP address.
+In this section you are going to install an Nginx server that will be accessible on a publicly accessible IP address.
 
 This Nginx will be the reverse proxy that will route traffic to your application based on the host name.
 
@@ -37,8 +37,6 @@ If you have a real domain name to map your application to, add that under the ho
 Set `test.mycompany.com` in the host field.
 
 If you don't have a real domain name, set the value `tbd` for now.
-
-Save the configuration with the "Save componentes" button. Inspect and merge the pull request that is created by Gimlet.
 
 ![](/nginx-tbd.png)
 
@@ -68,26 +66,58 @@ ingress-nginx-controller LoadBalancer   10.43.78.31     100.200.0.2     40s
 
 Set an A record in your DNS provider to `*.test.mycompany.com` to this EXTERNAL IP.
 
-If you are using the nip.io dynamic DNS service, `*.100.200.0.2.nip.io` will be the domain name where we are going to access applications in this tutorial. Also, if you are using nip.io, now is the time to go back and reconfigure Nginx-s `tbd` value to `100.200.0.2.nip.io`.
+If you are using the nip.io dynamic DNS service, `*.100.200.0.2.nip.io` will be the domain name where you are going to access applications in this tutorial. Also, if you are using nip.io, now is the time to go back and reconfigure Nginx-s `tbd` value to `100.200.0.2.nip.io`.
 
 ## Map your application to the domain name
 
-### Edit application config
-  - set container port (8080, etc)
-  - we add ingress
-![](/ingress.png)
-  - pull request to the app repo
+Now that the Nginx reverse proxy is accessible on a public IP address and a domain name, it is time to map your application to that domain name.
 
-- refresh commits
-- magic deploy uses this app config (by convention the one that is called as the repo)
+### Edit application config
+
+Navigate to the "Repositories" tab in Gimlet and pick your application repository.
+
+Pick the environment configuration you want to edit, and click the cog wheel icon.
+
+![](/cog.png)
+
+  - On the "Basics" tab set the "Port" your app is listening on
+  - Then on the "Ingress" tab set the following
+    - "Host Name" to `your-app.test.mycompany.com` if you expose services under `test.mycompany.com`. In this tutorial we use nip.io `reactjs-test-app.100.200.0.2.nip.io`
+    - and add an "Annotation" with key `kubernetes.io/ingress.class` and value `nginx`.
+
+![](/ingress-settings.png)
+ 
+
+Press save, then inspect and merge the pull request.
+
+Navigate back to the repository, refresh the commits if necessary, then deploy the latest commit.
 
 ### Access on the domain name
-Open [http://myapp.gimlet.trial](http://myapp.gimlet.trial)
+
+Open [http://reactjs-test-app.100.200.0.2.nip.io](http://reactjs-test-app.100.200.0.2.nip.io)
 
 ## Enable HTTPS
 
+To get free SSL certificates from Let's Encrypt, let's deploy now the Cert-Manager component.
+
 ### Install Cert-Manager
 
+Enable Cert-Manager under Environments > Brief-Pond > Infrastructure components tab > Cert-Managaer > Config tab
+
+Save components, then merge the pull request like you did earlier with the Nginx component.
+
 ## Reconfigure app ingress to use Cert Manager
-Check app on domain name
-enable https ingress setting
+
+To tell Cert-Manager to provision new SSL certificates for your application, edit the deployment application deployment configuration again.
+
+On the "Ingress" tab toggle the HTTPS tab, then add an annpotation with key `cert-manager.io/cluster-issuer` and value `letsencrypt`.
+
+Save the configuration, merge the pull request then redeploy the application.
+
+Open [https://reactjs-test-app.100.200.0.2.nip.io](https://reactjs-test-app.100.200.0.2.nip.io), this time over a secured connection. 🎉
+
+{% callout title="HTTPS is not secure?" %}
+It takes about a minute for Cert-Manager to provision the certificate. Anything more indicates an issue. Join our Discord community to get help.
+
+Please note that Let's Encrypt does not issue certificates for nip.io domains.
+{% /callout %}
