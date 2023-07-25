@@ -28,6 +28,7 @@ const navigation = [
       { title: 'Managing secrets', href: '/docs/how-to-manage-secrets' },
       { title: 'When Helm is limiting', href: '/docs/when-helm-is-limiting' },
       { title: 'Managing infrastructure components', href: '/docs/managing-infrastructure-components' },
+      { title: 'Deploying Gimlet in production', href: '/docs/deploying-gimlet-in-production' },
       { title: 'Upgrading Flux', href: '/docs/gitops-bootstrapping-reference' },
     ],
   },

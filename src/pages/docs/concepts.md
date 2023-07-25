@@ -9,6 +9,12 @@ the Flux and Helm. It eliminates much of the decisions you have to make and gets
 
 ![Gimlet workflow](/flow.svg)
 
+CI pipelines lint, test, build and then deploy applications.
+
+Gimlet assumes the gitops deployment tasks from your CI pipeline and runs them centralized. CI pipelines can call the Gimlet API to deploy, no need to script the deploy in CI. We have CI plugins (actions, orbs) for most CI platforms.
+
+Once Gimlet wrote the deployment manifests to git, Flux synhronizes the desired state from git to the cluster.
+
 ## Components
 
 ![Gimlet components](/components.svg)
