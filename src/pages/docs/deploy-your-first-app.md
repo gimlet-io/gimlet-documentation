@@ -9,7 +9,7 @@ Later you will map a dummy domain name to the deployed application, so you can s
 
 ## Prerequisites
 - You have finished the [installation](/docs/installation) tutorial, thus you see your git repositories in Gimlet and you have connected a cluster.
-- You have an application to deploy. It can be any web application, written in any language. If you need something to play with, fork this [ReactJS]() app, or this [NodeJS/ExpressJS]() app, this [Remix]() app, or this [Django]() app.
+- You have an application to deploy. It can be any web application, written in any language. If you need something to play with, fork this [ReactJS](https://github.com/gimlet-io/reactjs-test-app) app, or this [NodeJS/ExpressJS]() app, this [Remix]() app, or this [Django]() app.
 
 ## Deploy the app
 - magic deploy
