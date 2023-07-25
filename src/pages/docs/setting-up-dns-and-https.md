@@ -1,16 +1,43 @@
+---
+title: Setting up DNS and HTTPS
+description: "In this tutorial, you will map a DNS name to your app and enable HTTPS."
+---
+
+In this tutorial, you will map a DNS name to your app and enable HTTPS.
 
 ## Prerequisites
-- we need a real domain name
-- real cluster with externally accessible LB IPs
+- An application that you deployed with Gimlet. Practically, you have finished the [Deploying your first app](/docs/deploy-your-first-app) tutorial.
+- You need a real cluster that is capable of creating externally accessible load balancers. Practically any Kubernetes cluster that is running on a cloud provider.
+- You are going to need a real domain name, or you can use the nip.io dynamic DNS service as this tutorial is going to.
 
-## Map it to a domain name
+## Setting up an Nginx ingress controller
 
-### Setup an ingress controller
-  - spin out the built in env to git (1 click)
+In this section you are going to install an Nginx server that will be accessible on a publicly available IP address.
+
+This Nginx will be the reverse proxy that will route traffic to your application based on the host name.
+
+Navigate to the "Environments" tab to get started.
+
+### Convert to a gitops environment to be able to make changes
+
+Gimlet generated a dummy environment at first start that you used so far to deploy applications.
+
+You are going to continue using this dummy environment in this tutorial and set up Nginx in it. But before you can make changes to this built-in environment,  you have to convert it to a gitops environment. Practically, you have to push the "convert it to a gitops environment" link in the notice bellow.
+
+It will create two repositories on Github, one for application manifests, and one for infrastructure manifests. It is a good time to inspect the contents now. These are the manifests that are synchronized to Kubernetes on every commit.
+
+![](/convert.png)
+
+### Enabling Nginx
+
   - configure the nginx ingress
     - we use a dummy domain name: "gimlet.trial", grafana, and others will go under "grafana.gimlet.trial"
+
   - wait for infra repo sync
     - TODO kustomization status task
+
+### Locate the external IP address
+
   - validate ingress IP
 ```
 $ kubectl get svc -n infrastructure

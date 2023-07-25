@@ -16,7 +16,7 @@ const navigation = [
       { title: 'Deploying your first app', href: '/docs/deploy-your-first-app' },
       { title: 'Concepts', href: '/docs/concepts' },
       { title: 'Using a Dockerfile and CI', href: '/docs/integrate-with-ci' },
-      { title: 'Setting up DNS and HTTPS', href: '/docs/enable-https' },
+      { title: 'Setting up DNS and HTTPS', href: '/docs/setting-up-dns-and-https' },
     ],
   },
   {
