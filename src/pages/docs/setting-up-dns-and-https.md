@@ -3,7 +3,7 @@ title: Setting up DNS and HTTPS
 description: "In this tutorial, you will map a DNS name to your app and enable HTTPS."
 ---
 
-In this tutorial, you will map a DNS name to your app and enable HTTPS.
+In this tutorial, you will map a DNS name to your application and enable HTTPS.
 
 ## Prerequisites
 - An application that you deployed with Gimlet. Practically, you have finished the [Deploying your first app](/docs/deploy-your-first-app) tutorial.
@@ -12,7 +12,7 @@ In this tutorial, you will map a DNS name to your app and enable HTTPS.
 
 ## Setting up an Nginx ingress controller
 
-In this section you are going to install an Nginx server that will be accessible on a publicly accessible IP address.
+In this section you are going to install Nginx that will be accessible on a publicly accessible IP address.
 
 This Nginx will be the reverse proxy that will route traffic to your application based on the host name.
 
@@ -22,7 +22,7 @@ Navigate to the "Environments" tab to get started.
 
 Gimlet generated a dummy environment at first start. You used that environment so far to deploy applications.
 
-You are going to continue using this dummy environment in this tutorial and set up Nginx in it. But before you can make changes to this built-in environment,  you have to convert it to a gitops environment. Practically, you have to push the "convert it to a gitops environment" link in the notice bellow.
+You are going to continue using this dummy environment in this tutorial and set up Nginx in it. But before you can make changes to this built-in environment,  you have to convert it to a gitops environment. Practically, you have to push the "convert it to a gitops environment" link in the notice below.
 
 It will create two repositories on Github, one for application manifests, and one for infrastructure manifests. It is a good time to inspect the contents now. These are the manifests that are synchronized to Kubernetes on every commit.
 
@@ -32,19 +32,17 @@ It will create two repositories on Github, one for application manifests, and on
 
 Enable Nginx under Environments > Brief-Pond > Infrastructure components tab > Nginx > Config tab, where brief-pond is the name of my dummy environment.
 
-If you have a real domain name to map your application to, add that under the host field. Later you will set a wildcard DNS entry for it. If you use the `test.mycompany.com` DNS name, services will be put under `*.test.mycompany.com`.
+Set your domain name in the "Host" field.
 
-Set `test.mycompany.com` in the host field.
+Gimlet is using wildcard DNS entries to simplify DNS management, so if you dedicate every subdomain under `test.mycompany.com` to Gimlet, set this value in the Host field.
 
-If you don't have a real domain name, set the value `tbd` for now.
+I don't have a real domain name for this tutorial, so I will set the value `tbd` for now and will update to a nip.io domain later in this tutorial once the external IP of Nginx is known.
 
 ![](/nginx-tbd.png)
 
 Save the configuration with the "Save componentes" button. Inspect and merge the pull request that is created by Gimlet.
 
-Once you merged the pull request, the changes will be synchronized to your cluster.
-
-You can track the syncronization status on the bottom toolbar.
+Once you merge the pull request, the changes will be synchronized to your cluster. You can track the synchronization status on the bottom toolbar.
 
 ![](/gitops-status.png)
 
@@ -64,9 +62,11 @@ gimlet-agent             ClusterIP      10.43.22.124    <none>          3m51s
 ingress-nginx-controller LoadBalancer   10.43.78.31     100.200.0.2     40s
 ```
 
-Set an A record in your DNS provider to `*.test.mycompany.com` to this EXTERNAL IP.
+Set an A record in your DNS provider to `*.your-preferred-domain.com` to this EXTERNAL IP. 
 
-If you are using the nip.io dynamic DNS service, `*.100.200.0.2.nip.io` will be the domain name where you are going to access applications in this tutorial. Also, if you are using nip.io, now is the time to go back and reconfigure Nginx-s `tbd` value to `100.200.0.2.nip.io`.
+E.g.: if you dedicate every subdomain under `test.mycompany.com` to Gimlet, set the A record to `*.test.mycompany.com` to this EXTERNAL IP address.
+
+If you are using the nip.io dynamic DNS service like I do in this tutorial, `*.100.200.0.2.nip.io` will be the domain name where you are going to access applications in this tutorial. Also, if you are using nip.io, now is the time to go back and reconfigure Nginx-s `tbd` value to `100.200.0.2.nip.io`. "Save components" to get the pull request, then merge to deploy it on the cluster. But you know the drill.
 
 ## Map your application to the domain name
 
@@ -82,8 +82,8 @@ Pick the environment configuration you want to edit, and click the cog wheel ico
 
   - On the "Basics" tab set the "Port" your app is listening on
   - Then on the "Ingress" tab set the following
-    - "Host Name" to `your-app.test.mycompany.com` if you expose services under `test.mycompany.com`. In this tutorial we use nip.io `reactjs-test-app.100.200.0.2.nip.io`
-    - and add an "Annotation" with key `kubernetes.io/ingress.class` and value `nginx`.
+    - "Host Name" to `your-app.test.mycompany.com` if you expose services under `test.mycompany.com`. In this tutorial I use nip.io so I set the host name to `reactjs-test-app.100.200.0.2.nip.io`
+    - and add an "Annotation" with key `kubernetes.io/ingress.class` and value `nginx`. This some Kubernetes specific boilerplate, this is how we tell Kubernetes to associate the `Ingress` resource to Nginx.
 
 ![](/ingress-settings.png)
  
@@ -94,29 +94,29 @@ Navigate back to the repository, refresh the commits if necessary, then deploy t
 
 ### Access on the domain name
 
-Open [http://reactjs-test-app.100.200.0.2.nip.io](http://reactjs-test-app.100.200.0.2.nip.io)
+Open the application now on the configured domain name, like on `http://reactjs-test-app.100.200.0.2.nip.io` in my case.
 
 ## Enable HTTPS
 
-To get free SSL certificates from Let's Encrypt, let's deploy now the Cert-Manager component.
+To get free SSL certificates from Let's Encrypt, let's deploy the Cert-Manager component.
 
 ### Install Cert-Manager
 
-Enable Cert-Manager under Environments > Brief-Pond > Infrastructure components tab > Cert-Managaer > Config tab
+Enable Cert-Manager under Environments > Brief-Pond > Infrastructure components tab > Cert-Manager > Config tab, where brief-pond is the name of my dummy environment.
 
 Save components, then merge the pull request like you did earlier with the Nginx component.
 
 ## Reconfigure app ingress to use Cert Manager
 
-To tell Cert-Manager to provision new SSL certificates for your application, edit the deployment application deployment configuration again.
+To tell Cert-Manager to provision new SSL certificates for your application, edit the application deployment configuration again.
 
-On the "Ingress" tab toggle the HTTPS tab, then add an annpotation with key `cert-manager.io/cluster-issuer` and value `letsencrypt`.
+On the "Ingress" tab toggle the HTTPS field, then add an annotation with key `cert-manager.io/cluster-issuer` and value `letsencrypt`.
 
 Save the configuration, merge the pull request then redeploy the application.
 
-Open [https://reactjs-test-app.100.200.0.2.nip.io](https://reactjs-test-app.100.200.0.2.nip.io), this time over a secured connection. 🎉
+Open the application now on the configured domain name, like on `https://reactjs-test-app.100.200.0.2.nip.io` in my case., this time over a secured connection. 🎉
 
-{% callout title="HTTPS is not secure?" %}
+{% callout title="The SSL certificate is still missing?" %}
 It takes about a minute for Cert-Manager to provision the certificate. Anything more indicates an issue. Join our Discord community to get help.
 
 Please note that Let's Encrypt does not issue certificates for nip.io domains.
