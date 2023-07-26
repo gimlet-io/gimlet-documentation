@@ -97,7 +97,7 @@ For all Gimlet environment variables, see the [Gimlet configuration reference](/
 
 ### Connect your repositories
 
-To connect your git repositories with Gimlet, follow the on-screen guides.
+To connect your git repositories to Gimlet, follow the on-screen guides.
 
 Important to note:
 - When you integrate with Github, you don't give access to any third party or the makers of Gimlet.
@@ -109,7 +109,7 @@ Important to note:
 
 Navigate to the "Environments" tab.
 
-Notice that Gimlet created a dummy environment for you. Normally you would call your environments staging or production. My dummy environment is called *Bold Grass* 🙃.
+Notice that Gimlet created a dummy environment for you. Normally you would call your environments staging or production, but this is a dummy environment, mine is called *Bold Grass* 🙃.
 
 Follow the steps on screen to connect your cluster.
 

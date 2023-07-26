@@ -29,7 +29,7 @@ This will kick off a couple of things:
 
 ![](/image-build.png)
 
-Once the git connection inside the cluster pulled the latest changes, you will see the deployed application on the screen.
+Once the git connection inside the cluster pulls the latest changes, you will see the deployed application on the screen.
 
 ![](/deployed.png)
 

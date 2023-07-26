@@ -3,7 +3,7 @@ title: Using Dockerfile and CI
 description: "In this tutorial, you will integrate Gimlet into your CI process."
 ---
 
-In this tutorial, you will integrate Gimlet into your CI process. 
+In this tutorial, you will integrate Gimlet into your CI workflow. 
 
 The CI pipeline will lint and test the code, then build a container image based on a Dockerfile. Then you are going to add the Gimlet Github Action to trigger a deployment to a dummy Kubernetes environment.
 
@@ -68,15 +68,15 @@ Navigate to [https://github.com/users/<<youruser>>/packages/container/package/gi
 
 ## Gimlet deployment configuration
 
-Now it is time to configure the deployment in Gimlet.
+It is time to configure the deployment in Gimlet.
 
-Locate and open the forked repository on the Repositories tab, use the "Refresh repositories" button if necessary.
+Locate and open the forked repository on the "Repositories" tab, use the "Refresh repositories" button if necessary.
 
 To configure the deployment, click the "New deployment configuration" button.
 
 - Set `gimlet-sample-app` as application name
-- Set the Basics / Image / Repository field to your Github container registry URL to `ghcr.io/<<youruser>>/gimlet-sample-app`. Mind the placeholder.
-- Then set the Tag field to the image tag that you use on each git push. 
+- Set the Basics > Image > Repository field to your Github container registry URL to `ghcr.io/<<youruser>>/gimlet-sample-app`. Mind the placeholder.
+- Then set the "Tag" field to the image tag that you use on each git push. 
 
 You may have noticed that the CI workflow uses the git commit hash to tag container images.
 
@@ -90,13 +90,13 @@ This opens a pull request to your forked git repository as Gimlet manifest files
 
 Review and merge the pull request.
 
-## Gimlet CI integration
+## CI integration
 
 ### Create a Gimlet API token
 
-Navigate to the Settings page in the top right corner.
+Click your avatar in the top right corner and navigate to the "Settings" page.
 
-Add a API key now. Name it as `github-actions-gimlet-sample-app` and hit "Create" then save the token for the next step.
+Add an API key now. Name it as `github-actions-x-gimlet-sample-app` and hit "Create" then make a note of the token for the next step.
 
 ### Add the Gimlet Github Action step
 
@@ -134,7 +134,7 @@ In this case we recommend using [ngrok.com](https://ngrok.com) and the `ngrok ht
 
 ## Access with port-forward
 
-Once you made a commit with the workflow changes and watched the CI finish successfully, you will see the deployed application in Gimlet.
+Once you committed the workflow changes, and CI ran successfully, you will see the deployed application in Gimlet.
 
 ![](/deployed-from-ci.png)
 
