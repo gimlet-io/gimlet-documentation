@@ -12,13 +12,13 @@ export function Fence({ children, language }) {
       {({ className, style, tokens, getTokenProps }) => (
         <pre className={className} style={style}>
           <code>
-            {tokens.map((line, index) => (
-              <Fragment key={index}>
-                {line.map((token, index) => (
+            {tokens.map(line => (
+              line.map((token, index) => (
+                <Fragment key={index}>
                   <span key={index} {...getTokenProps({ token })} />
-                ))}
-                {'\n'}
-              </Fragment>
+                  {!token.empty && '\n'}
+                </Fragment>
+              ))
             ))}
           </code>
         </pre>
