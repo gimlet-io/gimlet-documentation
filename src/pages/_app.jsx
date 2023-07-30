@@ -25,6 +25,7 @@ const navigation = [
       { title: 'Managing deployment configs', href: '/docs/how-to-manage-deployment-configs' },
       { title: 'Configuring preview environments', href: '/docs/how-to-configure-preview-environments' },
       { title: 'Rolling back', href: '/docs/rolling-back' },
+      { title: 'Container image building', href: '/docs/container-image-building' },
       { title: 'Managing secrets', href: '/docs/how-to-manage-secrets' },
       { title: 'When Helm is limiting', href: '/docs/when-helm-is-limiting' },
       { title: 'Managing infrastructure components', href: '/docs/managing-infrastructure-components' },

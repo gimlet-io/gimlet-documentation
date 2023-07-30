@@ -36,12 +36,12 @@ Once the git connection inside the cluster pulls the latest changes, you will se
 {% callout title="Image build returned an error?" %}
 Automatic container image building has its limitations.
 
-If your application is not building, you can restart this tutorial with one of the sample repositories we provide, or look for image building options [here](/docs/when-the-image-is-not-building).
+If your application is not building, you can restart this tutorial with one of the sample repositories we provide, or look for image building options [here](/docs/container-image-building).
 {% /callout %}
 
 {% callout title="Image building is slow?" %}
 If you are evaluating Gimlet on k3d and Apple Silicon, image building and the built images consequently are slow. There is no ARM64 version of the image builder today.
-You may continue evaluating the Gimlet workflow at these speeds, or use a cloud based cluster, or look for image building options [here](/docs/when-the-image-is-not-building).
+You may continue evaluating the Gimlet workflow at these speeds, or use a cloud based cluster, or look for image building options [here](/docs/container-image-building).
 {% /callout %}
 
 ## Access with port-forward
