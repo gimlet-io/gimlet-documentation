@@ -37,11 +37,8 @@ Once the git connection inside the cluster pulls the latest changes, you will se
 Automatic container image building has its limitations.
 
 If your application is not building, you can restart this tutorial with one of the sample repositories we provide, or look for image building options [here](/docs/container-image-building).
-{% /callout %}
 
-{% callout title="Image building is slow?" %}
-If you are evaluating Gimlet on k3d and Apple Silicon, image building and the built images consequently are slow. There is no ARM64 version of the image builder today.
-You may continue evaluating the Gimlet workflow at these speeds, or use a cloud based cluster, or look for image building options [here](/docs/container-image-building).
+Note on Apple M1 and M2 chips: automatic image building is only ported for the NodeJS ecosystem. You may restart this tutorial by forking our [NodeJS/ExpressJS](https://github.com/gimlet-io/expressjs-test-app) application.
 {% /callout %}
 
 ## Access with port-forward
