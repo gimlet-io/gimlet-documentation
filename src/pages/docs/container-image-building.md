@@ -10,7 +10,7 @@ Gimlet builds a container image for you when you click deploy. This approach is 
 This approach is using [https://buildpacks.io/](https://buildpacks.io/) and stores the built image in a built-in container registry component.
 
 This approach has known limitations:
-- It is slow on Apple Silicon as there are no ARM64 builder images available as of today.
+- It only work for the NodeJS ecosystem on Apple Silicon today.
 - Automatic image building can anticipate only so much. Projects differ in structure and dependencies in ways an automatic image builder perhaps never be able to handle.
 
 ### Aiding the automatic image builder
@@ -36,6 +36,6 @@ TODO
 
 ## Dockerfiles
 
-If non of the above approaches help you, writing a `Dockerfile` is inevitable.
+If none of the above approaches help you, writing a `Dockerfile` is inevitable.
 
 Follow the [Using Dockerfile and CI](docs/integrate-with-ci) tutorial to see how Gimlet works with Dockerfiles.
