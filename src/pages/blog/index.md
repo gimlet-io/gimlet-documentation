@@ -2,6 +2,12 @@
 title: Blog
 ---
 
+{% post name="Our free tier" image="our-free-tier.png" link="/blog/our-free-tier" date="2023-08-03" %}
+We don't want to make you think.
+
+There is always a catch with SaaS pricing, but we want to avoid it as much as possible.
+{% /post %}
+
 {% post name="Running Kubernetes on your laptop with K3d" image="rocket.png" link="/blog/running-kubernetes-on-your-laptop-with-k3d" date="2023-07-12" %}
 Kubernetes has emerged as the go-to platform. But setting up a cluster on a laptop feels like a complex task for many developers.
 

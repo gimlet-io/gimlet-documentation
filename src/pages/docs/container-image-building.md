@@ -7,7 +7,7 @@ description: ""
 
 Gimlet builds a container image for you when you click deploy. This approach is demonstrated in the [Deploying your first app](/docs/deploy-your-first-app) tutorial.
 
-This approach is using [https://buildpacks.io/](https://buildpacks.io/) and stores the built image in a built-in container registry component.
+Gimlet uses [https://buildpacks.io/](https://buildpacks.io/) to build the image then stores it in a built-in container registry component.
 
 This approach has known limitations:
 - It only work for the NodeJS ecosystem on Apple Silicon today.

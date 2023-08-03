@@ -26,7 +26,7 @@ const tiers = [
     includedFeatures: [
       'All Gimlet features.',
       'Unlimited users.',
-      'Up to 5 deployed services.',
+      'Up to 10 deployed services.',
       'Community support.'
     ],
   },
