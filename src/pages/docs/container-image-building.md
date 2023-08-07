@@ -32,7 +32,7 @@ web: node node.js
 
 ## Deploying static sites
 
-TODO
+Coming soon.
 
 ## Dockerfiles
 
