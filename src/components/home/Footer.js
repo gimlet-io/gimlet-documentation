@@ -15,6 +15,7 @@ const footerNav = [
     'Navigation': [
       { title: 'Blog', href: '/blog' },
       { title: 'Pricing', href: '/pricing' },
+      { title: 'YAML Generator', href: '/k8s-yaml-generator' },
     ],
     'Community': [
       { logo: githubLogo, title: 'GitHub', href: 'https://github.com/gimlet-io/gimlet' },

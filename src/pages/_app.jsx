@@ -49,6 +49,7 @@ const navigation = [
       { title: 'The SANE Helm guide', href: '/concepts/the-sane-helm-guide' },
       { title: 'Flux CRDs', href: '/docs/flux-crds' },
       { title: 'Stack authoring', href: '/docs/stack-authoring' },
+      { title: 'YAML Generator', href: '/k8s-yaml-generator' },
     ],
   },
 ]
