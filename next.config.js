@@ -56,7 +56,6 @@ const redirects = {
         destination: '/concepts/gitops-conventions',
         permanent: true,
       },
-
       {
         source: '/concepts/onechart-concepts/',
         destination: '/docs/onechart-reference',
@@ -64,6 +63,16 @@ const redirects = {
       },
       {
         source: '/concepts/onechart-concepts',
+        destination: '/docs/onechart-reference',
+        permanent: true,
+      },
+      {
+        source: '/onechart/getting-started',
+        destination: '/docs/onechart-reference',
+        permanent: true,
+      },
+      {
+        source: '/onechart/getting-started/',
         destination: '/docs/onechart-reference',
         permanent: true,
       },
