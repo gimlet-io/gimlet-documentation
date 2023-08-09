@@ -1,11 +1,12 @@
 ---
 title: Setting up DNS and HTTPS
-description: "In this tutorial, you will map a DNS name to your app and enable HTTPS."
+description: 'In this tutorial, you will map a DNS name to your app and enable HTTPS.'
 ---
 
 In this tutorial, you will map a DNS name to your application and enable HTTPS.
 
 ## Prerequisites
+
 - An application that you deployed with Gimlet. Practically, you have finished the [Deploying your first app](/docs/deploy-your-first-app) tutorial.
 - You need a real cluster that is capable of creating externally accessible load balancers. Practically any Kubernetes cluster that is running on a cloud provider.
 - You are going to need a real domain name, or you can use the nip.io dynamic DNS service as this tutorial is going to.
@@ -22,7 +23,7 @@ Navigate to the "Environments" tab to get started.
 
 Gimlet generated a dummy environment at first start. You used that environment so far to deploy applications.
 
-You are going to continue using this dummy environment in this tutorial and set up Nginx in it. But before you can make changes to this built-in environment,  you have to convert it to a gitops environment. Practically, you have to push the "convert it to a gitops environment" link in the notice below.
+You are going to continue using this dummy environment in this tutorial and set up Nginx in it. But before you can make changes to this built-in environment, you have to convert it to a gitops environment. Practically, you have to push the "convert it to a gitops environment" link in the notice below.
 
 It will create two repositories on Github, one for application manifests, and one for infrastructure manifests. It is a good time to inspect the contents now. These are the manifests that are synchronized to Kubernetes on every commit.
 
@@ -62,7 +63,7 @@ gimlet-agent             ClusterIP      10.43.22.124    <none>          3m51s
 ingress-nginx-controller LoadBalancer   10.43.78.31     100.200.0.2     40s
 ```
 
-Set an A record in your DNS provider to `*.your-preferred-domain.com` to this EXTERNAL IP. 
+Set an A record in your DNS provider to `*.your-preferred-domain.com` to this EXTERNAL IP.
 
 E.g.: if you dedicate every subdomain under `test.mycompany.com` to Gimlet, set the A record to `*.test.mycompany.com` to this EXTERNAL IP address.
 
@@ -80,13 +81,12 @@ Pick the environment configuration you want to edit, and click the cog wheel ico
 
 ![](/cog.png)
 
-  - On the "Basics" tab set the "Port" your app is listening on
-  - Then on the "Ingress" tab set the following
-    - "Host Name" to `your-app.test.mycompany.com` if you expose services under `test.mycompany.com`. In this tutorial I use nip.io so I set the host name to `reactjs-test-app.100.200.0.2.nip.io`
-    - and add an "Annotation" with key `kubernetes.io/ingress.class` and value `nginx`. This some Kubernetes specific boilerplate, this is how we tell Kubernetes to associate the `Ingress` resource to Nginx.
+- On the "Basics" tab set the "Port" your app is listening on
+- Then on the "Ingress" tab set the following
+  - "Host Name" to `your-app.test.mycompany.com` if you expose services under `test.mycompany.com`. In this tutorial I use nip.io so I set the host name to `reactjs-test-app.100.200.0.2.nip.io`
+  - and add an "Annotation" with key `kubernetes.io/ingress.class` and value `nginx`. This some Kubernetes specific boilerplate, this is how we tell Kubernetes to associate the `Ingress` resource to Nginx.
 
 ![](/ingress-settings.png)
- 
 
 Press save, then inspect and merge the pull request.
 

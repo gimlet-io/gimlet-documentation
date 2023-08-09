@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Our free tier
-date: "2023-08-03"
+date: '2023-08-03'
 image: our-free-tier.png
 description: "We don't want to make you think. There is always a catch with SaaS pricing, but we want to avoid it as much as possible."
 ---
@@ -16,17 +16,17 @@ We announce free, unlimited use of Gimlet's SaaS for your personal projects.
 
 There is always a catch in SaaS pricing. This we wanted to avoid at all costs when we constructed Gimlet's pricing plans.
 
-Our plans scale based on usage. Based on how many services you deploy, you fit into the various pricing plans we have. This was clear for commercial use, but where to draw the line for our free plan? One service or ten services?
+Our plans scale based on usage. Based on how many services you deploy, you fit into the various pricing plans we have. This was clear for commercial use, but where to draw the line for our free plan? One service, or ten?
 
 Instead, we decided that we make Gimlet's hosted version free for individuals who deploy non-commercial or personal projects with Gimlet.
 
 ## Free, unlimited use for non-profits
 
-Furthermore, it is an easy decision to extend our free, unlimited use for non-profits.
+Furthermore, it is an easy decision to include non-profits in our free, unlimited use plan.
 
 ## In doubt?
 
-If you are not sure if your project fits our free plan, feel free to email us at laszlo at gimlet.io.
+If you are not sure if your project fits our free plan, email us at laszlo at gimlet.io to clarify.
 
 And remember, you can [self-host Gimlet](/docs/installation) even if you don't fit our free plan.
 

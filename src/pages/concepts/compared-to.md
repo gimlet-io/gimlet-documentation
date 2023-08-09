@@ -14,6 +14,7 @@ Flux and ArgoCD are both [gitops](/concepts/the-sane-gitops-guide) controllers t
 They both have building blocks to construct basic configuration management and deployment workflows but you have to extend them with higher level features. This is where Gimlet comes into the picture.
 
 Gimlet builds heavily on Flux and extends it in multiple ways:
+
 - Gimlet helps with yaml authoring
   - introduces standardized application templates
   - that can be discovered and edited on a GUI
@@ -48,10 +49,10 @@ Today Backstage is capturing a significant mindshare of platform builders.
 
 What is often not articulated is that Backstage is a DIY platform where even the most basic configuration requires coding in Typescript. Community plugins also need to be integrated into your Backstage instance.
 
-Gimlet follows a different approach. Instead of a fragmented piecemeal of commuity plugins, Gimlet addresses the core functionality with an overarching design plan and makes it accessible on day one. 
+Gimlet follows a different approach. Instead of a fragmented piecemeal of commuity plugins, Gimlet addresses the core functionality with an overarching design plan and makes it accessible on day one.
 
 ### Other ready made developer platforms
 
-There are many contenders in the off-the-shelf developer platform space. Each similar to the other, but unique in subtle ways. 
+There are many contenders in the off-the-shelf developer platform space. Each similar to the other, but unique in subtle ways.
 
 We believe that this is not a winner takes all market and developer preferences will guide the tool selection. We encourage you to try multiple platforms beside Gimlet and see which tool fits your workflows.

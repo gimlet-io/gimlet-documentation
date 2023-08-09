@@ -20,7 +20,8 @@ Once Gimlet writes the deployment manifest to git, Flux synchronizes the desired
 ![Gimlet components](/components.svg)
 
 ### Dashboard
-The Gimlet dashboard is where you get a comprehensive overview quickly, manage your gitops environments and deployment configurations. 
+
+The Gimlet dashboard is where you get a comprehensive overview quickly, manage your gitops environments and deployment configurations.
 
 - It displays real-time Kubernetes information about your deployments.
 - It also displays real-time git information about your branches, commits and their build statuses.
@@ -33,6 +34,7 @@ Gimlet is the release manager. It has write access to the gitops repositories, a
 Working on the dashboard is gitops: every action you take on the dashboard is backed by a git commit. The integration is bi-directional, custom git or CLI actions also show up in the dashboard and don't break the UI.
 
 ### CLI
+
 Gimlet CLI is a command line tool with the same power as the Gimlet dashboard.
 
 - You can look at the release log.
@@ -42,12 +44,15 @@ Gimlet CLI is a command line tool with the same power as the Gimlet dashboard.
 - Render manifests locally for debug purposes.
 
 ### Agent
+
 Gimlet Agent runs in your Kubernetes clusters. It collects realtime information about your deployments, and forwards it to the Gimlet dashboard.
 
 ### CI
+
 Your CI/CD pipelines are implemented with your preferred provider. Gimlet fits into your existing pipelines, replacing your deploy steps. See how [How Gimlet integrates to CI workflows](/docs/integrate-with-ci).
 
 ### Flux
+
 Flux is the gitops controller. It pulls manifests from gitops repositories and applies them on Kubernetes clusters.
 
 ### Gitops repositories
@@ -55,4 +60,5 @@ Flux is the gitops controller. It pulls manifests from gitops repositories and a
 Regular git repositories with the role to hold all Kubernetes resource definitions of your applications and infrastructure components.
 
 ### Application repositories
+
 Where your application source code lives.

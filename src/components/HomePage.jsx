@@ -6,10 +6,6 @@ import Link from 'next/link'
 
 
 export function HomePage({ className, tabs, code, language }) {
-  const installCommand = `
-  helm template gimlet-io/gimlet | kubectl apply -f -
-  `
-
   return (
     <>
       <div className="text-center pt-12 sm:pt-16">
@@ -46,7 +42,7 @@ export function HomePage({ className, tabs, code, language }) {
       <CTA /> */}
       <div className="text-center px-2 md:px-16 py-4 lg:py-16 text-zinc-900 dark:text-zinc-200 text-3xl font-bold">
         Follow for updates on <a href="https://twitter.com/gimlet_io" className="">{twitterLogo}</a>
-        , star it on <a href="https://github.com/gimlet-io/gimlet" className="">{githubLogo}</a> and join our <a href="https://github.com/gimlet-io/gimlet" className="">{discordLogo}</a>
+        , star it on <a href="https://github.com/gimlet-io/gimlet" className="">{githubLogo}</a> and join our <a href="https://discord.com/invite/ZwQDxPkYzE" className="">{discordLogo}</a>
       </div>
       <div className="mt-32">
         <Footer />

@@ -1,11 +1,12 @@
 ---
 title: Deploy your first app
-description: "In this tutorial, you will deploy your first application to Kubernetes and access it on a port-forward."
+description: 'In this tutorial, you will deploy your first application to Kubernetes and access it on a port-forward.'
 ---
 
 In this tutorial, you will deploy your first application to Kubernetes and access it on a port-forward.
 
 ## Prerequisites
+
 - You have finished the [installation](/docs/installation) tutorial, thus you see your git repositories in Gimlet and you have connected a cluster.
 - You have an application to deploy. It can be any web application, written in any language. If you need something to play with, fork this [ReactJS](https://github.com/gimlet-io/reactjs-test-app) app, or this [NodeJS/ExpressJS](https://github.com/gimlet-io/expressjs-test-app) app, this [Remix](https://github.com/gimlet-io/remix-test-app) app, or this [Django](https://github.com/gimlet-io/django-test-app) app.
 
@@ -16,6 +17,7 @@ A typical Kubernetes tutorial would need you to containerize your application an
 Although you will be able to bring your own Dockerfile and you will interact with deployment manifests later in your Gimlet journey, at this point the goal is to deploy your first application. That is why Gimlet packed the containerization and deployment manifest creation steps into a single deploy button.
 
 To deploy your application:
+
 - Navigate to your repository under the Repositories tab.
 - Locate the branch and commit you would like to deploy.
 - Push the Deploy button to deploy the desired commit.
@@ -69,4 +71,5 @@ You can now view react-app in the browser.
   Local:            http://localhost:8080
   On Your Network:  http://10.42.0.31:8080
 ```
+
 {% /callout %}

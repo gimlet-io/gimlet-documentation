@@ -33,25 +33,25 @@ k3d cluster create gimlet-cluster --k3s-arg "--disable=traefik@server:0"
 Once your cluster is up, validate it with `kubectl get nodes`:
 
 ```
-INFO[0000] Prep: Network                                
-INFO[0000] Created network 'k3d-gimlet-cluster'       
-INFO[0000] Created image volume k3d-gimlet-cluster-images 
-INFO[0000] Starting new tools node...                   
-INFO[0000] Starting Node 'k3d-gimlet-cluster-tools'   
-INFO[0001] Creating node 'k3d-gimlet-cluster-server-0' 
-INFO[0001] Creating LoadBalancer 'k3d-gimlet-cluster-serverlb' 
-INFO[0001] Using the k3d-tools node to gather environment information 
-INFO[0001] Starting new tools node...                   
-INFO[0001] Starting Node 'k3d-gimlet-cluster-tools'   
-INFO[0002] Starting cluster 'my-first-cluster'          
-INFO[0002] Starting servers...                          
-INFO[0003] Starting Node 'k3d-gimlet-cluster-server-0' 
-INFO[0009] All agents already running.                  
-INFO[0009] Starting helpers...                          
-INFO[0009] Starting Node 'k3d-gimlet-cluster-serverlb' 
-INFO[0016] Injecting records for hostAliases (incl. host.k3d.internal) and for 3 network members into CoreDNS configmap... 
-INFO[0018] Cluster 'my-first-cluster' created successfully! 
-INFO[0018] You can now use it like this:                
+INFO[0000] Prep: Network
+INFO[0000] Created network 'k3d-gimlet-cluster'
+INFO[0000] Created image volume k3d-gimlet-cluster-images
+INFO[0000] Starting new tools node...
+INFO[0000] Starting Node 'k3d-gimlet-cluster-tools'
+INFO[0001] Creating node 'k3d-gimlet-cluster-server-0'
+INFO[0001] Creating LoadBalancer 'k3d-gimlet-cluster-serverlb'
+INFO[0001] Using the k3d-tools node to gather environment information
+INFO[0001] Starting new tools node...
+INFO[0001] Starting Node 'k3d-gimlet-cluster-tools'
+INFO[0002] Starting cluster 'my-first-cluster'
+INFO[0002] Starting servers...
+INFO[0003] Starting Node 'k3d-gimlet-cluster-server-0'
+INFO[0009] All agents already running.
+INFO[0009] Starting helpers...
+INFO[0009] Starting Node 'k3d-gimlet-cluster-serverlb'
+INFO[0016] Injecting records for hostAliases (incl. host.k3d.internal) and for 3 network members into CoreDNS configmap...
+INFO[0018] Cluster 'my-first-cluster' created successfully!
+INFO[0018] You can now use it like this:
 kubectl cluster-info
 
 $ kubectl get nodes
@@ -100,6 +100,7 @@ For all Gimlet environment variables, see the [Gimlet configuration reference](/
 To connect your git repositories to Gimlet, follow the on-screen guides.
 
 Important to note:
+
 - When you integrate with Github, you don't give access to any third party or the makers of Gimlet.
 - The integration allows for fine-grained permission grants. You can pick the repositories that you want to integrate with Gimlet.
 
@@ -109,7 +110,7 @@ Important to note:
 
 Navigate to the "Environments" tab.
 
-Notice that Gimlet created a dummy environment for you. Normally you would call your environments staging or production, but this is a dummy environment, mine is called *Bold Grass* 🙃.
+Notice that Gimlet created a dummy environment for you. Normally you would call your environments staging or production, but this is a dummy environment, mine is called _Bold Grass_ 🙃.
 
 Follow the steps on screen to connect your cluster.
 

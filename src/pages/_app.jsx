@@ -38,7 +38,7 @@ const navigation = [
     links: [
       { title: 'Gimlet manifest reference', href: '/docs/gimlet-manifest-reference' },
       { title: 'OneChart reference', href: '/docs/onechart-reference' },
-      { title: 'Gimlet configuration reference', href: '/docs/gimlet-configuration-reference + /docs/gimlet-agent-configuration-reference' },
+      { title: 'Gimlet configuration reference', href: '/docs/gimlet-configuration-reference' },
     ],
   },
   {

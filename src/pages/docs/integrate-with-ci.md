@@ -1,9 +1,9 @@
 ---
 title: Using Dockerfile and CI
-description: "In this tutorial, you will integrate Gimlet into your CI process."
+description: 'In this tutorial, you will integrate Gimlet into your CI process.'
 ---
 
-In this tutorial, you will integrate Gimlet into your CI workflow. 
+In this tutorial, you will integrate Gimlet into your CI workflow.
 
 The CI pipeline will lint and test the code, then build a container image based on a Dockerfile. Then you are going to add the Gimlet Github Action to trigger a deployment to a dummy Kubernetes environment.
 
@@ -12,6 +12,7 @@ Finally you will access the deployed application via a port-forward.
 You will use a fork of a sample application with a Dockerfile and CI workflow prepared.
 
 ## Prerequisites
+
 - You have finished the [installation](/docs/installation) tutorial, thus you see your git repositories in Gimlet and you have connected a cluster.
 
 ## Fork the example repository
@@ -76,7 +77,7 @@ To configure the deployment, click the "New deployment configuration" button.
 
 - Set `gimlet-sample-app` as application name
 - Set the Basics > Image > Repository field to your Github container registry URL to `ghcr.io/<<youruser>>/gimlet-sample-app`. Mind the placeholder.
-- Then set the "Tag" field to the image tag that you use on each git push. 
+- Then set the "Tag" field to the image tag that you use on each git push.
 
 You may have noticed that the CI workflow uses the git commit hash to tag container images.
 
