@@ -5,6 +5,8 @@ description: Can't place Gimlet in your head? This page draws comparisons with c
 
 Can't place Gimlet in the landscape? This page draws comparisons with common tools like Flux, ArgoCD, Terraform and more.
 
+Also make sure to read the [concepts](/docs/concepts).
+
 ## Gimlet compared to...
 
 ### Flux and ArgoCD
