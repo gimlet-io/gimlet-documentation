@@ -149,7 +149,7 @@ export function PricingPage() {
                         return (
                           <li key={feature} className="flex space-x-3">
                             <CheckIcon className="h-5 w-5 flex-shrink-0 text-green-500" aria-hidden="true" />
-                            <span className="text-sm text-zinc-500 dark:text-zinc-300">3 deployed services, or free, unlimited use for personal projects with our <a href="/blog/our-free-tier" className='underline'>DON'T MAKE ME THINK</a> pledge for individuals and non-profits</span>
+                            <span className="text-sm text-zinc-500 dark:text-zinc-300">3 deployed services, or free, unlimited use for personal projects with our <a href="/blog/our-free-tier" className='underline'>DON&apos;T MAKE ME THINK</a> pledge for individuals and non-profits</span>
                           </li>
                         )
                       }                      
