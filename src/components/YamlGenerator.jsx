@@ -12,6 +12,7 @@ import CopyButton from './CopyButton';
 import Highlight, { defaultProps } from 'prism-react-renderer'
 import clsx from 'clsx'
 import Link from 'next/link'
+import * as Fathom from "fathom-client";
 
 export function YamlGenerator() {
   const [values, setValues] = useState({})
@@ -27,6 +28,17 @@ export function YamlGenerator() {
   ]);
   const selected = 'border-zinc-200 bg-white text-zinc-900 shadow-sm';
   const notSelected = 'border-transparent text-zinc-700';
+
+  useEffect(() => {
+    return () => {
+      window.addEventListener('keydown', evt => {
+        var ctrlDown = evt.ctrlKey || evt.metaKey // Mac support
+        if (ctrlDown && evt.key === 'c') {
+          Fathom.trackGoal("32GVHPPE", 0)
+        }
+      });
+    };
+  }, []);
 
   function validationCallback(errors) {
     if (errors) {
