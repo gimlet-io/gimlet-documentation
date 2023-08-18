@@ -30,12 +30,15 @@ export function YamlGenerator() {
   const notSelected = 'border-transparent text-zinc-700';
 
   useEffect(() => {
-    window.addEventListener('keydown', evt => {
-      var ctrlDown = evt.ctrlKey || evt.metaKey // Mac support
-      if (ctrlDown && evt.key === 'c') {
+   const handleKeyDown = (event) => {
+      var ctrlDown = event.ctrlKey || event.metaKey // Mac support
+      if (ctrlDown && event.key === 'c') {
         Fathom.trackGoal("32GVHPPE", 0)
       }
-    });
+    }
+
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown)
   }, []);
 
   function validationCallback(errors) {
