@@ -78,8 +78,7 @@ export function YamlGenerator() {
 
   useEffect(() => {
     const chart = charts.find(chart => chart.current);
-    // TODO url https://yaml-generator.gimlet.io
-    postWithAxios(`http://localhost:9000/chart/${chart.name}`, nonDefaultValues).then(data => {
+    postWithAxios(`https://yaml-generator.gimlet.io/chart/${chart.name}`, nonDefaultValues).then(data => {
       setKubernetesYaml(data)
     }).catch(err => {
       console.error(`Error: ${err}`);
