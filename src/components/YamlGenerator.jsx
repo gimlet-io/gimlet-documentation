@@ -120,7 +120,7 @@ helm template my-release onechart/${chart.name} -f values.yaml`
             <ThemeSelector className="relative z-10 items-end" />
           </div>
         </header>
-        <div className="mx-auto mb-4 max-w-8xl sm:px-6 lg:px-8">
+        <div className="mx-auto mb-16 max-w-8xl sm:px-6 lg:px-8">
           <div className="sm:align-center sm:flex sm:flex-col">
             <div className="relative flex self-center rounded-lg bg-zinc-100 p-0.5">
               {charts.map((chart) => (
