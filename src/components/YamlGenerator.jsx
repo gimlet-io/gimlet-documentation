@@ -17,7 +17,7 @@ import * as Fathom from "fathom-client";
 export function YamlGenerator() {
   const [values, setValues] = useState({})
   const [nonDefaultValues, setNonDefaultValues] = useState({})
-  const [kubernetesYaml, setKubernetesYaml] = useState("TODO")
+  const [kubernetesYaml, setKubernetesYaml] = useState("")
 
   const router = useRouter()
   const ref = router.pathname.slice(1).replaceAll("/", "-")
