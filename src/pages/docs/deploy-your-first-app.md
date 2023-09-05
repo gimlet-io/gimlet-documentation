@@ -21,7 +21,7 @@ Once you forked the repository, you need to refresh the repository list on the "
 
 Click "Refresh repositories".
 
-## Step 3 - Create an application configuration
+## Step 3 - Create the application configuration
 
 Click "Add deployment configuration".
 
@@ -37,7 +37,7 @@ On the deployment configuration screen:
 
 Click `Save` at the bottom of the screen.
 
-## Step 4 - Deploy your application
+## Step 4 - Deploy the application
 
 Once you reviewed and merged the application configuration pull request, you will see that a "Deploy" button appears next to the latest commit. Since you are testing on localhost where there are no webhooks from Github, you may need to push the refresh button above the commits.
 
@@ -59,12 +59,12 @@ Applications running on Kubernetes are only accessible on the internal container
 To bridge this gap and to quickly validate your running application, you can forward your application's port to your laptop:
 
 ```
-$ kubectl port-forward deploy/static-image-test 10081:80
+$ kubectl port-forward deploy/first-app 10081:80
 
 Forwarding from 127.0.0.1:10081 -> 80
 Forwarding from [::1]:10081 -> 80
 ```
 
-Where `static-image-test` is your application name, and `80` is the port your application is listening on.
+Where `first-app` is your application name, and `80` is the port your application is listening on.
 
 Once forwarded, visit your application on [http://127.0.0.1:10081](http://127.0.0.1:10081) 🎉

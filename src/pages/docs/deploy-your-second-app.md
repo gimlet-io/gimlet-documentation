@@ -1,92 +1,68 @@
 ---
-title: Deploy your first app
-description: 'In this tutorial, you will deploy your first application to Kubernetes and access it on a port-forward.'
+title: Deploy your second app
+description: 'In this tutorial, you will deploy your second application to Kubernetes. This time you will use Gimlet to build a container image to deploy.'
 ---
 
-In this tutorial, you will deploy your first application to Kubernetes and access it on a port-forward.
-  
-1) Fork one express js one
-
-2) create app config
-
-name the app
-use static image
-nginx is fine
-
-3) Merge PR
-
-4) deploy
-
-5) logs
-
-6) port-forward
-
+In this tutorial, you will deploy your second application to Kubernetes. This time you will use Gimlet to build a container image and deploy it. Then you will access the application on a port-forward.
 
 ## Prerequisites
 
 - You have finished the [installation](/docs/installation) tutorial, thus you see your git repositories in Gimlet and you have connected a cluster.
-- You have an application to deploy. It can be any web application, written in any language. If you need something to play with, fork this [ReactJS](https://github.com/gimlet-io/reactjs-test-app) app, or this [NodeJS/ExpressJS](https://github.com/gimlet-io/expressjs-test-app) app, this [Remix](https://github.com/gimlet-io/remix-test-app) app, or this [Django](https://github.com/gimlet-io/django-test-app) app.
 
-## Deploy the app
+## Step 1 - Fork an example repository
 
-A typical Kubernetes tutorial would need you to containerize your application and write a deployment manifest yaml to deploy your application. None of this is necessary with Gimlet.
+Fork [this NodeJS/ExpressJS](https://github.com/gimlet-io/expressjs-test-app) example application.
+You may have this repository already from other tutorials.
 
-Although you will be able to bring your own Dockerfile and you will interact with deployment manifests later in your Gimlet journey, at this point the goal is to deploy your first application. That is why Gimlet packed the containerization and deployment manifest creation steps into a single deploy button.
+Once you forked the repository, you need to refresh the repository list on the "Repositories" view.
 
-To deploy your application:
+Click "Refresh repositories".
 
-- Navigate to your repository under the Repositories tab.
-- Locate the branch and commit you would like to deploy.
-- Push the Deploy button to deploy the desired commit.
+## Step 2 - Create the application configuration
 
-![](/deploy-button.png)
+Click "Add deployment configuration" if this is your first deployment, otherwise click the plus icon under your existing configurations.
 
-This will kick off a couple of things:
+On the deployment configuration screen:
+- Change the application name to `second-app`
+- Modify the container image configuration under "Basics > Image".
+  - You are going to use Gimlet to build a container image, so select "Automatic image building".
+  - Leave the "Repository" and "Tag" settings as they are.
+- Set the "Port" to `3000`
 
-- It builds a container image,
-- then generates a Kubernetes manifest and places it in a git repository.
+![](/image-build-config.png)
 
-![](/image-build.png)
+Click `Save` at the bottom of the screen.
 
-Once the git connection inside the cluster pulls the latest changes, you will see the deployed application on the screen.
+## Step 3 - Deploy the application
 
-![](/deployed.png)
+Once you reviewed and merged the application configuration pull request, you will see that a "Deploy" button appears next to the latest commit. Since you are testing on localhost where there are no webhooks from Github, you may need to push the refresh button above the commits.
 
-{% callout title="Image build returned an error?" %}
-Automatic container image building has its limitations.
+Push the "Deploy" button now and select the application configuration to deploy.
 
-If your application is not building, you can restart this tutorial with one of the sample repositories we provide, or look for image building options [here](/docs/container-image-building).
+![](/deploy-button2.png)
 
-Note on Apple M1 and M2 chips: automatic image building is only ported for the NodeJS ecosystem. You may restart this tutorial by forking our [NodeJS/ExpressJS](https://github.com/gimlet-io/expressjs-test-app) application.
-{% /callout %}
+This will open the deploy panel where you can follow the deploy process:
+- A container image is built.
+- Kubernetes manifests are generated and written
+- then syncronized to the cluster.
+- A deployment shows up on Gimlet's screen.
 
-## Access with port-forward
+![](/deployed2.png)
+
+## Step 5 - Access with port-forward
 
 Applications running on Kubernetes are only accessible on the internal container network by default.
 
 To bridge this gap and to quickly validate your running application, you can forward your application's port to your laptop:
 
 ```
-$ kubectl port-forward deploy/reactjs-test-app 8080:8080
+$ kubectl port-forward deploy/second-app 3000:3000
 
-Forwarding from 127.0.0.1:8080 -> 8080
-Forwarding from [::1]:8080 -> 8080
+Forwarding from 127.0.0.1:3000 -> 3000
+Forwarding from [::1]:3000 -> 3000
 ```
 
-Where `reactjs-test-app` is your repository name, and `8080` is the port your application is listening on.
+Where `second-app` is your application name, and `3000` is the port your application is listening on.
 
-Once forwarded, visit your application on [http://127.0.0.1:8080](http://127.0.0.1:8080) 🎉
+Once forwarded, visit your application on [http://127.0.0.1:3000](http://127.0.0.1:3000) 🎉
 
-{% callout title="Not sure about the port?" %}
-If you are unsure about the port your application is listening on, try checking the application logs:
-
-```
-$ kubectl logs deploy/reactjs-test-app
-
-Compiled successfully!
-You can now view react-app in the browser.
-  Local:            http://localhost:8080
-  On Your Network:  http://10.42.0.31:8080
-```
-
-{% /callout %}

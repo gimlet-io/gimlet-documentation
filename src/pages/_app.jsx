@@ -14,7 +14,7 @@ const navigation = [
     links: [
       { title: 'Installation', href: '/docs/installation' },
       { title: 'Deploying your first app', href: '/docs/deploy-your-first-app' },
-      { title: 'Deploying your second app (fork + buildpack)', href: '/docs/deploy-your-second-app' },
+      { title: 'Deploying your second app', href: '/docs/deploy-your-second-app' },
       { title: 'Deploying a static site (fork react + static)', href: '/docs/deploy-a-static-site' },
       { title: 'Concepts', href: '/docs/concepts' },
       { title: 'Using a Dockerfile and CI', href: '/docs/integrate-with-ci' },
