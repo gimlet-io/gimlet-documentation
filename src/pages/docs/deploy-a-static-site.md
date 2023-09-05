@@ -1,92 +1,75 @@
 ---
-title: Deploy your first app
-description: 'In this tutorial, you will deploy your first application to Kubernetes and access it on a port-forward.'
+title: Deploying a static site to Kubernetes
+description: 'In this tutorial, you will deploy a static site to Kubernetes and access it on a port-forward.'
 ---
 
-In this tutorial, you will deploy your first application to Kubernetes and access it on a port-forward.
-  
-1) Fork one , react js one
-
-2) create app config
-
-name the app
-use static site template
-add echo hello into the build template
-
-3) Merge PR
-
-4) deploy
-
-5) logs
-
-6) port-forward
-
+In this tutorial, you will deploy a static site to Kubernetes and access it on a port-forward.
 
 ## Prerequisites
 
 - You have finished the [installation](/docs/installation) tutorial, thus you see your git repositories in Gimlet and you have connected a cluster.
-- You have an application to deploy. It can be any web application, written in any language. If you need something to play with, fork this [ReactJS](https://github.com/gimlet-io/reactjs-test-app) app, or this [NodeJS/ExpressJS](https://github.com/gimlet-io/expressjs-test-app) app, this [Remix](https://github.com/gimlet-io/remix-test-app) app, or this [Django](https://github.com/gimlet-io/django-test-app) app.
 
-## Deploy the app
+## Step 1 - Fork an example repository
 
-A typical Kubernetes tutorial would need you to containerize your application and write a deployment manifest yaml to deploy your application. None of this is necessary with Gimlet.
+Fork [this ReactJS](https://github.com/gimlet-io/reactjs-test-app) example application.
 
-Although you will be able to bring your own Dockerfile and you will interact with deployment manifests later in your Gimlet journey, at this point the goal is to deploy your first application. That is why Gimlet packed the containerization and deployment manifest creation steps into a single deploy button.
+## Step 2 - Locate and open the example repository
 
-To deploy your application:
+Once you forked the repository, you need to refresh the repository list on the "Repositories" view.
 
-- Navigate to your repository under the Repositories tab.
-- Locate the branch and commit you would like to deploy.
-- Push the Deploy button to deploy the desired commit.
+Click "Refresh repositories".
 
-![](/deploy-button.png)
+## Step 3 - Create the application configuration
 
-This will kick off a couple of things:
+Click "Add deployment configuration".
 
-- It builds a container image,
-- then generates a Kubernetes manifest and places it in a git repository.
+On the deployment configuration screen:
+- Pick "Static site" from the deployment templates.
+- Change the application name to `static-site`
+- Inspect the build commands:
+  - It takes a build script and an output folder to configure the build
+- Modify the "Build script" by adding "echo hello" as the last line.
 
-![](/image-build.png)
+![](/static-site-config.png)
 
-Once the git connection inside the cluster pulls the latest changes, you will see the deployed application on the screen.
+Click `Save` at the bottom of the screen.
 
-![](/deployed.png)
+## Step 4 - Deploy the application
 
-{% callout title="Image build returned an error?" %}
-Automatic container image building has its limitations.
+Once you reviewed and merged the application configuration pull request, you will see that a "Deploy" button appears next to the latest commit. Since you are testing on localhost where there are no webhooks from Github, you may need to push the refresh button above the commits.
 
-If your application is not building, you can restart this tutorial with one of the sample repositories we provide, or look for image building options [here](/docs/container-image-building).
+Push the "Deploy" button now and select the application configuration to deploy.
 
-Note on Apple M1 and M2 chips: automatic image building is only ported for the NodeJS ecosystem. You may restart this tutorial by forking our [NodeJS/ExpressJS](https://github.com/gimlet-io/expressjs-test-app) application.
-{% /callout %}
+This will open the deploy panel where you can follow the deploy process:
+- Kubernetes manifests are generated and written
+- then syncronized to the cluster.
+- A deployment shows up on Gimlet's screen.
 
-## Access with port-forward
+![](/deployed3.png)
+
+## Step 5 - Build logs
+
+Deploying static sites with this approach builds on Kubernetes's features. You may noticed that you did not need to build the project, only provide the build script. Now you can verify the build: builds take place on application startup, in an init container.
+
+Open the deployment menu as it is shown on the screenshot above and click "View app logs".
+
+You can follow the build and runtime logs of the deployed static site.
+
+![](/static-site-logs.png)
+
+## Step 6 - Access with port-forward
 
 Applications running on Kubernetes are only accessible on the internal container network by default.
 
 To bridge this gap and to quickly validate your running application, you can forward your application's port to your laptop:
 
 ```
-$ kubectl port-forward deploy/reactjs-test-app 8080:8080
+$ kubectl port-forward deploy/first-app 10081:80
 
-Forwarding from 127.0.0.1:8080 -> 8080
-Forwarding from [::1]:8080 -> 8080
+Forwarding from 127.0.0.1:10081 -> 80
+Forwarding from [::1]:10081 -> 80
 ```
 
-Where `reactjs-test-app` is your repository name, and `8080` is the port your application is listening on.
+Where `first-app` is your application name, and `80` is the port your application is listening on.
 
-Once forwarded, visit your application on [http://127.0.0.1:8080](http://127.0.0.1:8080) 🎉
-
-{% callout title="Not sure about the port?" %}
-If you are unsure about the port your application is listening on, try checking the application logs:
-
-```
-$ kubectl logs deploy/reactjs-test-app
-
-Compiled successfully!
-You can now view react-app in the browser.
-  Local:            http://localhost:8080
-  On Your Network:  http://10.42.0.31:8080
-```
-
-{% /callout %}
+Once forwarded, visit your application on [http://127.0.0.1:10081](http://127.0.0.1:10081) 🎉
