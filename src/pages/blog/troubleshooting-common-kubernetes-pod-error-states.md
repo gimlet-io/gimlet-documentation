@@ -20,7 +20,7 @@ ImagePullBackOff and ErrImagePull errors occur when Kubernetes cannot fetch the 
 
 You need to verify the correctness of your image name and double-check your image registry credentials.
 
-- Run `kubectl describe pod <pod-name>` to crosscheck the image name.
+- Run `kubectl describe pod <pod-name>` to cross check the image name.
 - Check the exact error message at the bottom of the `kubectl describe output`. It may have further clues.
 
 If the image name is correct, check the access credentials you use with `kubectl get pod <pod-name> -o=jsonpath='{.spec.imagePullSecrets[0].name}{"\n"}'` then check the secret values with `kubectl get secret <your-pull-secret> -o yaml`. You may feed the base64 encoded fields to `echo xxx | base64 -d` 
@@ -43,7 +43,7 @@ These errors crop up when Kubernetes encounters problems creating containers: a 
 
 **How to Fix It**:
 
-Run `kubectl describe pod <pod-name>` and check the error message at the bottom of the output. It will highlighy if you misspelled a ConfigMap name, or a Secret is not created yet.
+Run `kubectl describe pod <pod-name>` and check the error message at the bottom of the output. It will highlight if you misspelled a ConfigMap name, or a Secret is not created yet.
 
 Remember, if you don't see error messages at the end of `kubectl describe`, restart the pod by deleting it. Error events are only visible for one hour after pod start.
 
@@ -72,7 +72,7 @@ If your pod is reaching the resource limits in your pod specification, Kubernete
 
 Correlate your restart times with your pod memory usage to confirm the out of memory situation and adjust your pod resource limits accordingly.
 
-You can also use the `kubectl describe pod <pod-name>` command and look for the `Last State` section to confirm that indeed it is lack of memory that restarted the pod.
+You can also use the `kubectl describe pod <pod-name>` command and look for the `Last State` section to confirm that indeed it is the lack of memory that restarted the pod.
 
 ```
 Last State:     Terminated
