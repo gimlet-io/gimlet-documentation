@@ -56,3 +56,8 @@ https://github.com/paketo-buildpacks/node-engine/compare/main...gimlet-io:node-e
 
 ### Buildpacks meta data for build and run image
 
+## In action
+
+screen.studio arm64 build demo
+
+CAX21
