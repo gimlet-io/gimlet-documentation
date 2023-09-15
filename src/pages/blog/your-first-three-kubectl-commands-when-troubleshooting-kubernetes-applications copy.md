@@ -34,6 +34,7 @@ But all buildpacks need to support ARM, we could only do it for nodejs
 
 ## Steps
 
+good news is that we had to CI it
 https://github.com/gimlet-io/gimlet/blob/main/.github/workflows/publish-image-builder.yml
 
 ### You need images for ARM
