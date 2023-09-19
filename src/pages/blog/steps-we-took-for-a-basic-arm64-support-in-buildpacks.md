@@ -59,12 +59,28 @@ We needed to [glue the buildpack](https://github.com/gimlet-io/gimlet/blob/main/
 
 ## In action
 
-You can try our builder with
+You can try our builder with the following. You will need a Docker Hub user and its personal access token (PAT). The lifecycler needs a registry or a docker daemon to push images to.
 
 ```
 $ git clone https://github.com/gimlet-io/expressjs-test-app.git
 $ cd expressjs-test-app
-$ docker run -it --rm -v ${PWD}:/usr/src/project -v /home/laszlo/.docker/config.json:/home/cnb/.docker/config.json ghcr.io/gimlet-io/image-builder:v0.4.2 bash
+$ docker run -it --rm -v ${PWD}:/usr/src/project ghcr.io/gimlet-io/image-builder:v0.4.2 bash
+```
+
+```
+export DOCKER_USER=laszlocloud
+export DOCKER_PAT=xxxx
+export DOCKER_PAT_BASE64=$(echo -n $DOCKER_USER:$DOCKER_PAT | base64)
+mkdir -p /home/cnb/.docker
+cat << EOF > ~/.docker/config.json 
+{
+        "auths": {
+                "https://index.docker.io/v1/": {
+                        "auth": "$DOCKER_PAT_BASE64"
+                }
+        }
+}
+EOF
 ```
 
 ```
