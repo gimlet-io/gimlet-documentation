@@ -2,6 +2,10 @@
 title: Blog
 ---
 
+{% post name="Steps we took for a basic ARM64 support in Buildpacks" image="arm64-buildpacks.png" link="/blog/steps-we-took-for-a-basic-arm64-support-in-buildpacks" date="2023-09-18" %}
+Buildpacks does not have ARM64 support as of Q3 2023. Here are the steps we took to create one for NodeJS projects.
+{% /post %}
+
 {% post name="Troubleshooting common Kubernetes pod error states" image="fire.png" link="/blog/troubleshooting-common-kubernetes-pod-error-states" date="2023-09-15" %}
 You can use this article as a reference for troubleshooting common Kubernetes pod error states. CrashLoopBackOff, CreateContainerConfigError, OOMKilled and more.
 {% /post %}
