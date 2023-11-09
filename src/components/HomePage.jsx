@@ -17,10 +17,10 @@ export function HomePage({ className, tabs, code, language }) {
           </a>
         </Link>
       </div>
-      <div className="pt-20 pb-16 sm:pt-20 sm:pb-24">
+      <div className="py-16 sm:py-32">
         <Hero />
       </div>
-      <div className="mx-auto max-w-4xl pt-16 pb-16 sm:pb-32 p-4">
+      <div className="bg-neutral-100 pt-16 pb-16 sm:pb-32 p-4">
         <Quickstart />
       </div>
       {/* <p className="mt-24 text-2xl font-semibold tracking-tight sm:text-3xl text-zinc-900 dark:text-zinc-100 text-center">Why Gimlet?</p> */}
