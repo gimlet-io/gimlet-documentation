@@ -67,7 +67,7 @@ export function HomePage({ className, tabs, code, language }) {
                 description: 'Get notified when an app is crashing, with context-aware fix suggestions.',
               },
             ]}
-            image="/pe-focus.png"
+            image="/features.png"
             alt=""
           />
         </div>
@@ -90,7 +90,7 @@ export function HomePage({ className, tabs, code, language }) {
                 description: 'Deploy, rollback and preview deploys.',
               },
             ]}
-            image="/pe-focus.png"
+            image="/service-card.png"
             alt=""
           />
         </div>
@@ -113,7 +113,7 @@ export function HomePage({ className, tabs, code, language }) {
                 description: 'We have lifecycle hooks for that.',
               },
             ]}
-            image="/pe-focus.png"
+            image="/auditlog.png"
             alt=""
           />
         </div>

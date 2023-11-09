@@ -55,13 +55,13 @@ export function Hero() {
                   >
                     Documentation
                   </a>
-                  <a
+                  {/* <a
                     href="https://accounts.gimlet.io/signup/"
                     className="mt-4 md:mt-0 inline-block rounded-lg px-4 py-1.5 text-base font-semibold leading-7 text-gray-900 dark:text-gray-300 ring-1 ring-gray-900/10 dark:ring-gray-100/10 hover:ring-gray-900/20"
                     onClick={() => Fathom.trackGoal('XPL4AWPN', 0)}
                   >
                     Use-cases
-                  </a>
+                  </a> */}
                 </div>
               </div>
             </div>
