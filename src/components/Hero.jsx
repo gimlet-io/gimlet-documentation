@@ -2,26 +2,6 @@ import { useState } from 'react'
 import * as Fathom from "fathom-client";
 
 export function Hero() {
-  const [deploying, setDeploying] = useState(false)
-  const [processed, setProcessed] = useState(false)
-  const [applying, setApplying] = useState(false)
-  const [applied, setApplied] = useState(false)
-
-  const deploy = () => {
-    setDeploying(true);
-
-    setTimeout(() => {
-      setProcessed(true);
-
-      setTimeout(() => {
-        setApplying(true);
-        setTimeout(() => {
-          setApplied(true);
-        }, 3000);
-      }, 1000);
-
-    }, 1500);
-  }
 
   return (
     <div className="overflow-hidden text-zinc-600 dark:text-zinc-300">
@@ -75,7 +55,7 @@ export function Hero() {
 export function Quickstart() {
   return (
     <div className="mx-auto max-w-4xl">
-      <p className="text-2xl font-semibold tracking-tight sm:text-3xl text-zinc-900 dark:text-zinc-100 text-center">Quickstart</p>
+      <h3 className="text-2xl font-semibold tracking-tight sm:text-3xl text-zinc-900 dark:text-zinc-100 text-center">Quickstart</h3>
       <div className="mt-6 p-4 bg-zinc-900 dark:bg-black text-zinc-300 dark:text-zinc-600 rounded-lg">
         <div className="whitespace-pre-wrap font-mono">
           <p className=""># Install Gimlet on any Kubernetes cluster.</p>
