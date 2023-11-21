@@ -14,7 +14,7 @@ const testimonials = [
       name: 'Linas Zdanavičius',
       handle: '',
       imageUrl:
-        '',
+        'https://media.licdn.com/dms/image/C5603AQGAU69nCfnZPg/profile-displayphoto-shrink_400_400/0/1517773023596?e=1706140800&v=beta&t=376xdX1yyYEI8mzkwK_l1OtqW8jwRia4qZQtBw2ataQ',
     },
   },
   {
