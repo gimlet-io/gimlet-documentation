@@ -45,7 +45,7 @@ const testimonials = [
     },
   },
   {
-    body: 'Time spent working on cloud infrastructure is reduced a lot! With Gimlet, many things is ready out of the box.',
+    body: 'Time spent working on cloud infrastructure is reduced a lot! With Gimlet, many things is ready out of the box. It integrates nicely with Grafana and Prometheus, so observability is on point. The Gimlet team are experts in k8s and support is always swift.',
     author: {
       name: 'Tobias Slott Jensen',
       handle: 'MLOps Engineer at Veo Technologies',
