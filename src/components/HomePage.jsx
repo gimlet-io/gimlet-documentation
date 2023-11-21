@@ -21,7 +21,7 @@ export function HomePage({ className, tabs, code, language }) {
       <div className="py-16 sm:py-32">
         <Hero />
       </div>
-      <div className="bg-neutral-100 pt-16 pb-16 sm:pb-32 p-4">
+      <div className="bg-neutral-100 dark:bg-neutral-700 pt-16 pb-16 sm:pb-32 p-4">
         <Quickstart />
       </div>
       <div className="pt-16 pb-16 sm:pb-32 p-4">
@@ -30,7 +30,7 @@ export function HomePage({ className, tabs, code, language }) {
       <div className="pt-16 pb-16 sm:pb-32 p-4">
         <Saying />
       </div>
-      <div className="bg-neutral-100 text-center px-2 md:px-16 py-4 lg:py-32 text-zinc-900 dark:text-zinc-200 text-2xl sm:text-3xl font-bold">
+      <div className="bg-neutral-100 dark:bg-neutral-700 text-center px-2 md:px-16 py-4 lg:py-32 text-zinc-900 dark:text-zinc-200 text-2xl sm:text-3xl font-bold">
         <p>Join our community!</p>
         <p className="pt-8">Join our <a href="https://discord.com/invite/ZwQDxPkYzE" className="underline">{discordLogo} Discord</a> or star us on <a href="https://github.com/gimlet-io/gimlet" className="underline">{githubLogo}Github</a></p>
       </div>

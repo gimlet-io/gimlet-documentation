@@ -56,7 +56,7 @@ export function Quickstart() {
   return (
     <div className="mx-auto max-w-4xl">
       <h3 className="text-2xl font-semibold tracking-tight sm:text-3xl text-zinc-900 dark:text-zinc-100 text-center">Quickstart</h3>
-      <div className="mt-6 p-4 bg-zinc-900 dark:bg-black text-zinc-300 dark:text-zinc-600 rounded-lg">
+      <div className="mt-6 p-4 bg-zinc-900 dark:bg-black text-zinc-300 dark:text-zinc-400 rounded-lg">
         <div className="whitespace-pre-wrap font-mono">
           <p className=""># Install Gimlet on any Kubernetes cluster.</p>
           <p className=""># Even on a cluster running on your laptop (we recommend using <a href="/blog/running-kubernetes-on-your-laptop-with-k3d?ref=hero" className="underline cursor-pointer" onClick={() => Fathom.trackGoal('WHIDLWNA', 0)}>k3d</a>). </p>
