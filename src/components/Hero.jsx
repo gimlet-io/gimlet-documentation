@@ -37,7 +37,7 @@ export function Hero() {
                   </a>
                   <a
                     href="/docs/"
-                    className="mt-4 md:mt-0 inline-block rounded-lg px-4 py-1.5 text-base font-semibold leading-7 text-gray-900 dark:text-gray-300 ring-1 ring-gray-900/10 dark:ring-gray-100/10 hover:ring-gray-900/20 hover:bg-neutral-800"
+                    className="mt-4 md:mt-0 inline-block rounded-lg px-4 py-1.5 text-base font-semibold leading-7 text-gray-900 dark:text-gray-300 ring-1 ring-gray-900/10 dark:ring-gray-100/10 hover:ring-gray-900/20 dark:hover:bg-neutral-800"
                     onClick={() => Fathom.trackGoal('VEWYCI7B', 0)}
                   >
                     Documentation
