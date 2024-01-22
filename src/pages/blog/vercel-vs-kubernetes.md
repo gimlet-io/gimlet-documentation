@@ -161,38 +161,38 @@ Vercel: 🏀 🏀 🏀 - Kubernetes: 🚫
 
 ## Pricing
 
-With the preview deploys, we already opened up the pricing discussion.
+Pricing is often brought up in discussions about Vercel. There's a free tier at Vercel, which isn't available at cloud providers when you'd like to use managed Kubernetes.
 
-Vercel pricing not transparent, 0, 20, potentially expensive anything above that
-Traffic cost issue, 100GB / 40$, geri knows
-point kubernetes?
+Vercel's paid tier starts at a $20 per seat monthly price tag. They charge $40 per 100 GBs of bandwidth after exceeding the 1 TB included in the free tier. For the sake of real world comparison, Civo charges $0.01 per additional GB.
 
-free tier TOS, not for commercial use
+There's also one particular aspect to keep in mind when using Vercel. Vercel's fair use guidelines restrict commercial use for hobby accounts. So you'll need to use the paid plan if you're trying to make money out of your frontend app.
 
-Kubernetes on the other hand has a transparent pricing
-Not on the hyperscalers.
+Value for money comparison point goes to Kubernetes in this area.
 
 Vercel: 🏀 🏀 🏀 - Kubernetes: 🏀
 
 ## Scaling
 
-not in serving more users
-but using it as a team, deploying multiple applications
-having custom requirements.
+In this case, we mean scaling as in usability as a team.
+
+Vercel's paid plan is capped at 10 seats, which totals to $200 a month without topping up for extra usage. Have to admit, Vercel's preset services, such as KV and PostgreSQL are convenient, but are they worth the price when you can DIY these for yourself? And let's not forget, Vercel is still only for frontend frameworks!
+
+Kubernetes itself has no seat limits, only user restrictions made by the cluster's maintainer. Databases and key-value stores don't exist as plugins for Kubernetes. These definitely pose some sort of complexity from a user's point-of-view. But you can configure your preferred solution for these uses, offering a wider range of flexibility compared to what Vercel brings to the table in this regard.
+
+On one side, Vercel offers simplicity while sacrificing flexibility. On the other, Kubernetes demands a level of complexity to unlock endless possibilities for customization.
+
+When working as a team, you have to assess whether Vercel's options meet your needs, or whether Kubernetes' flexibility is worth squeezing the juice of the platform. Point Kubernetes.
 
 Vercel: 🏀 🏀 🏀 - Kubernetes: 🏀 🏀
 
 ## Conclusion
 
-Kubernetes does not lag too much
+It all boils down to whether you're willing to give up convenience for flexibility, or the other way around.
 
-Besides the points given above
+Vercel offers convenient user experience right from the beginning that Kubernetes can't compare to alone. It's also fair to say that the $20 monthly plan won't break the bank if you're trying to validate an MVP and chances are you won't exceed bandwidth limits with it, either.
 
-Vercel is only for 35 frontend frameworks
-If you want to deploy anything backend, you just can't
-If this matters to you, point Kubernetes
+While Kubernetes seems like an overcomplicated beast for deployments and hosting, it can be tamed and used for deployments to your liking, especially if you can find a provider where you get the best deal for managed K8s. And it's not a picky being either: any containerized runtime is compatible with it.
 
-The many usecases k8s can support, could bring it points
-then copmplexity maybe a drawback, but then there is nothing that compares to it
+For the wider-range of use cases supported, we consider Kubernetes the better solution in general. Point Kubernetes.
 
 Vercel: 🏀 🏀 🏀 - Kubernetes: 🏀 🏀 🏀
