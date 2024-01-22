@@ -140,7 +140,7 @@ Adding your custom domain requires adding DNS records on both platforms. The mai
 Vercel: 🏀 🏀 - Kubernetes: 🚫
 
 ## Preview deploys
-{% wide color="bg-neutral-100 dark:bg-neutral-700" width=60 %}
+{% wide color="" width=60 %}
 {% table %}
 * 
 * **Vercel**
