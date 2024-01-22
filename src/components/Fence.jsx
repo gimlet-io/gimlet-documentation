@@ -36,7 +36,7 @@ export function Fence({ children, language }) {
                 return (
                   <Fragment key={index}>
                   {line.map((token, i) => (
-                    <span key={i} {...getTokenProps({ token })} aa="bb" className={highlightStyle[index]}/>
+                    <span key={i} {...getTokenProps({ token })} className={highlightStyle[index]}/>
                   ))}
                   {line[0].content !== '\n' && '\n'}
                   </Fragment>
