@@ -14,13 +14,6 @@
   content: "";
 }
 
-.prose :where(table):not(:where([class~="not-prose"] *)) {
-  @apply my-32;
-  width: 70vw;
-  position: relative;
-  left: calc(-35vw + 50%);
-}
-
 .prose :where(code):not(:where([class~="prism-code"] *)) {
   color: var(--tw-prose-code);
   font-family: monospace;

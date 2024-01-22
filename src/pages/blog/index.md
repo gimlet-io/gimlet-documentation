@@ -2,9 +2,14 @@
 title: Blog
 ---
 
-{% post name="Kubernetes VS Vercel" image="" link="/blog/kubernetes-vs-vercel" date="2024-01-12" %}
+{% post name="Vercel VS Kubernetes" image="" link="/blog/vercel-vs-kubernetes" date="2024-01-12" %}
 Even the idea of comparison is wild, right?
+
 But we gave it a serious thought. Hear us out.
+
+We are going to keep scores! 🏀
+
+
 {% /post %}
 
 {% post name="Troubleshooting common Kubernetes pod error states" image="fire.png" link="/blog/troubleshooting-common-kubernetes-pod-error-states" date="2023-09-15" %}

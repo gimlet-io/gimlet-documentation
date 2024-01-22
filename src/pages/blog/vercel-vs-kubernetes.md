@@ -1,5 +1,5 @@
 ---
-title: 'Kubernetes VS Vercel'
+title: 'Vercel VS Kuberetes'
 date: '2024-01-12'
 description: ""
 image: gitops-broke-cicd.jpg
@@ -20,19 +20,21 @@ Yes, we have seen the Kubernetes memes. You can build a castle on Kubernetes. Bu
 
 Let's see how does Kubernetes fare with Vercel if we bring a pragmatic mindset.
 
-We are going to keep scores!
+We are going to keep scores! 🏀
 
 ## Where to get started?
 
 When you are getting started with Vercel, you go to vercel.io.
 
-With Kubernetes, you go to the documentation. Or do you? You will not be deploying anytime soon if you try to understand everything.
+With Kubernetes, you go to the documentation.
 
-Vercel is a vertically integrated platform, it spans several architectural layers to make your life easy. To have a similar experience with Kubernetes, let's pick a managed Kubernetes provider. But not the hyperscaler clouds like AWS, Azure or GCP.
+Or do you? You will not be deploying anytime soon if you try to understand everything.
 
-Since managed Kubernetes has an entry tax on the hyperscalers (75$ / mo for the so called "control plane"), we pick a provider that does not have it: [CIVO Cloud](https://civo.com). At Digital Ocean, Scaleway or Linode you also won't pay the Kubernetes tax, just the VMs you use. 
+Vercel is a vertically integrated platform, it spans several architectural layers to make your life easy. To have even a remotely comparable experience with Kubernetes, we need to pick a managed Kubernetes provider. But not the hyperscaler clouds like AWS, Azure or GCP.
 
-Skipping the hyperscalers brings one more benefit: smaller clouds are better integrated and simpler to understand. This comes handy if we want to compare the experience to Vercel.
+Since managed Kubernetes has an entry tax on the hyperscalers (75$ / mo for the so-called "control plane"), we pick a provider that does not have it: [CIVO Cloud](https://civo.com). At Digital Ocean, Scaleway or Linode you also won't pay the Kubernetes tax, just the VMs you use. 
+
+Skipping the hyperscalers brings another benefit: smaller clouds are better integrated and simpler to understand. This comes handy if we want to compare the experience to Vercel.
 
 ## Just deploy something
 
@@ -40,8 +42,11 @@ The first test: let's deploy something.
 
 We are going to deploy a React app since Vercel only supports frontend frameworks. The app is on Github, in a private repository.
 
+{% wide color="bg-neutral-100 dark:bg-neutral-700" width=60 %}
 ![CIVO - Create a cluster](/civo-create-cluster.png)
+{% /wide %}
 
+{% wide color="" width=60 %}
 {% table %}
 * 
 * **Vercel**
@@ -54,7 +59,7 @@ Point Vercel. 🏀
 *
   {% list type="checkmark" %}
   * Signign up to [https://civo.com](https://civo.com) brings the standard sign-up experience. There is nothing to be ashamed of here.
-  * Since Kubernetes is not a serverless platform you need to create a cluster too. There is no way around it.
+  * Since Kubernetes is not a serverless platform you need to create a cluster. There is no way around it.
   * There are a couple of decisions you need to make here: picking node size and count, but other than that, the defaults suffice. The cluster is up in about 90 seconds. Comparable to any self-hosting alternative.
   {% /list %}
 ---
@@ -66,7 +71,7 @@ A git clone does the job.
 * **Deployment configuration**
 * Vercel does a great job at recognizing 35+ frontend frameworks. If your project is conventional, the build commands are set automatically. 
 * {% list type="checkmark" %}
-  * We said we are going to be pragmatic with Kubernetes. To match the no-config experience of Vercel, we are going to use an application template that is made for static websites and we set the build command, just like on Vercel. Without auto detection that is.
+  * As promised, we are going to be pragmatic with Kubernetes. To match the no-config experience of Vercel, we are going to use an application template that is made for static websites. We need to set the build command, but the rest of the boilerplate is covered.
   * Create a file with the build commands:
     ```yaml
     # values.yaml
@@ -85,21 +90,23 @@ A git clone does the job.
     $ kubectl apply -f manifest.yaml
     $ kubectl port-forward svc/my-react-site 8000:80
     ``` 
-    The above snippet spares lot of the legwork that containerized platforms like Kubernetes require. If you want to understand more, you can read more in our [blog post](https://gimlet.io/blog/hosting-static-sites-on-kubernetes). But it is not strictly required. We are pragmatic, remember?
+    The above snippet spares a lot of the legwork that containerized platforms like Kubernetes require. If you want to understand more, you can read more in our [blog post](https://gimlet.io/blog/hosting-static-sites-on-kubernetes). But it is not strictly required. We are pragmatic, remember?
   {% /list %}
 
 --- 
 * **Automation**
-* Deployent automation is set up automatically as you set up your first deploy. Point Vercel. 🏀 
+* Deployment automation is set up automatically as you set up your first deploy. Point Vercel. 🏀 
 * You can take the command line commands we used earlier and put them into Github Actions.
 {% /table %}
+{% /wide %}
 
 Vercel: 🏀 🏀 - Kubernetes: 🚫
 
 ## Adding a Domain name
 
-Both Vercel and managed Kuberenetes has a default public domain name.
+Both Vercel and managed Kuberenetes have a default public domain name.
 
+{% wide color="bg-neutral-100 dark:bg-neutral-700" width=60 %}
 {% table %}
 * 
 * **Vercel**
@@ -124,14 +131,16 @@ Both Vercel and managed Kuberenetes has a default public domain name.
     ```
   {% /list %}
 {% /table %}
+{% /wide %}
 
 Since accessing the application has the same end-user experience, and the configuration need is not more than a few more lines, no points given in this round.
 
-Adding your custom domain require adding DNS records on both platforms. The main complexity there is editing DNS records, so again, no points given in this round.
+Adding your custom domain requires adding DNS records on both platforms. The main complexity there is editing DNS records, so again, no points given in this round.
 
 Vercel: 🏀 🏀 - Kubernetes: 🚫
 
 ## Preview deploys
+{% wide color="bg-neutral-100 dark:bg-neutral-700" width=60 %}
 {% table %}
 * 
 * **Vercel**
@@ -146,6 +155,7 @@ Point Vercel. 🏀
 * Not part of the Vercel free plan.
 * The scripting comes down to variables in the deployment manifest to avoid naming collisions in the deployed version. It requires careful considerations and it is error-prone.
 {% /table %}
+{% /wide %}
 
 Vercel: 🏀 🏀 🏀 - Kubernetes: 🚫
 
