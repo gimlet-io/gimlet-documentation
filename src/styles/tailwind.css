@@ -14,6 +14,13 @@
   content: "";
 }
 
+.prose :where(table):not(:where([class~="not-prose"] *)) {
+  @apply my-32;
+  width: 70vw;
+  position: relative;
+  left: calc(-35vw + 50%);
+}
+
 .prose :where(code):not(:where([class~="prism-code"] *)) {
   color: var(--tw-prose-code);
   font-family: monospace;
@@ -28,4 +35,12 @@
 .flip {
   -webkit-transform: scaleX(-1); transform: scaleX(-1);
   -webkit-transform: scaleY(-1); transform: scaleY(-1);
+}
+
+.inserted {
+  @apply text-green-600;
+}
+
+.deleted {
+  @apply text-red-600;
 }

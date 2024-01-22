@@ -5,8 +5,16 @@ import { Event } from '@/components/Event'
 import { Post } from '@/components/Post'
 import { Signup } from '@/components/Signup'
 import { Tweet } from '@/components/Tweet'
+import { SideBySide1 } from '@/components/SideBySide'
+import { MyHighlight } from '@/components/Highlight'
 
 const tags = {
+  highlight: {
+    render: MyHighlight,
+  },
+  sidebyside1: {
+    render: SideBySide1,
+  },
   callout: {
     attributes: {
       title: { type: String },
