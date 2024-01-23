@@ -49,17 +49,17 @@ const CopyButton = ({ text, style, feedback }) => {
                             <div className='mt-4'>
                                 Did you get what you need?
                                 <div className='mt-2'>
-                                    <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-2 rounded-full"
+                                    <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-2 rounded-full"
                                         onClick={() => answer("yes")}
                                     >
                                     Yes!
                                     </button>
-                                    <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold ml-2 py-1 px-2 rounded-full"
+                                    <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold ml-2 py-1 px-2 rounded-full"
                                         onClick={() => answer("sorta")}
                                     >
                                     Sorta
                                     </button>
-                                    <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold ml-2 py-1 px-2 rounded-full"
+                                    <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold ml-2 py-1 px-2 rounded-full"
                                         onClick={() => answer("nah")}>
                                     Nah
                                     </button>
