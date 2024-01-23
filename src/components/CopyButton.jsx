@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import * as Fathom from "fathom-client";
+import axios from "axios";
 
 const CopyButton = ({ text, style, feedback }) => {
     const [isCopied, setIsCopied] = useState(false);
@@ -29,6 +30,9 @@ const CopyButton = ({ text, style, feedback }) => {
         setTimeout(() => {
             setThanks(false);
         }, 2000);
+        postWithAxios(`https://yaml-generator.gimlet.io/feedback`, {response: response}).catch(err => {
+            console.error(`Error: ${err}`);
+        });
     }
 
     const textColorClasses = {
@@ -103,3 +107,21 @@ function unsecuredCopyToClipboard(text) {
     }
     document.body.removeChild(textArea);
 }
+
+const postWithAxios = async (path, body) => {
+    try {
+      const { data } = await axios
+        .post(path, body, {
+          withCredentials: false,
+          headers: {
+            Accept: "application/json",
+            "Content-Type": "application/json",
+          },
+        });
+      return data;
+    } catch (error) {
+        console.log(error)
+    //   this.onError(error.response);
+      throw error.response;
+    }
+  }
