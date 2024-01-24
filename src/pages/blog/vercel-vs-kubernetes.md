@@ -196,3 +196,5 @@ While Kubernetes seems like an overcomplicated beast for deployments and hosting
 For the wider-range of use cases supported, we consider Kubernetes the better solution in general. Point Kubernetes.
 
 Vercel: 🏀 🏀 🏀 - Kubernetes: 🏀 🏀 🏀
+
+CTA: Linkedin event where we walk thourgh the static site hosting
