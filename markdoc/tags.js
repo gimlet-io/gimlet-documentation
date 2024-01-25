@@ -5,8 +5,12 @@ import { Event } from '@/components/Event'
 import { Post } from '@/components/Post'
 import { Signup } from '@/components/Signup'
 import { Tweet } from '@/components/Tweet'
+import { MyHighlight } from '@/components/Highlight'
 
 const tags = {
+  highlight: {
+    render: MyHighlight,
+  },
   callout: {
     attributes: {
       title: { type: String },
