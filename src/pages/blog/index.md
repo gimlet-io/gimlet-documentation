@@ -2,6 +2,10 @@
 title: Blog
 ---
 
+{% post name="What’s Next for FluxCD - And Gimlet?" image="gimlet-io-whats-next-for-fluxcd-and-gimlet.jpg" link="/blog/troubleshooting-common-kubernetes-pod-error-states" date="2024-01-25" %}
+Weaveworks is shutting down and everybody’s wondering: what does the future hold for Flux, the preferred GitOps solution of the players shaping the infrastructure industry?
+{% /post %}
+
 {% post name="Troubleshooting common Kubernetes pod error states" image="fire.png" link="/blog/troubleshooting-common-kubernetes-pod-error-states" date="2023-09-15" %}
 You can use this article as a reference for troubleshooting common Kubernetes pod error states. CrashLoopBackOff, CreateContainerConfigError, OOMKilled and more.
 {% /post %}
