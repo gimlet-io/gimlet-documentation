@@ -7,10 +7,26 @@ import { Signup } from '@/components/Signup'
 import { Tweet } from '@/components/Tweet'
 import { Wide } from '@/components/Wide'
 import { MyHighlight } from '@/components/Highlight'
+import { Box } from '@/components/Box'
+import { SideBySide } from '@/components/SideBySide'
+import { Grid } from '@/components/Grid'
 
 const tags = {
   highlight: {
     render: MyHighlight,
+  },
+  box : {
+    attributes: {
+      span: { type: String },
+      last: { type: Boolean },
+    },
+    render: Box,
+  },
+  sidebyside : {
+    render: SideBySide,
+  },
+  grid : {
+    render: Grid,
   },
   wide: {
     attributes: {
