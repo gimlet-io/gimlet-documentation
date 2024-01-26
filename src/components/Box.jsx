@@ -1,8 +1,7 @@
-export function Box({span, last, children}) {
-  const border = last ? "" : "sm:border-b border-0 border-gray-300"
+export function Box({css, children}) {
 
   return (
-    <div className={`${span} ${border}`}>
+    <div className={`${css}`}>
       {children}
     </div>
   )

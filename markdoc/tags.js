@@ -17,12 +17,14 @@ const tags = {
   },
   box : {
     attributes: {
-      span: { type: String },
-      last: { type: Boolean },
+      css: { type: String },
     },
     render: Box,
   },
   sidebyside : {
+    attributes: {
+      css: { type: String },
+    },
     render: SideBySide,
   },
   grid : {
@@ -30,7 +32,7 @@ const tags = {
   },
   wide: {
     attributes: {
-      color: { type: String },
+      css: { type: String },
       width: { type: Number },
     },
     render: Wide,

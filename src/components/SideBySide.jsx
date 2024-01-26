@@ -1,6 +1,6 @@
-export function SideBySide({children}) {
+export function SideBySide({css, children}) {
     return (
-      <div className="flex">
+      <div className={`sm:flex gap-x-16 ${css}`}>
         {children}
       </div>
     )
