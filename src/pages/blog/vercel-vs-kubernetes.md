@@ -1,7 +1,7 @@
 ---
 title: 'Vercel VS Kuberetes'
 date: '2024-01-12'
-description: "ven the idea of comparison is wild, right? But we gave it a serious thought. Hear us out!"
+description: "Even the idea of comparison is wild, right? But we gave it a serious thought. Hear us out!"
 image: vercelvsk8s.png
 toc: false
 ---
