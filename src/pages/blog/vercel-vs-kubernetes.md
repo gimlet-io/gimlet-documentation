@@ -46,7 +46,7 @@ We are going to deploy a React app since Vercel only supports frontend framework
 
 {% wide css="pt-2 pb-8 mt-16 mb-16 bg-gray-100 dark:bg-slate-800/60" width=80 %}
 ### Registration
-{% sidebyside css="sm:border-b sm:pb-4 sm:mb-16" %}
+{% sidebyside css="sm:pb-16" %}
 {% box css="w-full" %}
 **Vercel** has a "Start Deploying" button on their home page. Clicking the button and connecting your Github you are signed up. It is one of the best experience we have ever seen, hands-down.   
 Point Vercel. 🏀 
@@ -60,7 +60,7 @@ Point Vercel. 🏀
 {% /sidebyside %}
 
 ### Connecting the source code
-{% sidebyside css="sm:border-b sm:pb-4 sm:mb-16" %}
+{% sidebyside css="sm:pb-16" %}
 {% box css="w-full"%}
 By signing up to **Vercel**, you have already set up the Github integration.
 {% /box %}
@@ -70,7 +70,7 @@ By signing up to **Vercel**, you have already set up the Github integration.
 {% /sidebyside %}
 
 ### Deployment configuration
-{% sidebyside css="sm:border-b sm:pb-4 sm:mb-16" %}
+{% sidebyside css="sm:pb-16" %}
 {% box css="w-full"%}
 **Vercel** does a great job at recognizing 35+ frontend frameworks. If your project is conventional, the build commands are set automatically.
 {% /box %}
@@ -117,7 +117,7 @@ Both Vercel and managed Kuberenetes have a default public domain name.
 
 ### Accessing on default domain
 
-On Vercel, you can copy the `vercel.app` domain name from portal.
+On Vercel, you can copy the `vercel.app` domain name from the portal.
 
 On Kubernetes, just like on Vercel, you can obtain the `k8s.civo.com `domain name from the portal.
 Extend the deployment config file with a handful of lines to access the app on the domain:
@@ -144,7 +144,7 @@ Vercel: 🏀 🏀 - Kubernetes: 🚫
 
 {% wide css="pt-2 pb-8 mt-16 mb-16 bg-gray-100 dark:bg-slate-800/60" width=80 %}
 ### Setting up preview deploys
-{% sidebyside css="sm:border-b sm:pb-4 sm:mb-32" %}
+{% sidebyside css="sm:pb-16" %}
 {% box css="w-full" %}
 The setup is trivial, and the collaborative features of **Vercel** are best in class.
 Point Vercel. 🏀
@@ -154,7 +154,7 @@ On **Kubernetes**, just like with automatic deployments, you have to script the 
 {% /box %}
 {% /sidebyside %}
 ### Other
-{% sidebyside css="sm:border-b sm:pb-4 sm:mb-16" %}
+{% sidebyside css="sm:pb-16" %}
 {% box css="w-full" %}
 Preview deploys are not part of the **Vercel** free plan.
 {% /box %}
@@ -170,7 +170,7 @@ Vercel: 🏀 🏀 🏀 - Kubernetes: 🚫
 
 Pricing is often brought up in discussions about Vercel. There's a free tier at Vercel, which isn't available at cloud providers when you'd like to use managed Kubernetes.
 
-Vercel's paid tier starts at a $20 per seat monthly price tag. With additional charges, like $40 per 100 GBs of bandwidth after exceeding the first 1 TB in the free tier. For the sake of comparison, CICO charges $1 per additional 100GB.
+Vercel's paid tier starts at a $20 per seat monthly price tag. With additional charges, like $40 per 100 GBs of bandwidth after exceeding the first 1 TB in the free tier. For the sake of comparison, CIVO charges $1 per additional 100GB.
 
 There's also one particular aspect to keep in mind when using Vercel. Vercel's fair use guidelines restrict commercial use for free accounts. So you'll need to use the paid plan if you're trying to make money out of your frontend app.
 
@@ -198,12 +198,14 @@ Vercel: 🏀 🏀 🏀 - Kubernetes: 🏀 🏀
 
 It all boils down to whether you're willing to give up convenience for flexibility, or the other way around. At Gimlet, we are working hard so that opting Kubernetes should not mean giving up convenience.
 
-But today, Vercel offers convenient user experience right from the beginning that Kubernetes can't compare to alone. It's also fair to say that the $20 monthly plan won't break the bank if you're trying to validate an MVP and chances are you won't exceed bandwidth limits with it either.
+But today, Vercel offers convenient user experience right from the beginning that vanilla Kubernetes can't compare to. It's also fair to say that the $20 monthly plan won't break the bank if you're trying to validate an MVP and chances are you won't exceed bandwidth limits with it either.
 
 While Kubernetes seems like an overcomplicated beast for deployments and hosting, it can be tamed by adopting a conservative approach and a cheaper managed Kubernetes provider.
 
-Considering a wider-range of use cases, like deploying backend services, supporting more networking options and compliance needs at your company, Kubernetes may score many more points.
+Considering a wider-range of use cases, like deploying backend services, supporting more networking options and compliance needs at your company, Kubernetes potentially can score many more points for you.
+
+The final score:
 
 Vercel: 🏀 🏀 🏀 - Kubernetes: 🏀 🏀 🏀?
 
-CTA: Linkedin event where we walk thourgh the static site hosting
+If you want to see how a React app is deployed to Kubernetes, join [this live stream](Linkedin) on the 8th February.
