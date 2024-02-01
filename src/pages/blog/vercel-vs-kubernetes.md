@@ -1,6 +1,6 @@
 ---
-title: 'Vercel VS Kuberetes'
-date: '2024-01-12'
+title: 'Vercel VS Kubernetes'
+date: '2024-02-06'
 description: "Even the idea of comparison is wild, right? But we gave it a serious thought. Hear us out!"
 image: vercelvsk8s.png
 toc: false
@@ -32,7 +32,7 @@ Or do you? You will not be deploying anytime soon if you try to understand every
 
 Vercel is a vertically integrated platform, it spans several architectural layers to make your life easy. To have even a remotely comparable experience with Kubernetes, we need to pick a managed Kubernetes provider.
 
-But not the hyperscaler clouds like AWS, Azure or GCP, since managed Kubernetes has an entry tax on the hyperscalers: a 75$ a month fee for the so-called "control plane".
+But not the hyperscaler clouds like AWS, Azure or GCP, since managed Kubernetes has an entry tax on the hyperscalers: a $75 a month fee for the so-called "control plane".
 
 We pick a provider that does not have it: [CIVO Cloud](https://civo.com). At Digital Ocean, Scaleway or Linode you also won't pay the Kubernetes tax, just the VMs you use. 
 
@@ -101,7 +101,7 @@ As promised, we are going to be pragmatic with **Kubernetes**. To match the no-c
 ### Automation
 {% sidebyside css="sm:pb-4 sm:mb-16" %}
 {% box css="w-full"%}
-Deployment automation is set up automatically setup on **Vercel** as you set up your first deploy. Point Vercel. 🏀
+Deployment automation is set up automatically on **Vercel** as you set up your first deploy. Point Vercel. 🏀
 {% /box %}
 {% box css="w-full" %}
 To automate **Kubernetes** deployments, you can take the command line commands we used earlier and put them into Github Actions.
@@ -113,7 +113,7 @@ Vercel: 🏀 🏀 - Kubernetes: 🚫
 
 ## Adding a Domain name
 
-Both Vercel and managed Kuberenetes have a default public domain name.
+Both Vercel and managed Kubernetes have a default public domain name.
 
 ### Accessing on default domain
 
