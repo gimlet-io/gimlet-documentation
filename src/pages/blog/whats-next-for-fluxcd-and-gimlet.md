@@ -24,8 +24,6 @@ It’s fair to expect FluxCD, a graduated CNCF project to survive, but the comin
 
 It’s not known yet how maintainers will weather the uncertainty, and hard to assess how reliant the development of the tool was exclusively on Weaveworks employees. While 5 of the 9 [core maintainers](https://github.com/fluxcd/community/blob/main/CORE-MAINTAINERS) are now listed independent/freelancer,  industry giants such as Azure, GitLab and AWS utilize Flux as their gitops solution, the coming months will reveal what measures these players take to maintain the tool.
 
-It’ll all boil down to whether the giants are willing to stick with Flux for the sake of taking over maintenance, or whether they adopt other solutions, such as Argo CD. Or something completely new emerges.
-
 A recent development is that the core maintainer of Flux, Stefan Prodan was hired by **[ControlPlane](https://www.linkedin.com/feed/update/urn:li:activity:7155990780556320768/)**. We believe that this step aligns well with the project's goals, and certainly a positive event in light of the grim month we are passed now.
 
 ## What We’ll Do
