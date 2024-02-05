@@ -16,7 +16,7 @@ Alexis shared some information about what happened: while they had increasing su
 
 ## What To Expect
 
-Weaveworks built its core business around Kubernetes. Contrary to all the criticism, Kubernetes is dominating the container orchestration field at an increasing trend. How Weaveworks weren’t able to catch a grip with an essentially de facto technology at their hands is an interesting discussion which we can’t determine as outsiders.
+Weaveworks built its core business around Kubernetes. Contrary to all the criticism, Kubernetes is dominating the container orchestration field at an increasing trend. How Weaveworks was not able to catch a grip of it with a de facto technology at their hands will be subject of many analysis, something we are not trying to do here.
 
 {% highlight %}
 It’s fair to expect FluxCD, a graduated CNCF project to survive, but the coming months will bring uncertainty to the project.
