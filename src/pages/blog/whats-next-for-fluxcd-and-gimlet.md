@@ -1,16 +1,18 @@
 ---
 title: 'What’s Next for FluxCD - And Gimlet?'
-date: '2024-01-25'
+date: '2024-02-05'
 description: "Weaveworks is shutting down and everybody’s wondering: what does the future hold for Flux, one of the most used gitops tool of platform builders?"
 image: gimlet-io-whats-next-for-fluxcd-and-gimlet.jpg
 toc: false
 ---
 
+Today Alexis Richardson, the CEO of WeaveWorks announced that WeaveWorks, the company behind FluxCD is shutting down.
+
 First of all, we’re incredibly sad to see so many amazing professionals finding themselves in an uncertain situation at the worst time of the year for being let go. We encourage the community to help each other out in this situation and let each other know about possible opportunities for Weaveworks' teammates.
 
 We were shocked to overhear the chatter about Weaveworks going out of business early January. As you can see, we’re listed as **[vendors](https://fluxcd.io/ecosystem/)** of the Flux ecosystem on the project’s website. It’s a critical matter to us what happens with the technology at the core of our stack.
 
-We can’t tell for sure what happened, but based on rumors within the community, Weaveworks was on the verge of acquisition but talks never came to fruition.
+Alexis shared some information about what happened: while they had increasing success with enterprise customers: "[..] this sales growth was lumpy and our cash position, consequently volatile [..]". Weaveworks then was on the verge of acquisition but talks never came to fruition.
 
 ## What To Expect
 
@@ -20,11 +22,11 @@ Weaveworks built its core business around Kubernetes. Contrary to all the critic
 It’s fair to expect FluxCD, a graduated CNCF project to survive, but the coming months will bring uncertainty to the project.
 {% /highlight %}
 
-It’s unknown yet how the maintainers will react, and hard to assess from an outside point of view how reliant the development of the tool was exclusively on Weaveworks employees. Because industry giants, such as Azure, GitLab and AWS utilize Flux as the preferred gitops solution, it shouldn’t be considered as a pipedream that certain players might take measures to maintain the tool.
+It’s not known yet how maintainers will weather the uncertainty, and hard to assess how reliant the development of the tool was exclusively on Weaveworks employees. While 5 of the 9 [core maintainers](https://github.com/fluxcd/community/blob/main/CORE-MAINTAINERS) are now listed independent/freelancer,  industry giants such as Azure, GitLab and AWS utilize Flux as their gitops solution, the coming months will reveal what measures these players take to maintain the tool.
 
 It’ll all boil down to whether the giants are willing to stick with Flux for the sake of taking over maintenance, or whether they adopt other solutions, such as Argo CD. Or something completely new emerges.
 
-A recent development of the situation is that the core maintainer of Flux, Stefan Prodan was hired by **[ControlPlane](https://www.linkedin.com/feed/update/urn:li:activity:7155990780556320768/)**. This is really good news for the project, we like the company and the decision in general.
+A recent development is that the core maintainer of Flux, Stefan Prodan was hired by **[ControlPlane](https://www.linkedin.com/feed/update/urn:li:activity:7155990780556320768/)**. We believe that this step aligns well with the project's goals, and certainly a positive event in light of the grim month we are passed now.
 
 ## What We’ll Do
 
