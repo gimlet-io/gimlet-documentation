@@ -2,7 +2,7 @@
 
 Flux has been one of the most popular gitops tools available for years. Yet, it only existed as a CLI tool until now. Capacitor is a GUI that acts as a dashboard for Flux where you can get quick overview about your Flux resources and application deployments to debug issues quickly.
 
-![Capacitor, a general purpose UI for Flux](/capacitor.png)
+![Capacitor, a general purpose UI for Flux](../../../public/capacitor.png)
 
 ## A word from Laszlo, the maintainer of Capacitor
 
@@ -38,13 +38,13 @@ With a click of a button you can jump tpo the Flux resource and check the recons
 
 ### Application deployment debugging feedback loop
 
-![Application deployment controls](/servicecard.png)
+![Application deployment controls](../../../public/servicecard.png)
 
 Application deployments have controls to perform routine tasks, like checking logs, describing deployments, pods, configmaps.
 
 With these controls, Capacitor can become your daily driver for your deployments.
 
-![Application logs](/application-logs.png)
+![Application logs](../../../public/application-logs.png)
 
 ## What’s supported?
 
