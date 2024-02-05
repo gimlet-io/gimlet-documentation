@@ -32,7 +32,7 @@ The GUI substitutes for interacting with Flux resources and runtime via flux CLI
 
 Application deployments show which Flux Kustomization or HelmRelease deployed them.
 
-With a click of a button you can jump tpo the Flux resource and check the reconsiliation state.
+With a click of a button you can jump to the Flux resource and check the reconsiliation state.
 
 [gif showing app deployments and related Kustomization / Helm Releases]
 
