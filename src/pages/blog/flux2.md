@@ -2,6 +2,8 @@
 
 Flux has been one of the most popular gitops tools available for years. Yet, it only existed as a CLI tool until now. Capacitor is a GUI that acts as a dashboard for Flux where you can get quick overview about your Flux resources and application deployments to debug issues quickly.
 
+![Capacitor, a general purpose UI for Flux](/capacitor.png)
+
 ## A word from Laszlo, the maintainer of Capacitor
 
 “Hello Flux blog,
@@ -14,7 +16,7 @@ I thought we could make one, hence we made Capacitor.
 Why?
 Because it is not easy to observe Kustomization and HelmRelease states in the cluster. Even with tools that show Custom Resources, it is not obvious to make the connection between application deployments and Flux resources.
 
-The goal with Capacitor is to create the right context for developers to debug their deployment. Whether the error is related to Flux or not.
+The goal with Capacitor is to create the right context for developers to debug their deployments. Whether the error is related to Flux or not.
 
 We hope you’re going to find the tool useful.”
 
@@ -36,11 +38,13 @@ With a click of a button you can jump tpo the Flux resource and check the recons
 
 ### Application deployment debugging feedback loop
 
-Application deployments have controls perform routine tasks, like checking logs, describing deployments, pods, configmaps.
+![Application deployment controls](/servicecard.png)
+
+Application deployments have controls to perform routine tasks, like checking logs, describing deployments, pods, configmaps.
 
 With these controls, Capacitor can become your daily driver for your deployments.
 
-[image screenshot of deployment card]
+![Application logs](/application-logs.png)
 
 ## What’s supported?
 
@@ -74,3 +78,7 @@ Capacitor doesn’t come with Flux natively, you’ll need to set it up separate
 ### Deploy as a Helm chart
 
 ```Helm chart from readme```
+
+## Where is the project hosted?
+
+It is hosted on [Gihub: gimlet-io/capacitor](https://github.com/gimlet-io/capacitor)
