@@ -176,6 +176,8 @@ There's also one particular aspect to keep in mind when using Vercel. Vercel's f
 
 Once you are on the $20 Vercel plan, the next price jump is "enterprise", which can make scaling costly on Vercel.
 
+[On CIVO](https://www.civo.com/pricing), you can get started at $5 a month, and for $20, you get 4GB of RAM and 2 CPU cores. You can serve many static sites on that spec.
+
 Value for money and price transparency comparison point goes to Kubernetes.
 
 Vercel: 🏀 🏀 🏀 - Kubernetes: 🏀
@@ -208,4 +210,4 @@ The final score:
 
 Vercel: 🏀 🏀 🏀 - Kubernetes: 🏀 🏀 🏀?
 
-If you want to see how a React app is deployed to Kubernetes, join [this live stream](Linkedin) on the 8th February.
+If you want to see how a React app is deployed to Kubernetes, join [this live stream](Linkedin) on the 13th February.

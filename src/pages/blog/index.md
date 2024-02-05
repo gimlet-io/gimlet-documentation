@@ -2,7 +2,7 @@
 title: Blog
 ---
 
-{% post name="Vercel VS Kubernetes" image="vercelvsk8s.png" link="/blog/vercel-vs-kubernetes" date="2024-01-12" %}
+{% post name="Vercel VS Kubernetes" image="vercelvsk8s.png" link="/blog/vercel-vs-kubernetes" date="2024-02-06" %}
 Even the idea of comparison is wild, right?
 
 But we gave it a serious thought. Hear us out.
