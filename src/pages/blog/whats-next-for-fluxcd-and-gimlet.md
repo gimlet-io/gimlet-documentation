@@ -1,6 +1,6 @@
 ---
 title: 'What’s Next for FluxCD - And Gimlet?'
-date: '2024-02-06'
+date: '2024-02-05'
 description: "Weaveworks is shutting down and everybody’s wondering: what does the future hold for Flux, one of the most used gitops tool of platform builders?"
 image: gimlet-io-whats-next-for-fluxcd-and-gimlet.jpg
 toc: false
