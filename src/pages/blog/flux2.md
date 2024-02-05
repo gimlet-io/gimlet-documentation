@@ -6,19 +6,19 @@ Flux has been one of the most popular gitops tools available for years. Yet, it 
 
 ## A word from Laszlo, the maintainer of Capacitor
 
-“Hello Flux blog,
-
-Long time Flux user here, although I haven't been very active in the community so far. The maintainers have been doing an amazing job with Flux. We’re standing on the shoulders of giants 🙌.
-
-There is an odd fact though: there was no de facto Flux GUI until now. How come?
-I thought we could make one, hence we made Capacitor.
-
-Why?
-Because it is not easy to observe Kustomization and HelmRelease states in the cluster. Even with tools that show Custom Resources, it is not obvious to make the connection between application deployments and Flux resources.
-
-The goal with Capacitor is to create the right context for developers to debug their deployments. Whether the error is related to Flux or not.
-
-We hope you’re going to find the tool useful.”
+> “Hello Flux blog,
+> 
+> Long time Flux user here, although I haven't been very active in the community so far. The maintainers have been doing an amazing job with Flux. We’re standing on the shoulders of giants 🙌.
+> 
+> There is an odd fact though: there was no de facto Flux GUI until now. How come?
+> I thought we could make one, hence we made Capacitor.
+> 
+> Why?
+> Because it is not easy to observe Kustomization and HelmRelease states in the cluster. Even with tools that show Custom Resources, it is not obvious to make the connection between application > deployments and Flux resources.
+> 
+> The goal with Capacitor is to create the right context for developers to debug their deployments. Whether the error is related to Flux or not.
+> 
+> We hope you’re going to find the tool useful.”
 
 ## Use cases
 
