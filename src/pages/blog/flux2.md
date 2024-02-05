@@ -65,7 +65,9 @@ OCI repositories are not supported at this point.
 
 ## Who made Capacitor?
 
-Capacitor is an open-source project backed by [Gimlet](https://gimlet.io), a team that creates several Kubernetes and gitops related tools.
+Capacitor is an open-source project backed by [Gimlet](https://gimlet.io), a team that creates a Flux-based IDP.
+
+Gimlet is our opinionated project, Capacitor is our un-opinionated take.
 
 ## How to get started?
 
