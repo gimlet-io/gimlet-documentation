@@ -1,56 +1,76 @@
-H1: Introducing Capacitor, a general purpose UI for Flux
+# Introducing Capacitor, a general purpose UI for Flux
 
-Body:
+Flux has been one of the most popular gitops tools available for years. Yet, it only existed as a CLI tool until now. Capacitor is a GUI that acts as a dashboard for Flux where you can get quick overview about your Flux resources and application deployments to debug issues quickly.
 
-Flux has been one of the most popular GitOps tools available for years. Yet, it only existed as a CLI tool until now. Capacitor is a GUI that acts as a dashboard for Flux where engineers can get fast feedback about performance and get to the cause of errors in their source code.
-
-And now a word from Laszlo, one of the maintainers of Capacitor:
+## A word from Laszlo, the maintainer of Capacitor
 
 “Hello Flux blog,
 
-Long time reader here, always shy to speak up. We’re standing on the shoulders of giants, Flux maintainers.
-It’s an odd fact that there was no de facto Flux GUI so far. How come?
-We thought we could make one, introducing Capacitor.
+Long time Flux user here, although I haven't been very active in the community so far. The maintainers have been doing an amazing job with Flux. We’re standing on the shoulders of giants 🙌.
+
+There is an odd fact though: there was no de facto Flux GUI until now. How come?
+I thought we could make one, hence we made Capacitor.
 
 Why?
-because it is not easy to observe Kustomization / Helm release states,
-not easy to spot errors,
-and the tools that display Kustomizations and Helm releases in tables are not giving enough context.
+Because it is not easy to observe Kustomization and HelmRelease states in the cluster. Even with tools that show Custom Resources, it is not obvious to make the connection between application deployments and Flux resources.
+
+The goal with Capacitor is to create the right context for developers to debug their deployment. Whether the error is related to Flux or not.
 
 We hope you’re going to find the tool useful.”
 
-H2: Use cases
+## Use cases
 
-H3: Debugging feedback loop
+### Commandless Flux observation
 
-Capacitor gives instant feedback of the performance of runtimes. When an issue emerges, the tool links to the cause of the error in the source code, as you can see in the screenshot below.
+The GUI substitutes for interacting with Flux resources and runtime via flux CLI commands.
 
-[image]
+[image showing Flux resources in the footer]
 
-H3: Commandless Flux observation
+### Connecting application deployments with Flux resources
 
-The GUI substitutes for interacting with runtimes via Flux commands in multiple terminal windows.
+Application deployments show which Flux Kustomization or HelmRelease deployed them.
 
-H2: What’s supported?
+With a click of a button you can jump tpo the Flux resource and check the reconsiliation state.
 
-The tool supports native Kubernetes deployments of Git branches, as well as Helm charts and Kustomizations.
+[gif showing app deployments and related Kustomization / Helm Releases]
 
-H2: Who made Capacitor?
+### Application deployment debugging feedback loop
 
-Capacitor is an open-source project backed by Gimlet, a team that creates several Kubernetes and GitOps related tools.
+Application deployments have controls perform routine tasks, like checking logs, describing deployments, pods, configmaps.
 
-H2: How to get started?
+With these controls, Capacitor can become your daily driver for your deployments.
+
+[image screenshot of deployment card]
+
+## What’s supported?
+
+Flux resources:
+- Kustomization
+- GitRepository
+- HelmRelease
+
+Kubernetes resources:
+- Deployment
+- Pod
+- Service
+- Ingress
+- Configmap
+- Secret
+
+OCI repositories are not supported at this point.
+
+## Who made Capacitor?
+
+Capacitor is an open-source project backed by [Gimlet](https://gimlet.io), a team that creates several Kubernetes and gitops related tools.
+
+## How to get started?
 
 Capacitor doesn’t come with Flux natively, you’ll need to set it up separately with one of the methods described below: as Kubernetes manifest or Helm chart.
 
-H3: Kubernetes manifest
-
-You can set up the Kubernetes manifest as described below:
+### Kubernetes manifest
 
 ```k8s manifests from readme```
 
-H3: Deploy as a Helm chart
-
-Below you can look at the Helm chart of Capacitor.
+### Deploy as a Helm chart
 
 ```Helm chart from readme```
