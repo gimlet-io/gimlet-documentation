@@ -6,7 +6,7 @@ image: gimlet-io-whats-next-for-fluxcd-and-gimlet.jpg
 toc: false
 ---
 
-Today Alexis Richardson, the CEO of WeaveWorks announced that WeaveWorks, the company behind FluxCD is shutting down.
+Today Alexis Richardson, the CEO of WeaveWorks [announced](https://www.linkedin.com/feed/update/urn:li:activity:7160295096825860096/) that WeaveWorks, the company behind FluxCD is shutting down.
 
 First of all, we’re incredibly sad to see so many amazing professionals finding themselves in an uncertain situation at the worst time of the year for being let go. We encourage the community to help each other out in this situation and let each other know about possible opportunities for Weaveworks' teammates.
 
