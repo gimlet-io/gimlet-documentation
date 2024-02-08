@@ -32,7 +32,7 @@ Fair to say, it's hard to see how things can get any simpler than this if you do
 
 ## Deploying Streamlit apps in Kubernetes
 
-One of the coolest things about Streamlit is that they documented how to deploy your project in Docker or Kubernetes. You can find the docs here, if you’re curious.
+One of the coolest things about Streamlit is that they documented how to deploy your project in Docker or Kubernetes. You can find the docs [here](https://docs.streamlit.io/knowledge-base/tutorials/deploy/kubernetes), if you’re curious.
 
 **But first of all, why would you deploy in Kubernetes, when Streamlit has Community Cloud and it’s so easy to use?**
 
@@ -42,7 +42,7 @@ As already mentioned, you have just one private app in the Community Cloud. The 
 
 If you find Streamlit’s documentation too overwhelming, another way to deploy Streamlit to a cluster is via using Helm charts. You can use OneChart helm chart to set up your application.
 
-OneChart is an open-source Helm chart template for web applications. You can see documentation here to get started. Now moving on to deploying a Streamlit application with OneChart.
+OneChart is an open-source Helm chart template for web applications. You can see documentation [here](https://gimlet.io/docs/onechart-reference) to get started. Now moving on to deploying a Streamlit application with OneChart.
 
 Use the command below to deploy your Streamlit app where `stapp` is your application. You can name it anything.
 
