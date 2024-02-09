@@ -21,6 +21,8 @@ or anything comparable
 Why discount providers pose more work?
 - SDN/VPC
 
+We chose Ubuntu Linux for the sake of simplicity, and that is the most common option out there.
+
 ## Securing access
 
 Secure access - securing ssh, keys, fail2ban, users
