@@ -1,5 +1,5 @@
 ---
-title: 'Streamlit Community Cloud vs. Gimlet: Deploying Streamlit Applications'
+title: 'Streamlit Community Cloud vs Kubernetes'
 date: '2024-02-13'
 description: "Streamlit is one of the most popular Python frameworks. In this blog post, we’ll check out how to make it public via Streamlit’s Community Cloud, as a Helm chart, and deploy it in Kubernetes through Gimlet."
 image: gimlet-io-whats-next-for-fluxcd-and-gimlet.jpg
@@ -8,7 +8,7 @@ toc: false
 
 **But wait a second…**
 
-Isn’t Kubernetes overkill? It can be as much of an overkill as you want it. The purpose of this blog post is to get an understanding of how to deploy a Streamlit application the simplest way.
+Isn’t Kubernetes an overkill? It can be as much of an overkill as you want it. The purpose of this blog post is to get an understanding of how to deploy a Streamlit application the simplest way.
 
 ## Deploy in Streamlit’s Community Cloud
 

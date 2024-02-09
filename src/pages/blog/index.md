@@ -2,6 +2,10 @@
 title: Blog
 ---
 
+{% post name="Streamlit Community Cloud vs Kubernetes" image="gimlet-io-whats-next-for-fluxcd-and-gimlet.jpg" link="/blog/streamlit-community-cloud-vs-kubernetes" date="2024-02-13" %}
+Streamlit is one of the most popular Python frameworks. In this blog post, we’ll check out how to make it public via Streamlit’s Community Cloud, as a Helm chart, and deploy it in Kubernetes through Gimlet.
+{% /post %}
+
 {% post name="What’s Next for FluxCD - And Gimlet?" image="gimlet-io-whats-next-for-fluxcd-and-gimlet.jpg" link="/blog/whats-next-for-fluxcd-and-gimlet" date="2024-02-06" %}
 Weaveworks is shutting down and everybody’s wondering: what does the future hold for Flux, one of the most used gitops tool of platform builders?
 {% /post %}
