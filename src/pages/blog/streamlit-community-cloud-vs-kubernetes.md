@@ -22,7 +22,7 @@ Deployment is as simple as connecting your GitHub repository, your application i
 
 ![Streamlit deployment screen.](/streamlit-deployment-screen.png)
 
-As you can see below, all you need to do is entering the corresponding data and you’re set for deploying your Streamlit app.
+As you can see below, all you need to do is enter the corresponding data and you’re set for deploying your Streamlit app.
 
 ![Repository settings in Streamlit's Community Cloud.](/streamlit-deploy-repo-settings.png)
 
@@ -36,7 +36,7 @@ It's hard to see how things can get any simpler than this. Community Cloud has w
 
 One of the coolest things about Streamlit is that they [documented]((https://docs.streamlit.io/knowledge-base/tutorials/deploy/kubernetes)) how to deploy your project with Docker and Kubernetes.
 
-Just to re-iterate, why would you deploy in Kubernetes when Streamlit's Community Cloud is so easy to use? You can have just a single private app in Community Cloud. Luckilly the 1CPU and 1 GB RAM spec is on par with the cheapest managed Kubernetes providers. We are going to use [CIVO Cloud's](https://civo.com) $5 plan in this blog post.
+Just to reiterate, why would you deploy in Kubernetes when Streamlit's Community Cloud is so easy to use? You can have just a single private app in Community Cloud. Luckily the 1CPU and 1 GB RAM spec is on par with the cheapest managed Kubernetes providers. We are going to use [CIVO Cloud's](https://civo.com) $5 plan in this blog post.
 
 ### Deployment steps
 
@@ -94,7 +94,7 @@ To deploy your Streamlit app on Kubernetes:
 
 ## Deploy Streamlit application in Kubernetes with Gimlet
 
-If you prefer a GUI to do the above steps, our open-source product Gimlet will help you deploying your Streamlit app. In this section we walk you through how you can do it. We have a cloud version as well: [signup](https://gimlet.io/signup).
+If you prefer a GUI to do the above steps, our open-source product Gimlet will help you deploy your Streamlit app. In this section we walk you through how you can do it. We have a cloud version as well: [signup](https://gimlet.io/signup).
 
 You can get started with it by signing in using your GitHub account. After signing up, you can select how you’d like to deploy your Streamlit application.
 
