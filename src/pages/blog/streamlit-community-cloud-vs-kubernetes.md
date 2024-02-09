@@ -1,121 +1,129 @@
 ---
 title: 'Streamlit Community Cloud vs Kubernetes'
 date: '2024-02-13'
-description: "Streamlit is one of the most popular Python frameworks. In this blog post, we’ll check out how to make it public via Streamlit’s Community Cloud, as a Helm chart, and deploy it in Kubernetes through Gimlet."
+description: "Streamlit is one of the most popular Python frameworks. In this blog post, we’ll check out how to make it public via Streamlit’s Community Cloud, and we check out a pragmatic approach to deploy on Kubernetes."
 image: gimlet-io-whats-next-for-fluxcd-and-gimlet.jpg
 toc: false
 ---
 
-**But wait a second…**
+But wait a second… Isn’t Kubernetes an overkill?
 
-Isn’t Kubernetes an overkill? It can be as much of an overkill as you want it. The purpose of this blog post is to get an understanding of how to deploy a Streamlit application the simplest way.
+{% highlight %}
+While Kubernetes seems like an overcomplicated beast for deployments and hosting, it can be tamed by adopting a conservative approach and a cheap managed Kubernetes provider.
+{% /highlight %}
 
-## Deploy in Streamlit’s Community Cloud
+At least this is what we try to do in this blog post, to get an understanding of how to deploy a Streamlit application in the simplest ways.
 
-The specs for Streamlit’s cloud offering are pretty straightforward. There aren’t any paid plans, so you can deploy your app for free. Each app gets access to 1 GB RAM, but keep in mind that only one private application is allowed, everything else will be public.
+## Deploy to Streamlit’s Community Cloud
 
-Deployment is as simple as connecting your GitHub repository and boom, the application is out there, available to the world.
+The specs for Streamlit’s cloud offering are pretty straightforward. There aren’t any paid plans, so you can deploy your app for free. Each app gets access to 1 GB RAM, but keep in mind that you can have only one private application, everything else will be public.
 
-As you can see below, all you need to do is enter the corresponding data and you’re set for deploying your Streamlit app.
-
-![Repository settings in Streamlit's Community Cloud.](/streamlit-deploy-repo-settings.png)
-
-Additionally, you can set Python version and configure settings, too after clicking Advanced settings.
-
-![Streamlit configuration settings.](/streamlit-app-configuration.png)
-
-Then you click Deploy and you're set.
+Deployment is as simple as connecting your GitHub repository, your application is available online.
 
 ![Streamlit deployment screen.](/streamlit-deployment-screen.png)
 
-Fair to say, it's hard to see how things can get any simpler than this if you don’t mind anyone having access to your projects.
+As you can see below, all you need to do is entering the corresponding data and you’re set for deploying your Streamlit app.
+
+![Repository settings in Streamlit's Community Cloud.](/streamlit-deploy-repo-settings.png)
+
+Additionally, you can set Python version and configure settings in *Advanced settings*.
+
+![Streamlit configuration settings.](/streamlit-app-configuration.png)
+
+It's hard to see how things can get any simpler than this. Community Cloud has won in terms of user experience, unfortunately the limit that you can have only a single private app makes it practically unusable for companies.
 
 ## Deploying Streamlit apps in Kubernetes
 
-One of the coolest things about Streamlit is that they documented how to deploy your project in Docker or Kubernetes. You can find the docs [here](https://docs.streamlit.io/knowledge-base/tutorials/deploy/kubernetes), if you’re curious.
+One of the coolest things about Streamlit is that they [documented]((https://docs.streamlit.io/knowledge-base/tutorials/deploy/kubernetes)) how to deploy your project with Docker and Kubernetes.
 
-**But first of all, why would you deploy in Kubernetes, when Streamlit has Community Cloud and it’s so easy to use?**
+Just to re-iterate, why would you deploy in Kubernetes when Streamlit's Community Cloud is so easy to use? You can have just a single private app in Community Cloud. Luckilly the 1CPU and 1 GB RAM spec is on par with the cheapest managed Kubernetes providers. We are going to use [CIVO Cloud's](https://civo.com) $5 plan in this blog post.
 
-As already mentioned, you have just one private app in the Community Cloud. The 1 GB RAM is on par with the lowest specs you can get for money at any cloud provider that offers managed Kubernetes.
+### Deployment steps
 
-### Deploy Streamlit as a Helm chart
+If you find Streamlit’s documentation overwhelming, another way to deploy Streamlit to a cluster is via using
+an application template, called a Helm chart.
 
-If you find Streamlit’s documentation too overwhelming, another way to deploy Streamlit to a cluster is via using Helm charts. You can use OneChart helm chart to set up your application.
+At Gimlet, we made a generic Helm chart, called [OneChart](https://gimlet.io/docs/onechart-reference) and we use it for all web applications deployments.
 
-OneChart is an open-source Helm chart template for web applications. You can see documentation [here](https://gimlet.io/docs/onechart-reference) to get started. Now moving on to deploying a Streamlit application with OneChart.
+With the command bellow, you can generate the deployment manifests for Kubernetes then apply it on the cluster:
 
-Use the command below to deploy your Streamlit app where `stapp` is your application. You can name it anything.
-
-```
-helm install stapp onechart/onechart --values values.yaml
-```
-
-At this point, you can decide if you’d like to locally access your app. If so, you can do so by executing the command below. When port-forwarding is done, you can check `localhost:9000` for access:
-
-```
-k port-forward svc/stapp  9000:8501
-```
-
-You can take a peep at the content of values.yaml below:
-
-```
-# Container listens to port 8501
-containerPort: 8501
-# Specify where your image is located
-image:
-  repository: youcefv123/streamlit_app
-  tag: dev
-```
-
-Now, if you’d like to access it on the internet, you can add ingress like this:
-
-```
+```yaml
+#values.yaml
 containerPort: 8501
 image:
   repository: youcefv123/streamlit_app
   tag: dev
-ingress:
-  annotations:
-    kubernetes.io/ingress.class: traefik 
- # host variable should be the URL which you have DNS settings set for
-  host: streamlit_app.com
 ```
 
-### Takeaways
+```
+$ helm template streamlit-app onechart/onechart |
+  --values values.yaml > manifest.yaml
 
-In case you’d like to deploy your Streamlit app with Kubernetes, you need to keep in mind a few things.
+$ kubectl apply -f manifest.yaml
+```
 
-- First of all, you’ll need a Kubernetes cluster available. Then you’ll need to understand how you can build and push your app to a registry as a Docker image.
-- If you only need your app to be available to a few people, Streamlit’s Community Cloud will do fine, and it’ll be a lot simpler to deploy that way, too.
+Then port-forward your app to access it on [http://localhost:8501](http://localhost:8501):
+
+```
+$ kubectl port-forward svc/stapp 8501:8501
+```
+
+To access it on the internet, you can add an ingress like this:
+
+```diff
+#values.yaml
+containerPort: 8501
+image:
+  repository: youcefv123/streamlit_app
+  tag: dev
++ ingress:
++   annotations:
++     kubernetes.io/ingress.class: traefik
++  # copy the url from the CIVO dashboard
++  host: 81c09668-22fc-4f70-93fe-f8796eb49d06.k8s.civo.com
+```
+
+### In summary
+
+To deploy your Streamlit app on Kubernetes:
+
+- You’ll need a Kubernetes cluster available.
+  - We recommend CIVO's $5 plan
+  - Or you can get started on a [local cluster](/blog/running-kubernetes-on-your-laptop-with-k3d)
+- You’ll need to understand how you can build and push your app to a registry as a Docker image.
 
 ## Deploy Streamlit application in Kubernetes with Gimlet
 
-Gimlet is a GitOps platform. You can use it to deploy your applications to Kubernetes clusters.
+If you prefer a GUI to do the above steps, our open-source product Gimlet will help you deploying your Streamlit app. In this section we walk you through how you can do it. We have a cloud version as well: [signup](https://gimlet.io/signup).
 
-You can get started with it by signing in using your GitHub or GitLab account. After signing up, you can select how you’d like to deploy your Streamlit application.
+You can get started with it by signing in using your GitHub account. After signing up, you can select how you’d like to deploy your Streamlit application.
 
-For the purpose of this blog post, we chose to deploy our app using a Dockerfile. As you can see below, you can set things up by adding the corresponding details of your application. As you can see, this time we only specified `port`, which is `8501`.
+For the purpose of this blog post, we chose to deploy the app using a Dockerfile.
 
-![Gimlet deployment settings of a Streamlit application.](gimlet-streamlit-dockerfile-deployment.png)
+![Gimlet deployment settings of a Streamlit application.](/gimlet-streamlit-dockerfile-deployment.png)
 
-When you’re done with configuration, Gimlet will open a pull request in your repository with the configuration. All you have to do is just merge the PR in GitHub or the codebase manager you use.
+When you’re done with configuration, Gimlet will open a pull request in your repository.
 
-![Gimlet's pull request on GitHub.](gimlet-github-pull-request.png)
+![Gimlet's pull request on GitHub.](/gimlet-github-pull-request.png)
 
 When merging is complete, you need to go back to Gimlet and click on the deploy button. This’ll deploy the latest changes to your environment.
 
-![When things go right, this is what you should see before a deployment.](gimlet-deployment.png)
+![When things go right, this is what you should see before a deployment.](/gimlet-deployment.png)
 
 After the deployment takes place successful, status page should look like this:
 
-![Gimlet deployment status screen.](gimlet-deployment-status-screen.png)
+![Gimlet deployment status screen.](/gimlet-deployment-status-screen.png)
 
 ### Takeaways
 
-Hard to argue that Gimlet provides at least similar experience to deploying Streamlit apps to its Community Cloud.
+As you could see Gimlet provides a similar experience to deploying Streamlit apps to its Community Cloud.
 
 An obvious pro of using Gimlet is that you can deploy your app to any environment as easily as you’d deploy with Streamlit’s own hosting solution. No resource restrictions, no limit to private projects at all.
 
 The con is kind of related to the pro: it’s your environment and you’re going to be responsible for maintaining it.
 
 On the flipside, if you’re working with others on a Streamlit project, using Gimlet to deploy changes is far more suitable than Streamlit’s Community Cloud.
+
+If you want to see how we deploy a Streamlit app to Kubernetes, join [this live stream](https://www.linkedin.com/events/awalkthrough-deployingareactapp7160557073028530176/theater/) on the 20th February.
+
+See you there!

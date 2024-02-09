@@ -3,7 +3,7 @@ title: Blog
 ---
 
 {% post name="Streamlit Community Cloud vs Kubernetes" image="gimlet-io-whats-next-for-fluxcd-and-gimlet.jpg" link="/blog/streamlit-community-cloud-vs-kubernetes" date="2024-02-13" %}
-Streamlit is one of the most popular Python frameworks. In this blog post, we’ll check out how to make it public via Streamlit’s Community Cloud, as a Helm chart, and deploy it in Kubernetes through Gimlet.
+Streamlit is one of the most popular Python frameworks. In this blog post, we’ll check out how to make it public via Streamlit’s Community Cloud, and we check out a pragmatic approach to deploy on Kubernetes.
 {% /post %}
 
 {% post name="What’s Next for FluxCD - And Gimlet?" image="gimlet-io-whats-next-for-fluxcd-and-gimlet.jpg" link="/blog/whats-next-for-fluxcd-and-gimlet" date="2024-02-06" %}
