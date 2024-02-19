@@ -212,7 +212,7 @@ function Backpack() {
     <div className='bg-gray-100 p-2 text-sm'>
       <h2
         id="on-this-page-title"
-        className="font-display font-medium text-slate-900 dark:text-white"
+        className="font-display font-medium text-slate-900"
       >
         🎒 Kubernetes backpack
       </h2>
