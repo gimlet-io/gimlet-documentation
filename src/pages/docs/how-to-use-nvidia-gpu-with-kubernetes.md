@@ -9,14 +9,9 @@ Using a remote Nvidia GPU with Kubernetes is a convenient way to run machine lea
 
 By default, Kubernetes can't manage GPU resources, but there are certain tools that can help you achieve GPU usage with Kubernetes runtimes. In this blog post, we'll guide you through the process from setting up the GPU to deploying an Ollama model.
 
-## What You'll Need
+## Our provider of choice
 
-Just a couple of requirements to complete this tutorial:
-
-- Cloud available Nvidia A100 GPU
-- Ubuntu 22.04
-- `containerd` installed
-## Select the Provider
+[TODO: fast startup time, point-cloud no hairy IAM network etc.., usually good pricing]
 
 First of all, it's useful to find out where to host your model. For this blog post, we chose an Nvidia A100 with 40 GBs of VRAM. Check out the pricing and configuration comparison at the table below:
 
@@ -25,84 +20,104 @@ First of all, it's useful to find out where to host your model. For this blog po
 | Civo        | PCIe       | 8 cores | 64 GB  | 200 GB NVMe  | $1.78/hr |
 | Lambda Labs | PCIe       | 30 vCPU | 200 GB | 512 GB SSD   | $1.29/hr |
 | DataCrunch  | SXM        | 22 vCPU | 120 GB | Not included | $1.75/hr |
+
 ## Getting Ready
 
 After you've got your GPU at the provider of your choice, it's time to install dependencies to make it compatible with Kubernetes.
 
-### Install Nvidia Driver
-
-Verify that an Nvidia driver is installed on Ubuntu 22.04 by running the command below:
+### Launch cluster
 
 ```
-cat /proc/driver/nvidia/version
+brew install civo
+```
+or
+```
+curl -sL https://civo.com/get | sh
 ```
 
-If there isn't a driver installed, run the command below for automatic installation of the GPU you have:
-
 ```
-sudo ubuntu-drivers install --gpgpu
+civo kubernetes create gpu-cluster \
+  --size g4g.40.kube.small \
+  --nodes 1 \
+  --save --merge --wait \
+  --create-firewall \
+  --firewall-rules "default" \
+  --region LON1 \
+  --cluster-type talos
 ```
+[TODO: from https://gimlet.io/blog/budget-managed-kubernetes-options btw]
 
-You can select a specific driver, as well, `535-server` for example. Run to install the driver:
+[TODO screenshot on the dashboard too? it is visual]
 
+or `civo sizes ls --region=LON1 | grep Nvidia | grep Kubernetes`
+
+| an.g1.l40s.kube.x1 | Small - Nvidia L40S 40GB       | Kubernetes |  12 |  131072 | 200 |
+| g4g.kube.small     | Small - Nvidia A100 80GB       | Kubernetes |  12 |  131072 | 100 |
+
+
+Verify cluster is up:
 ```
-sudo ubuntu-drivers install --gpgpu nvidia:535-server
-```
-
-When complete, install this additional component:
-
-```
-sudo apt install nvidia-utils-535-server
-```
-
-### Install Nvidia Container Toolkit
-
-Now you'll need to install Nvidia's container toolkit. Run the command below to configure the repository:
-
-```
-curl -fsSL https://nvidia.github.io/libnvidia-container/gpgkey | sudo gpg --dearmor -o /usr/share/keyrings/nvidia-container-toolkit-keyring.gpg \
-  && curl -s -L https://nvidia.github.io/libnvidia-container/stable/deb/nvidia-container-toolkit.list | \
-    sed 's#deb https://#deb [signed-by=/usr/share/keyrings/nvidia-container-toolkit-keyring.gpg] https://#g' | \
-    sudo tee /etc/apt/sources.list.d/nvidia-container-toolkit.list
+k get nodes
+k get pods
 ```
 
-Update the packages list:
+k describe node => node does not know about the GPU
 
-```
-sudo apt-get update
-```
+## Pre-reqs
 
-Now install the toolkit:
+kubectl
+helm
+register to civo
+request quota increase (32GB memory is the quota, the smallest GPU node has 128GB memory)
 
-```
-sudo apt-get install -y nvidia-container-toolkit
-```
+## Device plugin installation
 
-### Configuring `containerd` for GPU Usage
-
-Now that the drivers and the toolkit is installed, we need `containerd` configured for Kubernetes to recognize the GPU.
-
-Container toolkit can automate this process. To do so, run the command below:
-
-```
-sudo nvidia-ctk runtime configure --runtime=containerd
-```
-
-Now restart `containerd` with:
-
-```
-sudo systemctl restart containerd
-```
-
-## Kubernetes stuffffffs
-
-- Kubernetes config
+kubectl apply ds.yml
 
 ## Deploy an Ollama Model
 
-For this post, we chose the [Midjourney Prompt Generator](https://openwebui.com/m/hub/midjourney-prompt-generator:latest) model. Its use case is to describe what you'd like to get with plain English sentences, and the model will generate a prompt that you can use with Midjourney to get the result you want.
 
-- Deploy the model
+```
+helm repo add ollama-helm https://otwld.github.io/ollama-helm/
+helm repo update
+helm upgrade -i ollama ollama-helm/ollama --create-namespace --namespace ollama -f ollama.yaml
+k logs -f deploy/ollama
+```
+
+```
+ollama:
+  gpu:
+    enabled: true
+    number: 1
+  models: 
+    - llama2
+    - gemma
+
+persistentVolume:
+  enabled: true
+  size: 250Gi
+```
+
+https://github.com/otwld/ollama-helm
+
+
+Deploy the model
+
+
+```
+kubectl create namespace open-webui
+kubectl apply -f https://raw.githubusercontent.com/open-webui/open-webui/main/kubernetes/manifest/base/webui-pvc.yaml
+kubectl apply -f https://raw.githubusercontent.com/open-webui/open-webui/main/kubernetes/manifest/base/webui-service.yaml
+kubectl apply -f https://raw.githubusercontent.com/open-webui/open-webui/main/kubernetes/manifest/base/webui-deployment.yaml   
+```
+
+```
+kubectl port-forward svc/open-webui-service 8888:8080 -n open-webui
+```
+
+Then set Ollama url to `http://ollama.ollama.svc.cluster.local:11434`
+(TODO screenshot)
+
 
 ## Summary
 

@@ -2,6 +2,10 @@
 title: Blog
 ---
 
+{% post name="Remote Nvidia GPU Access With Kubernetes" image="gimlet-io-whats-next-for-fluxcd-and-gimlet.jpg" link="/blog/how-to-use-nvidia-gpu-with-kubernetes" date="2024-04-20" %}
+Using a remote Nvidia GPU with Kubernetes is a convenient way to run machine learning models from anywhere while being able to keep costs as low as possible. Here's how you can get started with remote GPUs and Kubernetes.
+{% /post %}
+
 {% post name="What’s Next for FluxCD - And Gimlet?" image="gimlet-io-whats-next-for-fluxcd-and-gimlet.jpg" link="/blog/whats-next-for-fluxcd-and-gimlet" date="2024-02-06" %}
 Weaveworks is shutting down and everybody’s wondering: what does the future hold for Flux, one of the most used gitops tool of platform builders?
 {% /post %}
