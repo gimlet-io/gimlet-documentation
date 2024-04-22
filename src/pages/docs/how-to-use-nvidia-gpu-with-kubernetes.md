@@ -67,7 +67,7 @@ k describe node => node does not know about the GPU
 
 kubectl
 helm
-register to civo
+register to civo (you get $250 credit)
 request quota increase (32GB memory is the quota, the smallest GPU node has 128GB memory)
 
 ## Device plugin installation
@@ -118,6 +118,10 @@ kubectl port-forward svc/open-webui-service 8888:8080 -n open-webui
 Then set Ollama url to `http://ollama.ollama.svc.cluster.local:11434`
 (TODO screenshot)
 
+
+Cleanup:
+delete cluster
+delete volumes (they cost money)
 
 ## Summary
 
