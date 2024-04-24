@@ -9,15 +9,20 @@ By default, Kubernetes can't manage GPU resources, but demand for such use cases
 
 ## Our Provider of Choice
 
-[TODO: fast startup time, point-cloud no hairy IAM network etc.., usually good pricing]
+For reference, we're listing a couple of cloud GPU providers here, but it's worth to note that outside of Civo, only Google Cloud Provider offers clusters with Nvidia A100s, the rest are VMs with the GPUs.
 
-First of all, it's useful to find out where to host your model. For this blog post, we chose an Nvidia A100 with 40 GBs of VRAM. Check out the pricing and configuration comparison at the table below:
+Our provider of choice is Civo, and this blog post describes steps with their CLI.
 
-| Provider    | Connection | CPU     | RAM    | Storage      | Price    |
-| ----------- | ---------- | ------- | ------ | ------------ | -------- |
-| Civo        | PCIe       | 8 cores | 64 GB  | 200 GB NVMe  | $1.78/hr |
-| Lambda Labs | PCIe       | 30 vCPU | 200 GB | 512 GB SSD   | $1.29/hr |
-| DataCrunch  | SXM        | 22 vCPU | 120 GB | Not included | $1.75/hr |
+It's also worth mentioning that AKS clusters with GPUs start at a $480 monthly average with T4s. However, Azure offers A100 VMs, as well.
+
+Check out the pricing and configuration comparison for A100 VMs and clusters in the table below:
+
+| Provider    | Connection | CPU     | RAM    | Storage      | Price    | Kubernetes |
+| ----------- | ---------- | ------- | ------ | ------------ | -------- | ---------- |
+| Civo        | PCIe       | 8 cores | 64 GB  | 200 GB NVMe  | $1.78/hr | Yes       |
+| Lambda Labs | PCIe       | 30 vCPU | 200 GB | 512 GB SSD   | $1.29/hr | No       |
+| DataCrunch  | SXM        | 22 vCPU | 120 GB | Not included | $1.75/hr | No       |
+| GCP-GKE  | PCIe        | 12 vCPU | 85 GB | Not included | ~$2800/mo | Yes       |
 
 ## Getting Ready
 
@@ -144,4 +149,4 @@ civo kubernetes delete <cluster-name>
 
 ## Summary
 
-This blog post guided you through the process of setting up a language model using a GPU on a Kubernetes cluster. You achieved this by configuring the GPU for usage with Kubernetes runtimes, then deployed an inference - Ollama -, and Open WebUI to access models on the internet.
+This blog post guided you through the process of setting up a language model on a Kubernetes cluster operating with a GPU. You achieved this by configuring the GPU for usage with Kubernetes runtimes, then deployed an inference - Ollama -, and Open WebUI to access models on the internet.
