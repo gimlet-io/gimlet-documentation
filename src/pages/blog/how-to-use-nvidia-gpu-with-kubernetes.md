@@ -5,7 +5,7 @@ Description: Cloud GPUs are the most accessible for trying out LLMs for your spe
 image: kubernetess-remote-gpu-ollama-blog-post-cover.jpg
 toc: false
 author: Gergely Mate
-authorAvatar: /.jpg
+authorAvatar: /geri.jpg
 
 ---
 
