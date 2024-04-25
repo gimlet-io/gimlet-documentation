@@ -4,19 +4,20 @@ date: '2024-04-25'
 Description: Cloud GPUs are the most accessible for trying out LLMs for your specific use case. Here's how you can set up a cluster for usage with a GPU.
 image: kubernetess-remote-gpu-ollama-blog-post-cover.jpg
 toc: false
+author: Gergely Mate
+authorAvatar: /.jpg
+
 ---
 
 Using a remote Nvidia GPU with Kubernetes is a convenient way to run LLMs from anywhere while being able to keep costs as low as possible. Here's how you can get started with remote GPUs and Kubernetes.
 
-By default, Kubernetes can't manage GPU resources, but demand for such use cases has been on the rise. In this blog post, we'll guide you through the entire process from setting up the cluster to deploying Ollama and Open WebUI to try a model.
+By default, Kubernetes requires some setup to be able to run GPU workloads. We'll guide you through the entire process from setting up the cluster to deploying Ollama and Open WebUI to try a model.
 
 ## Our Provider of Choice
 
 For reference, we're listing a couple of cloud GPU providers here, but it's worth to note that outside of Civo, only Google Cloud Provider offers clusters with Nvidia A100s, the rest are VMs with the GPUs.
 
-Our provider of choice is Civo, and this blog post describes steps with their CLI.
-
-It's also worth mentioning that AKS clusters with GPUs start at a $480 monthly average with T4s. However, Azure offers A100 VMs, as well.
+Our provider of choice is Civo, and this blog post describes how to launch a Kubernetes GPU with their CLI.
 
 Check out the pricing and configuration comparison for A100 VMs and clusters in the table below:
 
@@ -25,17 +26,13 @@ Check out the pricing and configuration comparison for A100 VMs and clusters in 
 | Civo        | PCIe       | 8 cores | 64 GB  | 200 GB NVMe  | $1.78/hr | Yes       |
 | Lambda Labs | PCIe       | 30 vCPU | 200 GB | 512 GB SSD   | $1.29/hr | No       |
 | DataCrunch  | SXM        | 22 vCPU | 120 GB | Not included | $1.75/hr | No       |
-| GCP-GKE  | PCIe        | 12 vCPU | 85 GB | Not included | ~$2800/mo | Yes       |
-
-## Getting Ready
-
-After you've got your GPU at the provider of your choice, it's time to install dependencies to make it compatible with Kubernetes. For this blog post, we went with CIVO.
+| GCP-GKE  | PCIe        | 12 vCPU | 85 GB | Not included | $3.77/hr | Yes       |
 
 ### Pre-Requirements
 
 Moving forward, a couple of things you'll need to complete the steps described:
-- kubectl
-- Helm
+- [kubectl](https://kubernetes.io/docs/reference/kubectl/)
+- [Helm](https://helm.sh/docs/intro/install/)
 - Register to CIVO (You get $250 credit for free)
 
 ### Launch Cluster
@@ -81,37 +78,53 @@ The output should be something like this:
 Before moving forward, verify that the cluster is up:
 
 ```
-k get nodes
-k get pods
+kubectl get nodes
+kubectl get pods
 ```
 
-If you run `k describe node`, you'll see that the node doesn't know about the GPU. You'll need to install the Nvidia device plugin.
+If you run `kubectl describe node`, you'll see that the node doesn't know about the GPU.
 
-## Device Dlugin Installation
-In order to be able to utilize the GPU with a Kubernetes runtime, you'll need to install the [device plugin]() with the command below:
+![kubectl describe node didn't list GPU resources](/kubernetes-resources-no-gpu-listed.png)
+
+You'll need to install the Nvidia device plugin.
+
+## Device Plugin Installation
+In order to be able to utilize the GPU with a Kubernetes runtime, you'll need to install the [device plugin](./src/pages/docs/ds.yml) with the command below:
 
 ```
-kubectl apply ds.yml
+kubectl apply ds.yml -f
 ```
 
 ## Deploy Ollama and Open WebUI
 
-Ollama is a local inference framework, which you can now deploy to your cluster.
+Ollama is a framework for deploying and managing LLMs, which you can now deploy to your cluster. In [this repository](https://github.com/otwld/ollama-helm), you can find the Helm chart you can configure for your needs.
 
 ```
 helm repo add ollama-helm https://otwld.github.io/ollama-helm/
 helm repo update
 helm upgrade -i ollama ollama-helm/ollama --create-namespace --namespace ollama -f ollama.yaml
-k logs -f deploy/ollama
+kubectl logs -f deploy/ollama
 ```
 
-We used the settings in [ollama.yaml]() as seen here to set up Ollama for GPU usage.
+Take a look at the settings we used in [ollama.yaml](.src/pages/docs/ollama.yaml) to set up Ollama for GPU usage below.
 
-In [this repository](https://github.com/otwld/ollama-helm), you can find a Helm chart you can configure for your needs.
+```
+ollama:
+  gpu:
+    enabled: true
+    number: 1
+  models: 
+    - llama2
+    - gemma
+
+persistentVolume:
+  enabled: true
+  size: 250Gi
+```
 
 ### Deploy the Model
 
-To be able to use models, you can deploy Open WebUI. Open WebUI has similar looks to ChatGPT, and you can add models with a very Docker-esque experience. So it's best to perceive Open WebUI as Docker Hub for models, as the models themselves are Docker images.
+To interact with models, you can deploy Open WebUI. Open WebUI has similar looks to ChatGPT, and you can add models to it easily by entering its name.
 
 Run the command below to install Open WebUI:
 
@@ -122,15 +135,17 @@ kubectl apply -f https://raw.githubusercontent.com/open-webui/open-webui/main/ku
 kubectl apply -f https://raw.githubusercontent.com/open-webui/open-webui/main/kubernetes/manifest/base/webui-deployment.yaml   
 ```
 
-To make Open WebUI accessible from the internet, port-forward with the command below.
+To access Open WebUI, port-forward with the command below.
 
 ```
 kubectl port-forward svc/open-webui-service 8888:8080 -n open-webui
 ```
 
-Now enter `http://localhost:8888` in your browser, and sign up to Ollama. After you're done, change Ollama's URL to  `http://ollama.ollama.svc.cluster.local:11434`. This way you'll be able to add models available through Ollama, such as Llama 3.
+Now enter `http://localhost:8888` in your browser, and enter an email address and a password to get credentials for the Open WebUI instance you're running.
 
-![remote-nvidia-gpu-ollama-Open-WebUI-url-config.png](./public/remote-nvidia-gpu-ollama-Open-WebUI-url-config.png)
+After you're done, you can already try the available models, but you're also able to change the source of Ollama models. To do so, navigate to the settings and change Ollama's URL to `http://ollama.ollama.svc.cluster.local:11434`, as you can see in the screenshot below. This way you'll be able to add models available on [ollama.com](https://ollama.com/), such as Llama 3, which was published a few days before this blog post was published.
+
+![remote-nvidia-gpu-ollama-Open-WebUI-url-config.png](/remote-nvidia-gpu-ollama-Open-WebUI-url-config.png)
 
 ### Cleanup
 
@@ -138,18 +153,14 @@ In case you're done experimenting, it's suggessted to clean things up to avoid u
 
 Run these commands to delete the cluster and the volumes that belong to them:
 
-**- Delete Volumes:**
+#### Delete Volumes
 
 ```
 civo volumes delete <VOLUME-NAME> --region <REGION-NAME>
 ```
 
-**- Delete Cluster:**
+#### Delete Cluster
 
 ```
 civo kubernetes delete <cluster-name>
 ```
-
-## Summary
-
-This blog post guided you through the process of setting up a language model on a Kubernetes cluster operating with a GPU. You achieved this by configuring the GPU for usage with Kubernetes runtimes, then deployed an inference - Ollama -, and Open WebUI to access models on the internet.
