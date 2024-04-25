@@ -2,6 +2,10 @@
 title: Blog
 ---
 
+{% post name="File Syncing for Remote GPU Developer Environments With Kubernetes" image="gimlet-io-whats-next-for-fluxcd-and-gimlet.jpg" link="/blog/whats-next-for-fluxcd-and-gimlet" date="2024-04-30" %}
+Remote developer environments are useful when you're working with remote GPUs and language models. Here's how you can set them up with file syncing.
+{% /post %}
+
 {% post name="What’s Next for FluxCD - And Gimlet?" image="gimlet-io-whats-next-for-fluxcd-and-gimlet.jpg" link="/blog/whats-next-for-fluxcd-and-gimlet" date="2024-02-06" %}
 Weaveworks is shutting down and everybody’s wondering: what does the future hold for Flux, one of the most used gitops tool of platform builders?
 {% /post %}
