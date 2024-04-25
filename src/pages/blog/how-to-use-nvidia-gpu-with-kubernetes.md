@@ -1,6 +1,9 @@
 ---
 title: Deploy Ollama and Open WebUI to Remote Kubernetes Cluster with Nvidia GPU
+date: '2024-04-25'
 Description: Cloud GPUs are the most accessible for trying out LLMs for your specific use case. Here's how you can set up a cluster for usage with a GPU.
+image: kubernetess-remote-gpu-ollama-blog-post-cover.jpg
+toc: false
 ---
 
 Using a remote Nvidia GPU with Kubernetes is a convenient way to run LLMs from anywhere while being able to keep costs as low as possible. Here's how you can get started with remote GPUs and Kubernetes.
