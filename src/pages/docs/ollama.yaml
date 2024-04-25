@@ -1,0 +1,11 @@
+ollama:
+  gpu:
+    enabled: true
+    number: 1
+  models: 
+    - llama2
+    - gemma
+
+persistentVolume:
+  enabled: true
+  size: 250Gi
