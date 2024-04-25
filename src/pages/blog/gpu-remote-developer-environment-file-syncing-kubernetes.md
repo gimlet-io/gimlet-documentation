@@ -1,12 +1,10 @@
 ---
 title: 'File Syncing for Remote GPU Developer Environments With Kubernetes'
 date: '2024-04-30'
-description: "Remote developer environments are useful when you're working with remote GPUs and language models. Here's how you can set them up with file syncing."
-image: vercelvsk8s.png
+description: "Remote developer environments are useful when you're working with remote GPUs and language models. One of the basics of utilizing these environments is to sync files across local and remote resources. Here's how you can sync files for such use cases."
+image: file-syncing-remote-gpu-dev-environments-blog-post-cover.jpg
 toc: false
 ---
-
-**Remote developer environments are useful when you're working with remote GPUs and language models. One of the basics of utilizing these environments is to sync files across local and remote resources. Here's how you can sync files for such use cases.**
 
 File syncing and remote developer environments are commonly executed use cases in language model development and machine learning industry, since industrial level GPUs are rather available at cloud providers.
 

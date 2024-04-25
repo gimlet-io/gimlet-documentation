@@ -2,7 +2,7 @@
 title: Blog
 ---
 
-{% post name="File Syncing for Remote GPU Developer Environments With Kubernetes" image="gimlet-io-whats-next-for-fluxcd-and-gimlet.jpg" link="/blog/whats-next-for-fluxcd-and-gimlet" date="2024-04-30" %}
+{% post name="File Syncing for Remote GPU Developer Environments With Kubernetes" image="file-syncing-remote-gpu-dev-environments-blog-post-cover.jpg" link="/blog/gpu-remote-developer-environment-file-syncing-kubernetes" date="2024-04-30" %}
 Remote developer environments are useful when you're working with remote GPUs and language models. Here's how you can set them up with file syncing.
 {% /post %}
 
