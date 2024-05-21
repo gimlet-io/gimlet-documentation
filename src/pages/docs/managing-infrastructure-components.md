@@ -27,7 +27,7 @@ ingress-nginx-controller-66455d768d-v8pgh        1/1     Running   0            
 
 ## On the command line
 
-### Reconfiguring infrastructure componentes
+### Reconfiguring infrastructure components
 
 When you run `gimlet stack configure` and configure components on the UI, the configuration options are stored in a file
 called `stack.yaml`.

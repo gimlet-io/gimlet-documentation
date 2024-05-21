@@ -6,7 +6,7 @@ description: On this page you can see all the possible options you can use to bo
 On this page you can see all the possible options you can use to bootstrap the gitops automation with the Gimlet CLI.
 
 {% callout title="Bootstrapping on the Gimlet dashboard" %}
-Gitops bootstrapping happens automatically on the Gimlet dashbaord during environment creation. You can read this page to know what goes under the hood.
+Gitops bootstrapping happens automatically on the Gimlet dashboard during environment creation. You can read this page to know what goes under the hood.
 {% /callout %}
 
 ## Folder per env

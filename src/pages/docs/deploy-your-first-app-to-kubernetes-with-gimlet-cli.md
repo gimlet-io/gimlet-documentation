@@ -85,9 +85,9 @@ At Gimlet, as a rule of thumb, we use the environment name as namespace. For thi
 
 ## Configure the deployment
 
-Gimlet defaults to the [OneChart Helm chart](/docs/onechart-reference) for web application deployment. It captures the most common usecases of webaplications, so you don't have to maintain your own Helm chart.
+Gimlet defaults to the [OneChart Helm chart](/docs/onechart-reference) for web application deployment. It captures the most common use cases of web applications, so you don't have to maintain your own Helm chart.
 
-To tailor the deployment configuration of your application, you can manualy edit the environment file's `values` section as it is really nothing more than the values.yaml file for Helm charts, but for convenience, Gimlet starts a configuration page with the following command:
+To tailor the deployment configuration of your application, you can manually edit the environment file's `values` section as it is really nothing more than the values.yaml file for Helm charts, but for convenience, Gimlet starts a configuration page with the following command:
 
 ```bash
 gimlet manifest configure -f .gimlet/staging-demo-app.yaml
@@ -106,7 +106,7 @@ As a prerequisite, your CI process already builds a Docker image from your appli
 
 The demo-app uses the Github container registry (ghcr.io) to host the docker image, and uses the repository name as image name. Images are tagged by the hash of the commit that kicked off the CI build
 
-Set the image repository and tag on the configration screen. This tutorial sets `ghcr.io/gimlet-io/demo-app` and `{{ .SHA }}` respectively.
+Set the image repository and tag on the configuration screen. This tutorial sets `ghcr.io/gimlet-io/demo-app` and `{{ .SHA }}` respectively.
 
 ![Step 6 screenshot](https://images.tango.us/public/edited_image_9afb9f33-b1bb-4712-819c-5fd44b94e613.png?crop=focalpoint&fit=crop&fp-x=0.5000&fp-y=0.5000&fp-z=1.0000&w=1200&mark-w=0.2&mark-pad=0&mark64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL21hZGUtd2l0aC10YW5nby13YXRlcm1hcmsucG5n&ar=2505%3A675)
 
@@ -127,7 +127,7 @@ With the image name, tag and container port set, the final thing to set is the u
 Gimlet environments are served with wildcard DNS entries, so `$app.$env.yourcompany.com` will be routed to the right application.
 
 1. Set the _Host Name_ according to the naming convention. We set `demo-app.staging.turbopizza.net`
-2. Enable the HTTPS toogle. A certificate from Let's Encrypt will be provisioned for you.
+2. Enable the HTTPS toggle. A certificate from Let's Encrypt will be provisioned for you.
 3. Add an annotation `kubernetes.io/ingress.class: "nginx"` to match your configuration with the right Ingress Controller in your environment.
 4. Add an annotation `cert-manager.io/cluster-issuer:"letsencrypt"` to tell Cert Manager to provision an SSL certificate
 

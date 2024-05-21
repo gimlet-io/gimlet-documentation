@@ -41,8 +41,9 @@ Once you reviewed and merged the application configuration pull request, you wil
 Push the "Deploy" button now and select the application configuration to deploy.
 
 This will open the deploy panel where you can follow the deploy process:
+
 - Kubernetes manifests are generated and written
-- then syncronized to the cluster.
+- then synchronized to the cluster.
 - A deployment shows up on Gimlet's screen.
 
 ![](/deployed3.png)

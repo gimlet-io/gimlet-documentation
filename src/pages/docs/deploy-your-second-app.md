@@ -42,9 +42,10 @@ Push the "Deploy" button now and select the application configuration to deploy.
 ![](/deploy-button2.png)
 
 This will open the deploy panel where you can follow the deploy process:
+
 - A container image is built.
 - Kubernetes manifests are generated and written
-- then syncronized to the cluster.
+- then synchronized to the cluster.
 - A deployment shows up on Gimlet's screen.
 
 ![](/deployed2.png)

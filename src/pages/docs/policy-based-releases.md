@@ -13,7 +13,7 @@ Gimlet has release policies that are triggered on certain conditions to automati
 
 ## Shipping the artifact only in CI
 
-To configure the Gimlet step in CI to ship a Gimlet artifact but not to trigger a deploy, you can use the reguler Gimlet CI plugins just make sure to not provide any deploy parameters to it:
+To configure the Gimlet step in CI to ship a Gimlet artifact but not to trigger a deploy, you can use the regular Gimlet CI plugins just make sure to not provide any deploy parameters to it:
 
 ```
     - name: 🚢 Gimlet artifact
@@ -23,7 +23,7 @@ To configure the Gimlet step in CI to ship a Gimlet artifact but not to trigger 
         GIMLET_TOKEN: ${{ secrets.GIMLET_TOKEN }}
 ```
 
-With the above config, Gimlet becomes aware of a new releasble softwware version, and can act on release policies.
+With the above config, Gimlet becomes aware of a new releasable software version, and can act on release policies.
 
 ## Set release policies in the Gimlet environment file
 
