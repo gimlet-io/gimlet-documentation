@@ -69,9 +69,9 @@ Every time you save the configuration, you can inspect the diff of the environme
 
 ### With Gimlet CLI
 
-Gimlet defaults to the [OneChart Helm chart](/docs/onechart-reference) for web application deployment. It captures the most common usecases of webaplications, so you don't have to maintain your own Helm chart.
+Gimlet defaults to the [OneChart Helm chart](/docs/onechart-reference) for web application deployment. It captures the most common use cases of web applications, so you don't have to maintain your own Helm chart.
 
-To tailor the deployment configuration of your application, you can manualy edit the environment file's `values` section as it is really nothing more than the values.yaml file for Helm charts, but for convenience, Gimlet starts a configuration page with the following command:
+To tailor the deployment configuration of your application, you can manually edit the environment file's `values` section as it is really nothing more than the values.yaml file for Helm charts, but for convenience, Gimlet starts a configuration page with the following command:
 
 ```bash
 gimlet manifest configure -f .gimlet/staging-demo-app.yaml
@@ -90,7 +90,7 @@ Check out our [SANE Helm guide](/concepts/the-sane-helm-guide).
 
 ### Editing manually
 
-To tailor the deployment configuration of your application, you can manualy edit the environment file's `values` section as it is nothing more than the values.yaml file for Helm charts.
+To tailor the deployment configuration of your application, you can manually edit the environment file's `values` section as it is nothing more than the values.yaml file for Helm charts.
 
 For a full reference of configuration options, check the [OneChart reference](/docs/onechart-reference).
 

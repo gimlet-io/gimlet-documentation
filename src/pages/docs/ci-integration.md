@@ -110,7 +110,7 @@ The `Gimlet` [Context](https://circleci.com/docs/contexts) holds two environment
 
 For the CI deploy steps to work, you need to provide access to the Gimlet API. You need to set two secrets `GIMLET_SERVER` and `GIMLET_TOKEN`.
 
-- Set `GIMLET_SERVER` to https://gimletd.<<yourcompany.com>>
+- Set `GIMLET_SERVER` to <https://gimletd>.<<yourcompany.com>>
 - Set `GIMLET_TOKEN` to a Gimlet API key
 
 To create a Gimlet API key navigate to _Profile_ > _Create a new user_ in Gimlet and add a user for this integration.
@@ -156,7 +156,7 @@ Gimlet has release policies that are triggered on certain conditions to automati
 
 ### Shipping the artifact only in CI
 
-To configure the Gimlet step in CI to ship a Gimlet artifact but not to trigger a deploy, you can use the reguler Gimlet CI plugins just make sure to not provide any deploy parameters to it:
+To configure the Gimlet step in CI to ship a Gimlet artifact but not to trigger a deploy, you can use the regular Gimlet CI plugins just make sure to not provide any deploy parameters to it:
 
 ```
     - name: 🚢 Gimlet artifact
@@ -166,7 +166,7 @@ To configure the Gimlet step in CI to ship a Gimlet artifact but not to trigger 
         GIMLET_TOKEN: ${{ secrets.GIMLET_TOKEN }}
 ```
 
-With the above config, Gimlet becomes aware of a new releasble softwware version, and can act on release policies.
+With the above config, Gimlet becomes aware of a new releasable software version, and can act on release policies.
 
 ### Set release policies in the Gimlet environment file
 

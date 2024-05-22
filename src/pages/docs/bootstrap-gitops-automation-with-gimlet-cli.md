@@ -6,7 +6,7 @@ description: In this guide you will use Gimlet CLI to bootstrap the gitops workf
 In this tutorial you will use the Gimlet CLI to bootstrap the gitops automation. You will also write application manifests to the gitops repository and see them deploy.
 
 {% callout title="Bootstrapping on the Gimlet dashboard" %}
-Gitops bootstrapping happens automatically on the Gimlet dashbaord during environment creation. You can still read this tutorial to know what goes under the hood.
+Gitops bootstrapping happens automatically on the Gimlet dashboard during environment creation. You can still read this tutorial to know what goes under the hood.
 {% /callout %}
 
 ## Prerequisites

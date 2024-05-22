@@ -7,7 +7,7 @@ Now that you finished [installing Gimlet](/docs/installation), you will expose i
 
 So far, you accessed Gimlet through a kubectl port-forward. In this section, you can read about how to use a real domain name secured by HTTPS.
 
-If you are evaulating Gimlet locally, you can use a service called Ngrok to expose Gimlet to external parties, like CI platforms.
+If you are evaluating Gimlet locally, you can use a service called Ngrok to expose Gimlet to external parties, like CI platforms.
 
 ## Exposing a local Gimlet with Ngrok
 

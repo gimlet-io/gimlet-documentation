@@ -51,7 +51,7 @@ As a prerequisite, your CI process already builds a Docker image from your appli
 
 The demo-app uses the Github container registry (ghcr.io) to host the docker image, and uses the repository name as image name. Images are tagged by the hash of the commit that kicked off the CI build
 
-Set the image repository and tag on the configration screen. This tutorial sets `ghcr.io/gimlet-io/demo-app` and `{{ .SHA }}` respectively.
+Set the image repository and tag on the configuration screen. This tutorial sets `ghcr.io/gimlet-io/demo-app` and `{{ .SHA }}` respectively.
 
 ![Step 6 screenshot](https://images.tango.us/public/edited_image_9afb9f33-b1bb-4712-819c-5fd44b94e613.png?crop=focalpoint&fit=crop&fp-x=0.5000&fp-y=0.5000&fp-z=1.0000&w=1200&mark-w=0.2&mark-pad=0&mark64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL21hZGUtd2l0aC10YW5nby13YXRlcm1hcmsucG5n&ar=2505%3A675)
 
@@ -61,7 +61,7 @@ You can still continue this tutorial, use the CNCF's testing image, `ghcr.io/pod
 
 ### Watch out for the container port
 
-Time to set the port your application is serving traffic on. It is a common mistake that developers not setting the right port in the deployment configuraton and when they try to open the deployed app in the browser, they get a HTTP 503.
+Time to set the port your application is serving traffic on. It is a common mistake that developers not setting the right port in the deployment configuration and when they try to open the deployed app in the browser, they get a HTTP 503.
 
 The demo-app serves traffic on port 9000. Set your own port.
 

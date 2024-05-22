@@ -5,13 +5,13 @@ description: "How to deploy static site on Kubernetes by providing only the buil
 
 In this guide you learn how to deploy static websites to Kubernetes with Gimlet.
 
-The approach does not require conatiner image building, and works generally for React, Next.js, Svelte, Vue, Hugo, Eleventy, Mkdocs, Docusaurus, etc. All the frameworks where the build output is a set of static assets: HTML, JS and CSS files
+The approach does not require container image building, and works generally for React, Next.js, Svelte, Vue, Hugo, Eleventy, Mkdocs, Docusaurus, etc. All the frameworks where the build output is a set of static assets: HTML, JS and CSS files
 
 The approach matches how Netlify deploys static applications: you provide the build command, the rest is taken care of.
 
 ## tldr
 
-The following screen shows the requried configuration to deploy a static site:
+The following screen shows the required configuration to deploy a static site:
 
 ![Static site deploy configuration](/static-build.png)
 
@@ -32,14 +32,14 @@ values:
     # !/usr/bin/env bash
     npm install
     npm run build
-  builtAssets: build/ 
+  builtAssets: build/
 ```
 
 ## Creating a manifest
 
 If you use the [deploy button](/docs/deploy-your-first-app) without creating a deployment configuration first, Gimlet will try to [build a container](/docs/container-image-building) image for you with Buildpacks. This approach has limitations, and container image building takes time.
 
-In this guide we show how you can add a static site deployment configuration, so you can skip image building completelly.
+In this guide we show how you can add a static site deployment configuration, so you can skip image building completely.
 
 - Navigate to your repository
 - Make sure you have at least one connected environment

@@ -200,7 +200,7 @@ Congratulations, now you've learnt
 - how to install and manage cluster components
 - and you have great tooling to operate your applications.
 
-Once you are confident in your knowledge, you can delete the dummy environment you created in this tutotrial and start applying your knowledge in managing your testing and production environments.
+Once you are confident in your knowledge, you can delete the dummy environment you created in this tutorial and start applying your knowledge in managing your testing and production environments.
 
 To clean up
 

@@ -123,7 +123,7 @@ In automated workflows, variables that are part of the released artifact are ava
 
 Artifacts are shipped by CI, and each shipper ships
 
-- all CI specific cariables with prefix `GITHUB` and `CIRCLE`
+- all CI specific variables with prefix `GITHUB` and `CIRCLE`
 - all custom variables that you add in the shipper configuration
 - and the default set of variables that are available no matter which shipper you use.
 
