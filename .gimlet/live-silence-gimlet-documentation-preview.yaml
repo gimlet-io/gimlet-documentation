@@ -1,5 +1,5 @@
 app: gimlet-documentation-preview
-env: driven-shape
+env: live-silence
 preview: true
 namespace: default
 chart:
