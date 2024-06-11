@@ -1,5 +1,5 @@
 app: gimlet-documentation-preview
-env: live-silence
+env: suitable-grass
 preview: true
 namespace: default
 chart:
