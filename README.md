@@ -15,6 +15,7 @@ Next, run the development server:
 npm run dev
 ```
 
+
 Finally, open [http://localhost:3001](http://localhost:3001) in your browser.
 
 ## Search index generation
