@@ -1,5 +1,5 @@
 app: gimlet-documentation-preview
-env: suitable-grass
+env: prompt-butterfly
 preview: true
 namespace: default
 chart:
