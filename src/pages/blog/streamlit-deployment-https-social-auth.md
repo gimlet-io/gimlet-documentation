@@ -24,12 +24,17 @@ You can get started with Gimlet by connecting your GitHub account. After that, a
 
 ### Configure the Deployment
 
+{% wide css="" width=80 %}
+![Deployment configuration settings for a Streamlit Application in Gimlet](/streamlit-deployment-configuration.png)
+{% /wide %}
+
 Navigate to the deployment setup screen by clicking on the card of your Streamlit application, and then the **New Deployment** button. Set up the deployment in the following way:
 
 - **Deployment template:** Web Application. This will allow you to select the Dockerfile container image build setting.
 - **Container Image:** Using a Dockerfile. This method requires a Dockerfile. If you don’t have one, the example below can be tailored to your app or used without changes. If you’re not familiar with Dockerfiles, read the comments.
 
-```
+{% wide css="" width=80 %}
+```yaml
 # app/Dockerfile
 
 # This Dockerfile uses python:3.9-slim, which is a lightweight implementation of the Python image. This’ll reduce image size.
@@ -46,8 +51,8 @@ RUN apt-get update && apt-get install -y \
     git \
     && rm -rf /var/lib/apt/lists/*
 
-# Copies everything from the root directory to the working directory of the container. This command doesn't follow Docker best practices, use this only for development environments.
-# When you use COPY this way, make sure there's a .dockerignore file in your root folder that has .env listed.
+# Copies everything from the project's root directory to the working directory of the container.
+# Make sure there's a .dockerignore file in your root folder that lists all files that contains credentials, like a .env file.
 COPY . .
 
 # Installs Python packages listed in the requirements.txt.
@@ -62,17 +67,22 @@ HEALTHCHECK CMD curl --fail http://localhost:8501/_stcore/health
 # Defines how to start the application. In this case the Streamlit application’s filename is st.py, so feel free to adjust it to your app’s name.
 ENTRYPOINT ["streamlit", "run", "st.py", "--server.port=8501", "--server.address=0.0.0.0"]
 ```
+{% /wide %}
 
 - **Registry:** Gimlet Registry. This is made by Gimlet for you by default.
 - **Port:** `8501`. This is the default exposed port for Streamlit apps.
 
-![Deployment configuration settings for a Streamlit Application in Gimlet](/public/streamlit-deployment-configuration.png)
+{% wide css="" width=80 %}
+![Deployment configuration settings for a Streamlit Application in Gimlet](/streamlit-deployment-configuration.png)
+{% /wide %}
 
 When all the setting changes are made as seen above, you can click the **Deploy** button.
 
 After that, logs will appear and your app will be set up soon. When deployment status turns `Running`, you can check out the app in your browser by clicking on the link next to the status.
 
-![Successful deployment screen with container status turned Running.](/public/streamlit-running-deployment-screen.png)
+{% wide css="" width=80 %}
+![Successful deployment screen with container status turned Running.](/streamlit-running-deployment-screen.png)
+{% /wide %}
 
 Click **Write configuration to Git** to save the deployed application and to be able to edit its settings later.
 
@@ -80,15 +90,15 @@ Click **Write configuration to Git** to save the deployed application and to be 
 
 You can configure additional settings for your deployed Streamlit app, such as social authentication.
 
-HTTPS is enabled by default, therefore you don't need to configure anything to secure your application. Behind the scenes cert-manager issues the certificates.
+HTTPS is enabled by default, therefore you don't need to configure anything to secure your application. Behind the scenes Let's Encrypt issues the certificate using the cert-manager project.
 
 ### Social Authentication
 
 You can configure social authentication for GitHub organizations and users. Streamlit Community Cloud has a similar mechanism that allows you to restrict usage to users with the email addresses specified by you. But in Community Cloud, you can only do it with one application.
 
-> Here's a brief intro to social authentication capabilities with Gimlet:
+Here's a brief intro to social authentication capabilities with Gimlet:
 
-<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/SaJoy2UTpcs?si=b3sTWiEs5wKN9w99" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+{% video src="https://www.youtube-nocookie.com/embed/SaJoy2UTpcs" /%}
 
 To be able to add social authentication, you need to do two things:
 - Create a GitHub OAuth application,
@@ -117,7 +127,9 @@ To do that, click **Environments** in the menu on top and click on your environm
 
 When the repositories are ready, click **Ingress** in the options on the left, and look for **OAuth2Proxy** settings. When you find it, just use the toggle to enable it.
 
-![OAuth 2 Proxy settings to configure social authentication in Gimlet.](/public/streamlit-social-authentication-oauth-settings.png)
+{% wide css="" width=80 %}
+![OAuth 2 Proxy settings to configure social authentication in Gimlet.](/streamlit-social-authentication-oauth-settings.png)
+{% /wide %}
 
 Navigate to **Ingress** settings of the deployment settings. Enable **OAuth2Proxy** and enter the corresponding variables in the following fields:
 
@@ -128,6 +140,8 @@ Navigate to **Ingress** settings of the deployment settings. Enable **OAuth2Prox
 
 ## Try Gimlet for More Customization
 
-You can connect any cluster to Gimlet. This way you can host as many public or private apps as you'd like to. All of this comes without resource limitations compared to Streamlit Community Cloud's constraints.
+You can connect any Kubernetes cluster to Gimlet, whether you are using the big cloud providers, or one of the small ones with considerably easier learning curve. Watch this space for Kubernetes hosting guides as the sole reason our company exist is to bring Kubernetes closer to everyone. It does not have to be difficult and over complicated anymore.
 
-You can connect new clusters for free if you host Gimlet for individual and non-profit use. In Gimlet Cloud, you can only connect new clusters with a license. Find out more about it [here](https://gimlet.io/pricing).
+The upside of using Kubernetes is that you can host as many public or private apps as you'd like to. All of this comes without resource limitations compared to Streamlit Community Cloud's constraints.
+
+You can connect new clusters for free for individual and non-profit use. For commercial use you can only connect new clusters with a Gimlet license. Our revised pricing policy is yet to be published, but it will follow Basecamp's ONCE philosophy: with one reasonable price you can cover your Streamlit deployment needs.
