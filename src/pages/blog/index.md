@@ -2,6 +2,10 @@
 title: Blog
 ---
 
+{% post name="Deploy Streamlit Applications with Gimlet" image="streamlit-deploy-gimlet-https-social-authentication.jpg" link="/blog/streamlit-deployment-https-social-auth" date="2024-07-10" %}
+Streamlit already has Community Cloud for hosting, although it has limitations. Here's how you can have an extended hosting experience with Gimlet.
+{% /post %}
+
 {% post name="What’s Next for FluxCD - And Gimlet?" image="gimlet-io-whats-next-for-fluxcd-and-gimlet.jpg" link="/blog/whats-next-for-fluxcd-and-gimlet" date="2024-02-06" %}
 Weaveworks is shutting down and everybody’s wondering: what does the future hold for Flux, one of the most used gitops tool of platform builders?
 {% /post %}
