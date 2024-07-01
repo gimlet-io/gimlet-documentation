@@ -1,6 +1,6 @@
 ---
 title: 'Deploy Streamlit Applications with Gimlet'
-date: '2024-07-10'
+date: '2024-07-01'
 description: Streamlit already has Community Cloud for hosting, although it has limitations. Here's how you can have an extended hosting experience with Gimlet.
 image: streamlit-deploy-gimlet-https-social-authentication.jpg
 toc: false
