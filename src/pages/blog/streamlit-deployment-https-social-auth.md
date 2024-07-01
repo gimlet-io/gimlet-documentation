@@ -14,13 +14,19 @@ Gimlet 1.0 release is around the corner. It comes with several hosting related c
 
 ## Deployment of Streamlit Apps with Gimlet
 
-Deploying a Streamlit application can be done in X number of steps.
+Deploying a Streamlit application can be done in two steps:
+- importing the repository,
+- and configuring the deployment.
 
-You can get started with Gimlet by connecting your GitHub account. After that, add the repository that has your Streamlit application by clicking the **Import** button next to it. Save the added repo by clicking the **I am done importing** button. If you can’t find it on the top of the list, use the search bar.
+### Import the Streamlit Repository
 
-Navigate to the deployment setup screen by clicking on the card of your Streamlit application. Set up the deployment in the following way:
+You can get started with Gimlet by connecting your GitHub account. After that, add the repository that has your Streamlit application by clicking the **Import** button next to it. Save the added repo by clicking the **I am done importing** button. If you can’t find the repository on the top of the list, use the search bar.
 
-- **Deployment template:** Web Application. This’ll allow you to select the Dockerfile container image setting.
+### Configure the Deployment
+
+Navigate to the deployment setup screen by clicking on the card of your Streamlit application, and then the **New Deployment** button. Set up the deployment in the following way:
+
+- **Deployment template:** Web Application. This will allow you to select the Dockerfile container image build setting.
 - **Container Image:** Using a Dockerfile. This method requires a Dockerfile. If you don’t have one, the example below can be tailored to your app or used without changes. If you’re not familiar with Dockerfiles, read the comments.
 
 ```
@@ -40,7 +46,8 @@ RUN apt-get update && apt-get install -y \
     git \
     && rm -rf /var/lib/apt/lists/*
 
-# Copies everything from the root directory to the working directory of the container. This is usually used for development environments.
+# Copies everything from the root directory to the working directory of the container. This command doesn't follow Docker best practices, use this only for development environments.
+# When you use COPY this way, make sure there's a .dockerignore file in your root folder that has .env listed.
 COPY . .
 
 # Installs Python packages listed in the requirements.txt.
@@ -59,33 +66,29 @@ ENTRYPOINT ["streamlit", "run", "st.py", "--server.port=8501", "--server.address
 - **Registry:** Gimlet Registry. This is made by Gimlet for you by default.
 - **Port:** `8501`. This is the default exposed port for Streamlit apps.
 
-When all the setting changes are made like listed above, you can click the **Deploy** button. After that, logs will appear and your app will be set up soon. When deployment status turns `Running`, you can check out the app in your browser by clicking on the link next to the status. Click **Write configuration to Git** to save the deployed application and to be able to edit its settings later.
+![Deployment configuration settings for a Streamlit Application in Gimlet](/public/streamlit-deployment-configuration.png)
+
+When all the setting changes are made as seen above, you can click the **Deploy** button.
+
+After that, logs will appear and your app will be set up soon. When deployment status turns `Running`, you can check out the app in your browser by clicking on the link next to the status.
+
+![Successful deployment screen with container status turned Running.](/public/streamlit-running-deployment-screen.png)
+
+Click **Write configuration to Git** to save the deployed application and to be able to edit its settings later.
 
 ## Fancy Things for your Streamlit App
 
-You can configure additional settings for your deployed Streamlit app, such as HTTPS certificates and social authentication.
+You can configure additional settings for your deployed Streamlit app, such as social authentication.
 
-### HTTPS Certificate
-
-You can add HTTPS certificates to your application with Gimlet.
-
-First, you need to configure `cert-manager`, which is an open-source certification issuer.
-
-To do that, click **Environments** in the menu on top and click on your environment’s card. When you first see the environment settings, you have to create gitops repositories, which you can do with a single click.
-
-When the repositories are ready, click **Ingress** in the options on the left, and look for **cert-manager** settings. When you find it, just use the toggle to enable it, and enter an email address where you’d like to be notified when the certificate expires.
-
-You can enable HTTPS with a toggle when you deploy a new application after this.
-
-If you’d like to add an HTTPS certificate to an already deployed app, click the **Environments** button again, then the **Repositories** button next to it. Select the repository just like you did earlier, but this time click the (...) or meatballs menu and click **Edit**.
-
-In the deployment settings, select the **Domain** option, and use the **HTTPS** toggle to enable the certificate, then click **Save**.
+HTTPS is enabled by default, therefore you don't need to configure anything to secure your application. Behind the scenes cert-manager issues the certificates.
 
 ### Social Authentication
 
-With Gimlet, you can configure social authentication for GItHub organizations and users. Streamlit Community Cloud has a similar mechanism that allows you to restrict usage to users with the email addresses specified by you.
+You can configure social authentication for GitHub organizations and users. Streamlit Community Cloud has a similar mechanism that allows you to restrict usage to users with the email addresses specified by you. But in Community Cloud, you can only do it with one application.
 
-You can add social authentication pretty much similar to the way you can add a HTTPS certificate.
+> Here's a brief intro to social authentication capabilities with Gimlet:
+
+<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/SaJoy2UTpcs?si=b3sTWiEs5wKN9w99" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 To be able to add social authentication, you need to do two things:
 - Create a GitHub OAuth application,
@@ -93,30 +96,38 @@ To be able to add social authentication, you need to do two things:
 
 #### Create a GitHub OAuth Application
 
-It’s not necessary, but useful to have the application deployed already so you have the URL generated when you create the application in GitHub.
+After your app is deployed, create the GitHub OAuth application by following [GitHub’s documentation](https://docs.github.com/en/apps/oauth-apps/building-oauth-apps/creating-an-oauth-app).
 
-It’s easiest if you do both at the same time, since some data about the GitHub OAuth application will be needed. Namely these:
+One note to add to the official GitHub docs is that you’ll need to add a **Homepage URL** and a **Callback URL**. Follow these instructions:
+
+- **Homepage URL:** If you don’t use a custom domain, you should use the domain generated by Gimlet for you in this format: `https://auth-[prefix generated by Gimlet].gimlet.app/`.
+- **Callback URL:** This is partially the same as the Homepage URL, except it’s `https://auth-[prefix generated by Gimlet].gimlet.app/oauth2/callback/`.
+
+Some data about the GitHub OAuth application will be needed. Namely these:
 - **Client ID**
 - **Client Secret**
 
 When you create the new GitHub OAuth app copy and store these because you’ll need to add these in Gimlet.
 
-You can create the OAuth application by following [GitHub’s documentation](https://docs.github.com/en/apps/oauth-apps/building-oauth-apps/creating-an-oauth-app). One note to add is that you’ll need to add a **Homepage URL** and a **Callback URL**. For these follow this instruction:
-
-- **Homepage URL:** If you don’t use a custom domain, you should use the domain generated by Gimlet for you in this format: `https://auth-[prefix generated by Gimlet].gimlet.app/`.
-- **Callback URL:** This is partially the same as the Homepage URL, except it’s `https://auth-[prefix generated by Gimlet].gimlet.app/oauth2/callback/`.
-
 #### Configure OAuth2Proxy in Gimlet
 
-Navigate to **Ingress** settings the same way as it’s described in the HTTPS certificate section above. Enable **OAuth2Proxy** and enter the corresponding variables in the following fields:
+When the OAuth app is ready, navigate to environment settings in Gimlet.
 
-- **Cookie Secret:** This can be anything, but it’s suggested to generate a secret for this with `openssl rand -hex 16` in a shell that you use.
+To do that, click **Environments** in the menu on top and click on your environment’s card. When you first see the environment settings, you have to create gitops repositories, which you can do with a single click.
+
+When the repositories are ready, click **Ingress** in the options on the left, and look for **OAuth2Proxy** settings. When you find it, just use the toggle to enable it.
+
+![OAuth 2 Proxy settings to configure social authentication in Gimlet.](/public/streamlit-social-authentication-oauth-settings.png)
+
+Navigate to **Ingress** settings of the deployment settings. Enable **OAuth2Proxy** and enter the corresponding variables in the following fields:
+
+- **Cookie Secret:** This is a 32 characters long string you can generate with `openssl rand -hex 16` in a shell that you use.
 - **GitHub Organization and/or GitHub User:** Use these if you’d like to restrict access to an application based on organization(s) or user(s).
 - **Client ID:** The client ID of the GitHub OAuth application you created.
 - **Client Secret:** The client secret you generated when you created the GitHub OAuth application.
 
 ## Try Gimlet for More Customization
 
-You can connect any environment to Gimlet. This way you can host as many public or private apps as you'd like to. All of this comes without resource limitations compared to Streamlit Community Cloud's constraints.
+You can connect any cluster to Gimlet. This way you can host as many public or private apps as you'd like to. All of this comes without resource limitations compared to Streamlit Community Cloud's constraints.
 
-You can connect new environments for free if you host Gimlet for individual and non-profit use. In Gimlet Cloud, you can only connect new clusters with a license. Find out more about it [here](https://gimlet.io/pricing).
+You can connect new clusters for free if you host Gimlet for individual and non-profit use. In Gimlet Cloud, you can only connect new clusters with a license. Find out more about it [here](https://gimlet.io/pricing).
