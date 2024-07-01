@@ -1,7 +1,7 @@
 ---
 title: 'Deploy Streamlit Applications with Gimlet'
 date: '2024-07-10'
-description: Find out how to deploy Streamlit apps with HTTPS certificate and social authentication using Gimlet.
+description: Streamlit already has Community Cloud for hosting, although it has limitations. Here's how you can have an extended hosting experience with Gimlet.
 image: streamlit-deploy-gimlet-https-social-authentication.jpg
 toc: false
 ---
