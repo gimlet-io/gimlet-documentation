@@ -4,6 +4,7 @@ const withMarkdoc = require('@markdoc/next.js')
 const nextConfig = {
   reactStrictMode: true,
   pageExtensions: ['js', 'jsx', 'md'],
+  distDir: 'out',
 }
 
 const rewrites = {
