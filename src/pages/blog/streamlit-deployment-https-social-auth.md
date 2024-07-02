@@ -140,7 +140,7 @@ Navigate to **Ingress** settings of the deployment settings. Enable **OAuth2Prox
 
 ## Try Gimlet for More Customization
 
-You can connect any Kubernetes cluster to Gimlet, whether you are using the big cloud providers, or one of the small ones with considerably easier learning curve. Watch this space for Kubernetes hosting guides as the sole reason our company exist is to bring Kubernetes closer to everyone. It does not have to be difficult and over complicated anymore.
+You can connect any Kubernetes cluster to Gimlet, whether you are using the big cloud providers, or one of the small ones with considerably easier learning curve. Watch this space for Kubernetes hosting guides as the sole reason our company exists is to bring Kubernetes closer to everyone. It does not have to be difficult and overcomplicated anymore.
 
 The upside of using Kubernetes is that you can host as many public or private apps as you'd like to. All of this comes without resource limitations compared to Streamlit Community Cloud's constraints.
 
