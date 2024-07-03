@@ -140,7 +140,7 @@ Navigate to **Ingress** settings of the deployment settings. Enable **OAuth2Prox
 
 ## Try Gimlet for More Customization
 
-If you'd like to give Gimlet a try, send us a DM or reach out to us where we're [available](https://gimlet.io/#:~:text=YAML%20Generator-,Community,-GitHub) and we'll set you up.
+If you'd like to give Gimlet a try, reach out to us on one of [our social channels](/#footer) and we'll set you up.
 
 You can connect any Kubernetes cluster to Gimlet, whether you are using the big cloud providers, or one of the small ones with considerably easier learning curve. Watch this space for Kubernetes hosting guides as the sole reason our company exists is to bring Kubernetes closer to everyone. It does not have to be difficult and overcomplicated anymore.
 
