@@ -1,5 +1,5 @@
 app: gimlet-documentation-preview
-env: prompt-butterfly
+env: perfect-darkness
 preview: true
 namespace: default
 chart:
