@@ -1,5 +1,5 @@
 app: gimlet-documentation-preview
-env: perfect-darkness
+env: capable-thunder
 preview: true
 namespace: default
 chart:
