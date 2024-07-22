@@ -1,6 +1,6 @@
 ---
 title: Welcome to the Gimlet universe!
-description: Turn your cluster into an application platform built on open standards. Deploy without the steep learning curve. 100% open-source.
+description: Gimlet is a deployment tool built on Kubernetes to make the deploy, preview and rollback workflows accessible to everyone.
 ---
 
 Gimlet is a deployment tool built on Kubernetes to make the deploy, preview and rollback workflows accessible to everyone.

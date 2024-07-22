@@ -36,10 +36,10 @@ You can also automate [branch based preview deployments](/docs/deployments/previ
 
 - Your CI pipeline lints and tests the code, then builds the container image.
 - Then the Gimlet CI plugin notifies Gimlet about the newly built software artifact.
-- Based on your [automated deployment settings](/docs/deployments/automated-deployments) Gimlet may deploy your application.
+- Based on your [automated deployment settings](/docs/deployments/automated-deployments) Gimlet may deploy your application or you can deploy versions on-demand from Gimlet.
 
 {% callout %}
-You can also initiate a deploy with the CI plugin. In this mode of operation you can have your CI workflows orchestrating deployment.
+You can also initiate a deploy with the CI plugin. In this mode of operation you can have your CI workflows orchestrating the deployment.
 
 Learn more about the [CI plugins and integration options](/docs/reference/ci-plugins).
 {% /callout %}
@@ -48,9 +48,9 @@ Learn more about the [CI plugins and integration options](/docs/reference/ci-plu
 
 Gimlet is a Bring Your Own Hardware platform. Each environment is deployed on its own Kubernetes cluster.
 
-If you don't know how to launch a cluster, check out providers like [civo.com](https://civo.com) where you can have a useful cluster for $20 a month, with swift setup experience.
+If you don't know how to launch a cluster, check out providers like [civo.com](https://civo.com) where you can have a useful cluster for $20 a month, with swift setup experience. Or you can launch a cluster on your laptop with k3d [as described on our blog](/blog/running-kubernetes-on-your-laptop-with-k3d).
 
-Our cloud environment provides an ephemeral cluster for 7-days so you don't need to deal with Kubernetes clusters when you start just can skip ahead to deployment.
+If you use our cloud environment an ephemeral cluster is provided for 7 days so you don't need to deal with Kubernetes clusters when you start. Just skip ahead to deployment.
 
 {% video src="https://www.youtube-nocookie.com/embed/LCk25U7Gaj4" /%}
 
@@ -90,7 +90,7 @@ We don't want to fully abstract away Kubernetes either. We know Kubernetes finds
 
 Gimlet is not writing Kubernetes directly during deploys.
 
-Gimlet writes all manifests to git, then the [Flux](https://fluxcd.io/) project syncronizes the git state with Kubernetes. This has the added benefit of having all your configuration in code.
+Gimlet writes all manifests to git, then the [Flux](https://fluxcd.io/) project syncronizes the git state to Kubernetes. This has the added benefit of having all your configuration in code.
 
 By convention, we maintain two git repositories per environment:
 - one for application deployments

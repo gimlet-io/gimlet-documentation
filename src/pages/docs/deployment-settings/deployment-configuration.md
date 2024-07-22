@@ -4,22 +4,15 @@ description: |
   When you're setting an application up for deployment, you pick a deployment template. Templates in Gimlet are made with Helm charts under the hood and you can also bring your own.
 ---
 
-## Deployment templates
-
-When you're setting an application up for deployment, you select a deployment template. There are two built-in templates:
-
-- **a generic web application template**
-- **and a static website template.**
-
-But you can also refer to [your custom templates](/docs/deployment-settings/custom-template).
+When you're setting an application up for deployment, you select a deployment template.
 
 ![Gimlet deployment templates.](/docs/screenshots/deployment-settings/gimlet-io-deployment-templates.png)
 
-Templates in Gimlet are made with Helm charts under the hood.
-
-Helm is a Kubernetes package manager that is used to package common deployment options. This package is called a Helm chart. A chart is a set of templates that are rendered using a set of values that are specific to your deployment.
-
 When you are done configuring, you write the configuration to your source code git repository. We call this configuration file the Gimlet manifest.
+
+{% callout %}
+Templates in Gimlet are made with Helm charts under the hood. You can create [your custom templates](/docs/deployment-settings/custom-template).
+{% /callout %}
 
 ## The Gimlet manifest
 
@@ -88,12 +81,19 @@ For the full structure:
 
 ## Editing deployment configs
 
-You can edit deployment configurations on the dashboard, or edit the Gimlet manifest files directly in source code in the `.gimlet` folder.
+You can edit deployment configurations on the dashboard.
 
-The two are interchangable for the most part, but the source code handles more fields. See the [full manifest reference](/docs/reference/gimlet-manifest-reference) and the [full reference of the built-in deployment templates](/docs/reference/onechart-reference). The dashboard handles it gracefully if you set a setting that is not known to it.
+Locate your service card and look for the `...` or meatballs menu in the app's service card. Click **Edit** in the menu.
 
-#### Inspecting the diff
+!["Editing deployment configuration"](/docs/screenshots/deployment-settings/gimlet-io-editing-deployment-configuration.png)
+
+### Inspecting the diff
 
 Before you save the configuration on the dashboard, you can inspect the diff that will be saved to your Gimlet manifest.
 
 ![Diffing Gimlet deployment configuration.](/docs/screenshots/deployment-settings/gimlet-io-diffing-deployment-config.png)
+
+### In your editor
+Or you can edit the Gimlet manifest files directly in source code in the `.gimlet` folder.
+
+The two are interchangable for the most part, but the source code handles more fields. See the [full manifest reference](/docs/reference/gimlet-manifest-reference) and the [full reference of the built-in deployment templates](/docs/reference/onechart-reference). The dashboard handles it gracefully if you set a setting that is not known to it.

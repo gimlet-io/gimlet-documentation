@@ -4,18 +4,18 @@ description: |
   Gimlet deploys applications from registries and it can also build them for deployments. Find out how.
 ---
 
-**Deploy applications from registries or build them for deployments.**
-
 When you're setting an application up for deployment, you select a deployment template. There are two built-in templates:
 
 - **a generic web application template**
 - **and a static website template.**
 
-And you can also use your custom deployment template.
+![Gimlet deployment templates.](/docs/screenshots/deployment-settings/gimlet-io-deployment-templates.png)
 
-This page describes the image build options of the built-in deployment templates.
+When you are done configuring, you write the configuration to your source code git repository. We call this configuration file the Gimlet manifest.
 
-![Container image settings in Gimlet and application templates.](/docs/screenshots/image-settings/gimlet-io-container-image-settings.png)
+{% callout %}
+Templates in Gimlet are made with Helm charts under the hood. You can also use [your custom templates](/docs/deployment-settings/custom-template).
+{% /callout %}
 
 ## Web Application Template
 
@@ -42,19 +42,17 @@ If the image is a publicly available image in Docker Hub, select the Public regi
 
 ![Static image tag settings in Gimlet.](/docs/screenshots/image-settings/gimlet-io-static-image-tag-settings.png)
 
-### Dynamic Tag Images
+### Built with CI
 
-Dynamic image tag option is useful when you're using some type of Continuous Integration (CI) pipeline. This way when CI builds an image with a git hash, tag or other dynamic identifier. You can configure the dynamic tag image option for deployment by selecting the Gimlet Registry option.
+Pick the Built with CI option when you're using a Continuous Integration (CI) pipeline to build the container image. Configure the same image tage convention as you use in your CI pipeline.
 
-![Gimlet container image settings when the image is built with CI.](/docs/screenshots/image-settings/gimlet-io-build-with-ci-settings.png)
+Once the Gimlet CI plugin notifies Gimlet about the newly built artifacts, Gimlet will know which image to deploy. See the [CI integration reference](/docs/reference/ci-plugins) for more information.
 
-### Build From Source
+### Build with Buildpacks
 
-Building an image from source is the right choice when you don't have a registry or a CI pipeline set up. Gimlet will use Kaniko to build your application if you select this option. Here's how to configure this:
+Building an image from source with Buildpacks is the right choice when you don't have a Dockerfile, or a CI pipeline set up to build the container image.
 
-**Step 1:** Select Public registry option.
-
-**Step 2:** Enter your repository's URL.
+Gimlet will use Buildpacks to build your application directly from source. This option works best for conventional project structures where Buildpacks is able to guess the correct paths of project components.
 
 ![Container image settings when you'd like to build image of an application from source in Gimlet.](/docs/screenshots/image-settings/gimlet-io-build-with-buildpacks-settings.png)
 
@@ -62,21 +60,21 @@ Building an image from source is the right choice when you don't have a registry
 
 Deployments with Dockerfiles are the the right choice when you have a Dockerfile available in your repository. Here's how you can configure a deployment using a Dockerfile.
 
-**Step 1:** Select Gimlet Registry.
+**Step 1:** Select a pre-configured registry.
 
-**Step 2:** Make sure the Dockerfile's name matches the actual Dockerfile located in the root folder of your repository in a case sensitive way. You can name and place your Dockerfile any way, just make sure the name is corresponding and the path is correct.
+**Step 2:** Add the Dockerfile's relative path from the project root. It is a case-sensitive filename.
 
 ![Dockerfile configuration settings in Gimlet](/docs/screenshots/image-settings/gimlet-io-using-a-dockerfile-settings.png)
 
 ## Static Website Template
 
-Static websites are deployed inside an Nginx container. No other container image options are available for these templates. There are many ways to customize static website templates, however.
+Static websites are deployed inside an Nginx container and the build command is executed on container startup.
 
 ![Static website template settings in Gimlet](/docs/screenshots/image-settings/gimlet-io-static-site-template-settings.png)
 
 **Namespace:** You can assign your application to a namespace. This is useful when you'd like to separate resources for this specific application.
 
-**Build image:** You can specify a base image Gimlet will use to build your application with. For Javascript frontends node:latest is usually the best option, which is specified by default.
+**Build image:** You can specify a base image Gimlet will use to build your application with. For Javascript frontends `node:latest` is usually the best option, which is specified by default.
 
 **Build script:** You can enter a custom build script, but Gimlet uses the script you can see below.
 
@@ -88,13 +86,3 @@ npm run build
 ```
 
 **Build assets:** The location of the generated build assets. It's usually the `build/` folder in your repository's root.
-
-## Replicas
-
-After a successful deployment, you can configure replicas of your application.
-
-Go to the deployment's settings by clicking the (...) or meatballs menu's button, and click **Edit**. In the settings on the left side, choose the **Container Image** option, and scroll to the bottom of the settings.
-
-There should be a slider named **Replicas**, which you can use to set up the number of replicas you'd like to have for this application.
-
-You can if the replica changes are set if you click the **Review changes** button on top. If the changes are made in the yaml, click Save to apply the changes.

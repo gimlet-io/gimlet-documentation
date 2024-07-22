@@ -19,9 +19,9 @@ const navigation = [
   {
     title: 'Tutorials',
     links: [
-      { title: 'Frontend', href: '/docs/tutorials/frontend' },
-      { title: 'Backend', href: '/docs/tutorials/backend' },
-      { title: 'AI Deployments', href: '/docs/tutorials/ai-deployments' },
+      { title: 'Frontend tutorials', href: '/docs/tutorials/frontend' },
+      { title: 'Backend tutorials', href: '/docs/tutorials/backend' },
+      { title: 'AI Deployments tutorials', href: '/docs/tutorials/ai-deployments' },
     ],
   },
   {
