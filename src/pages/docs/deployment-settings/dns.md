@@ -10,7 +10,7 @@ When your are creating a new deployment you can specify the domain name your app
 
 The domain widget allows you to change the first part of the domain, while the rest is set in the environment settings.
 
-![Setting a domain name](/docs/screenshots/deployment-settings/gimlet-io-domain-settings.png)
+![Setting a domain name in Gimlet](/docs/screenshots/deployment-settings/gimlet-io-domain-settings.png)
 
 ## Change Domain After Deployment
 

@@ -17,11 +17,3 @@ In the left side of the settings, select Secrets. To create a new secret, click 
 ![Adding key-value pairs as secrets to Gimlet.](/docs/screenshots/secrets/gimlet-io-secret-key-value-pair.png)
 
 After encryption is done, click the Save button on top to apply the secret to the application.
-
-## Turning Off Secret Encryption
-
-Secret encryption is turned on by default. In case you'd like to turn it off, you can do so by navigating to environment settings. Select the Environments button on top, then select the environment where you'd like to disable secret encryption.
-
-In the environment settings, choose the Secrets option on the left side. Look for the Encrypted Secrets section, and use the toggle to turn it off.
-
-![Secret settings in environment settings of Gimlet.](/docs/screenshots/secrets/gimlet-io-secret-environment-settings.png)

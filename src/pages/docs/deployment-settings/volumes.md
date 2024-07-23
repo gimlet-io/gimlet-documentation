@@ -1,6 +1,15 @@
-# Volumes
+---
+title: 'Volumes'
+description: |
+  Volumes provide a way to store persistent data for your applications.
+---
 
-Volumes provide a way to store persistent data for your applications. You can configure volumes by in gimlet's yaml file in the root folder of your application for the specific use cases described.
+Volumes provide a way to store persistent data for your applications.
+
+You can add volumes to your deployment after you deployed the application. You can do this in the [application settings](/docs/deployment-settings/deployment-configuration#editing-deployment-configs) or directly in the [Gimlet manifest file](/docs/deployment-settings/deployment-configuration#the-gimlet-manifest). This page shows Gimlet manifest examples.
+
+![Adding a volume in Gimlet](/docs/screenshots/volumes/gimlet-io-volume-configuration.png)
+
 ## Basic Volume Configuration
 
 Example:
@@ -36,10 +45,7 @@ Example:
       path: /data
       hostPath:
         path: /somewhere/over/the/rainbow
-		type:
 ```
-
-`type` can be the following variables: `DirectoryOrCreate`, `Directory`, `FileOrCreate`, `File`, `Socket`, `CharDevice`, or `BlockDevice`.
 
 ## Use an Ephemeral Volume
 
