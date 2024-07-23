@@ -4,26 +4,17 @@ description: |
   Gimlet supports any OCI (Open Container Initiative) compatible container registry.
 ---
 
-**Any OCI (Open Container Initiative) compatible container registries are supported.**
+Gimlet comes with a built-in container registry both on Gimlet Cloud's ephemeral environment and on any environment your create. But you can use any well-known or custom container registry with Gimlet.
 
-## Custom Registries
+Container registries show up in your [image build settings](/docs/deployment-settings/image-settings).
 
-If you don't have a registry, you don't need to setup a new one. Gimlet creates a custom registry after you convert your environment into a gitops environment.
+![Picking a container registry in Gimlet](/docs/screenshots/registries/pick-a-registry.png)
 
-It'll be named Gimlet Registry by default, but you can modify its name after it's created. When you set up a deployment for an app available in a repository, this is the name you should be looking for in Registry options.
+## Built-in Registry
 
-### Custom Registry Configuration
+Search for `Gimlet Registry` on Gimlet Cloud, and `Containerized Registry` on your own environments.
 
-If you'd like to use a custom registry that you host outside of GitHub Container Registry or Docker Hub by navigating to the environment settings. You can find these settings by selecting the Environments option in the menu bar on top and clicking on the environment's card to select its settings.
-
-In the environment settings, choose the Container Registry tab, and look for Custom Registry settings. Here you can entering the below credentials:
-
-- **URL:** This is the URL where your registry is available.
-- **Login:** This is the username or user ID that you use for this registry.
-- **Token:** This is the access token that belongs to your user that grants access for Gimlet to your registry.
-- **Self-Signed Certificate:** If you use one to restrict access to your registry, paste it here. Gimlet will encrypt and store it.
-
-## Add GitHub Container Registry
+## Integrate GitHub Container Registry
 
 If you have a GitHub Container Registry set up, you can integrate it to Gimlet.
 
@@ -44,7 +35,7 @@ In the environment settings, choose the Container Registry tab on the left. Unde
 - **Login:** Your GitHub username.
 - **Token:** The personal access token you generated earlier.
 
-## Add Docker Hub
+## Integrate Docker Hub
 
 You can add your Docker Hub credentials to Gimlet to access both public and private registries.
 
@@ -64,3 +55,14 @@ In the environment settings, choose the Container Registry tab on the left. Unde
 
 - **Login:** Your Docker Hub username.
 - **Token:** The access token you generated earlier.
+
+## Integrate any registry under Custom Registry Configuration
+
+If you'd like to use a custom registry that you host outside of GitHub Container Registry or Docker Hub by navigating to the environment settings. You can find these settings by selecting the Environments option in the menu bar on top and clicking on the environment's card to select its settings.
+
+In the environment settings, choose the Container Registry tab, and look for Custom Registry settings. Here you can entering the below credentials:
+
+- **URL:** This is the URL where your registry is available.
+- **Login:** This is the username or user ID that you use for this registry.
+- **Token:** This is the access token that belongs to your user that grants access for Gimlet to your registry.
+- **Self-Signed Certificate:** If you use one to restrict access to your registry, paste it here. Gimlet will encrypt and store it.

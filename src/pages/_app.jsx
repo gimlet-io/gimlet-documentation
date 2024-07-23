@@ -37,6 +37,7 @@ const navigation = [
     links: [
       { title: 'Introduction', href: '/docs/deployment-settings/deployment-configuration' },
       { title: 'Container Build Settings', href: '/docs/deployment-settings/image-settings' },
+      { title: 'Container registries', href: '/docs/deployment-settings/registries' },
       { title: 'Social Authentication', href: '/docs/deployment-settings/social-authentication' },
       { title: 'DNS', href: '/docs/deployment-settings/dns' },
       { title: 'Port Forwarding', href: '/docs/deployment-settings/port-forwarding' },
