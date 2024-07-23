@@ -61,4 +61,6 @@ To sign out from Github OAuth, either sign out from Github (not practical), or r
 
 ## Other Auth providers
 
-OAuthProxy supports numerous authentication providers. See the list and their configuration options [in their documentation](https://oauth2-proxy.github.io/oauth2-proxy/configuration/providers/). You can have custom configurations by altering the proxy config in Gimlet's `-infra` gitops repository.
+OAuthProxy supports numerous authentication providers. See the list and their configuration options [in their documentation](https://oauth2-proxy.github.io/oauth2-proxy/configuration/providers/). You can have custom configurations by altering the proxy config in Gimlet's `-infra` gitops repository. Like we've done in this video:
+
+{% video src="https://www.youtube-nocookie.com/embed/JCtnxbEpTGc" /%}
