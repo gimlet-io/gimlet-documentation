@@ -20,7 +20,7 @@ Gimlet also works well on vcluster.
 [Join our Discord](https://discord.com/invite/ZwQDxPkYzE) to learn more.
 {% /callout %}
 
-## Environment settings
+## Environment Settings
 
 Gimlet aids cluster setup with preconfigured stacks. With a marketplace-like experience you can configure common usecases:
 - [SSL certificates](/docs/deployment-settings/https#configure-cert-manager)
@@ -28,7 +28,7 @@ Gimlet aids cluster setup with preconfigured stacks. With a marketplace-like exp
 - Metrics and dashboards
 - Secrets
 
-### Gitops repositories
+### Gitops Repositories
 
 Gimlet is not writing Kubernetes directly during component settings changes. Gimlet writes all manifests to git, then the [Flux](https://fluxcd.io/) project syncronizes the git state to Kubernetes. This has the added benefit of having all your configuration in code.
 
@@ -36,7 +36,7 @@ By convention, we maintain two git repositories per environment:
 - one for application deployments: `gitops-<env>-apps`
 - one for infrastructure components: `gitops-<env>-infra`
 
-### Repository structure
+### Repository Structure
 
 The `gitops-<env>-infra` repository follows the following convention
 
@@ -72,23 +72,23 @@ $ tree gitops-optimal-snow-infra
 └── stack.yaml
 ```
 
-## Editing Environment settings
+## Editing Environment Settings
 
 Navigate to the Environments page in the top menu, then pick the environment card you want to edit.
 
 ![Editing environments in Gimlet](/docs/screenshots/environment-settings/gimlet-io-environment-settings.png)
 
-Locate and edit the components in the side menu then hit _Save_ and inspect the gitops commit Gimlet makes in your infrastructure configuration gitops repository.
+Locate and edit the components in the side menu then hit **Save** and inspect the gitops commit Gimlet makes in your infrastructure configuration gitops repository.
 
 You can monitor the components as they come up by toggling the gitops view in the footer of Gimlet.
 
 ![Gitops view in the footer of Gimlet](/docs/screenshots/environment-settings/gimlet-io-gitops-footer.png)
 
-### Inspecting the diff
+### Inspecting the Differences
 
-Before you save the configuration on the dashboard, you can inspect the diff that will be saved to your infrastructure gitops repository.
+Before you save the configuration on the dashboard, you can inspect the differences that will be saved to your infrastructure gitops repository. Click Review changes to see the changes in yaml format.
 
-### In your editor
+### In Your Editor
 
 You can also change the files in your editor. Gimlet handles the changes quite well, and even preserves your custom changes throughout [component updates](/docs/environment-settings/component-updates).
 
