@@ -64,6 +64,7 @@ const navigation = [
       { title: 'Secrets', href: '/docs/deployment-settings/secrets' },
       { title: 'Volumes', href: '/docs/deployment-settings/volumes' },
       { title: 'Resource Usage', href: '/docs/deployment-settings/resource-usage' },
+      { title: 'Chat Notifications', href: '/docs/deployment-settings/chat-notifications' },
       { title: 'Creating a Custom Template', href: '/docs/deployment-settings/custom-template' },
     ],
   },
@@ -71,7 +72,7 @@ const navigation = [
     title: 'Environment settings',
     links: [
       { title: 'Introduction', href: '/docs/environment-settings/introduction' },
-      { title: 'Chat Notifications', href: '/docs/deployment-settings/chat-notifications' },
+      { title: 'Component updates', href: '/docs/environment-settings/component-updates' },
     ],
   },
   {
