@@ -16,7 +16,7 @@ Once you're in the settings, click the **Resources** tab, where the following op
 
 ## Requests
 
-You can configure CPU and Memory requests. It's required to allocate resources for your application on the node.
+You can configure CPU and Memory requests. Requests are used by Kubernetes for workload placement. The more accurately you set the usual required resource amounts, the better utilized - thus cheaper - your cluster will be.
 
 ## Limits
 
