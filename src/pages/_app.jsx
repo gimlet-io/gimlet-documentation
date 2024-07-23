@@ -17,11 +17,30 @@ const navigation = [
     ],
   },
   {
-    title: 'Tutorials',
+    title: 'Frontend Tutorials',
     links: [
-      { title: 'Frontend tutorials', href: '/docs/tutorials/frontend' },
-      { title: 'Backend tutorials', href: '/docs/tutorials/backend' },
-      { title: 'AI Deployments tutorials', href: '/docs/tutorials/ai-deployments' },
+      { title: 'Next.js Deployment', href: '/docs/frontend/next-js-deployment-tutorial' },
+      { title: 'React Deployment', href: '/docs/frontend/react-deployment-tutorial' },
+      { title: 'Remix Deployment', href: '/docs/frontend/remix-deployment-tutorial' },
+    ],
+  },
+  {
+    title: 'Backend Tutorials',
+    links: [
+      { title: 'Laravel Deployment', href: '/docs/backend/laravel-deployment-tutorial' },
+      { title: 'Django Deployment', href: '/docs/backend/django-deployment-tutorial' },
+      { title: 'Ruby on Rails Deployment', href: '/docs/backend/ruby-on-rails-deployment-tutorial' },
+    ],
+  },
+  {
+    title: 'AI Deployment Tutorials',
+    links: [
+      { title: 'Flowise Deployment', href: '/docs/ai-deployments/flowise-deployment-tutorial' },
+      { title: 'Dockerfile Deployments', href: '/docs/ai-deployments/dockerfile-deployment-tutorial' },
+      { title: 'Streamlit Deployment', href: '/docs/ai-deployments/streamlit-deployment-tutorial' },
+      { title: 'Jupyter Notebook Deployments', href: '/docs/ai-deployments/juypter-notebook-deployment-tutorial' },
+      { title: 'vLLM Deployment', href: '/docs/ai-deployments/vllm-deployment-tutorial' },
+      { title: 'Hugging Face Model Deployments', href: '/docs/ai-deployments/hugging-face-model-deployment-tutorial' },
     ],
   },
   {
@@ -37,7 +56,7 @@ const navigation = [
     links: [
       { title: 'Introduction', href: '/docs/deployment-settings/deployment-configuration' },
       { title: 'Container Build Settings', href: '/docs/deployment-settings/image-settings' },
-      { title: 'Container registries', href: '/docs/deployment-settings/registries' },
+      { title: 'Container Registries', href: '/docs/deployment-settings/registries' },
       { title: 'Social Authentication', href: '/docs/deployment-settings/social-authentication' },
       { title: 'DNS', href: '/docs/deployment-settings/dns' },
       { title: 'Port Forwarding', href: '/docs/deployment-settings/port-forwarding' },

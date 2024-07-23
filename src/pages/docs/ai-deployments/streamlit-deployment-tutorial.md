@@ -4,11 +4,11 @@ description: |
   Streamlit is a popular Python framework for data and AI projects. Here's how you can deploy it with Gimlet.
 ---
 
-**Quick start tutorial for applications written in Streamlit, a popular Python framework for AI and data projects.**
-
 ## Step 1: Getting Started with Gimlet
 
 Log in to Gimlet with your GitHub or GitLab account. After successful log in, GitHub repositories available to you should be available. If you can't find the repository of your Streamlit application, you can use the search bar to find it.
+
+If you don't have a Streamlit application, fork [this repository](https://github.com/YoucefGuichi/streamlit-app) from GitHub.
 
 To add the repository, click **Import** next to it, then save the repository by clicking **I am done importing**.
 

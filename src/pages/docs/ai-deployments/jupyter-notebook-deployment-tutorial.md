@@ -8,6 +8,8 @@ description: |
 
 Log in to Gimlet by connecting your GitHub or GitLab account. If all is well, you should see the repositories you have access to listed in Gimlet.
 
+If you don't have a Jupyter Notebook to deploy with Gimlet, you can fork [this one](https://github.com/gerimate/jupyter-notebook-sample) from GitHub.
+
 If you can't find the repository of the Jupyter Notebook, you can use the search bar to find it. When you found the repository, click **Import** next to it, then click **I am done importing** to save the added repositories.
 
 ## Step 2: Create Deployment Settings
@@ -36,8 +38,6 @@ CMD ["jupyter", "lab", "--port", "8080", "--allow-root"]
 After selecting the container image method, select the **Gimlet Registry** option under **Registry** settings, and add change the **Port** to `8080`. You can see the settings in the screenshot below:
 
 ![Jupyter Notebook deployment settings with Dockerfile and port set.](/docs/screenshots/jupyter-notebook-deployment/jupyter-notebook-deployment-config.png)
-
-Edit the domain to your liking if you use a custom one, but Gimlet generates a domain for your Jupyter Notebook by default.
 
 ## Step 3: Deploy
 

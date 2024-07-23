@@ -4,13 +4,13 @@ description: |
   Laravel is a popular PHP framework, which you can deploy with Gimlet.
 ---
 
-**Laravel is a popular PHP framework, which you can deploy with Gimlet.**
-
 ## Step 1: Get Started with Gimlet
 
 Log in to Gimlet by connecting your account to your GitHub or GitLab.
 
 After successful connection, you should see repositories listed, which you can import. If you can't find the Laravel project's repository, use the search bar, then click the **Import** button next to it.
+
+If you don't have a Laravel app to test this tutorial, fork [this repository](https://github.com/gerimate/laravel-gimlet-test/) from GitHub.
 
 You can add multiple repositories, click **I am done importing** to save the added repos.
 
@@ -19,6 +19,8 @@ You can add multiple repositories, click **I am done importing** to save the add
 To get started with the deployment process, navigate to the deployment settings by clicking the repo's card in the repository list. Click **New deployment**.
 
 Select the **Web Application Template**, and then the **Using a Dockerfile** container image option. Under the Registry options, select the Gimlet registry setting.
+
+![Laravel deployment configuration settings in Gimlet.](/docs/screenshots/gimlet-io-laravel-deployment-settings.png)
 
 This method requires a Dockerfile located in your repository. If you don't have one, you can use the one below.
 
@@ -41,8 +43,6 @@ CMD ["php","artisan","serve","--host=0.0.0.0"]
 ```
 
 Define the port where you'd like to access the app, like `8000` for example.
-
-You can specify a custom domain, but Gimlet will generate one for you, which you can share with your teammates after the deployment is done.
 
 ## Step 3: Deploy and Check Your Laravel App
 

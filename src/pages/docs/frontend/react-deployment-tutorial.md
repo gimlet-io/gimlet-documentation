@@ -4,11 +4,11 @@ description: |
   React applications can be deployed with Gimlet, too. Find out how to add HTTPS and social authentication, as well.
 ---
 
-**React is a JavaScript library for building user interfaces, enabling developers to create dynamic and interactive web applications efficiently.**
-
 ## Step 1: Getting Started with Gimlet
 
 Log in to Gimlet by connecting your GitHub or GitLab account. You should see your repositories listed, but if you can't find the repo where your React app is located, you can use the search bar to find it.
+
+Fork [this repository](https://github.com/gerimate/react-gimlet-test) if you don't have a React application to give this tutorial a try.
 
 Click the **Import** button to add the repository to Gimlet, then click the **I am done importing** button to save added repositories.
 
@@ -16,9 +16,9 @@ Click the **Import** button to add the repository to Gimlet, then click the **I 
 
 Click on the repository's card to select the repo. Click the **New deployment** button.
 
-To deploy a React frontend, just select **Static Site Template**. Check if any of the settings are needed to be changed.
+To deploy a React frontend, just select **Static Site Template**. Below you can see the build script for the demo app mentioned earlier.
 
-You can use a custom domain, but Gimlet will generate one for you, which you can use to share your app after deployment.
+![React build script for deployments with Gimlet](/docs/screenshots/gimlet-io-react-deployment-settings.png)
 
 If everything looks alright, click the **Deploy** button. Gimlet will build the application and run it in an Nginx container.
 

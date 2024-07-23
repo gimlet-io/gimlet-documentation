@@ -16,6 +16,8 @@ You can import repositories by clicking the **Import** button next to them. Save
 
 Pick the repository you’d like to deploy. You can do this by clicking the repository's card. Click the **New Deployment** button to move forward.
 
+![Repository import screen in Gimlet](docs/screenshots/gimlet-io-repository-import.png)
+
 ## Step 3: Choose Deployment Method
 
 There are 4 ways to build images. The easiest way is to use a Dockerfile to deploy the application. This requires a Dockerfile located in your root folder, otherwise you need to enter the path to the Dockerfile in your repository.
@@ -28,7 +30,9 @@ Make sure that the image settings look similar the ones below. This is the scree
 
 ## Step 4: Deploy The Application
 
-A **Deploy** button will appear under the settings. Click and wait for deployment status to become `Running`.
+A **Deploy** button will appear under the settings. Click and wait for deployment status to become `Running`. A link will appear next to the status.
+
+![](/docs/screenshots/gimlet-successful-deployment.png)
 
 ## Step 5: Check Your App in Browser
 

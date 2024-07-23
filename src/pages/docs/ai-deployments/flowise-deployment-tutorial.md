@@ -10,6 +10,8 @@ description: |
 
 Log in to Gimlet by connecting your GitHub or GitLab account. You should see your repositories listed. Use the search bar if the repository with Flowise won't appear.
 
+You can fork Flowise from the official repository on [GitHub](https://github.com/FlowiseAI/Flowise).
+
 After connecting your account, the repositories available should be listed in Gimlet. If you can't find the repo with Flowise in it, you can use the search bar to find it.
 
 Click the **Import** button next to the repository. You can add multiple repos the same way. When all the repositories are selected, click **I am done importing** to save the added repos.
@@ -55,7 +57,7 @@ EXPOSE 3000
 CMD [ "pnpm", "start" ]
 ```
 
-In Gimlet, now select the **Gimlet Registry** option under **Registry** settings, and set **Port** value to 3000. Then specify a custom domain if you'd like to use one, but Gimlet generates a URL where you'll be able to access Flowise after deployment. See config settings in the screenshot below:
+In Gimlet, now select the **Gimlet Registry** option under **Registry** settings, and set **Port** value to 3000. See config settings in the screenshot below:
 
 ![Flowise deployment settings in Gimlet. ghcrRegistry is selected, and the exposed port value is set at 3000](/docs/screenshots/flowise-deployment/flowise-deployment-configuration.png)
 
