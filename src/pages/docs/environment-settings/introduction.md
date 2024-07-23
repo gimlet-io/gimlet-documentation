@@ -1,4 +1,33 @@
-# Infrastructure Management
+---
+title: 'Environment Settings'
+description: |
+  Learn what a Gimlet Environment is, how does it relate to clusters, and how to configure infrastructure components.
+---
+
+Gimlet is a Bring Your Own Hardware platform. Each environment is deployed on its own Kubernetes cluster.
+
+If you don't know how to launch a cluster, check out providers like [civo.com](https://civo.com) where you can have a useful cluster for $20 a month, with swift setup experience. Or you can launch a cluster on your laptop with k3d [as described on our blog](/blog/running-kubernetes-on-your-laptop-with-k3d).
+
+If you use our cloud environment an ephemeral cluster is provided for 7 days so you don't need to deal with Kubernetes clusters when you start. Just skip ahead to deployment.
+
+{% video src="https://www.youtube-nocookie.com/embed/LCk25U7Gaj4" /%}
+
+{% callout %}
+There is a possibility to map environments to Kubernetes namespaces, thus hosting multiple environments on the same cluster.
+
+Gimlet also works well on vcluster.
+
+[Join our Discord](https://discord.com/invite/ZwQDxPkYzE) to learn more.
+{% /callout %}
+
+## Environment settings
+
+Gimlet aids cluster setup with preconfigured stacks. With a marketplace-like experience you can configure common usecases:
+- [SSL certificates](/docs/deployment-settings/https#configure-cert-manager)
+- [Custom domain names](/docs/deployment-settings/dns#configure-a-custom-domain)
+- Metrics and dashboards
+- Secrets
+
 
 Navigate to the environment you want to edit. Like in the case of an environment called `deleteme`, navigate to _Environments > deleteme > Infrastructure components_ and locate the desired component to edit.
 
@@ -18,7 +47,9 @@ NAME                                             READY   STATUS    RESTARTS     
 ingress-nginx-controller-66455d768d-v8pgh        1/1     Running   0             8s
 ```
 
-## Updating components
+## Component updates
+
+After you set up your cluster, Gimlet provides an update stream for your cluster components - something that is often overlooked in marketplaces.
 
 `stack.yaml` points to the stack template in the `stack.repository` field. It points to a git repository where the stack files are maintained.
 
@@ -36,7 +67,23 @@ config:
     host: laszlo.cloud
 ```
 
-### Updating
+### Automatic updates
+
+You can automate stack upgrades by using a [Github Action](https://github.com/gimlet-io/gimlet-stack-updater-action/pull/11) maintained by Gimlet.
+
+It
+
+- Periodically checks for updates,
+- Runs `gimlet stack update` on new versions,
+- And opens a Pull Request with the new version.
+
+It can also assign you as reviewer.
+
+![Stack updater Github Action](https://gimlet.io/stack-updater.png)
+
+See the action in an [example workflow](https://github.com/gimlet-io/gimlet-stack-updater-action/blob/main/.github/workflows/demo.yml).
+
+### Manual Updating
 
 `gimlet stack update --check` displays the new versions that can be applied to your stack, while running `gimlet stack update` will update `stack.yaml` to the latest stack version number:
 
@@ -71,22 +118,6 @@ Make sure to:
 - Inspect the changeset,
 - Resolve possible [conflicts with custom changes](https://gimlet.io/docs/managing-infrastructure-components#custom-changes-that-conflict),
 - Push to git.
-
-### Automatic updates
-
-You can automate stack upgrades by using a [Github Action](https://github.com/gimlet-io/gimlet-stack-updater-action/pull/11) maintained by Gimlet.
-
-It
-
-- Periodically checks for updates,
-- Runs `gimlet stack update` on new versions,
-- And opens a Pull Request with the new version.
-
-It can also assign you as reviewer.
-
-![Stack updater Github Action](https://gimlet.io/stack-updater.png)
-
-See the action in an [example workflow](https://github.com/gimlet-io/gimlet-stack-updater-action/blob/main/.github/workflows/demo.yml).
 
 ## Making custom changes to a stack
 

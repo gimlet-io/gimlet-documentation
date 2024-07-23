@@ -63,10 +63,15 @@ const navigation = [
       { title: 'HTTPS', href: '/docs/deployment-settings/https' },
       { title: 'Secrets', href: '/docs/deployment-settings/secrets' },
       { title: 'Volumes', href: '/docs/deployment-settings/volumes' },
-      { title: 'Infrastructure Management', href: '/docs/deployment-settings/infrastructure-management' },
-      { title: 'Chat Notifications', href: '/docs/deployment-settings/chat-notifications' },
       { title: 'Resource Usage', href: '/docs/deployment-settings/resource-usage' },
       { title: 'Creating a Custom Template', href: '/docs/deployment-settings/custom-template' },
+    ],
+  },
+  {
+    title: 'Environment settings',
+    links: [
+      { title: 'Introduction', href: '/docs/environment-settings/introduction' },
+      { title: 'Chat Notifications', href: '/docs/deployment-settings/chat-notifications' },
     ],
   },
   {

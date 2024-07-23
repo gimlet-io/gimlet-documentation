@@ -64,7 +64,7 @@ Gimlet also works well on vcluster.
 
 ### Cluster setup and maintenance
 
-Gimlet aids cluster setup with [preconfigured stacks](/docs/deployment-settings/infrastructure-management).
+Gimlet aids cluster setup with [preconfigured stacks](/docs/environment-settings/introduction).
 
 With a marketplace-like experience you can configure common usecases:
 - SSL certificates
