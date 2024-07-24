@@ -4,7 +4,7 @@ description: |
   Gimlet provides an update stream for your cluster components. Learn how to update your cluster components.
 ---
 
-After you set up your cluster, Gimlet provides an update stream for your cluster components - something that is often overlooked in marketplaces.
+After you set up your cluster, Gimlet provides an update stream for your cluster components – something that is often overlooked in marketplaces.
 
 ## `stack.yaml` version
 

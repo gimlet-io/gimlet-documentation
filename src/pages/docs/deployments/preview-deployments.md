@@ -4,7 +4,7 @@ description: |
   Preview deployments are useful when you'd like to share projects with teammates or clients.
 ---
 
-**Preview deployments are useful when you'd like to share your application with others on the internet.**
+**Preview deployments are useful when you'd like to share unmerged changes in your project with others on the internet.**
 
 You can configure previews by navigating to the preview tabs of deployment settings. Click **Configure Previews**, and select the environment where you'd like to deploy previews.
 
