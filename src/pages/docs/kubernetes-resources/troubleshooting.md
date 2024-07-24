@@ -36,12 +36,13 @@ Keep in mind that pod events disappear after an hour. If you don't use an event 
 
 ## Error States
 
-Using the commands below, you might run into error states that'll lead you to figuring out what needs to be done to address the issues within your cluster. Here are the most common error states you might have to deal with.
+Here are the most common error states you might have to deal with.
 
-### `ImagePullBackOff` and `ErrImagePull`
+### ImagePullBackOff and ErrImagePull
 
 These errors occur when Kubernetes can't fetch the image specified in your pod configuration.
-#### How to fix it
+
+**How to fix it**
 
 Verify the correctness of your image name and double-check registry credentials.
 
@@ -49,10 +50,10 @@ Run `kubectl describe pod <pod-name>` to cross check the image name. Check the 
 
 If the image name is correct, check out access credentials. Run `kubectl get pod <pod-name> -o=jsonpath='{.spec.imagePullSecrets[0].name}{"\n"}'`, and then check the secret values with `kubectl get secret <your-pull-secret> -o yaml`. You may feed the base64 encoded fields to `echo xxx | base64 -d`.
 
-### `CrashLoopBackOff`
+### CrashLoopBackOff
 
 This indicates that your application keeps starting up and then dies for some reason.
-#### How to fix it
+**How to fix it**
 
 Run `kubectl logs <pod-name>` to investigate logs of your pod. Add `--previous` flag to see previous insantiation of the pod.
 
@@ -60,25 +61,25 @@ Run `kubectl logs <pod-name>` to investigate logs of your pod. Add `--previous` 
 
 In this case, Kubernetes encountered a problem when creating containers. A misconfigured ConfigMap or secret is usually the most common cause of this.
 
-#### How to fix it
+**How to fix it**
 
 Run `kubectl describe pod <pod-name>`.  The error message at the bottom of the output should reveal if it's a misspelled ConfigMap name or a secret isn't created yet.
 
 If there's no error message at the end of output, restart the pod by deleting it with `kubectl describe`.
 
-### Pod Stuck in `Pending` State
+### Pod Stuck in Pending State
 
 It indicates that Kubernetes can't schedule a pod on a node. It often happens because resource constraints or problems with the node.
 
-#### How to fix it
+**How to fix it**
 
 Run `kubectl describe` and search for events to spot scheduling issues. After that, verify that the cluster has enough resources by running `kubectl describe node <node-x>`.
 
-### Out of Memory Error and `OOMKilled`
+### Out of Memory Error and OOMKilled
 
 Running out of memory can cause a pod to restart. OOMKilled is difficult to catch.
 
-#### How to fix it
+**How to fix it**
 
 Use a monitoring solution to chart your pod's memory usage over time. When your pod is reaching the specified resource limits, Kubernetes will restart it.
 
@@ -98,7 +99,7 @@ Last State:     Terminated
 
 A service is unavailable.
 
-#### How to fix it
+**How to fix it**
 
 Examine pod and service definitions in `kubectl get pod <pod-name> -o yaml` and `kubectl get svc <service-name> -o yaml` to ensure port alignment.
 

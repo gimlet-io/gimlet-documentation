@@ -9,10 +9,6 @@ export function BlogPage({ children, className, tabs, code, language, title, sec
   let router = useRouter()
   const ref = router.pathname.slice(1).replaceAll("/", "-")
   let isBlogSubPage = !router.pathname.endsWith('/blog') && !router.pathname.endsWith('/blog/')
-  let isBackpack = router.pathname.startsWith('/blog/hosting-static-sites-on-kubernetes') ||
-    router.pathname.startsWith('/blog/running-kubernetes-on-your-laptop-with-k3d') ||
-    router.pathname.startsWith('/blog/a-6-37-mo-single-node-kubernetes-clust') ||
-    router.pathname.startsWith('/blog/budget-managed-kubernetes-')
 
   const date = pageProps.markdoc?.frontmatter.date
   const image = pageProps.markdoc?.frontmatter.image
@@ -46,9 +42,6 @@ export function BlogPage({ children, className, tabs, code, language, title, sec
   return (
     <div className="relative mx-auto flex max-w-8xl justify-center sm:px-2 xl:grid xl:grid-cols-12 gap-16 pb-32">
         <div className="hidden xl:sticky xl:top-[4.5rem] xl:block xl:h-[calc(100vh-4.5rem)] xl:flex-none xl:overflow-y-hidden xl:py-16 xl:col-span-3">
-          <nav aria-labelledby="on-this-page-title">
-            { isBackpack && Backpack() }
-          </nav>
         </div>
         <div className="min-w-0 max-w-2xl flex-auto px-4 py-16 lg:max-w-none xl:col-span-6">
           <article>
@@ -88,14 +81,7 @@ export function BlogPage({ children, className, tabs, code, language, title, sec
             }
             <Prose className="mt-16">{children}</Prose>
           </article>
-          {isBlogSubPage && isBackpack && 
-          (
-            <div className='block xl:hidden mt-32'>
-              { Backpack() }
-            </div>
-          )
-          }
-          {isBlogSubPage && !isBackpack &&
+          {isBlogSubPage &&
           <>
             <div className="relative py-16">
               <div className="absolute inset-0 flex items-center" aria-hidden="true">
@@ -194,79 +180,5 @@ export function BlogPage({ children, className, tabs, code, language, title, sec
           </nav>
         </div>
       </div>
-  )
-}
-
-function Backpack() {
-  return (
-    <div className='bg-gray-100 p-2 text-sm'>
-      <h2
-        id="on-this-page-title"
-        className="font-display font-medium text-slate-900 dark:text-white"
-      >
-        🎒 Kubernetes backpack
-      </h2>
-      <ul className="mt-4 space-y-3">
-          <li key="hosting">
-            <h3 className='font-semibold'>Hosting</h3>
-            <ul className="pl-5 list-disc text-red-500">
-                <li key='k3d'>
-                  <Link href="/blog/running-kubernetes-on-your-laptop-with-k3d?ref=starterpack">
-                    <span className='hover:text-red-600 dark:hover:text-slate-300'>
-                      Running Kubernetes on your laptop with K3d
-                    </span>
-                  </Link>
-                </li>
-                <li key='hetzner'>
-                  <Link href="/blog/a-6-37-mo-single-node-kubernetes-cluster-on-hetzner-with-vitobotta-hetzner-k3s?ref=starterpack">
-                    <span className='hover:text-red-600 dark:hover:text-slate-300'>
-                      A 6.37 EUR a month single node Kubernetes cluster on Hetzner
-                    </span>
-                  </Link>
-                </li>
-                <li key='k3d'>
-                  <Link href="/blog/budget-managed-kubernetes-options?ref=starterpack">
-                    <span className='hover:text-red-600 dark:hover:text-slate-300'>
-                      Budget managed Kubernetes options
-                    </span>
-                  </Link>
-                </li>
-            </ul>
-          </li>
-          <li key="hosting">
-            <h3 className='font-semibold'>YAML</h3>
-            <ul className="pl-5 text-red-500 list-disc">
-                <li key='k3d'>
-                  <Link href="/k8s-yaml-generator?ref=starterpack">
-                    <span className='hover:text-red-600 dark:hover:text-slate-300'>
-                      YAML Generator
-                    </span>
-                  </Link>
-                </li>
-                <li key='hetzner'>
-                  <Link href="/concepts/the-sane-gitops-guide?ref=starterpack">
-                    <span className='hover:text-red-600 dark:hover:text-slate-300'>
-                      The SANE gitops guide
-                    </span>
-                  </Link>
-                </li>
-                <li key='k3d'>
-                  <Link href="/concepts/the-sane-helm-guide?ref=starterpack">
-                    <span className='hover:text-red-600 dark:hover:text-slate-300'>
-                      The SANE Helm guide
-                    </span>
-                  </Link>
-                </li>
-                <li key='static'>
-                  <Link href="/blog/hosting-static-sites-on-kubernetes?ref=starterpack">
-                    <span className='hover:text-red-600 dark:hover:text-slate-300'>
-                      Hosting static sites on kubernetes
-                    </span>
-                  </Link>
-                </li>
-            </ul>
-          </li>
-      </ul>
-    </div>
   )
 }
