@@ -4,9 +4,13 @@ description: |
   Next.js is a React framework which you can deploy with Gimlet. Add HTTPS certifice and social authentication to it with a few clicks.
 ---
 
-## Step 1: Getting Started with Gimlet
+mirol szol: Honnan-hova
 
-If you don't have a Next.js application, fork this [repository](https://github.com/gerimate/next-js-demo-app) to be able to try this tutorial.
+## Pre-requisites
+
+- A next.js app to deploy. If you don't have a Next.js application, fork this [repository](https://github.com/gerimate/next-js-demo-app) to be able to try this tutorial.
+
+## Step 1: Getting Started with Gimlet
 
 Log in to Gimlet by connecting your GitHub or GitLab. The repositories available to you will be listed after successful connection.
 
