@@ -45,4 +45,4 @@ If you work with Hugging Face models, here's why Gimlet is the best choice for y
 
 - **Remote GPU Usage:** Utilize remote Nvidia GPUs from your local setup.
 - **File syncing:** Keep code consistent across your team.
-- **Testing & Previewing:** Deploy and share your project that uses Hugging Face models with social authentication for testing purposes.
+- **Testing & Previewing:** Deploy and share your project that uses Hugging Face models with [social authentication](/docs/deployment-settings/social-authentication) for testing purposes.

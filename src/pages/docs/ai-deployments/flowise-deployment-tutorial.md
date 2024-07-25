@@ -89,4 +89,4 @@ Gimlet offers different advantages when you use Flowise to create AI workflows.
 
 - **Remote CUDA Resources:** If you don't have access to Nvidia GPUs locally, you can still utilize CUDA on the cloud.
 - **File Syncing:** Keep code consistent across your team and their machines.
-- **Easily Share Flowise:** Add social authentication and set up HTTPS connection between your Flowise and your teammates.
+- **Easily Share Flowise:** Add [social authentication](/docs/deployment-settings/social-authentication) and set up [HTTPS](/docs/deployment-settings/https) connection between your Flowise and your teammates.

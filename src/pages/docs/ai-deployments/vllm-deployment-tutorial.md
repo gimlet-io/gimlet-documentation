@@ -43,4 +43,4 @@ Keep in mind that vLLM is a fairly large application, and some internal processe
 
 - **Remote Nvidia GPUs:** You can deploy vLLM to nodes with CUDA-capable Nvidia GPUs.
 - **File Syncing:** Sync code across your team's environments.
-- **Share Your Project:** Set up social authetentication and HTTPS to share your project securely with your teammates.
+- **Share Your Project:** Set up [social authetentication](/docs/deployment-settings/social-authentication) and [HTTPS](/docs/deployment-settings/https) to share your project securely with your teammates.

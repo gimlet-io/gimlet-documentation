@@ -70,4 +70,4 @@ When you work with Streamlit, there are multiple advantages of using Gimlet:
 
 - **Remote GPU Access:** Use Nvidia GPUs in the cloud from your local setup.
 - **File Syncing:** Keep source code consistent across your team and developer environments.
-- **Deployment and Previewing:** Easily share your Streamlit app with your teammates using social login and HTTPS connection.
+- **Deployment and Previewing:** Easily share your Streamlit app with your teammates using [social login](/docs/deployment-settings/social-authentication) and [HTTPS](/docs/deployment-settings/https) connection.

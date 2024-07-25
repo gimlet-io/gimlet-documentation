@@ -44,6 +44,6 @@ When container status turns **Running**, confetti will rain in your browser wind
 
 Deploying Next.js applications with Gimlet holds several advantages:
 
-- **Social login:** Easy-to-add social authentication and HTTPS certification.
-- **Branch previews:** Test and share changes with preview deployments.
-- **Advanced deployment capabilities:** Roll back to previous versions and ship changes with automated deployments.
+- **Social login:** Easy-to-add [social authentication](/docs/deployment-settings/social-authentication) and [HTTPS certification](/docs/deployment-settings/https).
+- **Branch previews:** Test and share changes with [preview deployments](/docs/deployments/preview-deployments).
+- **Advanced deployment capabilities:** [Roll back](/docs/deployments/rollbacks) to previous versions and ship changes with [automated deployments](/docs/deployments/automated-deployments).

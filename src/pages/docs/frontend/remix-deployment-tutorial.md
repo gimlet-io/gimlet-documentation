@@ -38,6 +38,6 @@ When the Remix application is successfully deployed, confetti will rain in the b
 
 Here are a few examples of why hosting Remix frontend with Gimlet is for you:
 
-- **OAuth & HTTPS/SSL:** Add social authentication and secure your Remix application.   
-- **Branch previews:** Test changes and share previews on real environments.
-- **Advanced deployment capabilities:** Roll back to previous versions and automate deployments.
+- **OAuth & [HTTPS](/docs/deployment-settings/https):** Add [social authentication](/docs/deployment-settings/social-authentication) and secure your Remix application.   
+- **Branch previews:** Test changes and share [previews](/docs/deployments/preview-deployments) on real environments.
+- **Advanced deployment capabilities:** [Roll back](/docs/deployments/rollbacks) to previous versions and [automate deployments](/docs/deployments/automated-deployments).

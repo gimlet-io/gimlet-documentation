@@ -36,6 +36,6 @@ After a successful deployment, a clickable link should appear next to deployment
 
 Here are a few examples of why you should host your React frontend with Gimlet:
 
-- **Social Login:** Share your React application with social login and HTTPS certification added.
-- **Branch previews:** Test and share changes in your frontend with preview deployments.
-- **Advanced deployment capabilities:** Roll back and automated deployments of new changes.
+- **Social Login:** Share your React application with [social login](/docs/deployment-settings/social-authentication) and [HTTPS certification](/docs/deployment-settings/https) added.
+- **Branch previews:** Test and share changes in your frontend with [preview deployments](/docs/deployments/preview-deployments).
+- **Advanced deployment capabilities:** [Roll backs](/docs/deployments/rollbacks) and [automated deployments](/docs/deployments/automated-deployments) of new changes.

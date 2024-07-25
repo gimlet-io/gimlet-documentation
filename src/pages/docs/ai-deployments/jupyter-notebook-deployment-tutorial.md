@@ -69,4 +69,4 @@ If you're working with Jupyter Notebooks, Gimlet offers several advantages:
 
 - **Utilizing Remote GPUs:** Access remote Nvidia GPUs from your local environment.
 - **Code Syncing:** Ensure code uniformity across your team.
-- **Deployment and Previewing:** Deploy and share models with social authentication for testing purposes.
+- **Deployment and Previewing:** Deploy and share models with [social authentication](/docs/deployment-settings/social-authentication) for testing purposes.

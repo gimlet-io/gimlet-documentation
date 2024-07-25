@@ -42,4 +42,4 @@ Besides easy Dockerfile deployment, there are several use cases of using Gimlet 
 
 - **Remote GPUs:** Set up your project using CUDA-capable Nvidia GPUs.
 - **File Syncing:** Sync code across the machines used by your team.
-- **Share with Social Auth**: Set up social login and HTTPS certification easily for secure sharing with your teammates.
+- **Share with Social Auth**: Set up [social login](/docs/deployment-settings/social-authentication) and [HTTPS](/docs/deployment-settings/https) certification easily for secure sharing with your teammates.
