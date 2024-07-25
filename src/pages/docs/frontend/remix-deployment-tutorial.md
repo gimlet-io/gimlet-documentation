@@ -3,11 +3,16 @@ title: 'Deployments of Remix Frontends'
 description: |
   Remix frontend applications can be deployed with Gimlet. Find out how to add HTTPS and social authentication to them, as well.
 ---
+
+**You can learn from this tutorial how to deploy a Remix application with Gimlet.**
+
+## Requirements
+
+- A Remix application on GitHub. If you don't have one, you can fork one from [this repository](https://github.com/gerimate/remix-gimlet-test).
+
 ## Step 1: Getting Started with Gimlet
 
 Log in to Gimlet and connect your GitHub or GitLab account. You should see the repositories you have access to listed. If you can't see the repo that contains the Remix application, use the search bar to find it.
-
-If you don't have a Remix application to give this tutorial a try, fork [this repository](https://github.com/gerimate/remix-gimlet-test).
 
 Click the **Import** button next to the repository, then the **I am done importing** button to add the repo in Gimlet.
 

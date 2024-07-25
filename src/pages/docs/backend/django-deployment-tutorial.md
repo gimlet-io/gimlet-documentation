@@ -4,11 +4,15 @@ description: |
   Django is a popular Python framework for web applications. Here's how you can deploy it with Gimlet.
 ---
 
+**You can learn from this tutorial how to deploy a Django application with Gimlet.**
+
+## Requirements
+
+- A Django app to deploy. If you don't have a Django application, fork this [repository](https://github.com/YoucefGuichi/django-sample-app) to be able to try this tutorial.
+
 ## Step 1: Log in to Gimlet
 
 Get started with Gimlet by connecting your GitHub or GitLab. After connecting your profile with Gimlet, the repositories available to you will be listed. If you can't find the repository of your Django project, you can use the search bar to find it.
-
-If you don't have a Django application, fork [this repository](https://github.com/YoucefGuichi/django-sample-app) for this tutorial.
 
 To add the repo to Gimlet, click the **Import** button next to, and then the **I am done importing** to save the imported repository. You can add multiple repositories.
 

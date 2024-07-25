@@ -6,6 +6,10 @@ description: |
 
 **vLLM is an inference for large language models (LLMs) that you can deploy with Gimlet. It's worth noting that this tutorial only describes how to set up vLLM on CUDA-capable resources, therefore you won't be able to test vLLM deployment with Gimlet's trial version.**
 
+## Prerequisites
+
+- Kubernetes cluster with CUDA capable GPU resources.
+
 ## Step 1: Log In To Gimlet
 
 Connect your GitHub or GitLab account with Gimlet. Upon successful connection, your repositories should be listed. If you can't find the vLLM repo, you can use the search bar to find it.

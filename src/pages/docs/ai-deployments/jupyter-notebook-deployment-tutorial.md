@@ -4,11 +4,15 @@ description: |
   You can deploy Jupyter Notebooks with Gimlet to collaborate with your teammates. Find out how.
 ---
 
+**You can learn from this tutorial how to deploy a Jupyter Notebook with Gimlet.**
+
+## Requirements
+
+- A Jupyter Notebook to deploy. If you don't have a notebook, fork this [repository](https://github.com/gerimate/jupyter-notebook-sample) to be able to try this tutorial.
+
 ## Step 1: Getting Started with Gimlet
 
 Log in to Gimlet by connecting your GitHub or GitLab account. If all is well, you should see the repositories you have access to listed in Gimlet.
-
-If you don't have a Jupyter Notebook to deploy with Gimlet, you can fork [this one](https://github.com/gerimate/jupyter-notebook-sample) from GitHub.
 
 If you can't find the repository of the Jupyter Notebook, you can use the search bar to find it. When you found the repository, click **Import** next to it, then click **I am done importing** to save the added repositories.
 

@@ -6,6 +6,11 @@ description: |
 
 **Hugging Face is GitHub for large language models. You can treat the models available there like git repositories.**
 
+## Prerequisites
+
+- A Dockerfile for your model.
+- A model on GitHub.
+
 ## Step 1: Getting Started With Gimlet
 
 Log in to Gimlet by connecting your GitHub or GitLab account. After signing in, you should see the repositories you have access to in Gimlet.

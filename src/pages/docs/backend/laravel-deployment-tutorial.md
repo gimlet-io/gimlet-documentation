@@ -4,13 +4,17 @@ description: |
   Laravel is a popular PHP framework, which you can deploy with Gimlet.
 ---
 
+**You can learn from this tutorial how to deploy a Laravel application with Gimlet.**
+
+## Requirements
+
+- A Laravel app to deploy. If you don't have a Laravel application, fork this [repository](https://github.com/gerimate/laravel-gimlet-test/) to be able to try this tutorial.
+
 ## Step 1: Get Started with Gimlet
 
 Log in to Gimlet by connecting your account to your GitHub or GitLab.
 
 After successful connection, you should see repositories listed, which you can import. If you can't find the Laravel project's repository, use the search bar, then click the **Import** button next to it.
-
-If you don't have a Laravel app to test this tutorial, fork [this repository](https://github.com/gerimate/laravel-gimlet-test/) from GitHub.
 
 You can add multiple repositories, click **I am done importing** to save the added repos.
 

@@ -6,6 +6,10 @@ description: |
 
 **Flowise is a drag & drop style AI workflow builder. Here's how you can deploy it.**
 
+## Requirements
+
+- [Flowise](https://github.com/FlowiseAI/Flowise) forked on GitHub.
+
 ## Step 1: Get Started with Gimlet
 
 Log in to Gimlet by connecting your GitHub or GitLab account. You should see your repositories listed. Use the search bar if the repository with Flowise won't appear.
