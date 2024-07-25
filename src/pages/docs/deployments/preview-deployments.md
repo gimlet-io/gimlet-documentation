@@ -10,7 +10,7 @@ You can configure previews by navigating to the preview tabs of deployment setti
 
 ![Configure Previews button in Gimlet's preview deployment settings.](/docs/screenshots/preview-deployments/gimlet-io-preview-deployments-01.png)
 
-After selecting the environment, you can proceed similar to how you can deploy applications manually.
+After selecting the environment, you can proceed similar to how you can deploy applications manually, as described in our [tutorials](/docs/overview/quick-start.md).
 
 ![Preview deployment configuration settings in Gimlet.](/docs/screenshots/preview-deployments/gimlet-io-preview-deployments-02.png)
 
