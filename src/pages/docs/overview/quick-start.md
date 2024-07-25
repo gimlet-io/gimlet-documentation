@@ -4,7 +4,11 @@ description: |
   Get started with Gimlet. Here's how you can create a new account and deploy an application.
 ---
 
-This is a very quick, step-by-step tutorial of deployments with Gimlet.
+**This is a very quick, step-by-step tutorial of deployments with Gimlet.**
+
+{% callout %}
+You'll need a git repository in GitHub to be able to complete this quick start guide. Fork [this repository](https://github.com/YoucefGuichi/streamlit-app) if you don't have one available.
+{% /callout %}
 
 ## Step 1: Log In and Import Repositories
 
@@ -24,7 +28,7 @@ There are 4 ways to build images. The easiest way is to use a Dockerfile to depl
 
 This tutorial demonstrates Dockerfile deployment.
 
-Make sure that the image settings look similar the ones below. This is the screenshot of a Streamlit application, so these settings apply to a Dockerfile suitable for deployments of Streamlit apps.
+Make sure that the image settings look similar the ones below. This is the screenshot of the Streamlit application linked above, so these settings apply to a Dockerfile suitable for deployments of Streamlit apps.
 
 ![Deployment configuration for a Streamlit application deployed with a Dockerfile in Gimlet.](/docs/screenshots/streamlit-deployment-configuration.png)
 
