@@ -173,7 +173,7 @@ secretName: my-custom-secret
 
 ### Mounting Secrets as Files
 
-You may use OneChart's `fileSecrets` feature to provide your application with long form secrets: SSH keys, or json files that are typically used as service account keys on Google Cloud.
+You may use OneChart's `fileSecrets` feature to provide your application with long form secrets: SSH keys or json files that are typically used as service account keys on Google Cloud.
 
 ```
 image:

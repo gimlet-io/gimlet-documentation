@@ -18,7 +18,7 @@ Our blog has just [tutorial](/blog/running-kubernetes-on-your-laptop-with-k3d) t
 
 ### Pods
 
-Pods are the smallest deployable units in Kubernetes. It can contain one or multiple containers. The containers of a pod share the same IP address and ports. The containers within a pod can communicate with each other using `localhost`. Containers can also share [volumes]().
+Pods are the smallest deployable units in Kubernetes. It can contain one or multiple containers. The containers of a pod share the same IP address and ports. The containers within a pod can communicate with each other using `localhost`. Containers can also share [volumes](/docs/deployment-settings/volumes).
 
 ### Deployments
 
@@ -30,19 +30,19 @@ Services enable network communication to the pods.
 
 ### Namespaces
 
-Namespaces are used to divide resources between multiple users, teams, architecture, or any entity you can think of. You can assign namespaces to deployments for resource allocation when you deploy with Gimlet.
+Namespaces are used to divide resources between multiple users, teams, architecture or any entity you can think of. You can assign namespaces to deployments for resource allocation when you deploy with Gimlet.
 
 arbitrary
 
 **Namespace best practices:**
 - Use `default` when you start out,
-- later on follow your company's conventions, or ask your cluster admin if you have one.
+- later on follow your company's conventions or ask your cluster admin if you have one.
 
 ### Volumes
 
 Volumes provide a way to store persistent data for your applications.
 
-You can use ephemeral or cloud based presistent disks, configmaps, or even secrets as volumes.
+You can use ephemeral or cloud based presistent disks, configmaps or even secrets as volumes.
 [See volume options](/docs/deployment-settings/volumes)
 
 ### ConfigMaps
