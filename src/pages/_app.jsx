@@ -29,7 +29,6 @@ const navigation = [
     links: [
       { title: 'Laravel Deployment', href: '/docs/backend/laravel-deployment-tutorial' },
       { title: 'Django Deployment', href: '/docs/backend/django-deployment-tutorial' },
-      { title: 'Ruby on Rails Deployment', href: '/docs/backend/ruby-on-rails-deployment-tutorial' },
     ],
   },
   {
