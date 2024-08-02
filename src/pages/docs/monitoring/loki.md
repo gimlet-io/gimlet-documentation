@@ -1,10 +1,10 @@
 ---
 title: 'Loki'
 description: |
-  Loki is an open-source log aggregation tool. In this tutorial, you can see how you can query it in case you need to investigate logs.
+  Loki is an open-source log aggregation tool which you can integrate with Gimlet.
 ---
 
-**Loki is an open-source log aggregation tool. In this tutorial, you can see how you can query it in case you need to investigate logs.**
+**Loki is an open-source log aggregation tool which you can integrate with Gimlet.**
 
 **Step 1:** Navigate to your environment's config screen by clicking the Environments button on top, and selecting the environment by clicking on its card.
 
