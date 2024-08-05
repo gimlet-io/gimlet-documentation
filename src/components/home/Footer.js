@@ -10,9 +10,9 @@ const footerNav = [
     'Getting Started': [
       { title: 'Quickstart', href: '/docs/overview/quick-start' },
       { title: 'Concepts', href: '/docs/concepts' },
-      { title: 'Frontend tutorials', href: '/docs/tutorials/frontend' },
-      { title: 'Backend tutorials', href: '/docs/tutorials/backend' },
-      { title: 'AI tutorials', href: '/docs/tutorials/ai-deployments' },
+      { title: 'Deploy a React frontend', href: '/docs/frontend/react-deployment-tutorial' },
+      { title: 'Deploy a Laravel app', href: '/docs/backend/laravel-deployment-tutorial' },
+      { title: 'Deploy a Jupyter notebook', href: '/docs/ai-deployments/juypter-notebook-deployment-tutorial' },
 
     ],
     'Navigation': [
@@ -28,9 +28,9 @@ const footerNav = [
       { logo: youtubeLogo, title: 'YouTube', href: 'https://www.youtube.com/channel/UCMQj-27fzpOWGTKL5nutajA' },
     ],
     'Gimlet Cloud': [
-      { title: 'Signup', href: 'https://gimlet.io/signup?ref=footer' },
-      { title: 'Pricing', href: 'https://gimlet.io/pricing?ref=footer' },
-      { title: 'Terms of Service', href: 'https://gimlet.io/tos?ref=footer' },
+      { title: 'Signup', href: 'https://app.gimlet.io' },
+      { title: 'Pricing', href: 'https://gimlet.io/pricing' },
+      { title: 'Terms of Service', href: 'https://gimlet.io/tos' },
     ],
   },
 ]
