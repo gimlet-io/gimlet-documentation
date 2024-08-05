@@ -31,14 +31,7 @@ export function DocsPage({ children, tableOfContents, className, tabs, code, lan
   return (
     <div className="relative mx-auto flex max-w-8xl justify-center sm:px-2 lg:px-8 xl:px-12">
         <div className="hidden lg:relative lg:block lg:flex-none">
-          <div className="-ml-0.5 py-16 pl-0.5">
-            <Link href={"/?ref="+ref}>
-              <a className="block lg:w-auto">
-                <span className="sr-only">Home page</span>
-                <img src="/logo2.svg" alt="Gimlet" className='h-8 sm:h-10 w-auto block dark:hidden' />
-                <img src="/logo-dark.svg" alt="Gimlet" className='h-8 sm:h-10 w-auto hidden dark:block' />
-              </a>
-            </Link>
+          <div className="pb-16">
             <Navigation
               navigation={navigation}
               isDocsPage={true}
@@ -56,7 +49,7 @@ export function DocsPage({ children, tableOfContents, className, tabs, code, lan
                   </p>
                 )}
                 {title && (
-                  <h1 className="font-display text-3xl tracking-tight text-zinc-900 dark:text-zinc-100">
+                  <h1 className="font-display text-3xl tracking-tight text-neutral-900 dark:text-neutral-100">
                     {title}
                   </h1>
                 )}
@@ -64,31 +57,31 @@ export function DocsPage({ children, tableOfContents, className, tabs, code, lan
             )}
             <Prose>{children}</Prose>
           </article>
-          <dl className="mt-12 flex border-t border-zinc-200 pt-6 dark:border-zinc-800">
+          <dl className="mt-12 flex border-t border-neutral-200 pt-6 dark:border-neutral-800">
             {previousPage && (
               <div>
-                <dt className="font-display text-sm font-medium text-zinc-900 dark:text-white">
+                <dt className="font-display text-sm font-medium text-neutral-900 dark:text-white">
                   Previous
                 </dt>
                 <dd className="mt-1">
                   <Link href={previousPage.href}>
-                    <a className="text-base font-semibold text-zinc-500 hover:text-zinc-600 dark:text-zinc-400 dark:hover:text-zinc-300">
+                    <span className="text-base font-semibold text-neutral-500 hover:text-neutral-600 dark:text-neutral-400 dark:hover:text-neutral-300">
                       &larr; {previousPage.title}
-                    </a>
+                    </span>
                   </Link>
                 </dd>
               </div>
             )}
             {nextPage && (
               <div className="ml-auto text-right">
-                <dt className="font-display text-sm font-medium text-zinc-900 dark:text-white">
+                <dt className="font-display text-sm font-medium text-neutral-900 dark:text-white">
                   Next
                 </dt>
                 <dd className="mt-1">
                   <Link href={nextPage.href}>
-                    <a className="text-base font-semibold text-zinc-500 hover:text-zinc-600 dark:text-zinc-400 dark:hover:text-zinc-300">
+                    <span className="text-base font-semibold text-neutral-500 hover:text-neutral-600 dark:text-neutral-400 dark:hover:text-neutral-300">
                       {nextPage.title} &rarr;
-                    </a>
+                    </span>
                   </Link>
                 </dd>
               </div>
@@ -101,7 +94,7 @@ export function DocsPage({ children, tableOfContents, className, tabs, code, lan
               <>
                 <h2
                   id="on-this-page-title"
-                  className="font-display text-sm font-medium text-zinc-900 dark:text-white"
+                  className="font-display text-sm font-medium text-neutral-900 dark:text-white"
                 >
                   On this page
                 </h2>
@@ -110,31 +103,31 @@ export function DocsPage({ children, tableOfContents, className, tabs, code, lan
                     <li key={section.id}>
                       <h3>
                         <Link href={`#${section.id}`}>
-                          <a
+                          <span
                             className={clsx(
                               isActive(section)
                                 ? 'text-sky-500'
-                                : 'font-normal text-zinc-500 hover:text-zinc-700 dark:text-zinc-400 dark:hover:text-zinc-300'
+                                : 'font-normal text-neutral-500 hover:text-neutral-700 dark:text-neutral-400 dark:hover:text-neutral-300'
                             )}
                           >
                             {section.title}
-                          </a>
+                          </span>
                         </Link>
                       </h3>
                       {section.children.length > 0 && (
-                        <ul className="mt-2 space-y-3 pl-5 text-zinc-500 dark:text-zinc-400">
+                        <ul className="mt-2 space-y-3 pl-5 text-neutral-500 dark:text-neutral-400">
                           {section.children.map((subSection) => (
                             <li key={subSection.id}>
                               <Link href={`#${subSection.id}`}>
-                                <a
+                                <span
                                   className={
                                     isActive(subSection)
                                       ? 'text-sky-500'
-                                      : 'hover:text-zinc-600 dark:hover:text-zinc-300'
+                                      : 'hover:text-neutral-600 dark:hover:text-neutral-300'
                                   }
                                 >
                                   {subSection.title}
-                                </a>
+                                </span>
                               </Link>
                             </li>
                           ))}

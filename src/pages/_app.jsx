@@ -12,63 +12,106 @@ const navigation = [
   {
     title: 'Overview',
     links: [
-      { title: 'The tooling challenge', href: '/docs/tooling-challenge' },
-    ],
-  },
-  // {
-  //   title: 'Use-cases',
-  //   links: [
-  //     { title: 'I am a developer', href: '/docs/i-am-a-developer' },
-  //     { title: 'I am a data-scientist/ml engineer', href: '/docs/i-am-a-data-scientist-ml-engineer' },
-  //     { title: 'I am a platform builder', href: '/docs/i-am-a-platform-builder' },
-  //     { title: 'I am a manager / product owner', href: '/docs/i-am-a-manager-produc-owner' },
-  //   ],
-  // },
-  {
-    title: 'Getting started',
-    links: [
-      { title: 'Installation', href: '/docs/installation' },
-      { title: 'Deploying your first app', href: '/docs/deploy-your-first-app' },
-      { title: 'Deploying your second app', href: '/docs/deploy-your-second-app' },
-      { title: 'Deploying a static site', href: '/docs/deploy-a-static-site' },
+      { title: 'Quick start', href: '/docs/overview/quick-start' },
       { title: 'Concepts', href: '/docs/concepts' },
-      { title: 'Using a Dockerfile and CI', href: '/docs/integrate-with-ci' },
-      { title: 'Setting up DNS and HTTPS', href: '/docs/setting-up-dns-and-https' },
     ],
   },
   {
-    title: 'Guides',
+    title: 'Frontend Tutorials',
     links: [
-      { title: 'Deploying static sites', href: '/docs/deploying-static-sites' },
-      { title: 'Managing deployment configs', href: '/docs/how-to-manage-deployment-configs' },
-      { title: 'Configuring preview environments', href: '/docs/how-to-configure-preview-environments' },
-      { title: 'Rolling back', href: '/docs/rolling-back' },
-      { title: 'Container image building', href: '/docs/container-image-building' },
-      { title: 'Managing secrets', href: '/docs/how-to-manage-secrets' },
-      { title: 'Configuring notifications', href: '/docs/configuring-notifications' },
-      { title: 'When Helm is limiting', href: '/docs/when-helm-is-limiting' },
-      { title: 'Managing infrastructure components', href: '/docs/managing-infrastructure-components' },
-      { title: 'Deploying Gimlet in production', href: '/docs/deploying-gimlet-in-production' },
-      { title: 'Upgrading Flux', href: '/docs/gitops-bootstrapping-reference' },
+      { title: 'Next.js Deployment', href: '/docs/frontend/next-js-deployment-tutorial' },
+      { title: 'React Deployment', href: '/docs/frontend/react-deployment-tutorial' },
+      { title: 'Remix Deployment', href: '/docs/frontend/remix-deployment-tutorial' },
+    ],
+  },
+  {
+    title: 'Backend Tutorials',
+    links: [
+      { title: 'Laravel Deployment', href: '/docs/backend/laravel-deployment-tutorial' },
+      { title: 'Django Deployment', href: '/docs/backend/django-deployment-tutorial' },
+    ],
+  },
+  {
+    title: 'AI Deployment Tutorials',
+    links: [
+      { title: 'Flowise Deployment', href: '/docs/ai-deployments/flowise-deployment-tutorial' },
+      { title: 'Dockerfile Deployments', href: '/docs/ai-deployments/dockerfile-deployment-tutorial' },
+      { title: 'Streamlit Deployment', href: '/docs/ai-deployments/streamlit-deployment-tutorial' },
+      { title: 'Jupyter Notebook Deployments', href: '/docs/ai-deployments/juypter-notebook-deployment-tutorial' },
+      { title: 'vLLM Deployment', href: '/docs/ai-deployments/vllm-deployment-tutorial' },
+      { title: 'Hugging Face Model Deployments', href: '/docs/ai-deployments/hugging-face-model-deployment-tutorial' },
+    ],
+  },
+  {
+    title: 'Deployments',
+    links: [
+      { title: 'Preview Deployments', href: '/docs/deployments/preview-deployments' },
+      { title: 'Rollbacks', href: '/docs/deployments/rollbacks' },
+      { title: 'Automated Deployments', href: '/docs/deployments/automated-deployments' },
+    ],
+  },
+  {
+    title: 'Deployment settings',
+    links: [
+      { title: 'Introduction', href: '/docs/deployment-settings/deployment-configuration' },
+      { title: 'Container Build Settings', href: '/docs/deployment-settings/image-settings' },
+      { title: 'Container Registries', href: '/docs/deployment-settings/registries' },
+      { title: 'Social Authentication', href: '/docs/deployment-settings/social-authentication' },
+      { title: 'DNS', href: '/docs/deployment-settings/dns' },
+      { title: 'Port Forwarding', href: '/docs/deployment-settings/port-forwarding' },
+      { title: 'HTTPS', href: '/docs/deployment-settings/https' },
+      { title: 'Secrets', href: '/docs/deployment-settings/secrets' },
+      { title: 'Volumes', href: '/docs/deployment-settings/volumes' },
+      { title: 'Resource Usage', href: '/docs/deployment-settings/resource-usage' },
+      { title: 'Chat Notifications', href: '/docs/deployment-settings/chat-notifications' },
+      { title: 'Creating a Custom Template', href: '/docs/deployment-settings/custom-template' },
+    ],
+  },
+  {
+    title: 'Environment settings',
+    links: [
+      { title: 'Introduction', href: '/docs/environment-settings/introduction' },
+      { title: 'Component updates', href: '/docs/environment-settings/component-updates' },
+    ],
+  },
+  {
+    title: 'Monitoring',
+    links: [
+      { title: 'Loki', href: '/docs/monitoring/loki' },
+      { title: 'Grafana', href: '/docs/monitoring/grafana' },
+      { title: 'Prometheus', href: '/docs/monitoring/prometheus' },
+      { title: 'Integated Kubernetes Alerts', href: '/docs/monitoring/integrated-kubernetes-alerts' },
+    ],
+  },
+  {
+    title: 'CLI',
+    links: [
+      { title: 'Installation and Authentication', href: '/docs/cli' },
+      { title: 'Use-cases', href: '/docs/cli/cli-use-cases' },
+    ],
+  },
+  {
+    title: 'Kubernetes Resources',
+    links: [
+      { title: 'Kubernetes Essentials', href: '/docs/kubernetes-resources/kubernetes-essentials' },
+      { title: 'Troubleshooting', href: '/docs/kubernetes-resources/troubleshooting' },
     ],
   },
   {
     title: 'Reference',
     links: [
-      { title: 'Gimlet manifest reference', href: '/docs/gimlet-manifest-reference' },
-      { title: 'OneChart reference', href: '/docs/onechart-reference' },
-      { title: 'Gimlet configuration reference', href: '/docs/gimlet-configuration-reference' },
+      { title: 'Gimlet Manifest Reference', href: '/docs/reference/gimlet-manifest-reference' },
+      { title: 'CI plugins Reference', href: '/docs/reference/ci-plugins' },
+      { title: 'Gimlet Configuration Reference', href: '/docs/reference/gimlet-configuration-reference' },
+      { title: 'Onechart Reference', href: '/docs/reference/onechart-reference' },
     ],
   },
   {
-    title: 'Appendix',
+    title: 'Learn More',
     links: [
-      { title: 'Gimlet compared to...', href: '/concepts/compared-to' },
-      { title: 'The SANE gitops guide', href: '/concepts/the-sane-gitops-guide' },
-      { title: 'The SANE Helm guide', href: '/concepts/the-sane-helm-guide' },
-      { title: 'Flux CRDs', href: '/docs/flux-crds' },
-      { title: 'Stack authoring', href: '/docs/stack-authoring' },
-      { title: 'YAML Generator', href: '/k8s-yaml-generator' },
+      { title: 'Gimlet Compared to', href: '/docs/learn-more/gimlet-compared-to' },
+      { title: 'FAQ', href: '/docs/learn-more/faq' },
+      { title: 'Contact us', href: '/docs/learn-more/contact-us' },
     ],
   },
 ]
@@ -116,7 +159,15 @@ export default function App({ Component, pageProps }) {
   let title = pageProps.markdoc?.frontmatter.title
 
   const router = useRouter()
+  let isDocsPage = router.pathname.startsWith('/docs') || router.pathname.startsWith('/concepts')
+  let isBlogPage = router.pathname.startsWith('/blog')
+  let isTOSPage = router.pathname === '/tos'
+  let isPricingPage = router.pathname === '/pricing'
   let isYamlGeneratorPage = router.pathname === '/k8s-yaml-generator'
+  let isHomePage = router.pathname === '/'
+  let isFrontendPage = router.pathname === '/frontend'
+  let isBackendPage = router.pathname === '/backend'
+  let isAIPage = router.pathname === '/ai-deployment'
 
   let pageTitle = 'Gimlet'
   if (pageProps.markdoc?.frontmatter.title) {
@@ -137,14 +188,43 @@ export default function App({ Component, pageProps }) {
 
   const currentUrl = "https://gimlet.io" + router.pathname;
 
-  let description = "Need to deploy to Kubernetes, but not sure how to put things together? We got you covered. Gimlet is a gitops based developer platform that gives you the best of open-source out of the box."
+  let ogTitle = "Deploy and share your frontend, backend or AI project using open-source tooling and social auth."
+  let description = "Deploy and share your frontend, backend or AI project using open-source tooling and social auth."
   if (pageProps.markdoc?.frontmatter.description) {
     description = pageProps.markdoc?.frontmatter.description
   }
+  if (pageProps.markdoc?.frontmatter.title) {
+    ogTitle = pageProps.markdoc?.frontmatter.title
+    pageTitle = pageProps.markdoc?.frontmatter.title
+  }
+  if (pageProps.markdoc?.frontmatter.ogTitle) {
+    ogTitle = pageProps.markdoc?.frontmatter.ogTitle
+  }
   if (isYamlGeneratorPage) {
-    pageTitle = "Kubernetes YAML Generator";
+    pageTitle = "Kubernetes YAML Generator"
+    ogTitle = "Kubernetes YAML Generator"
     description = "Generate Kubernetes YAML files for web application deployments. Uses a generic Helm chart, because no one can remember the Kubernetes yaml syntax."
     image = "yaml-generator.png"
+  }
+  if (isFrontendPage) {
+    pageTitle = "Frontend";
+    ogTitle = "Host Your Frontend Without Billing Surprises"
+    description = "Host Your Frontend Without Billing Surprises"
+  }
+  if (isBackendPage) {
+    pageTitle = "Backend";
+    ogTitle = "Deploy Containerized Backend Services"
+    description = "Deploy Containerized Backend Services"
+  }
+  if (isAIPage) {
+    pageTitle = "AI";
+    ogTitle = "Introduce Kubernetes to Your AI Project"
+    description = "Introduce Kubernetes to Your AI Project"
+  }
+  if (isPricingPage) {
+    pageTitle = "Pricing";
+    ogTitle = "One Price Tag, One Year Access"
+    description = "For $300 a year, you’ll get every existing and brand new feature without usage restrictions."
   }
 
   useEffect(() => {
@@ -174,7 +254,7 @@ export default function App({ Component, pageProps }) {
         <meta content="Gimlet" property="og:site_name" />
 
         <meta name="viewport" content="width=device-width, initial-scale=1.0"></meta>
-
+        <link rel="stylesheet" href="https://rsms.me/inter/inter.css" />
         <meta content={pageTitle} property="og:title"/>
         {isYamlGeneratorPage &&
           <meta
@@ -183,7 +263,7 @@ export default function App({ Component, pageProps }) {
           />
         }
         <meta content="website" property="og:type" />
-        <meta content={`https://gimlet.io/${image}`} property="og:image" />
+        <meta content={`https://api.placid.app/u/ghvjld730lsgd?title[text]=${encodeURI(ogTitle)}`} property="og:image" />
         <meta content={description} property="og:description" />
 
         <meta name="twitter:card" content="summary_large_image" />
@@ -191,25 +271,14 @@ export default function App({ Component, pageProps }) {
         <meta name="twitter:creator" content="@gimlet_io" />
         <meta name="twitter:title" content={pageTitle} />
         <meta name="twitter:description" content={description} />
-        <meta name="twitter:image" content={`https://gimlet.io/${image}`} />
+        <meta name="twitter:image" content={`https://api.placid.app/u/ghvjld730lsgd?title[text]=${encodeURI(ogTitle)}`} />
 
-        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
         <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
         <link rel="manifest" href="/site.webmanifest" />
-        <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5" />
-        <meta name="msapplication-TileColor" content="#da532c" />
-        <meta name="theme-color" content="#ffffff" />
 
         <link rel="canonical" href={currentUrl} />
         <meta content={currentUrl} property="og:url" />
-
-        {/* <script
-          src="https://cdn.usefathom.com/script.js"
-          data-site="TOOENNXR"
-          data-excluded-domains="localhost,127.0.0.1"
-          defer>
-        </script> */}
       </Head>
       <Layout
         navigation={navigation}
