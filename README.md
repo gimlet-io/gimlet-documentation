@@ -13,8 +13,9 @@ Next, run the development server:fef
 
 ```bash
 npm run dev
-```fefe
-dd
+```
+
+
 Finally, open [http://localhost:3001](http://localhost:3001) in your browser.
 
 ## Search index generation
