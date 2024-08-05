@@ -30,8 +30,6 @@ Make sure that your `next.config.js` file has `output: 'standalone'` set, and th
 
 ![Deployment configuration settings for Next.js applications](/docs/screenshots/next-js-deployment/gimlet-io-next-js-deployment-settings.png)
 
-You can specify a custom domain, but Gimlet will generate a URL for you, which you can use later to share the deployed app.
-
 ## Step 3: Deploy the Next.js Frontend
 
 When you're finished making the changes in the deployment settings, you can click the **Deploy** button. As the process begins, you should see build logs and the application should be deployed soon.

@@ -20,7 +20,7 @@ Click the **Import** button to add the repository to Gimlet, then click the **I 
 
 Click on the repository's card to select the repo. Click the **New deployment** button.
 
-To deploy a React frontend, just select **Static Site Template**. Below you can see the build script for the demo app mentioned earlier.
+To deploy a React frontend, just select **Static Site Template**. Below you can see the build script for the demo app.
 
 ![React build script for deployments with Gimlet](/docs/screenshots/gimlet-io-react-deployment-settings.png)
 
