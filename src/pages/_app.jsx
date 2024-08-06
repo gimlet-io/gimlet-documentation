@@ -37,7 +37,7 @@ const navigation = [
       { title: 'Flowise Deployment', href: '/docs/ai-deployments/flowise-deployment-tutorial' },
       { title: 'Dockerfile Deployments', href: '/docs/ai-deployments/dockerfile-deployment-tutorial' },
       { title: 'Streamlit Deployment', href: '/docs/ai-deployments/streamlit-deployment-tutorial' },
-      { title: 'Jupyter Notebook Deployments', href: '/docs/ai-deployments/juypter-notebook-deployment-tutorial' },
+      { title: 'Jupyter Notebook Deployments', href: '/docs/ai-deployments/jupyter-notebook-deployment-tutorial' },
       { title: 'vLLM Deployment', href: '/docs/ai-deployments/vllm-deployment-tutorial' },
       { title: 'Hugging Face Model Deployments', href: '/docs/ai-deployments/hugging-face-model-deployment-tutorial' },
     ],

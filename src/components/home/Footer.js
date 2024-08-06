@@ -12,7 +12,7 @@ const footerNav = [
       { title: 'Concepts', href: '/docs/concepts' },
       { title: 'Deploy a React frontend', href: '/docs/frontend/react-deployment-tutorial' },
       { title: 'Deploy a Laravel app', href: '/docs/backend/laravel-deployment-tutorial' },
-      { title: 'Deploy a Jupyter notebook', href: '/docs/ai-deployments/juypter-notebook-deployment-tutorial' },
+      { title: 'Deploy a Jupyter notebook', href: '/docs/ai-deployments/jupyter-notebook-deployment-tutorial' },
 
     ],
     'Navigation': [
