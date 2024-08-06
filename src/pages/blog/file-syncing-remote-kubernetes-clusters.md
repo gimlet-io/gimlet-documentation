@@ -4,6 +4,8 @@ date: '2024-08-06'
 description: "You can use Gimlet's CLI and VS Code to sync files across development environments and remote Kubernetes clusters."
 image: file-syncing-remote-kubernetes-clusters.jpg
 toc: false
+author: Geri Máté
+authorAvatar: /youcef.jpg
 ---
 
 **File syncing between development environments and Kubernetes clusters immensely accelerates feedback loop. It allows developers to promptly test their applications in remote environments as they fix bugs or implement new features. In this blog post, you’ll find out how you can use VS Code or Gimlet's CLI to sync files for this purpose.**
