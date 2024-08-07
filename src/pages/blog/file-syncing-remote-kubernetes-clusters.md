@@ -7,13 +7,13 @@ author: Geri Máté
 authorAvatar: /geri.png
 ---
 
-**File syncing between development environments and Kubernetes clusters immensely accelerates feedback loop. It allows developers to promptly test their applications in remote environments as they fix bugs or implement new features. This is useful when they'd like to run their code against remote GPUs. In this blog post, you'll find out how you can set up a cluster with a GPU as a remote development environment, and how you can sync code between your local setup and the cluster.**
+**File syncing between development environments and Kubernetes clusters immensely accelerates feedback loop. It allows you to promptly test your applications in remote environments as you fix bugs or implement new features. This is useful when you'd like to run your code against remote GPUs. In this blog post, you'll find out how you can set up a cluster with a GPU as a remote development environment, and how you can sync code between your local setup and the cluster.**
 
 ## File Syncing for AI Engineers
 
-Most developers only have access to CUDA capable Nvidia GPUs in remote data centers. File syncing enables them to turn GPU powered environments into development environments by synchronizing code. This offers the advantage of prompt feedback loops when engineering teams work on new features or fix bugs.
+Most developers only have access to CUDA capable Nvidia GPUs in remote data centers. File syncing enables you to turn GPU powered environments into development environments by synchronizing code. This offers the advantage of prompt feedback loops when you work on new features or fix bugs.
 
-There are two ways to achieve this: with Gimlet’s CLI and VS Code. The two methods differ where code editing takes place. With Gimlet's CLI, engineers are able to make changes locally and code will be synced with the remote environment. Compared to this, VS Code's extensions allow users to access code of remote Kubernetes clusters in VS Code, meaning the code will be changed in the remote environment.
+We are going to show you two ways to achieve this: with Gimlet’s CLI and VS Code. The two methods differ where code editing takes place. With Gimlet's CLI, engineers are able to make changes locally and code will be synced with the remote environment. Compared to this, VS Code's extensions allow users to access code of remote Kubernetes clusters in VS Code, meaning the code will be changed in the remote environment.
 
 The methods described here don't require any specific resources to complete, but it's the use case of running code against CUDA capable GPUs where file syncing makes the most sense.
 
@@ -29,39 +29,6 @@ print(f"Using device: {device}")
 ```
 
 Save it as `gpu.py`, and execute it with `python3 gpu.py`. The script should print `cuda` or `cpu` based on whether the CUDA requirements are met.
-
-## Setting up Remote Developer Environment
-
-Using a Helm chart, you can easily set up the remote environment. The chart will be responsible for multiple things you'll need.
-
-- **GPU resource definition**, since GPUs aren't supported by Kubernetes by default. The default resource will be CPU without it.
-- **Persistent volume** is required to store the synced files somewhere. The Helm chart will specify storage demands in both local and remote volumes.
-- **Dependencies:** To keep files consistent, you'll need the corresponding software set up across all environments, Python for example. You can easily set these up with Dockerfiles or use Docker Hub images.
-
-### Helm Chart To Deploy The Environment
-
-This Helm chart we made with [OneChart](https://github.com/gimlet-io/onechart) deploys the remote environment, which will now have synced files with the local environment.
-
-```
-image:
-  repository: python
-  tag: 3.12-bookworm
-command: |
-  while true; do date; sleep 2; done
-shell: "/bin/bash"
-volumes:
-  - name: workspace
-    path: /workspace
-    size: 10Gi
-    storageClass: local-path
-  - name: home
-    path: /root
-    size: 10Gi
-    storageClass: local-path
-resources:
-  limits:
-    nvidia.com/gpu: 1
-```
 
 ## File Syncing With Gimlet CLI
 

@@ -2,8 +2,8 @@
 title: Blog
 ---
 
-{% post name="How to Sync Files Between Development Environments and Remote Kubernetes Clusters" image="file-syncing-remote-kubernetes-clusters.jpg" link="/blog/file-syncing-remote-kubernetes-clusters" date="2024-08-06" %}
-File syncing between development environments and Kubernetes clusters immensely accelerates feedback loop.  In this blog post, you’ll find out how you can use VS Code or Gimlet's CLI to sync files for this purpose.
+{% post name="How to Sync Code Between Your Laptop and Remote Kubernetes Clusters With GPU" image="file-syncing-remote-kubernetes-clusters.jpg" link="/blog/file-syncing-remote-kubernetes-clusters" date="2024-08-06" %}
+File syncing between development environments and Kubernetes clusters immensely accelerates feedback loop. In this blog post, you’ll find out how you can use VS Code or Gimlet's CLI to sync files for this purpose.
 {% /post %}
 
 {% post name="Deploy Streamlit Applications with Gimlet" image="streamlit-deploy-gimlet-https-social-authentication.jpg" link="/blog/streamlit-deployment-https-social-auth" date="2024-07-01" %}
