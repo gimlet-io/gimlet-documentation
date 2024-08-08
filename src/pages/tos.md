@@ -1,12 +1,12 @@
 # Terms of Service
 
-_Last updated: 6th March 2023_
+_Last updated: 8th August 2024_
 
 First of all, thank you for using Gimlet! Bellow you can read the terms in which you can use it. It protects both you and the service, so we can enjoy a long time together.
 
 When I say “Company”, “we”, “our”, or “us” in this document, I'm referring to LASZLO CONSULTING Kft, Vaci ut 22-24. 3. em. 1132 Budapest Hungary Tax no.: HU26534769
 
-When I say “Service”, I mean Gimlet delivered on https://$instance.gimlet.io, where $instance is your Gimlet instance hosted by us.
+When I say “Service”, I mean Gimlet delivered on https://app.gimlet.io.
 
 I may update these Terms of Service in the future. Whenever I make a significant change to the policies, I will announce it on Twitter and on the Gimlet blog.
 
@@ -31,7 +31,7 @@ If you violate of any of the terms, we may terminate your account.
 
 ## Data we need access to and store
 
-- Gimlet requires you to create a Github Application. All Gimlet access is granted through this Github Application. With Github's fine-grained access granting options, when you install (and later configure) this Github Application to your Github Organization, **you can set which repositories Gimlet gets access to**. This can be just a single repository, many, or all of your repositories.
+- Gimlet requires you to install the "Gimlet Cloud" Github Application. All Gimlet access is granted through this Github Application. With Github's fine-grained access granting options, when you install (and later configure) this Github Application to your Github Organization, **you can set which repositories Gimlet gets access to**. This can be just a single repository, many, or all of your repositories.
   Gimlet gets the following OAuth scopes through this Github Application to the selected list of Github repositories:
 
   - Read/Write access on Repository Administration. Gimlet uses this access to bootstrap gitops environments and create repositories for them.

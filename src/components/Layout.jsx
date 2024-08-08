@@ -77,7 +77,7 @@ export function Layout({ children, title, navigation, tableOfContents, pageProps
       {isFrontendPage && <FrontendPage />}
       {isBackendPage && <BackendPage />}
       {isAIPage && <AIPage />}
-      {isTOSPage && <Prose className="m-16 max-w-4xl">{children}</Prose>}
+      {isTOSPage && <Prose className="py-16 mx-auto !max-w-4xl">{children}</Prose>}
 
       {isBlogPage &&
         <BlogPage
