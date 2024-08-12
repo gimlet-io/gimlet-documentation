@@ -87,7 +87,7 @@ description: |
 | `FEATURE_POSTHOG`               | A feature flag variable for collecting non-identifyable product analytics data on PostHog's EU servers. Default: `true`.                                                       |
 | `POSTHOG_API_KEY`               | A write-only Project API Key to communicate with the PostHog instance. It can't read events or any of your other data stored with PostHog, so it's safe to use in public apps. |
 | `POSTHOG_IDENTIFY_USER`         | Identify a user with a unique ID instead of a PostHog randomly generated distinct_id and enables session recording for PostHog. Default: `false`.                              |
-| `LICENSE`         | The license key you obtain buy purchasing a gimlet license on https://gimlet.io/pricing                              |
+| `LICENSE`         | The license key you obtain by purchasing a Gimlet license on https://gimlet.io/pricing                              |
 
 ## Gimlet Agent Configuration Reference
 
