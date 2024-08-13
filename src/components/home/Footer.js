@@ -18,7 +18,7 @@ const footerNav = [
     'Navigation': [
       { title: 'Pricing', href: '/pricing?ref=footer' },
       { title: 'Blog', href: '/blog?ref=footer' },
-      { title: 'Docs', href: '/blog?ref=footer' },
+      { title: 'Docs', href: '/docs?ref=footer' },
       { title: 'YAML Generator', href: '/k8s-yaml-generator?ref=footer' },
     ],
     'Community': [
