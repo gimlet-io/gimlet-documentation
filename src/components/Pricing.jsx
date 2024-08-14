@@ -63,10 +63,16 @@ export function PricingPage() {
                       <span className="text-4xl font-bold tracking-tight text-neutral-900 dark:text-neutral-50">Free</span>
                       <span className="mt-6 block text-2xl tracking-tight text-neutral-900 dark:text-neutral-50">For commercial use</span>
                       <span className="text-4xl font-bold tracking-tight text-neutral-900 dark:text-neutral-50">$300/yr</span>
+                      <br/>
+                      <a href="https://gimletio.lemonsqueezy.com/buy/7dd71af0-1bb6-4c13-b12e-29c08d3b6b2d" className="ctaButton !px-16 mt-8" rel="noreferrer" target="_blank">Purchase license</a>
                     </>
                   }
                   {tier.name !== "Self-Hosted" &&
+                  <>
                     <span className="text-4xl font-bold tracking-tight text-neutral-900 dark:text-neutral-50">{tier.priceYearly}</span>
+                    <br/>
+                    <a href="https://app.gimlet.io" className="ctaButton !px-16 mt-8" rel="noreferrer" target="_blank">Signup for free</a>
+                  </>
                   }
                 </p>
               </div>
