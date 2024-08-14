@@ -159,20 +159,11 @@ export default function App({ Component, pageProps }) {
   let title = pageProps.markdoc?.frontmatter.title
 
   const router = useRouter()
-  let isDocsPage = router.pathname.startsWith('/docs') || router.pathname.startsWith('/concepts')
-  let isBlogPage = router.pathname.startsWith('/blog')
-  let isTOSPage = router.pathname === '/tos'
   let isPricingPage = router.pathname === '/pricing'
   let isYamlGeneratorPage = router.pathname === '/k8s-yaml-generator'
-  let isHomePage = router.pathname === '/'
   let isFrontendPage = router.pathname === '/frontend'
   let isBackendPage = router.pathname === '/backend'
   let isAIPage = router.pathname === '/ai-deployment'
-
-  let pageTitle = 'Gimlet'
-  if (pageProps.markdoc?.frontmatter.title) {
-    pageTitle = pageProps.markdoc?.frontmatter.title
-  }
 
   let image = "logosocial.png"
   if (pageProps.markdoc?.frontmatter.image_social) {
@@ -193,9 +184,14 @@ export default function App({ Component, pageProps }) {
   if (pageProps.markdoc?.frontmatter.description) {
     description = pageProps.markdoc?.frontmatter.description
   }
+  let pageTitle = 'Gimlet - Deployment tool built on Kubernetes'
   if (pageProps.markdoc?.frontmatter.title) {
     ogTitle = pageProps.markdoc?.frontmatter.title
-    pageTitle = pageProps.markdoc?.frontmatter.title
+    if (pageProps.markdoc?.frontmatter.title.length < 20) {
+      pageTitle = pageProps.markdoc?.frontmatter.title + " - " + pageTitle
+    } else {
+      pageTitle = pageProps.markdoc?.frontmatter.title + " - Gimlet"
+    }
   }
   if (pageProps.markdoc?.frontmatter.ogTitle) {
     ogTitle = pageProps.markdoc?.frontmatter.ogTitle
