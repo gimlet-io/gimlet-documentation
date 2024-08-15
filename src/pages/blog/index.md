@@ -2,6 +2,10 @@
 title: Blog
 ---
 
+{% post name="OneChart: The Shortcut to Streamlining Helm Configurations" image="file-syncing-remote-kubernetes-clusters.jpg" link="/blog/onechart-introduction" date="2024-08-15" %}
+Helm is a useful tool to adopt Kubernetes. OneChart as a general purpose Helm chart makes the process even simpler.
+{% /post %}
+
 {% post name="How to Sync Code Between Your Laptop and Remote Kubernetes Clusters With GPU" image="file-syncing-remote-kubernetes-clusters.jpg" link="/blog/file-syncing-remote-kubernetes-clusters" date="2024-08-06" %}
 File syncing between development environments and Kubernetes clusters immensely accelerates feedback loop. In this blog post, you’ll find out how you can use VS Code or Gimlet's CLI to sync files for this purpose.
 {% /post %}
