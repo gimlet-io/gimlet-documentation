@@ -20,7 +20,7 @@ You can import repositories by clicking the **Import** button next to them. Save
 
 Pick the repository you’d like to deploy. You can do this by clicking the repository's card. Click the **New Deployment** button to move forward.
 
-![Repository import screen in Gimlet](docs/screenshots/gimlet-io-repository-import.png)
+![Repository import screen in Gimlet](/docs/screenshots/gimlet-io-repository-import.png)
 
 ## Step 3: Choose Deployment Method
 

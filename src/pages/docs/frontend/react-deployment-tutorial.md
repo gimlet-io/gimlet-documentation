@@ -24,7 +24,7 @@ To deploy a React frontend, just select **Static Site Template**. Below you can 
 
 ![React build script for deployments with Gimlet](/docs/screenshots/gimlet-io-react-deployment-settings.png)
 
-You can find out more about build settings in the [Container Image Settings](/docs/deployment-settings/image-settings.md) documentation.
+You can find out more about build settings in the [Container Image Settings](/docs/deployment-settings/image-settings) documentation.
 
 If everything looks alright, click the **Deploy** button. Gimlet will build the application and run it in an Nginx container.
 
