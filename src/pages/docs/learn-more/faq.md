@@ -32,7 +32,7 @@ No, Gimlet can do that for you during the deployment process. But you can refere
 
 ## How can I reset my account?
 
-If you have problems with your account, you can try by reinstalling Gimlet's GitHub application.
+If you have problems with your account, you can try by reinstalling Gimlet's GitHub application. First, you'll need your account reset which we'll do for you if you reach out to us on our [Discord server](https://discord.com/invite/ZwQDxPkYzE).
 
 When you login to Gimlet with your GitHub account and see your organization's account logged in, click your profile picture in the top right corner, then click the **Cloud** button. You'll see a button saying **Install Gimlet for more accounts** and select it.
 
