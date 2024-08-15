@@ -14,6 +14,8 @@ values:
     repository: registry.gimlet:30003/gimlet-iodhdrqinc/{{ .APP }}
     strategy: dockerfile
     tag: '{{ .SHA }}'
+  imagePullSecrets:
+    - '{{ .APP }}-customregistry-pullsecret'
   ingress:
     annotations:
       cert-manager.io/cluster-issuer: letsencrypt
