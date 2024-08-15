@@ -32,15 +32,15 @@ No, Gimlet can do that for you during the deployment process. But you can refere
 
 ## How can I reset my account?
 
-If you have problems with your account, you can try by reinstalling Gimlet's GitHub application. First, you'll need your account reset which we'll do for you if you reach out to us on our [Discord server](https://discord.com/invite/ZwQDxPkYzE).
+If you have problems with your account, we can reset it for you.
 
-When you login to Gimlet with your GitHub account and see your organization's account logged in, click your profile picture in the top right corner, then click the **Cloud** button. You'll see a button saying **Install Gimlet for more accounts** and select it.
+- First, reach out to the Gimlet team to reset your account. You can reach us on our [Discord server](https://discord.com/invite/ZwQDxPkYzE).
 
-![Account selection screen of Gimlet](/docs/screenshots/gimlet-account-setup/gimlet-account-selection.png)
+- Once your account is reset, try logging into Gimlet like you did the first time around. Except this time you need to tell Github as well that you want to reinstall the `Gimlet Cloud` app.
 
-You'll see all the accounts you have access to listed. Click **Configure** next to your personal GitHub user's account.
+You'll see all the accounts you have access to listed. Click **Configure** next to your account you want to reinstall Gimlet to.
 
-![Gimlet's GitHub application account selectioon screen](/docs/screenshots/gimlet-account-setup/gimlet-github-app-installation-01.png)
+![Gimlet's GitHub application account selection screen](/docs/screenshots/gimlet-account-setup/gimlet-github-app-installation-01.png)
 
 In the page of Gimlet's GitHub application, find the **Uninstall** button.
 
