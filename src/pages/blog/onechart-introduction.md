@@ -7,9 +7,9 @@ author: Geri Máté
 authorAvatar: /geri.png
 ---
 
-Sometimes it feels like Kubernetes can only be mentioned sitting next to a campfire, sharing scary stories. It undermines the bottomline of every debate about Kubernetes that it’s as complex as the user makes it.
+Sometimes it feels like Kubernetes can only be mentioned sitting next to a campfire, sharing scary stories. It undermines the bottomline of every debate about Kubernetes, but you should know: Kubernetes is as complex as the user makes it. And the Kubernetes eco-system feeds on complexity.
 
-As a result of this phenomenon, beginners are hesitant to do anything with Kubernetes. But in reality, there are tools that can help engineers of all expertise get onboarded with it. One of those abstractions is Helm.
+As a result of this phenomenon, beginners are hesitant to do anything with Kubernetes. But in reality, there are tools that can help engineers of all expertise to get onboarded with it. One of those tools is Helm.
 
 ## What is Helm?
 
@@ -24,9 +24,9 @@ But one of the most important ways Helm is useful is helping users to get onboar
 
 ## The Advantages of Helm
 
-Helm offers a holistic solution to the problems mentioned above. It allows engineers to package all the resources into one, reusable chart. The reusability can eliminate inconsistency across environments by parameterization of certain values (replica count, for example).
+Helm offers a holistic solution to the problems mentioned above. It allows engineers to package all the resources into one, reusable chart. The reusability can eliminate inconsistencies across environments by parameterization of certain values (replica count, for example).
 
-Furthermore, if Helm usage is accompanied by GitOps principles, it enables efficient version management, and rollback capabilities to previously used versions when incidents occur.
+Furthermore, if Helm usage is accompanied by GitOps principles, it enables efficient version management, and rollback capabilities when incidents occur.
 
 Charts are also useful when teams would like to share configurations with each other and address knowledge gaps within the team.
 
@@ -34,13 +34,13 @@ Charts are also useful when teams would like to share configurations with each o
 
 But all solutions come with trade-offs. These originate from Helm’s nature as an abstraction.
 
-Helm hides settings and mechanisms - an otherwise useful feature to enable users less familiar with Kubernetes, but the chart logic can become overcomplicated. The amount of chart configuration options often grow out of proportion, to a degree that is on par with the underlying Kubernetes manifests. Something that is difficult to navigate as an end user, and difficult to maintain for maintainers.
+Helm hides settings and mechanisms - an otherwise useful feature, but the chart logic can become overcomplicated. The number of chart configuration options often grow out of proportion, to a degree that is on par with the underlying Kubernetes manifests. Something that is difficult to navigate as an end user, but also as a maintainer.
 
 ## What is OneChart?
 
-[OneChart](https://github.com/gimlet-io/onechart) is a general purpose Helm chart. The concept behind OneChart is that most Kubernetes manifests are very similar, therefore they can be packaged to a comprehensive chart, such as OneChart, designed for web applications.
+[OneChart](https://github.com/gimlet-io/onechart) is a general purpose Helm chart. The concept behind OneChart is that most Kubernetes manifests are very similar, therefore they can be packaged to a comprehensive chart, such as OneChart.
 
-OneChart includes the 30 most commonly used deployment variations. By providing values to the chart, you’re able to generate Kubernetes manifests for your application, without writing your own Helm chart or extending existing ones.
+OneChart includes the 30 most commonly used web application deployment variations. By providing values to the chart, you’re able to generate Kubernetes manifests for your application, without writing your own Helm chart or extending existing ones.
 
 ### How to Get Started With OneChart?
 
@@ -68,7 +68,7 @@ Using these commands you can apply and update manifests rendered by Helm charts 
 
 ### How to Deploy an Application With OneChart
 
-Since OneChart is a general purpose helm chart, users need to edit the templates and values. As you can see in the example below, the image name can be configured in an easy way.
+Since OneChart is a general purpose helm chart, users need to edit values, and not touch the templates. As you can see in the example below, the image name can be configured in an easy way.
 
 ![Image variables in OneChart's values.yaml](/onechart-values-yaml-image-variables.png)
 
