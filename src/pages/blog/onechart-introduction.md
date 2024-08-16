@@ -7,7 +7,7 @@ author: Geri Máté
 authorAvatar: /geri.png
 ---
 
-Sometimes it feels like Kubernetes can only be mentioned sitting next to a campfire, sharing scary stories. It undermines the bottomline[what is the bottomline?] of every debate about Kubernetes: it’s as complex as the user makes it.
+Sometimes it feels like Kubernetes can only be mentioned sitting next to a campfire, sharing scary stories. It undermines the bottomline of every debate about Kubernetes that it’s as complex as the user makes it.
 
 As a result of this phenomenon, beginners are hesitant to do anything with Kubernetes. But in reality, there are tools that can help engineers of all expertise get onboarded with it. One of those abstractions is Helm.
 
@@ -20,13 +20,13 @@ Operations teams are able to solve many problems with Helm:
 - Knowledge gap across teams
 - Version management
 
-But one of the most important ways Helm is useful is helping users to get onboarded with Kubernetes. As an abstraction, Helm hides many advanced capabilities of Kubernetes that are irrelevant in the most common use cases. These capabilities are the main propagonists in Kubernetes scare stories.
+But one of the most important ways Helm is useful is helping users to get onboarded with Kubernetes. As an abstraction, Helm hides many advanced capabilities of Kubernetes that are irrelevant in the most common use cases. These capabilities are the antagonists in Kubernetes scary stories.
 
 ## The Advantages of Helm
 
 Helm offers a holistic solution to the problems mentioned above. It allows engineers to package all the resources into one, reusable chart. The reusability can eliminate inconsistency across environments by parameterization of certain values (replica count, for example).
 
-Furthermore, if Helm usage is accompanied by GitOps principles, it enables efficient version management, and rollback capabilities to previously used versions when an incidents occur.
+Furthermore, if Helm usage is accompanied by GitOps principles, it enables efficient version management, and rollback capabilities to previously used versions when incidents occur.
 
 Charts are also useful when teams would like to share configurations with each other and address knowledge gaps within the team.
 
@@ -52,8 +52,7 @@ helm repo add onechart https://chart.onechart.dev
 
 You can set your image name and version to generate the boilerplate.
 
-```
-bash
+```bash
 helm template my-release onechart/onechart \
   --set image.repository=nginx \
   --set image.tag=1.19.3
@@ -79,7 +78,7 @@ You can specify environment variables, as well, as you can see below.
 
 ![Environment variables in OneChart's values.yaml](/onechart-values-yaml-env-variables.png)
 
-In the example above, the `values.yaml` contains `ingress` settings as well. OneChart generates general purpose ingress resource with the desired `host`, and you can tailor them to your cluster needs. Like we did with `nginx` in the `kubernetes.io/ingress.class` annotation.
+In the example above, the `values.yaml` contains `ingress` settings, as well. OneChart generates general purpose ingress resource with the desired `host`, and you can tailor them to your cluster needs. Like we did with `nginx` in the `kubernetes.io/ingress.class` annotation.
 
 ## What Else Can Be Done With OneChart?
 
