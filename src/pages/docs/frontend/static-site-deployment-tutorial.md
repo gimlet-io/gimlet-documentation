@@ -6,13 +6,16 @@ description: |
 
 You can deploy any static site with Gimlet by following the steps described below.
 
+## Requirements
+- A build command that generates a static website with index.html as entry point and with all its dependencies. 
+
 ## Step 1: Getting Started with Gimlet
 
 Log in to Gimlet by connecting your GitHub or GitLab account. You should see your repositories listed, but if you can't find the repo where your static site is located, you can use the search bar to find it.
 
 Click the **Import** button to add the repository to Gimlet, then click the **I am done importing** button to save added repositories.
 
-## Step 2: Deploy React
+## Step 2: Deploy Static Site
 
 Click on the repository's card to select the repo. Click the **New deployment** button.
 
@@ -28,11 +31,11 @@ If everything looks alright, click the **Deploy** button. Gimlet will build the 
 
 After a successful deployment, a clickable link should appear next to deployment status. Click it to open it in your browser.
 
-## Private Static Site Deployment
+## Deploying From a Private Git Repository
 
-Private static sites can also be deployed with Gimlet using GitHub's personal access tokens.
+Private static sites can also be deployed with Gimlet using a GitHub personal access token.
 
-First, you'll need to create a fine-grained personal access token (PAT). The scope should be for **Content** with **Read-only access**. Save the token in a secure way, as you'll need it when you configure the deployment. Refer to [GitHub's documentation](public\docs\screenshots\gimlet-encrypted-secrets.png) for exact description of token creation.
+First, you'll need to create a fine-grained personal access token (PAT). The scope should be for **Content** with **Read-only access**. Save the token in a secure way, as you'll need it when you configure the deployment. Refer to [GitHub's documentation](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens#creating-a-fine-grained-personal-access-token) for exact description of token creation.
 
 In Gimlet, set up the deployment in a similar way as described above.
 
