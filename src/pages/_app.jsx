@@ -22,6 +22,7 @@ const navigation = [
       { title: 'Next.js Deployment', href: '/docs/frontend/next-js-deployment-tutorial' },
       { title: 'React Deployment', href: '/docs/frontend/react-deployment-tutorial' },
       { title: 'Remix Deployment', href: '/docs/frontend/remix-deployment-tutorial' },
+      { title: 'Static Site Deployment', href: '/docs/frontend/static-site-deployment-tutorial' },
     ],
   },
   {
