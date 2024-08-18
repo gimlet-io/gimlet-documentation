@@ -38,8 +38,8 @@ After a successful deployment, a clickable link should appear next to deployment
 
 ## Use Cases
 
-Here are a few examples of why you should host your React frontend with Gimlet:
+Here are a few examples of why you should host your Vue.js frontend with Gimlet:
 
-- **Social Login:** Share your React application with [social login](/docs/deployment-settings/social-authentication) and [HTTPS certification](/docs/deployment-settings/https) added.
+- **Social Login:** Share your Vue.js application with [social login](/docs/deployment-settings/social-authentication) and [HTTPS certification](/docs/deployment-settings/https) added.
 - **Branch previews:** Test and share changes in your frontend with [preview deployments](/docs/deployments/preview-deployments).
 - **Advanced deployment capabilities:** [Roll backs](/docs/deployments/rollbacks) and [automated deployments](/docs/deployments/automated-deployments) of new changes.
