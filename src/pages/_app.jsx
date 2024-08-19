@@ -23,6 +23,8 @@ const navigation = [
       { title: 'React Deployment', href: '/docs/frontend/react-deployment-tutorial' },
       { title: 'Remix Deployment', href: '/docs/frontend/remix-deployment-tutorial' },
       { title: 'Static Site Deployment', href: '/docs/frontend/static-site-deployment-tutorial' },
+      { title: 'Vue.js Deployment', href: '/docs/frontend/vue-deployment-tutorial' },
+      { title: 'Svelte Deployment', href: '/docs/frontend/svelte-deployment-tutorial' },
     ],
   },
   {
