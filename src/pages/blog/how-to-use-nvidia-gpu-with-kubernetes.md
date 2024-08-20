@@ -33,7 +33,7 @@ Check out the pricing and configuration comparison for A100 VMs and clusters in 
 Moving forward, a couple of things you'll need to complete the steps described:
 - [kubectl](https://kubernetes.io/docs/reference/kubectl/)
 - [Helm](https://helm.sh/docs/intro/install/)
-- Register to CIVO (You get $250 credit for free)
+- [Register to CIVO](https://www.civo.com/) (You get $250 credit for free)
 
 ### Launch Cluster
 
@@ -89,7 +89,7 @@ If you run `kubectl describe node`, you'll see that the node doesn't know about 
 You'll need to install the Nvidia device plugin.
 
 ## Device Plugin Installation
-In order to be able to utilize the GPU with a Kubernetes runtime, you'll need to install the [device plugin](./src/pages/docs/ds.yml) with the command below:
+In order to be able to utilize the GPU with a Kubernetes runtime, you'll need to install the [device plugin](/blog/ds.yml) with the command below:
 
 ```
 kubectl apply ds.yml -f
