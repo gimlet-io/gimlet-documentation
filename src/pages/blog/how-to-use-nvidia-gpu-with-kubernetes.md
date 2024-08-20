@@ -166,7 +166,7 @@ civo kubernetes delete gpu-cluster --region lon1
 ```
 civo volumes list
 
-civo volumes delete <VOLUME-NAME> --region <REGION-NAME>
+civo volumes delete <VOLUME-NAME> --region lon1
 ```
 
 
