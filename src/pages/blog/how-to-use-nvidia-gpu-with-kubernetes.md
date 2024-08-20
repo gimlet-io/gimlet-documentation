@@ -106,7 +106,7 @@ helm upgrade -i ollama ollama-helm/ollama --create-namespace --namespace ollama 
 kubectl logs -f deploy/ollama
 ```
 
-Take a look at the settings we used in [ollama.yaml](.src/pages/docs/ollama.yaml) to set up Ollama for GPU usage below.
+Take a look at the settings we used in [ollama.yaml](/blog/ollama.yaml) to set up Ollama for GPU usage below.
 
 ```
 ollama:
