@@ -3,7 +3,6 @@ import { LinkGrid } from '@/components/LinkGrid'
 import { Video } from '@/components/Video'
 import { Event } from '@/components/Event'
 import { Post } from '@/components/Post'
-import { Signup } from '@/components/Signup'
 import { Tweet } from '@/components/Tweet'
 import { Wide } from '@/components/Wide'
 import { MyHighlight } from '@/components/Highlight'
@@ -72,12 +71,6 @@ const tags = {
       date: { type: String },
     },
     render: Post,
-  },
-  signup: {
-    attributes: {
-      id: { type: String },
-    },
-    render: Signup,
   },
   figure: {
     selfClosing: true,

@@ -8,13 +8,17 @@ const youtubeLogo = <svg className="inline" xmlns="http://www.w3.org/2000/svg" w
 const footerNav = [
   {
     'Getting Started': [
-      { title: 'Installation', href: '/docs/installation?ref=footer' },
-      { title: 'Deploy your first app', href: '/docs/deploy-your-first-app?ref=footer' },
-      { title: 'Concepts', href: '/docs/concepts?ref=footer' },
+      { title: 'Quickstart', href: '/docs/overview/quick-start' },
+      { title: 'Concepts', href: '/docs/concepts' },
+      { title: 'Deploy a React frontend', href: '/docs/frontend/react-deployment-tutorial' },
+      { title: 'Deploy a Laravel app', href: '/docs/backend/laravel-deployment-tutorial' },
+      { title: 'Deploy a Jupyter notebook', href: '/docs/ai-deployments/jupyter-notebook-deployment-tutorial' },
+
     ],
     'Navigation': [
-      { title: 'Blog', href: '/blog?ref=footer' },
       { title: 'Pricing', href: '/pricing?ref=footer' },
+      { title: 'Blog', href: '/blog?ref=footer' },
+      { title: 'Docs', href: '/docs?ref=footer' },
       { title: 'YAML Generator', href: '/k8s-yaml-generator?ref=footer' },
     ],
     'Community': [
@@ -24,17 +28,17 @@ const footerNav = [
       { logo: youtubeLogo, title: 'YouTube', href: 'https://www.youtube.com/channel/UCMQj-27fzpOWGTKL5nutajA' },
     ],
     'Gimlet Cloud': [
-      { title: 'Signup', href: 'https://gimlet.io/signup?ref=footer' },
-      { title: 'Pricing', href: 'https://gimlet.io/pricing?ref=footer' },
-      { title: 'Terms of Service', href: 'https://gimlet.io/tos?ref=footer' },
+      { title: 'Signup', href: 'https://app.gimlet.io' },
+      { title: 'Pricing', href: 'https://gimlet.io/pricing' },
+      { title: 'Terms of Service', href: 'https://gimlet.io/tos' },
     ],
   },
 ]
 
 export function Footer() {
   return (
-    <footer className="pb-16 text-sm leading-6">
-      <div className="max-w-7xl mx-auto divide-y divide-zinc-200 px-4 sm:px-6 md:px-8 dark:divide-zinc-700 text-gray-600 dark:text-gray-300">
+    <footer className="py-16 text-sm leading-6 bg-neutral-700">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8 text-neutral-300">
         <div className="flex">
           {footerNav.map((sections) => (
             <div
@@ -43,12 +47,12 @@ export function Footer() {
             >
               {Object.entries(sections).map(([title, items]) => (
                 <div key={title} className="lg:flex-none lg:w-1/2">
-                  <h2 className="font-semibold text-zinc-900 dark:text-zinc-100">{title}</h2>
+                  <h2 className="font-semibold text-neutral-100">{title}</h2>
                   <ul className="mt-3 space-y-2">
                     {items.map((item) => (
                       <li key={item.href}>
                         <Link href={item.href}>
-                          <a className="flex items-center hover:text-zinc-900 dark:hover:text-zinc-300">
+                          <span className="flex items-center hover:text-neutral-400">
                             {item.logo && (
                               <div className="mr-1 cursor-pointer">
                                 {item.logo}
@@ -57,7 +61,7 @@ export function Footer() {
                             <div>
                               {item.title}
                             </div>
-                          </a>
+                          </span>
                         </Link>
                       </li>
                     ))}
@@ -67,13 +71,14 @@ export function Footer() {
             </div>
           ))}
         </div>
-        <div className="mt-16 pt-10">
+
+        <div className="mt-16">
           <Link href="/">
-            <a className="block lg:w-auto">
+            <span className="block lg:w-auto">
               <span className="sr-only">Home page</span>
-              <img src="/logo2.svg" alt="Gimlet" className='h-8 sm:h-10 w-auto block dark:hidden' />
+              <img src="/logo-dark.svg" alt="Gimlet" className='h-8 sm:h-10 w-auto block dark:hidden' />
               <img src="/logo-dark.svg" alt="Gimlet" className='h-8 sm:h-10 w-auto hidden dark:block' />
-            </a>
+            </span>
           </Link>
         </div>
       </div>

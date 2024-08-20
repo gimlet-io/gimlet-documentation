@@ -14,7 +14,7 @@ Flux has been one of the most popular gitops tools available for years. Yet, it 
 > I thought we could make one, hence we made Capacitor.
 > 
 > Why?
-> Because it is not easy to observe Kustomization and HelmRelease states in the cluster. Even with tools that show Custom Resources, it is not obvious to make the connection between application > deployments and Flux resources.
+> Because it is not easy to observe Kustomization and HelmRelease states in the cluster. Even with tools that show Custom Resources, it is not obvious to make the connection between application deployments and Flux resources.
 > 
 > The goal with Capacitor is to create the right context for developers to debug their deployments. Whether the error is related to Flux or not.
 > 
@@ -26,7 +26,7 @@ Flux has been one of the most popular gitops tools available for years. Yet, it 
 
 The GUI substitutes for interacting with Flux resources and runtime via flux CLI commands.
 
-[image showing Flux resources in the footer]
+![Flux resources in the footer](../../../public/capacitor-flux-resources.png)
 
 ### Connecting application deployments with Flux resources
 
@@ -34,15 +34,14 @@ Application deployments show which Flux Kustomization or HelmRelease deployed th
 
 With a click of a button you can jump to the Flux resource and check the reconsiliation state.
 
-[gif showing app deployments and related Kustomization / Helm Releases]
+![Clicking references](../../../public/click2.gif)
 
-### Application deployment debugging feedback loop
-
-![Application deployment controls](../../../public/servicecard.png)
-
+### Application deployment debugging
 Application deployments have controls to perform routine tasks, like checking logs, describing deployments, pods, configmaps.
 
-With these controls, Capacitor can become your daily driver for your deployments.
+With these controls Capacitor can become your daily driver for your Kubernetes dashboarding needs.
+
+![Application deployment controls](../../../public/servicecard.png)
 
 ![Application logs](../../../public/application-logs.png)
 
@@ -50,8 +49,10 @@ With these controls, Capacitor can become your daily driver for your deployments
 
 Flux resources:
 - Kustomization
-- GitRepository
 - HelmRelease
+- GitRepository
+- OCIRepositories
+- Buckets
 
 Kubernetes resources:
 - Deployment
@@ -61,8 +62,6 @@ Kubernetes resources:
 - Configmap
 - Secret
 
-OCI repositories are not supported at this point.
-
 ## Who made Capacitor?
 
 Capacitor is an open-source project backed by [Gimlet](https://gimlet.io), a team that creates a Flux-based IDP.
@@ -71,16 +70,49 @@ Gimlet is our opinionated project, Capacitor is our un-opinionated take.
 
 ## How to get started?
 
-Capacitor doesn’t come with Flux natively, you’ll need to set it up separately with one of the methods described below: as Kubernetes manifest or Helm chart.
+Capacitor doesn’t come with Flux natively, you’ll need to set it up separately.
 
-### Kubernetes manifest
+Deploy the latest Capacitor release in the flux-system namespace by adding the following manifests to your Flux repository:
 
-```k8s manifests from readme```
+```yaml
+---
+apiVersion: source.toolkit.fluxcd.io/v1beta2
+kind: OCIRepository
+metadata:
+  name: capacitor
+  namespace: flux-system
+spec:
+  interval: 12h
+  url: oci://ghcr.io/gimlet-io/capacitor-manifests
+  ref:
+    semver: ">=0.1.0"
+---
+apiVersion: kustomize.toolkit.fluxcd.io/v1
+kind: Kustomization
+metadata:
+  name: capacitor
+  namespace: flux-system
+spec:
+  targetNamespace: flux-system
+  interval: 1h
+  retryInterval: 2m
+  timeout: 5m
+  wait: true
+  prune: true
+  path: "./"
+  sourceRef:
+    kind: OCIRepository
+    name: capacitor
+```
 
-### Deploy as a Helm chart
+Note that Flux will check for Capacitor releases every 12 hours and will automatically deploy the new version if it is available.
 
-```Helm chart from readme```
+Access Capacitor UI with port-forwarding:
+
+```bash
+kubectl -n flux-system port-forward svc/capacitor 9000:9000
+```
 
 ## Where is the project hosted?
 
-It is hosted on [Gihub: gimlet-io/capacitor](https://github.com/gimlet-io/capacitor)
+It is hosted on Github: [gimlet-io/capacitor](https://github.com/gimlet-io/capacitor)

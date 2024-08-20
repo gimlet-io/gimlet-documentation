@@ -26,8 +26,10 @@
 }
 
 .flip {
-  -webkit-transform: scaleX(-1); transform: scaleX(-1);
-  -webkit-transform: scaleY(-1); transform: scaleY(-1);
+  -webkit-transform: scaleX(-1);
+  transform: scaleX(-1);
+  -webkit-transform: scaleY(-1);
+  transform: scaleY(-1);
 }
 
 .inserted {
@@ -36,4 +38,20 @@
 
 .deleted {
   @apply text-red-600;
+}
+
+.ctaButton {
+  @apply inline-block rounded-md px-4 py-1.5 text-base font-semibold leading-7 bg-blue-500 dark:bg-blue-800 hover:bg-blue-400 dark:hover:bg-blue-900 focus:outline-none items-center text-white dark:text-neutral-100 transition ease-in-out duration-150 text-nowrap
+}
+
+.secondaryCtaButton {
+  @apply inline-block rounded-md px-4 py-1.5 text-base font-semibold leading-7 text-neutral-900 dark:text-gray-100 ring-1 ring-neutral-300 dark:ring-gray-100/75 hover:ring-neutral-400 dark:hover:bg-neutral-800
+}
+
+.subheading {
+  @apply text-2xl font-bold tracking-tight sm:text-center sm:text-3xl
+}
+
+#docsearch-label {
+  display: none;
 }

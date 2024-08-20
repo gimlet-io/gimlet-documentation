@@ -6,6 +6,22 @@ title: Blog
 Self-hosting is on the rise which we can't celebrate enough. These are the five steps we perform on every server we set up. You should run them too.
 {% /post %}
 
+{% post name="Use Ollama with Cloud Nvidia GPU Kubernetes Cluster" image="kubernetess-remote-gpu-ollama-blog-post-cover.jpg" link="/blog/how-to-use-nvidia-gpu-with-kubernetes" date="2024-08-20" %}
+Using a remote Nvidia GPU with Kubernetes is a convenient way to run large language models from anywhere while being able to keep costs as low as possible. Here's how you can get started with remote GPUs and Kubernetes.
+{% /post %}
+
+{% post name="OneChart: The Shortcut to Streamlining Helm Configurations" image="onechart-introduction.png" link="/blog/onechart-introduction" date="2024-08-15" %}
+Helm is a useful tool to adopt Kubernetes. OneChart as a general purpose Helm chart makes the process even simpler.
+{% /post %}
+
+{% post name="How to Sync Code Between Your Laptop and Remote Kubernetes Clusters With GPU" image="file-syncing-remote-kubernetes-clusters.jpg" link="/blog/file-syncing-remote-kubernetes-clusters" date="2024-08-06" %}
+File syncing between development environments and Kubernetes clusters immensely accelerates feedback loop. In this blog post, you’ll find out how you can use VS Code or Gimlet's CLI to sync files for this purpose.
+{% /post %}
+
+{% post name="Deploy Streamlit Applications with Gimlet" image="streamlit-deploy-gimlet-https-social-authentication.jpg" link="/blog/streamlit-deployment-https-social-auth" date="2024-07-01" %}
+Streamlit already has Community Cloud for hosting, although it has limitations. Here's how you can have an extended hosting experience with Gimlet.
+{% /post %}
+
 {% post name="What’s Next for FluxCD - And Gimlet?" image="gimlet-io-whats-next-for-fluxcd-and-gimlet.jpg" link="/blog/whats-next-for-fluxcd-and-gimlet" date="2024-02-06" %}
 Weaveworks is shutting down and everybody’s wondering: what does the future hold for Flux, one of the most used gitops tool of platform builders?
 {% /post %}
@@ -132,6 +148,10 @@ See what GimletD brings to the gitops ecosystem.
 
 {% post name="GimletD - the GitOps release manager" image="gimlet-tool.jpeg" link="/blog/gimletd-the-gitops-release-manager" date="2021-01-25" %}
 This document is a design proposal for GimletD, a server-side release manager component for GitOps workflows.
+{% /post %}
+
+{% post name="Helm React UI: a React component to render UIs for Helm Charts" image="helmreactui2.png" link="/blog/helm-react-ui-a-react-component-to-render-ui-for-helm-charts" date="2020-12-29" %}
+Helm React UI generates a UI based on Helm schema files and allows you to configure Helm Chart values in your browser.
 {% /post %}
 
 {% post name="The last-mile problem with Kubernetes" image="randy-laybourne-06P0tprVDvY-unsplash.jpg" link="/blog/the-last-mile-problem-with-kubernetes" date="2020-06-23" %}
