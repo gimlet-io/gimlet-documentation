@@ -78,6 +78,8 @@ The output should be something like this:
 Before moving forward, verify that the cluster is up:
 
 ```
+civo kubernetes config gpu-cluster --region LON1 --save
+
 kubectl get nodes
 kubectl get pods
 ```
@@ -153,14 +155,18 @@ In case you're done experimenting, it's suggessted to clean things up to avoid u
 
 Run these commands to delete the cluster and the volumes that belong to them:
 
-#### Delete Volumes
-
-```
-civo volumes delete <VOLUME-NAME> --region <REGION-NAME>
-```
-
 #### Delete Cluster
 
 ```
-civo kubernetes delete <cluster-name>
+civo kubernetes delete gpu-cluster --region lon1
 ```
+
+#### Delete Volumes
+
+```
+civo volumes list
+
+civo volumes delete <VOLUME-NAME> --region <REGION-NAME>
+```
+
+
