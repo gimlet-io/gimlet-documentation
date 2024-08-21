@@ -8,7 +8,7 @@ description: |
 
 ## Requirements
 
-- A Jupyter Notebook to deploy. If you don't have a notebook, fork this [repository](https://github.com/gerimate/jupyter-notebook-sample) to be able to try this tutorial.
+- A Jupyter Notebook to deploy. If you don't have a notebook, fork this [repository](https://github.com/gimlet-io/jupyter-notebook-sample) to be able to try this tutorial.
 
 ## Step 1: Getting Started with Gimlet
 

@@ -8,7 +8,7 @@ description: |
 
 ## Requirements
 
-- A Next.js app to deploy. If you don't have a Next.js application, fork this [repository](https://github.com/gerimate/next-js-demo-app) to be able to try this tutorial.
+- A Next.js app to deploy. If you don't have a Next.js application, fork this [repository](https://github.com/gimlet-io/next-js-demo-app) to be able to try this tutorial.
 
 ## Step 1: Getting Started with Gimlet
 
@@ -22,7 +22,7 @@ Click the **Import** button next to it to add it to Gimlet, and click the **I am
 
 Navigate to deployment settings by clicking the card of the repository. Click **New Deployment**.
 
-You can deploy the Next.js frontend as a **Web Application Template**, and you'll need to select **Using a Dockerfile** container image option. If you don't have a Dockerfile, you can get [this Dockerfile](https://github.com/gerimate/next-test/blob/main/Dockerfile) from GitHub.
+You can deploy the Next.js frontend as a **Web Application Template**, and you'll need to select **Using a Dockerfile** container image option. If you don't have a Dockerfile, you can get [this Dockerfile](https://github.com/gimlet-io/next-test/blob/main/Dockerfile) from GitHub.
 
 Select the **Gimlet Registry** option in the **Registry** section.
 

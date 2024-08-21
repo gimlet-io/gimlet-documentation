@@ -20,7 +20,7 @@ To add the repository, click **Import** next to it, then save the repository by 
 
 Navigate to deployment settings by clicking the repository's card, then the **New deployment** button.
 
-Select the **Web Application Template**, and then the **Using a Dockerfile** container image option. If you don't have a Dockerfile, you can use the example below. If you don't have a Streamlit repository, you can fork this one [here](https://github.com/gerimate/streamlit-app), which also contains the Dockerfile you can take a look at below.
+Select the **Web Application Template**, and then the **Using a Dockerfile** container image option. If you don't have a Dockerfile, you can use the example below. If you don't have a Streamlit repository, you can fork this one [here](https://github.com/gimlet-io/streamlit-app), which also contains the Dockerfile you can take a look at below.
 
 ```
 # app/Dockerfile

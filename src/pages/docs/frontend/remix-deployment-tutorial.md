@@ -8,7 +8,7 @@ description: |
 
 ## Requirements
 
-- A Remix application on GitHub. If you don't have one, you can fork one from [this repository](https://github.com/gerimate/remix-gimlet-test).
+- A Remix application on GitHub. If you don't have one, you can fork one from [this repository](https://github.com/gimlet-io/remix-gimlet-test).
 
 ## Step 1: Getting Started with Gimlet
 
@@ -22,7 +22,7 @@ Select the repository by clicking on its card to navigate to deployment settings
 
 Pick the **Static Site Template**, so you're able to select the **Using a Dockerfile** container image setting. For this method, a Dockerfile is necessary to have in your repository.
 
-If you don't have a Dockerfile, you can get yours [here](https://github.com/gerimate/remix-gimlet-test/blob/main/Dockerfile).
+If you don't have a Dockerfile, you can get yours [here](https://github.com/gimlet-io/remix-gimlet-test/blob/main/Dockerfile).
 
 Select the **Gimlet Registry** option under **Registry** settings, and make sure that the port is the same as the `server.js` file specifies.
 

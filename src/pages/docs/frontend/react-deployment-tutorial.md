@@ -8,7 +8,7 @@ description: |
 
 ## Requirements
 
-- A React application on GitHub. If you don't have one, you can fork one from [this repository](https://github.com/gerimate/react-gimlet-test).
+- A React application on GitHub. If you don't have one, you can fork one from [this repository](https://github.com/gimlet-io/react-gimlet-test).
 
 ## Step 1: Getting Started with Gimlet
 

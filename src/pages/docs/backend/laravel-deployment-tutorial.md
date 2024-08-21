@@ -8,7 +8,7 @@ description: |
 
 ## Requirements
 
-- A Laravel app to deploy. If you don't have a Laravel application, fork this [repository](https://github.com/gerimate/laravel-gimlet-test/) to be able to try this tutorial.
+- A Laravel app to deploy. If you don't have a Laravel application, fork this [repository](https://github.com/gimlet-io/laravel-gimlet-test/) to be able to try this tutorial.
 
 ## Step 1: Get Started with Gimlet
 
@@ -28,7 +28,7 @@ Select the **Web Application Template**, and then the **Using a Dockerfile** con
 
 This method requires a Dockerfile located in your repository. If you don't have one, you can use the one below.
 
-**Note:** The Dockerfile below is suitable for development and testing purposes, since it requires an `.env` file with an empty `APP_KEY` variable. If you know any production ready solution, feel free to open a pull request in the [repository](https://github.com/gerimate/laravel-gimlet-test).
+**Note:** The Dockerfile below is suitable for development and testing purposes, since it requires an `.env` file with an empty `APP_KEY` variable. If you know any production ready solution, feel free to open a pull request in the [repository](https://github.com/gimlet-io/laravel-gimlet-test).
 
 ```
 FROM php:8.2.19-alpine
