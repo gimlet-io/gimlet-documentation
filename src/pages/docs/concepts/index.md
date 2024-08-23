@@ -8,7 +8,7 @@ Gimlet is a deployment tool built on Kubernetes to make the deploy, preview and 
 
 ## Vision
 
-Kubernetes is percieved to have a high learning curve, complex machinery and only used by large companies for immense scale.
+Kubernetes is perceived to have a high learning curve, complex machinery and only used by large companies for immense scale.
 
 In practice, Kubernetes is a ten years old technology that is silently used by companies with as little as 10 developers - with great success.
 
