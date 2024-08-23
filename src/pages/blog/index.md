@@ -2,6 +2,10 @@
 title: Blog
 ---
 
+{% post name="Open-source as a Bootstrapped Company - We Are Changing License" image="https://api.placid.app/u/ghvjld730lsgd?title[text]=Open-source%20as%20a%20Bootstrapped%20Company%20-%20We%20Are%20Changing%20License" link="/blog/open-source-as-a-bootstrapped-company-we-are-changing-license" date="2024-08-23" %}
+Our story - what does it mean to be an open-source company for a small bootsrapped company like Gimlet.io.
+{% /post %}
+
 {% post name="Use Ollama with Cloud Nvidia GPU Kubernetes Cluster" image="kubernetess-remote-gpu-ollama-blog-post-cover.jpg" link="/blog/how-to-use-nvidia-gpu-with-kubernetes" date="2024-08-20" %}
 Using a remote Nvidia GPU with Kubernetes is a convenient way to run large language models from anywhere while being able to keep costs as low as possible. Here's how you can get started with remote GPUs and Kubernetes.
 {% /post %}
