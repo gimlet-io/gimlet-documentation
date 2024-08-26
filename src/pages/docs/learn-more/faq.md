@@ -36,12 +36,12 @@ If you have problems with your account, we can reset it for you.
 
 - First, reach out to the Gimlet team to reset your account. You can reach us on our [Discord server](https://discord.com/invite/ZwQDxPkYzE).
 
-- Once your account is reset, try logging into Gimlet like before on https://app.gimle.io. Except this time you will be redirected to Github.
+- Once your account is reset, try logging into Gimlet like before on [https://app.gimle.io](https://app.gimle.io). Except this time you will be redirected to Github.
 
 In the page of Gimlet's GitHub application, find the **Uninstall** button.
 
 ![Gimlet's GitHub application page with uninstall button](/docs/screenshots/gimlet-account-setup/gimlet-github-app-installation-02.png)
 
-Uninstallation should be completed in an instant, go back to the login screen of Gimlet: https://app.gimle.io..
+Uninstallation should be completed in an instant, go back to the login screen of Gimlet: [https://app.gimle.io](https://app.gimle.io).
 
 ![Gimlet's GitHub application installation screen](/docs/screenshots/gimlet-account-setup/gimlet-github-app-installation-04.png)
