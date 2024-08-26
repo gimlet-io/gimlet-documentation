@@ -24,7 +24,7 @@ export default function How(props) {
                 <div className="ml-11 mt-2 pl-0.5 text-sm leading-relaxed dark:text-white/75">{feature.description}</div>
               </div>
             )} else return (
-              <a href={feature.href}>
+              <a href={feature.href} key={feature.name}>
               <div
                 key={feature.name}
                 className="border pointer rounded-lg border-neutral-400 dark:border-white/10 p-4 dark:hover:border-white/20 dark:hover:bg-white/5 transition duration-300">
