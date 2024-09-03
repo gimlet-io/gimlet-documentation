@@ -2,7 +2,7 @@
 title: Blog
 ---
 
-{% post name="Open-source as a Bootstrapped Company - We Are Changing License" image="https://api.placid.app/u/ghvjld730lsgd?title[text]=Open-source%20as%20a%20Bootstrapped%20Company%20-%20We%20Are%20Changing%20License" link="/blog/open-source-as-a-bootstrapped-company-we-are-changing-license" date="2024-08-23" %}
+{% post name="Open-Source as a Bootstrapped Company – We Are Changing License" image="https://api.placid.app/u/ghvjld730lsgd?title[text]=Open-Source%20as%20a%20Bootstrapped%20Company%20-%20We%20Are%20Changing%20License" link="/blog/open-source-as-a-bootstrapped-company-we-are-changing-license" date="2024-08-23" %}
 Our story - what does it mean to be an open-source company for a small bootsrapped company like Gimlet.io.
 {% /post %}
 
