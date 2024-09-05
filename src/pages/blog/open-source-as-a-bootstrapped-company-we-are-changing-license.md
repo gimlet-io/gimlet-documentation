@@ -31,9 +31,9 @@ We are going source available now. With our refined scope and vision, this may e
 The reason why open-source is a difficult business is that you need to find an indirect path to money. Almost like you need to find product market-fit twice.
 
 - First you find product market fit, or more like project market fit by solving a problem for developers. You give away the software for free, free as in beer, then if you are lucky enough it becomes widely used.
-- Congratulations, now you are popular open-source project. Now while you are keep serving your users you go and find a different set of people, problems, or both, who are willing to pay for solving their problems.
+- Congratulations, now you are a popular open-source project. Now while you are keeping serving your users you go and find a different set of people, problems, or both, who are willing to pay for solving their problems.
 
-So as a widely used open-source project, you need to find that other thing that gets you payed. One way to do this is the open-core model.
+So as a widely used open-source project, you need to find that other thing that gets you paid. One way to do this is the open-core model.
 
 ### The Open-Core Model
 
@@ -59,13 +59,13 @@ Pushing out more software would also be at odds with our mission to simplify Kub
 
 Other open-source companies go down the support route. The idea here is that you have a vast number of users who are gladly using the software for free, as in 🍺, and there is a subset of these users who are willing to pay for support. This is a nice idea, but it is often not told how small this subset is.
 
-Furthermore, the companies who require support are usually not your typical users. These are the companies who have quirky requirements, legacy systems, who are happy to pay you to help their madness of a setup. This again requires an open-source provider who churns out a great deal of features for free (again as in beer), then have a more consultancy like branch who deals with the quirks.
+Furthermore, the companies who require support are usually not your typical users. These are the companies who have quirky requirements, legacy systems, who are happy to pay you to help their madness of a setup. This again requires an open-source provider who churns out a great deal of features for free (again as in beer), then have a more consultancy-like branch who deals with the quirks.
 
 #### Considering the the support route for Gimlet
 
 We are kind of doing this already. This is how we pay the product development costs. We are doing consultancy around Gimlet. But instead of handling our client's quirks, we go broad and help them Terraform their cloud setup, go through audits, and optimize their CI.
 
-There is not much quirks going on at small businesses that they would need support for. No special hardware, no crazy legacy systems. Many of our users are just happy self-host Gimlet and self-serve all their infrastructure needs. When we get to help, the scope is not tied to Gimlet. That would be too small of a scope, too little income.
+There is not much quirks going on at small businesses that they would need support for. No special hardware, no crazy legacy systems. Many of our users are just happy to self-host Gimlet and self-serve all their infrastructure needs. When we get to help, the scope is not tied to Gimlet. That would be too small of a scope, too little income.
 
 But you probably see by now how our broad support efforts that gets us money, is also taking time away from product development.
 
@@ -73,13 +73,13 @@ But you probably see by now how our broad support efforts that gets us money, is
 
 Another way open-source companies try monetizing the open-source project is hosting.
 
-This makes a lot of sense for DB engines and difficult to self-host datawarehouses and data processing systems. Anything dealing with data, where backups and consistency matters, lends itself to this model. Keeping the dev workflow free, then helping companies host and scale their data pipelines.
+This makes a lot of sense for DB engines and difficult to self-host data warehouses and data processing systems. Anything dealing with data, where backups and consistency matters, lends itself to this model. Keeping the dev workflow free, then helping companies host and scale their data pipelines.
 
-It is a fair deal as long as AWS does not take the upstream and deploy it as-is. You heared many of these stories (ElasticSearch, MongoDB) the last couple of years.
+It is a fair deal as long as AWS does not take the upstream and deploy it as-is. You heard many of these stories (ElasticSearch, MongoDB) the last couple of years.
 
 #### The Story of Gimlet Cloud
 
-So we have a cloud. It used to have a volume based pricing. You get to deploy X services for free, than you pay for every additional Y services.
+So we have a cloud. It used to have a volume based pricing. You get to deploy X services for free, then you pay for every additional Y service.
 
 What happened is that our most avid users self-host the free (as in beer) open-source version, and the remaining users were mostly personal users - did I mention that that was also free in our old pricing?
 
@@ -94,7 +94,7 @@ This is again an indirect path to money. Where the additional value you provide 
 
 You sell social status or marketing value to the sponsor, additional access to you and your story, or priority access to new features. Since the value is more indirect than in the other cases, income is more volatile, and not enforced in any way.
 
-Truth is, we don't understand this option very well. We see it working for others, but it does not come natural for us. We prefer more direct paths to money.
+Truth is, we don't understand this option very well. We see it working for others, but it does not come naturally for us. We prefer more direct paths to money.
 
 ## A Rising Tide Lifts All Boats
 
@@ -108,7 +108,7 @@ This upside of open-source is difficult to wield though if you are not a project
 
 Many open-source projects are single vendor projects. It is a handful of core developers who are developing the software. And these developers are on payroll at the open-source company.
 
-Software development is like that. One can contribute on the edges of the project through well defined interfaces (Terraform providers, plugins etc) or fix an odd bug, but changing the core of the system requires great deal of technical and organizational knowledge. So if your software does not need integrations, or not a foundational tech like Linux or Kubernetes, chances are that contributions are just not of high enough quality, or they simply don't match the roadmap.
+Software development is like that. One can contribute on the edges of the project through well defined interfaces (Terraform providers, plugins etc) or fix an odd bug, but changing the core of the system requires a great deal of technical and organizational knowledge. So if your software does not need integrations, or not a foundational tech like Linux or Kubernetes, chances are that contributions are just not of high enough quality, or they simply don't match the roadmap.
 
 #### Contributions at Gimlet
 
@@ -120,11 +120,11 @@ We also do not need many integrations, nor our software usable in any other cont
 
 We are changing to a source-available license now, so technically you can still read the code, even file a PR to the repository. With a contributor agreement (CRA) in place, you can even upstream your changes. It is fair to ask why would anyone do that now that we are not open-source?
 
-We think that the only sustainable contributions to open-source is the scratch your own itch ones. And if you itch and you fix it, you want that upstreamed. If the project makers are decent guys, we aim to be, practioners will not mind our license.
+We think that the only sustainable contributions to open-source is the scratch your own itch ones. And if you itch and you fix it, you want that upstreamed. If the project makers are decent guys, we aim to be, practitioners will not mind our license.
 
 ### Public Utility Software
 
-There is a class of open-source software that run the world today. Those software should be open-source in our view. The upside is so big that our industry would shatter without them.
+There is a class of open-source software that runs the world today. Those software should be open-source in our view. The upside is so big that our industry would shatter without them.
 
 Gimlet is not like these. Gimlet is single-purpose glue around other open-source projects.
 
@@ -148,11 +148,11 @@ They certainly spoiled end-users in the past decades.
 
 ## "Simple" Is at Odds With Open-Source Business Models
 
-In the process of open-source is trying to indirectly monetize, it is pushing the edges of what is possible. To be able to differentiate on features (open-core), or to support you in the complex, open-source companies must educate about problems that the paid version solves. It should be a good thing, right?
+In the process of open-source trying to indirectly monetize, it is pushing the edges of what is possible. To be able to differentiate on features (open-core), or to support you in the complex, open-source companies must educate about problems that the paid version solves. It should be a good thing, right?
 
 Probably. In the Kubernetes ecosystem though, all too many discussions are about the complex. There is less incentive to talk about the simple.
 
-We want you stay simple. We want you solve simple for you.
+We want you to stay simple. We want you solve simple for you.
 
 And not showing you the ever more complex possibilities the ecosystem has to offer, or looking for the next frontier.
 
@@ -176,7 +176,7 @@ Before Netlify, we used Github Pages and S3 buckets. It was an ever cumbersome p
 
 Then we connected our git to Netlify, set the build command, and we were deployed. No CDN, no TLS hassle.
 
-This example is so close to what Gimlet is, becasue this exactly what we provide:
+This example is so close to what Gimlet is, because this exactly what we provide:
 
 - connect your git
 - set your container settings
@@ -199,17 +199,17 @@ We want to make purchasing Gimlet a no-brainer, even an impulse buy.
 - if you are a senior engineer who is by necessity the in-house Kubernetes expert on your team, or you know you are going to end up there
 - or if you are an engineer on a team who has a service ready with a Dockerfile, and need to deploy it on Kubernetes, on a URL with TLS enabled
 
-you should be able to get started with Gimlet in minutes. And in a few days, you should be able to get your team lead's or CTOs credit card to set Gimlet up for good. We priced Gimlet in a way that it can be approved without a budget. No monthly fees or seat prices, just a single yearly $300 payment.
+you should be able to get started with Gimlet in minutes. And in a few days, you should be able to get your team lead or CTOs credit card to set Gimlet up for good. We priced Gimlet in a way that it can be approved without a budget. No monthly fees or seat prices, just a single yearly $300 payment.
 
 We want this $300 to be your best spend ever. Like our spend was with TailwindUI.
 
 ### On sustainability
 
-We are perhaps leaving money on the table with this procing. That is something we are fine with. Like we said, we want this purchase to be a no-brainer.
+We are perhaps leaving money on the table with this pricing. That is something we are fine with. Like we said, we want this purchase to be a no-brainer.
 
-This is a price tag alone will probably not solve Gimlet's future if not sold in volume (1000 copies a year), but it is a step in the right direction: charging a clear price for a clear value.
+This is price tag alone will probably not solve Gimlet's future if not sold in volume (1000 copies a year), but it is a step in the right direction: charging a clear price for a clear value.
 
-We are also a small shop in not the most expensive areas of the world. Plus we have ideas how to provide more value in other under-served areas of the ecosystem.
+We are also a small shop in not the most expensive areas of the world. Plus we have ideas on how to provide more value in other under-served areas of the ecosystem.
 
 We are also not in a hurry though. Our consultancy revenue keeps us afloat, we have a brand in the ecosystem, lovely users and a support network. Also, we think time is on our side, which is a super cool ally to have.
 
