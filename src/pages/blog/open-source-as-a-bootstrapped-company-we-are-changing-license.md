@@ -5,9 +5,11 @@ description: "Our story - what does it mean to be an open-source company for a s
 ---
 
 
-Thanks for clicking. In this one I summarize what does it mean to be an open-source company for a small bootstrapped company like Gimlet.io.
+Thanks for clicking. In this one I summarize what does it mean for a small bootstrapped company like Gimlet.io to have an open-source product.
 
-Hello, I am Laszlo Fogas, the founder of Gimlet.io. Buckle up, this is going to be a long one.
+Hello, I am Laszlo Fogas, the founder of Gimlet.io. 👋
+
+Buckle up, this is going to be a long one.
 
 ## A Decade of Open-Source by Default
 
@@ -19,13 +21,11 @@ Just like profitability was not a concern for SaaS businesses, open-source was t
 
 #### Gimlet was open-source by default
 
-Us too were open-source by default. In the Kubernetes ecosystem where we operate, it was unthinkable to be closed source.
+Gimlet is a Kubernetes deployment tool that is built on gitops and bootstrapped with our consulting revenue. We also were open-source by default. In the Kubernetes ecosystem where we operate, it was unthinkable to be closed source.
 
-We are going source available now. with our refined scope and vision, this may even work out. Read more to learn how. 
+We are going source available now. With our refined scope and vision, this may even work out. Read more to learn how.
 
-#### What is Gimlet?
-
-Gimlet is a relatively successful open-source Kubernetes deployment tool that is built on gitops and bootstrapped with our consulting revenue.  
+(our source available tldr: not open-source, you can read the code and modify it to your own purposes, but can't distribute it. You must purchase a license if you use the product for commercial purposes)
 
 ## Indirect Path to Money
 
@@ -38,7 +38,7 @@ So as a widely used open-source project, you need to find that other thing that 
 
 ### The Open-Core Model
 
-In the open-core model, you typically differentiate between individual and team features:
+In the open-core model you typically differentiate between individual and team features:
 - features that help the individual doing their job go to the open-source version,
 - features that benefit teams, go to the paid version.
 
@@ -58,27 +58,25 @@ Pushing out more software would also be at odds with our mission to simplify Kub
 
 ### Selling Support
 
-Other open-source companies go down the support route. The idea here is that you have a vast number of users who are gladly using the software for free, again as in beer, and there is a subset of these users who are willing to pay for support. This is a nice idea, but it is often not told how small this subset is.
+Other open-source companies go down the support route. The idea here is that you have a vast number of users who are gladly using the software for free, as in 🍺, and there is a subset of these users who are willing to pay for support. This is a nice idea, but it is often not told how small this subset is.
 
 Furthermore, the companies who require support are usually not your typical users. These are the companies who have quirky requirements, legacy systems, who are happy to pay you to help their madness of a setup. This again requires an open-source provider who churns out a great deal of features for free (again as in beer), then have a more consultancy like branch who deals with the quirks.
 
 #### Considering the the support route for Gimlet
 
-We are kind of doing this already. This is how we pay the product development costs. We are doing consutlancy around Gimlet. But instead of handling our client's quirks, we go broad and help them Terraform their cloud setup, go through audits, and optimize their CI.
+We are kind of doing this already. This is how we pay the product development costs. We are doing consultancy around Gimlet. But instead of handling our client's quirks, we go broad and help them Terraform their cloud setup, go through audits, and optimize their CI.
 
-There is not much quirks going on at SMB companies that they would need support for. No special hardware, no crazy legacy systems. Many of our users are just happy self-host Gimlet and self-serve all their infrastructure needs. When we get to help, the scope is not tied to Gimlet. That is too small of a scope.
+There is not much quirks going on at small businesses that they would need support for. No special hardware, no crazy legacy systems. Many of our users are just happy self-host Gimlet and self-serve all their infrastructure needs. When we get to help, the scope is not tied to Gimlet. That would be too small of a scope, too little income.
 
-This is the story of how our current path to money is at odds with product development.
+But you probably see by now how our broad support efforts that gets us money, is also taking time away from product development.
 
 ### Hosting Anyone?
 
 Another way open-source companies try monetizing the open-source project is hosting.
 
-This makes a lot of sense for DB engines, and difficult to self-host datawarehouses and data processing systems.
+This makes a lot of sense for DB engines and difficult to self-host datawarehouses and data processing systems. Anything dealing with data, where backups and consistency matters, lends itself to this model. Keeping the dev workflow free, then helping companies host and scale their data pipelines.
 
-Anything dealing with data, where backups and consistency matters lends itself to this model. Keeping the dev workflow free, then helping companies host and scale their data pipelines.
-
-It is a fair deal as long as AWS does not take the upstream and deploy it as-is. You heared many of these stories the last couple of years (todo: this, and this and this)
+It is a fair deal as long as AWS does not take the upstream and deploy it as-is. You heared many of these stories (ElasticSearch, MongoDB) the last couple of years.
 
 #### The Story of Gimlet Cloud
 
@@ -88,8 +86,8 @@ What happened is that our most avid users self-host the free (as in beer) open-s
 
 For the odd user that used the cloud above the X free services, the product did not have any logic to enforce the payment, and we never bothered to charge. For a long while now we looked at our cloud offering as an easy way to trial the platform and the way to gather usage analytics.
 
-- We are adding now friction into the cloud version and automatic payment enforcement and possibilities.
-- Plus we fixed the biggest drop off point in adoption. People were just perplexed by the fact that Gimlet is a bring your own hardware platform. Even though we advocated that launching a k3d cluster on your laptop is a matter of minutes, they did not do it. Our new cloud gives you a running cluster for 7 days so from registration til deployment it really only took a few minutes. Just like on vertically integrated platforms like Vercel or Netlify.
+- Now we've added automatic payment to the cloud version and we enforce limits.
+- Plus we fixed the biggest drop off point in adoption. People were just perplexed by the fact that Gimlet is a bring your own hardware platform. Even though we advocated that launching a k3d cluster on your laptop is a matter of minutes, most trials did not launch a cluster. Our new cloud gives you a running cluster for 7 days so from registration til deployment it really only took a few minutes. Just like on vertically integrated platforms like Vercel or Netlify.
 
 ### Tip Jars, Sponsorships
 
@@ -97,9 +95,9 @@ This is again an indirect path to money. Where the additional value you provide 
 
 You sell social status or marketing value to the sponsor, additional access to you and your story, or priority access to new features. Since the value is more indirect than in the other cases, income is more volatile, and not enforced in any way.
 
-Truth is, we don't understand this option very well. We see it works for others, but it does not come natural for us. We prefer more direct paths to money.
+Truth is, we don't understand this option very well. We see it working for others, but it does not come natural for us. We prefer more direct paths to money.
 
-## Raising All Boats
+## A Rising Tide Lifts All Boats
 
 The often told story of open-source is about the ecosystem: raising the water for all boats in the ecosystem makes your boat rise as well.
 
@@ -111,21 +109,23 @@ This upside of open-source is difficult to wield though if you are not a project
 
 Many open-source projects are single vendor projects. It is a handful of core developers who are developing the software. And these developers are on payroll at the open-source company.
 
-Software development is like that. One can contribute on the edges of the project through well defined interfaces (Terraform providers, plugins etc), but changing the core of the system requires great deal of technical and organizational knowledge. So if your software does not need integrations, or not a foundational tech like Linux or Kubernetes, chances are that contributions are just not of high enough quality, or they simply don't match the roadmap.
+Software development is like that. One can contribute on the edges of the project through well defined interfaces (Terraform providers, plugins etc) or fix an odd bug, but changing the core of the system requires great deal of technical and organizational knowledge. So if your software does not need integrations, or not a foundational tech like Linux or Kubernetes, chances are that contributions are just not of high enough quality, or they simply don't match the roadmap.
 
 #### Contributions at Gimlet
 
-We got a handful of nice contributions. Some out of the blue which humbled us, some from friends. We are grateful for each and every one of those.
+We got a handful of nice contributions. Some out of the blue, which humbled us, some from friends. We are grateful for each and every one of those.
 
-The truth is though, we did not put in the time to have a clear enough roadmap, or communicate a clear enough technical guidance. We put the time into development. At our scale having a couple of internal contributors is a much safer route to product than relying on external contributors.
+These contributions though did not change our product significantly. The truth is though, we did not put in the time to have a clear enough roadmap, or communicate a clear enough technical guidance. We put the time into development. At our scale having a couple of internal contributors is a much safer route to product than relying on external contributors.
 
 We also do not need many integrations, nor our software usable in any other context than Gimlet itself. We are making glue between projects from the Cloud Native Landscape. If you are a user, you can certainly make a PR, but it is unlikely to have an ecosystem of developers around Gimlet.
 
-We are changing to a source-available license now, so technically you can still read the code, even file a PR to the repository. With a contributor agreement (CRA) in place, you can even upstream your changes. Why would anyone do that? We think that the only sustainable contributions to open-source is the scratch your own itch ones. And if you itch and you fix it, you want that upstreamed. If the project makers are decent guys, we aim to be, practioners will not mind our license.
+We are changing to a source-available license now, so technically you can still read the code, even file a PR to the repository. With a contributor agreement (CRA) in place, you can even upstream your changes. It is fair to ask why would anyone do that now that we are not open-source?
+
+We think that the only sustainable contributions to open-source is the scratch your own itch ones. And if you itch and you fix it, you want that upstreamed. If the project makers are decent guys, we aim to be, practioners will not mind our license.
 
 ### Public Utility Software
 
-I touched briefly on public utility software. Software that truly shaped the way we do software today. Those software should be open-source in our view. The upside is so big that our industry would shatter without them.
+There is a class of open-source software that run the world today. Those software should be open-source in our view. The upside is so big that our industry would shatter without them.
 
 Gimlet is not like these. Gimlet is single-purpose glue around other open-source projects.
 
@@ -137,7 +137,7 @@ We also acknowledge the fact that many of these projects serve as the source of 
 
 Open-source for some people is part of a political stance, a world view or activism.
 
-These people made the public utility software category out of nothing. We are grateful for them, but we are not like them. Also, this dichotomy is as old as software itself. ([1976 - Bill Gates Letter to Hobbyists](https://en.wikipedia.org/wiki/File:Bill_Gates_Letter_to_Hobbyists_ocr.pdf))
+These people made the public utility software category out of nothing. We are grateful for them, but we are not like them. Or at least not with this business, or not in our current life situation. Also, the dichotomy between free and paid software is as old as software itself. ([1976 - Bill Gates Letter to Hobbyists](https://en.wikipedia.org/wiki/File:Bill_Gates_Letter_to_Hobbyists_ocr.pdf))
 
 ### Big Company Subsidies
 
@@ -161,17 +161,17 @@ Instead, we want you to be able to **deploy, preview and rollback**, and then we
 
 ## Solve Kubernetes Then Move Along to Your Next Task
 
-There has been a couple of software before us that inspired us so much we want leave you with the feelign they left us with.
+There were a couple of software that inspired us to the extent that we want to give you the same feeling they gave us.
 
-### TailwindUI
+#### TailwindUI
 
-We are backend engineers, devops professionals. We have known CSS for decades and we were aware of the possibilities. We could find the CSS tricks we needed for the task at hand. However, producing decent looking software was never our forte. We had constant trouble with padding, margins, our sites just looked crooked in ways we could not fix. Until we could.
+We are backend engineers, devops professionals. We have known CSS for decades and we were aware of the possibilities. We could find the CSS tricks we needed for the task at hand. However, producing decent looking software was never our forte. We had constant trouble with paddings, margins, our sites just looked crooked in ways we could not fix. Until we could.
 
-We bought the [Refactor UI](https://www.refactoringui.com/) book, then we picked up [TailwindCSS](https://tailwindui.com/), finally we purchased a lifetime license on TailwindUI and our uis just became somethign else. Our users often ask if we did the design og Gimlet. Well we did, with the help of TailwindUI.
+First, we bought the [Refactor UI](https://www.refactoringui.com/) book, then we picked up TailwindCSS, finally we purchased a lifetime license on [TailwindUI](https://tailwindui.com/) and our UIs just became something else. Our users often ask if we did the design of Gimlet. Well we did, with the help of TailwindUI.
 
-This is a feeling we would like to replicate. If you have a brief notion of Kubernetes, Tried hacking together some yaml before, but things have not come together yet in coherent tooling, get onto Gimlet and jump to the end. You will still have the possibility to fine tune the yaml bits, like you can finetune TailwindUI with TailwindCSS selectors. 
+This is a feeling we would like to replicate. If you have a brief notion of Kubernetes, tried hacking together some yaml before, but things have not come together yet in coherent tooling, get onto Gimlet and jump to the end. You will still have the possibility to fine tune the yaml bits, like you can finetune TailwindUI with TailwindCSS selectors. 
 
-### Netlify
+#### Netlify
 
 Before Netlify, we used Github Pages and S3 buckets. It was an ever cumbersome process.
 
@@ -195,12 +195,12 @@ And we also want to charge  money for it.
 
 ### Pricing
 
-We want to make purchasing Gimlet a no-brainer, an impulse buy.
+We want to make purchasing Gimlet a no-brainer, even an impulse buy.
 
 - if you are a senior engineer who is by necessity the in-house Kubernetes expert on your team, or you know you are going to end up there
 - or if you are an engineer on a team who has a service ready with a Dockerfile, and need to deploy it on Kubernetes, on a URL with TLS enabled
 
-you should be able to get started with Gimlet in minutes. And in a few days, you should be able to get your team lead's or CTOs credit card to set Gimlet up for good. We priced Gimlet in a way that it can be approved without a budget, no monthly fees or seat prices just a sinle yearly $300 payment.
+you should be able to get started with Gimlet in minutes. And in a few days, you should be able to get your team lead's or CTOs credit card to set Gimlet up for good. We priced Gimlet in a way that it can be approved without a budget. No monthly fees or seat prices, just a single yearly $300 payment.
 
 We want this $300 to be your best spend ever. Like our spend was with TailwindUI.
 
@@ -218,21 +218,24 @@ We are also not in a hurry though. Our consultancy revenue keeps us afloat, we h
 
 We are grateful for people who trusted us from the early days.
 
-Gimlet remains [free to self-host for non-commercial use](/pricing). If you use Gimlet for your business, just write to us and we are happy to grant a free license to you. 
+Gimlet remains [free to self-host for non-commercial use](/pricing). If your company is a long time Gimlet user, just write to us and we are happy to grant a free license to you. 
 
 ### OneChart and Capacitor
 
-Remains open-source.
+We have other open-source components and tools that in some regards are more successful than Gimlet itself: OneChart and Capacitor.
 
+They remain open-source.
 
+![Gimlet Github star histpry](/blog/gimlet-star-history.png)
 
+**OneChart** is our general purpose Helm chart that serves as the default deployment template for workloads in Gimlet, but also used by hundreds of companies who are not Gimlet users otherwise. OneChart benefits from open-source more than Gimlet itself. Contributions and reported bugs are making OneChart better and better every week.
 
-talk about the rationalization that happened
-and the more direct paths to money
-include star history?
+**Capacitor** Capacitor is a fresh open-source UI for Flux. In some regards, this is the project where we trully feel the pull of the ecosystem. The Github stars testify to that, but also the interest we are getting in Github issues. Capacitor is only indirectly part of the value we aim to provide. Plus it remains a place where we perfect our integration with Flux and roll out new technical approaches, and connect with the ecosystem.
 
-explain what is gimlet
-explain the license change
-explain what stays open-source (what components we have)
+## Our business model: charging money
 
-change personal use to non-commercial use on pricing page and everywhere.
+Long story short: we try charging money for the software we make.
+
+Over the years we got closer to our core vision: **make simple things simple in the Kubernetes ecosystem** and we believe by making the deploy, preview and rollback workflows accessible to everyone on Kubernetes we can earn a living. Clear value for a clear price.
+
+Give Gimlet a try and [sign up](https://app.gimlet.io)!
