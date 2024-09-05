@@ -15,4 +15,6 @@ Gimlet has integrated alerts related to Kubernetes. These can show up:
 - **Failed:** Occurs when a pod can't run successfully. Can happen due to multiple reasons.
 - **OOMKilled:** This error message shows up when a container was terminated because it ran out of memory.
 
+![OOMKilled alert in Gimlet](/docs/screenshots/monitoring/gimlet-io-oomkilled-alert.png)
+
 More details about how to treat and troubleshoot these error messages are in the [Troubleshooting](docs/kubernetes-resources/troubleshooting) documentation of Kubernetes Resources.

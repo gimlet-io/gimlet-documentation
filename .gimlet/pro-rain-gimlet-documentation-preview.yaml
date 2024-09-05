@@ -1,5 +1,5 @@
 app: gimlet-documentation-preview
-env: nearby-smoke
+env: pro-rain
 preview: true
 namespace: default
 chart:
@@ -20,7 +20,7 @@ values:
     annotations:
       cert-manager.io/cluster-issuer: letsencrypt
       kubernetes.io/ingress.class: nginx
-    host: gimlet-io-gimlet-documentation-dhdrqinc.gimlet.app
+    host: gimlet-io-gimlet-documentation-adysfnzc.gimlet.app
     tlsEnabled: true
   resources:
     ignoreLimits: true

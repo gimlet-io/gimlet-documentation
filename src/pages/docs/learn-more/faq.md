@@ -36,21 +36,12 @@ If you have problems with your account, we can reset it for you.
 
 - First, reach out to the Gimlet team to reset your account. You can reach us on our [Discord server](https://discord.com/invite/ZwQDxPkYzE).
 
-- Once your account is reset, try logging into Gimlet like you did the first time around. Except this time you need to tell Github as well that you want to reinstall the `Gimlet Cloud` app.
-
-You'll see all the accounts you have access to listed. Click **Configure** next to your account you want to reinstall Gimlet to.
-
-![Gimlet's GitHub application account selection screen](/docs/screenshots/gimlet-account-setup/gimlet-github-app-installation-01.png)
+- Once your account is reset, try logging into Gimlet like before on [https://app.gimlet.io](https://app.gimlet.io). Except this time you will be redirected to Github.
 
 In the page of Gimlet's GitHub application, find the **Uninstall** button.
 
 ![Gimlet's GitHub application page with uninstall button](/docs/screenshots/gimlet-account-setup/gimlet-github-app-installation-02.png)
 
-Uninstallation should be completed in an instant, go back to the login screen of Gimlet. You'll see the accounts accessible to you once again, but this time Configure shouldn't appear next to your GitHub username.
-
-![Gimlet's GitHub application account selectioon screen without configuration option for personal user](/docs/screenshots/gimlet-account-setup/gimlet-github-app-installation-03.png)
-
-
-Click your username, and then **Install** after choosing if all or select repositories you'd like Gimlet to have access with your GitHub account.
+Uninstallation should be completed in an instant, go back to the login screen of Gimlet: [https://app.gimlet.io](https://app.gimlet.io).
 
 ![Gimlet's GitHub application installation screen](/docs/screenshots/gimlet-account-setup/gimlet-github-app-installation-04.png)
