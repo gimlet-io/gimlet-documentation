@@ -1,9 +1,8 @@
 ---
 title: 'Open-Source as a Bootstrapped Company – We Are Changing License'
 date: '2024-08-23'
-description: "Our story - what does it mean to be an open-source company for a small bootsrapped company like Gimlet.io."
+description: "Our story - open-source business models for a small bootsrapped company like Gimlet.io."
 ---
-
 
 Thanks for clicking. In this one I summarize what does it mean for a small bootstrapped company like Gimlet.io to have an open-source product.
 
@@ -230,7 +229,7 @@ They remain open-source.
 
 **OneChart** is our general purpose Helm chart that serves as the default deployment template for workloads in Gimlet, but also used by hundreds of companies who are not Gimlet users otherwise. OneChart benefits from open-source more than Gimlet itself. Contributions and reported bugs are making OneChart better and better every week.
 
-**Capacitor** Capacitor is a fresh open-source UI for Flux. In some regards, this is the project where we trully feel the pull of the ecosystem. The Github stars testify to that, but also the interest we are getting in Github issues. Capacitor is only indirectly part of the value we aim to provide. Plus it remains a place where we perfect our integration with Flux and roll out new technical approaches, and connect with the ecosystem.
+**Capacitor** Capacitor is a fresh open-source UI for Flux. In some regards, this is the project where we trully feel the pull of the ecosystem. The Github stars testify to that, but also the interest we are getting in Github issues. Capacitor is only indirectly part of the value we aim to provide. Plus it remains a place where we perfect our integration with Flux, roll out new technical approaches, and connect with the ecosystem.
 
 ## Our business model: charging money
 
