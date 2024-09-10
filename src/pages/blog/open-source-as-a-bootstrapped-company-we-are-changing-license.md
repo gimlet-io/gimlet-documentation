@@ -20,18 +20,18 @@ Just like profitability was not a concern for SaaS businesses, open-source was t
 
 #### Gimlet was open-source by default
 
-Gimlet is a Kubernetes deployment tool that is built on gitops and bootstrapped with our consulting revenue. We also were open-source by default. In the Kubernetes ecosystem where we operate, it was unthinkable to be closed source.
+Gimlet is a Kubernetes deployment tool that is built on gitops and bootstrapped with our consulting revenue. We were also open-source by default. In the Kubernetes ecosystem where we operate it was unthinkable to be closed source.
 
 We are going source available now. With our refined scope and vision, this may even work out. Read more to learn how.
 
-(our source available tldr: not open-source, you can read the code and modify it to your own purposes, but can't distribute it. You must purchase a license if you use the product for commercial purposes)
+(our source available tldr: not open-source, you can read the code and modify it to your own purposes, but can't distribute it. You must purchase a license if you use the product for commercial purposes. See more in [pricing](/pricing))
 
 ## Indirect Path to Money
 
 The reason why open-source is a difficult business is that you need to find an indirect path to money. Almost like you need to find product market-fit twice.
 
 - First you find product market fit, or more like project market fit by solving a problem for developers. You give away the software for free, free as in beer, then if you are lucky enough it becomes widely used.
-- Congratulations, now you are a popular open-source project. Now while you are keeping serving your users you go and find a different set of people, problems, or both, who are willing to pay for solving their problems.
+- Congratulations, now you are a popular open-source project. Now while you are serving your users you go and find a different set of people, problems, or both, who are willing to pay for solving their problems.
 
 So as a widely used open-source project, you need to find that other thing that gets you paid. One way to do this is the open-core model.
 
@@ -51,7 +51,7 @@ Gimlet was Apache 2.0 licensed prior to the upcoming v1.0.0 release.
 
 The truth is, we don't have the feature shipping velocity to do open-core right.
 
-We are a bootstrapped company, subsidizing our product development with our consulting revenue. Looking back on our release cadence, 26 releases in three and a half years, we would need much more software to be able to do a feature differentiation that feels right.
+We are a bootstrapped company, subsidizing our product development with our consulting revenue. Looking back on our release cadence (26 releases in three and a half years), we would need much more software to be able to do a feature differentiation that feels right.
 
 Pushing out more software would also be at odds with our mission to simplify Kubernetes, but more on that later.
 
@@ -65,9 +65,9 @@ Furthermore, the companies who require support are usually not your typical user
 
 We are kind of doing this already. This is how we pay the product development costs. We are doing consultancy around Gimlet. But instead of handling our client's quirks, we go broad and help them Terraform their cloud setup, go through audits, and optimize their CI.
 
-There is not much quirks going on at small businesses that they would need support for. No special hardware, no crazy legacy systems. Many of our users are just happy to self-host Gimlet and self-serve all their infrastructure needs. When we get to help, the scope is not tied to Gimlet. That would be too small of a scope, too little income.
+There is not much quirks going on at small businesses that they would need support for. No special hardware, no crazy legacy systems. Many of our users are just happy to self-host Gimlet and self-serve all their infrastructure needs. When we get to help, the scope is not tied to Gimlet. That would be too small of a scope, and too little income.
 
-But you probably see by now how our broad support efforts that gets us money, is also taking time away from product development.
+You probably see by now how our broad support efforts that get us money, is also taking time away from product development.
 
 ### Hosting Anyone?
 
@@ -83,7 +83,7 @@ So we have a cloud. It used to have a volume based pricing. You get to deploy X 
 
 What happened is that our most avid users self-host the free (as in beer) open-source version, and the remaining users were mostly personal users - did I mention that that was also free in our old pricing?
 
-For the odd user that used the cloud above the X free services, the product did not have any logic to enforce the payment, and we never bothered to charge. For a long while now we looked at our cloud offering as an easy way to trial the platform and the way to gather usage analytics.
+For the odd user that used the cloud above the X free services, the product did not have any logic to enforce the payment, and we never bothered to charge. We looked at our cloud offering as an easy way to get more people trial the platform and the way to gather usage analytics.
 
 - Now we've added automatic payment to the cloud version and we enforce limits.
 - Plus we fixed the biggest drop off point in adoption. People were just perplexed by the fact that Gimlet is a bring your own hardware platform. Even though we advocated that launching a k3d cluster on your laptop is a matter of minutes, most trials did not launch a cluster. Our new cloud gives you a running cluster for 7 days so from registration til deployment it really only took a few minutes. Just like on vertically integrated platforms like Vercel or Netlify.
@@ -118,9 +118,9 @@ These contributions though did not change our product significantly. The truth i
 
 We also do not need many integrations, nor our software usable in any other context than Gimlet itself. We are making glue between projects from the Cloud Native Landscape. If you are a user, you can certainly make a PR, but it is unlikely to have an ecosystem of developers around Gimlet.
 
-We are changing to a source-available license now, so technically you can still read the code, even file a PR to the repository. With a contributor agreement (CRA) in place, you can even upstream your changes. It is fair to ask why would anyone do that now that we are not open-source?
+We are changing to a source-available license now, so technically you can still read the code, even file a PR to the repository. With a contributor agreement (CRA) in place, you can even upstream your changes.
 
-We think that the only sustainable contributions to open-source is the scratch your own itch ones. And if you itch and you fix it, you want that upstreamed. If the project makers are decent guys, we aim to be, practitioners will not mind our license.
+It is fair to ask why would anyone contribute now when we are not open-source? We think that the only sustainable contributions to open-source is the scratch your own itch ones. And if you have an itch and you fix it, you want that upstreamed. If the project makers are decent enough, we aim to be, practitioners will not mind our license.
 
 ### Public Utility Software
 
@@ -150,17 +150,17 @@ They certainly spoiled end-users in the past decades.
 
 In the process of open-source trying to indirectly monetize, it is pushing the edges of what is possible. To be able to differentiate on features (open-core), or to support you in the complex, open-source companies must educate about problems that the paid version solves. It should be a good thing, right?
 
-Probably. In the Kubernetes ecosystem though, all too many discussions are about the complex. There is less incentive to talk about the simple.
+Probably. In the Kubernetes ecosystem though, all too many discussions are about the complex. There is less incentive to talk about the simple. With simpler business models perhaps there would be more focus on simple. Solving simple problems for money, anyone?
 
-We want you to stay simple. We want you solve simple for you.
-
-And not showing you the ever more complex possibilities the ecosystem has to offer, or looking for the next frontier.
+- We want you to stay simple.
+- We want to solve simple for you.
+- And not showing you the ever more complex possibilities the ecosystem has to offer. Neither looking for the next frontier.
 
 Instead, we want you to be able to **deploy, preview and rollback**, and then we want you to move along to your next task.
 
 ## Solve Kubernetes Then Move Along to Your Next Task
 
-There were a couple of software that inspired us to the extent that we want to give you the same feeling they gave us.
+There are a couple of software that inspired us to the extent that we want to give you the same feeling they gave us.
 
 #### TailwindUI
 
@@ -196,7 +196,7 @@ And we also want to charge  money for it.
 
 We want to make purchasing Gimlet a no-brainer, even an impulse buy.
 
-- if you are a senior engineer who is by necessity the in-house Kubernetes expert on your team, or you know you are going to end up there
+- if you are a senior engineer who is by necessity the in-house Kubernetes expert on your team
 - or if you are an engineer on a team who has a service ready with a Dockerfile, and need to deploy it on Kubernetes, on a URL with TLS enabled
 
 you should be able to get started with Gimlet in minutes. And in a few days, you should be able to get your team lead or CTOs credit card to set Gimlet up for good. We priced Gimlet in a way that it can be approved without a budget. No monthly fees or seat prices, just a single yearly $300 payment.
@@ -209,9 +209,9 @@ We are perhaps leaving money on the table with this pricing. That is something w
 
 This is price tag alone will probably not solve Gimlet's future if not sold in volume (1000 copies a year), but it is a step in the right direction: charging a clear price for a clear value.
 
-We are also a small shop in not the most expensive areas of the world. Plus we have ideas on how to provide more value in other under-served areas of the ecosystem.
+We are also a small shop in not the most expensive areas of the world. Plus we have ideas on how to provide more value in other under-served parts of the ecosystem.
 
-We are also not in a hurry though. Our consultancy revenue keeps us afloat, we have a brand in the ecosystem, lovely users and a support network. Also, we think time is on our side, which is a super cool ally to have.
+We are also not in a hurry. Our consultancy revenue keeps us afloat, we have a brand in the ecosystem, lovely users and a support network. Also, time is on our side, which is a super cool ally to have.
 
 ### If you have been a Gimlet user
 
@@ -229,12 +229,12 @@ They remain open-source.
 
 **OneChart** is our general purpose Helm chart that serves as the default deployment template for workloads in Gimlet, but also used by hundreds of companies who are not Gimlet users otherwise. OneChart benefits from open-source more than Gimlet itself. Contributions and reported bugs are making OneChart better and better every week.
 
-**Capacitor** Capacitor is a fresh open-source UI for Flux. In some regards, this is the project where we trully feel the pull of the ecosystem. The Github stars testify to that, but also the interest we are getting in Github issues. Capacitor is only indirectly part of the value we aim to provide. Plus it remains a place where we perfect our integration with Flux, roll out new technical approaches, and connect with the ecosystem.
+**Capacitor** Capacitor is a fresh open-source UI for Flux. In some regards, this is the project where we trully feel the pull of the ecosystem. The Github stars testify to that, but also the interest we are getting in Github issues. Capacitor remains open-source, a place where we perfect our integration with Flux, roll out new technical approaches, and connect with the ecosystem.
 
 ## Our business model: charging money
 
 Long story short: we try charging money for the software we make.
 
-Over the years we got closer to our core vision: **make simple things simple in the Kubernetes ecosystem** and we believe by making the deploy, preview and rollback workflows accessible to everyone on Kubernetes we can earn a living. Clear value for a clear price.
+Over the years we got closer to our core vision: **make simple things simple in the Kubernetes ecosystem** (while keeping complex things possible) and we believe by making the deploy, preview and rollback workflows accessible to everyone on Kubernetes we can earn a living. Clear value for a clear price.
 
 Give Gimlet a try and [sign up](https://app.gimlet.io)!
