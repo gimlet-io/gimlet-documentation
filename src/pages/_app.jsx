@@ -101,6 +101,13 @@ const navigation = [
     ],
   },
   {
+    title: 'Self-Host',
+    links: [
+      { title: 'Quickstart', href: '/docs/self-host/quickstart' },
+      { title: 'Production Setup', href: '/docs/self-host/production-setup' },
+    ],
+  },
+  {
     title: 'Reference',
     links: [
       { title: 'Gimlet Manifest Reference', href: '/docs/reference/gimlet-manifest-reference' },
