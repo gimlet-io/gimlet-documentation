@@ -1,5 +1,5 @@
 app: gimlet-documentation-preview
-env: destined-fog
+env: more-meadow
 preview: true
 namespace: default
 chart:
@@ -11,7 +11,7 @@ values:
   image:
     dockerfile: Dockerfile
     registry: customRegistry
-    repository: registry.gimlet:30003/gimlet-ioanhdbbej/{{ .APP }}
+    repository: registry.gimlet:30003/gimlet-iolcvqquxh/{{ .APP }}
     strategy: dockerfile
     tag: '{{ .SHA }}'
   imagePullSecrets:
@@ -20,7 +20,7 @@ values:
     annotations:
       cert-manager.io/cluster-issuer: letsencrypt
       kubernetes.io/ingress.class: nginx
-    host: gimlet-io-gimlet-documentation-anhdbbej.gimlet.app
+    host: gimlet-io-gimlet-documentation-lcvqquxh.gimlet.app
     tlsEnabled: true
   resources:
     ignoreLimits: true
