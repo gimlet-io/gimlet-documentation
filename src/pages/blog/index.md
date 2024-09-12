@@ -2,6 +2,10 @@
 title: Blog
 ---
 
+{% post name="5 Security Hardening Steps to Do on Your Server If You Self-host" image="gimlet-io-whats-next-for-fluxcd-and-gimlet.jpg" link="/blog/5-security-hardening-step-to-do-on-your-server-if-you-self-host" date="2024-02-20" %}
+Self-hosting is on the rise which we can't celebrate enough. These are the five steps we perform on every server we set up. You should run them too.
+{% /post %}
+
 {% post name="Use Ollama with Cloud Nvidia GPU Kubernetes Cluster" image="kubernetess-remote-gpu-ollama-blog-post-cover.jpg" link="/blog/how-to-use-nvidia-gpu-with-kubernetes" date="2024-08-20" %}
 Using a remote Nvidia GPU with Kubernetes is a convenient way to run large language models from anywhere while being able to keep costs as low as possible. Here's how you can get started with remote GPUs and Kubernetes.
 {% /post %}
