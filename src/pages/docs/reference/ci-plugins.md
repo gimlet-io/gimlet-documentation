@@ -16,7 +16,7 @@ Typically you add a deploy step to your CI pipeline at this point. Instead, add 
 
 The CI plugin has two modes of operation
 
-- Either you use Gimlet's [automated deployment settings](docs/deployments/automated-deployments),
+- Either you use Gimlet's [automated deployment settings](/docs/deployments/automated-deployments),
 - or you can initiate a deploy with the CI plugin. In this mode of operation you can have your CI workflows orchestrating deployment.
 
 ### Automated deployment mode
