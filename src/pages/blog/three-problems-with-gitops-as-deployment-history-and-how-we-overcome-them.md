@@ -110,7 +110,7 @@ The approach to reconstruct the deployment history for a single service depends 
 
 Since the gitops repository structure is not prescribed by gitops, you can end up with a rather difficult task. This is a factor to consider when you design your gitops folder strategy, and it affects greatly your ability to construct the gitops history for a single service.
 
-At Gimlet, [we use folders](/concepts/gitops-conventions) to separate services from one another. With manifests stored under a specific path, getting the gitops history of one service is rather easy with the `git` command line tool: the `git log -- path/to/service` command returns the git commit history of the specified folder
+At Gimlet, [we use folders](/docs/concepts#gitops) to separate services from one another. With manifests stored under a specific path, getting the gitops history of one service is rather easy with the `git` command line tool: the `git log -- path/to/service` command returns the git commit history of the specified folder
 
 But if you use Kustomize overlays to render the service manifests, constructing the history of a single service can become much more difficult as you need to factor in changes in base layers as well. And base layers are scattered in multiple folders, so getting the release history of a service becomes a rather complex task.
 
