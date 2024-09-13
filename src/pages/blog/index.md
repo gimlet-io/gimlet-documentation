@@ -2,6 +2,9 @@
 title: Blog
 ---
 
+{% post name="Steps to upgrade Gimlet to v1.0.0" image="https://api.placid.app/u/ghvjld730lsgd?title[text]=Steps%20to%20upgrade%20Gimlet%20to%20v1.0.0" link="/blog/steps-to-upgrade-gimlet-to-v1-0-0" date="2024-09-13" %}
+{% /post %}
+
 {% post name="Use Ollama with Cloud Nvidia GPU Kubernetes Cluster" image="kubernetess-remote-gpu-ollama-blog-post-cover.jpg" link="/blog/how-to-use-nvidia-gpu-with-kubernetes" date="2024-08-20" %}
 Using a remote Nvidia GPU with Kubernetes is a convenient way to run large language models from anywhere while being able to keep costs as low as possible. Here's how you can get started with remote GPUs and Kubernetes.
 {% /post %}
