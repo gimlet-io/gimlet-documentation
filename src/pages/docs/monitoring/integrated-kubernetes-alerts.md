@@ -17,4 +17,4 @@ Gimlet has integrated alerts related to Kubernetes. These can show up:
 
 ![OOMKilled alert in Gimlet](/docs/screenshots/monitoring/gimlet-io-oomkilled-alert.png)
 
-More details about how to treat and troubleshoot these error messages are in the [Troubleshooting](docs/kubernetes-resources/troubleshooting) documentation of Kubernetes Resources.
+More details about how to treat and troubleshoot these error messages are in the [Troubleshooting](/docs/kubernetes-resources/troubleshooting) documentation of Kubernetes Resources.

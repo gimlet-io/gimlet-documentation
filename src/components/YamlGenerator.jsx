@@ -239,7 +239,7 @@ helm template my-release onechart/${chart.name} -f values.yaml`
               </Highlight>
             </div>
             <p className='pt-16 text-base text-blue-500'>Are you new to Helm? Check out <a href="/concepts/the-sane-helm-guide?ref=yamlgenerator" className="underline">our SANE Helm guide</a>.</p>
-            <p className='text-base text-blue-500'>Curious about onechart/onechart? See <a href="/docs/onechart-reference?ref=yamlgenerator" className="underline">the reference</a>.</p>
+            <p className='text-base text-blue-500'>Curious about onechart/onechart? See <a href="/docs/reference/onechart-reference?ref=yamlgenerator" className="underline">the reference</a>.</p>
           </div>
         </div>
       </div>

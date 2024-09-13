@@ -28,8 +28,8 @@ Furthermore, non-profits can also benefit from our free, unlimited use plan.
 
 If you are not sure if your project fits our free plan, email us at laszlo at gimlet.io to clarify.
 
-And remember, you can [self-host Gimlet](/docs/installation) even if you don't fit into our free plan.
+And remember, you can [self-host Gimlet](/docs/self-host/quickstart) even if you don't fit into our free plan.
 
 ## Sign up
 
-You can sign up to Gimlet Cloud on [this page](/signup).
+You can sign up to Gimlet Cloud on [this page](https://app.gimlet.io).

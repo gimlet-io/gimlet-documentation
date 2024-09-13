@@ -30,7 +30,7 @@ We are looking for early access partners: developers, dev teams and DevOps profe
 
 We are a couple of months away from launching our SaaS platform and during this period you would get access to the platform and our engineering team, while helping us with your feedback to be ready for our launch.
 
-[By signing up](https://gimlet.io/signup) you will be able to get started for free, and stay free forever as we are announcing our always free plan:
+[By signing up](https://app.gimlet.io) you will be able to get started for free, and stay free forever as we are announcing our always free plan:
 
 You will be able to deploy a single service to Kubernetes for free forever. Whether you use that to automate your blog or test-drive Gimlet, it is up to you.
 
@@ -68,4 +68,4 @@ If you continue to self-host Gimlet, you get all Gimlet features without any lim
 
 If you like what you see, sign-up to the Gimlet SaaS early Access program. It takes only a few clicks:
 
-[https://gimlet.io/signup](https://gimlet.io/signup)
+[https://app.gimlet.io](https://app.gimlet.io)

@@ -31,7 +31,7 @@ values:
 
 You store Gimlet manifest files under the `.gimlet/` folder of your application source code repository. One file per environment.
 
-See how you can [manage Gimlet manifests](https://gimlet.io/docs/how-to-manage-deployment-configs).
+See how you can [manage Gimlet manifests](/docs/deployment-settings/deployment-configuration).
 
 ## Field reference
 
@@ -42,11 +42,11 @@ See how you can [manage Gimlet manifests](https://gimlet.io/docs/how-to-manage-
 - `namespace`: The namespace to deploy this application to. Namespaces are an arbitrary grouping, your team probably has a preferred namespace structure that serve you well. At Gimlet, as a rule of thumb, we use the environment name as namespace. For this tutorial, follow this practice and set the namespace as staging.
 ### Deploy
 
-Fields for [policy based deploy](https://gimlet.io/docs/gimlet-manifest-reference#policy-based-releases).
+Fields for [policy based deploy](#policy-based-releases).
 
 ### Cleanup
 
-Fields for automatically clean up deployed applications. Primarily used in [cleaning up preview apps](https://gimlet.io/docs/how-to-configure-preview-environments#cleaning-up-preview-apps)
+Fields for automatically clean up deployed applications. Primarily used in [cleaning up preview apps](/docs/reference/gimlet-manifest-reference#cleanup)
 ### Chart
 
 The Helm chart to use as application template.
@@ -216,7 +216,7 @@ values:
 
 ## Postprocessing
 
-The Gimlet manifest is able to apply Kustomize `StrategicMergePatches` and `Json6902Patches`, plus add plain Kuberenetes `manifests`. See their [usage](https://gimlet.io/docs/when-helm-is-limiting).
+The Gimlet manifest is able to apply Kustomize `StrategicMergePatches` and `Json6902Patches`, plus add plain Kuberenetes `manifests`. See their [usage](#when-helm-is-limiting).
 
 ## Examples
 

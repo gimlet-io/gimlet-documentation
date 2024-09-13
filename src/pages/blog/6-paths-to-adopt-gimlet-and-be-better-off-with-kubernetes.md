@@ -34,7 +34,7 @@ Gimlet has three components today:
 
 ### OneChart
 
-[OneChart](/docs/onechart-reference) is a generic Helm chart that supports the typical web service deployment patterns.
+[OneChart](/docs/reference/onechart-reference) is a generic Helm chart that supports the typical web service deployment patterns.
 
 Authoring a Kubernetes application manifest is reduced to setting the parts that are unique to the application itself. No more boilerplate.
 

@@ -13,7 +13,7 @@ tags: [posts]
 
 **5th July, 2021 UPDATE**
 
-This blog post uses Flux V1 which is deprecated now. Either head over [fluxcd.io](https://fluxcd.io/) for the official docs of Flux V2, or check out the most recent practice from Gimlet in the [Deploy your app to Kubernetes without the boilerplate](/docs/deploy-your-app-to-kubernetes-without-the-boilerplate) guide.
+This blog post uses Flux V1 which is deprecated now. Gimlet uses Flux V2, and you can get started [here](/docs).
 
 ---
 
