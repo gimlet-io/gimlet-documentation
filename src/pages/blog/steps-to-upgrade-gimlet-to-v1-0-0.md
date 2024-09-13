@@ -29,11 +29,11 @@ spec:
       pullPolicy: IfNotPresent
 ```
 
-## Change the Github OAuth Callback URL
+## Change the Github Setup URL
 
 Navigate to Github to your Gimlet Github Application settings screen.
 
-Locate the *OAuth Callback URL* setting the change the URL path from `/settings/installed` to `/installed`
+Locate the *Setup URL* setting the change the URL path from `/settings/installed` to `/installed`
 
 Without this change, you won't be able to log in.
 
