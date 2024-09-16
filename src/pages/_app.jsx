@@ -78,6 +78,14 @@ const navigation = [
     ],
   },
   {
+    title: 'Databases',
+    links: [
+      { title: 'Introduction', href: '/docs/databases' },
+      { title: 'Redis', href: '/docs/databases/redis' },
+      { title: 'PostgreSQL', href: '/docs/databases/postgresql' },
+    ],
+  },
+  {
     title: 'Monitoring',
     links: [
       { title: 'Loki', href: '/docs/monitoring/loki' },
