@@ -143,4 +143,4 @@ chart if you need to deploy something quickly, or looking for an alternative for
 
 - You can discover the source code of [Helm React UI](https://github.com/gimlet-io/helm-react-ui/blob/master/src/index.js)
 - See an [example](https://github.com/gimlet-io/helm-react-ui-test-bed) to include it in your project
-- Learn more about [OneChart](/docs/onechart-reference), the chart that has a schema and a helm-ui.json today
+- Learn more about [OneChart](/docs/reference/onechart-reference), the chart that has a schema and a helm-ui.json today

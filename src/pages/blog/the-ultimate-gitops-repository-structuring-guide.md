@@ -26,7 +26,9 @@ Since we use git to store deployment manifests, there are only limited options a
 - branches
 - or repositories.
 
-Moreover, based on experience, long-running branches for each environment (such as QA, staging, and production) with pull requests to promote changes through them are not a real option. Although it may seem like a good idea initially, in practice, promoting changes is seldom a simple git merge but a manual process of selecting good changes and rejecting bad changes to reach production.
+## Using branches per environment is not a real option
+
+Based on experience, long-running branches for each environment (such as QA, staging, and production) with pull requests to promote changes through them are not a real option. Although it may seem like a good idea initially, in practice, promoting changes is seldom a simple git merge but a manual process of selecting good changes and rejecting bad changes to reach production.
 
 Allow me to provide you with some examples:
 
@@ -177,6 +179,6 @@ By carefully planning and organizing your repository structure, you can improve 
 
 By following best practices and taking the time to design a thoughtful repository structure, you can set yourself up for success and make it easier to maintain and evolve your project over time.
 
-We are opinionated at Gimlet. If you want to cut through the experimentation, see what practices we support in our product: [Gitops Conventions](/concepts/gitops-conventions).
+We are opinionated at Gimlet. If you want to cut through the experimentation, see what practices we support in our product: [Gitops Conventions](/docs/concepts#gitops).
 
 Onwards!
