@@ -1,6 +1,6 @@
 ---
 title: 'Open-Source as a Bootstrapped Company – We Are Changing License'
-date: '2024-08-23'
+date: '2024-09-16'
 description: "Our story - open-source business models for a small bootsrapped company like Gimlet.io."
 ---
 
@@ -20,7 +20,7 @@ Just like profitability was not a concern for SaaS businesses, open-source was t
 
 #### Gimlet was open-source by default
 
-Gimlet is a Kubernetes deployment tool that is built on gitops and bootstrapped with our consulting revenue. We were also open-source by default. In the Kubernetes ecosystem where we operate it was unthinkable to be closed source.
+Gimlet is an application deployment tool for Kubernetes, built on gitops and bootstrapped with our consulting revenue. We were also open-source by default. In the Kubernetes ecosystem where we operate it was unthinkable to be closed source.
 
 We are going source available now. With our refined scope and vision, this may even work out. Read more to learn how.
 
@@ -86,7 +86,7 @@ What happened is that our most avid users self-host the free (as in beer) open-s
 For the odd user that used the cloud above the X free services, the product did not have any logic to enforce the payment, and we never bothered to charge. We looked at our cloud offering as an easy way to get more people trial the platform and the way to gather usage analytics.
 
 - Now we've added automatic payment to the cloud version and we enforce limits.
-- Plus we fixed the biggest drop off point in adoption. People were just perplexed by the fact that Gimlet is a bring your own hardware platform. Even though we advocated that launching a k3d cluster on your laptop is a matter of minutes, most trials did not launch a cluster. Our new cloud gives you a running cluster for 7 days so from registration til deployment it really only took a few minutes. Just like on vertically integrated platforms like Vercel or Netlify.
+- Plus we fixed the biggest drop off point in adoption. People were just perplexed by the fact that Gimlet is a bring your own hardware platform. Even though we advocated that launching a k3d cluster on your laptop is a matter of minutes, most trials did not launch a cluster. Our new cloud gives you a running cluster for 7 days so from registration til deployment it really only takes a few minutes. Just like on vertically integrated platforms like Vercel or Netlify.
 
 ### Tip Jars, Sponsorships
 
@@ -114,7 +114,7 @@ Software development is like that. One can contribute on the edges of the projec
 
 We got a handful of nice contributions. Some out of the blue, which humbled us, some from friends. We are grateful for each and every one of those.
 
-These contributions though did not change our product significantly. The truth is though, we did not put in the time to have a clear enough roadmap, or communicate a clear enough technical guidance. We put the time into development. At our scale having a couple of internal contributors is a much safer route to product than relying on external contributors.
+These contributions though did not change our product significantly. We also did not put in the time to have a clear enough roadmap, or communicate a clear enough technical guidance. At our scale, having a couple of internal contributors is a much safer route to product than relying on external contributors.
 
 We also do not need many integrations, nor our software usable in any other context than Gimlet itself. We are making glue between projects from the Cloud Native Landscape. If you are a user, you can certainly make a PR, but it is unlikely to have an ecosystem of developers around Gimlet.
 
@@ -142,8 +142,6 @@ These people made the public utility software category out of nothing. We are gr
 
 There is another category of open-source that could only happen as a subsidy of large companies.
 
-They often yield it as a weapon (Android, Kubernetes?), so maybe they are not the real kind of open-source.
-
 They certainly spoiled end-users in the past decades.
 
 ## "Simple" Is at Odds With Open-Source Business Models
@@ -156,7 +154,7 @@ Probably. In the Kubernetes ecosystem though, all too many discussions are about
 - We want to solve simple for you.
 - And not showing you the ever more complex possibilities the ecosystem has to offer. Neither looking for the next frontier.
 
-Instead, we want you to be able to **deploy, preview and rollback**, and then we want you to move along to your next task.
+Instead, we want you to be able to **deploy, preview and rollback** your application, and then we want you to move along to your next task.
 
 ## Solve Kubernetes Then Move Along to Your Next Task
 
@@ -168,7 +166,7 @@ We are backend engineers, devops professionals. We have known CSS for decades an
 
 First, we bought the [Refactor UI](https://www.refactoringui.com/) book, then we picked up TailwindCSS, finally we purchased a lifetime license on [TailwindUI](https://tailwindui.com/) and our UIs just became something else. Our users often ask if we did the design of Gimlet. Well we did, with the help of TailwindUI.
 
-This is a feeling we would like to replicate. If you have a brief notion of Kubernetes, tried hacking together some yaml before, but things have not come together yet in coherent tooling, get onto Gimlet and jump to the end. You will still have the possibility to fine tune the yaml bits, like you can finetune TailwindUI with TailwindCSS selectors. 
+This is a feeling we would like to replicate. If you have a Dockerfile, have a brief notion of Kubernetes, tried hacking together some yaml before, but things have not come together yet in coherent tooling, get onto Gimlet and jump to the end. You will still have the possibility to fine tune the yaml bits, like you can finetune TailwindUI with TailwindCSS classes. 
 
 #### Netlify
 
@@ -199,13 +197,13 @@ We want to make purchasing Gimlet a no-brainer, even an impulse buy.
 - if you are a senior engineer who is by necessity the in-house Kubernetes expert on your team
 - or if you are an engineer on a team who has a service ready with a Dockerfile, and need to deploy it on Kubernetes, on a URL with TLS enabled
 
-you should be able to get started with Gimlet in minutes. And in a few days, you should be able to get your team lead or CTOs credit card to set Gimlet up for good. We priced Gimlet in a way that it can be approved without a budget. No monthly fees or seat prices, just a single yearly $300 payment.
+you should be able to deploy to Kubernetes with Gimlet in minutes. And in a few days, when you almost forget you made the deployment, you can get your team lead or CTOs credit card to set Gimlet up for good. We priced Gimlet in a way that it can be approved without a budget. No monthly fees or seat prices, just a single yearly $300 payment.
 
 We want this $300 to be your best spend ever. Like our spend was with TailwindUI.
 
 ### On sustainability
 
-We are perhaps leaving money on the table with this pricing. That is something we are fine with. Like we said, we want this purchase to be a no-brainer.
+We are perhaps leaving money on the table with this pricing. That is something we are fine with. Like we said, we want this purchase to be your best purchase of the year.
 
 This is price tag alone will probably not solve Gimlet's future if not sold in volume (1000 copies a year), but it is a step in the right direction: charging a clear price for a clear value.
 
@@ -217,13 +215,13 @@ We are also not in a hurry. Our consultancy revenue keeps us afloat, we have a b
 
 We are grateful for people who trusted us from the early days.
 
-Gimlet remains [free to self-host for non-commercial use](/pricing). If your company is a long time Gimlet user, just write to us and we are happy to grant a free license to you. 
+Gimlet remains [free to self-host for non-commercial use](/pricing). Plus, if your company is a long time Gimlet user, just write to us and we are happy to grant a free license to you. 
 
 ### OneChart and Capacitor
 
 We have other open-source components and tools that in some regards are more successful than Gimlet itself: OneChart and Capacitor.
 
-They remain open-source.
+They remain open-source. They fit open-source.
 
 ![Gimlet Github star histpry](/blog/gimlet-star-history.png)
 
@@ -233,8 +231,10 @@ They remain open-source.
 
 ## Our business model: charging money
 
-Long story short: we try charging money for the software we make.
+Long story short: we start charging money for the software we make.
 
 Over the years we got closer to our core vision: **make simple things simple in the Kubernetes ecosystem** (while keeping complex things possible) and we believe by making the deploy, preview and rollback workflows accessible to everyone on Kubernetes we can earn a living. Clear value for a clear price.
 
-Give Gimlet a try and [sign up](https://app.gimlet.io)!
+Thanks for reading!
+
+Please give Gimlet a try and [sign up](https://app.gimlet.io)!
