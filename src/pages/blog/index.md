@@ -2,6 +2,10 @@
 title: Blog
 ---
 
+{% post name="Open-Source as a Bootstrapped Company – We Are Changing License" image="https://api.placid.app/u/ghvjld730lsgd?title[text]=Open-Source%20as%20a%20Bootstrapped%20Company%20-%20We%20Are%20Changing%20License" link="/blog/open-source-as-a-bootstrapped-company-we-are-changing-license" date="2024-09-16" %}
+Our story - open-source business models for a small bootsrapped company like Gimlet.io.
+{% /post %}
+
 {% post name="Steps to upgrade Gimlet to v1.0.0" image="https://api.placid.app/u/ghvjld730lsgd?title[text]=Steps%20to%20upgrade%20Gimlet%20to%20v1.0.0" link="/blog/steps-to-upgrade-gimlet-to-v1-0-0" date="2024-09-13" %}
 {% /post %}
 
