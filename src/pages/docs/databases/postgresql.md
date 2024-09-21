@@ -66,7 +66,7 @@ spec:
       sourceRef:
         kind: HelmRepository
         name: bitnami
-      interval: 10mpo
+      interval: 10m
   values:
     auth:
       existingSecret: postgresql-credentials
