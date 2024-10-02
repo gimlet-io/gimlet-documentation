@@ -37,6 +37,14 @@ Locate the *Setup URL* setting the change the URL path from `/settings/installed
 
 Without this change, you won't be able to log in.
 
+## Change the Github Callback URL
+
+Navigate to Github to your Gimlet Github Application settings screen.
+
+Locate the *Callback URL* setting the change the URL path to `/auth`
+
+Without this change, you won't be able to log in.
+
 ## Import the repos you want to deploy with Gimlet
 
 The repositories view in Gimlet 1.0 shows only the repos that you have imported explicitly.
