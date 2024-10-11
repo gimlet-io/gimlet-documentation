@@ -62,7 +62,7 @@ But wait, i want to rollback and deploy a new version also!
 
 Who does not love, *deploy -> rollback*
 
-i will break down the process into **CI** and **CD**
+I will break down the process into **CI** and **CD**
 
 ### CI
 
