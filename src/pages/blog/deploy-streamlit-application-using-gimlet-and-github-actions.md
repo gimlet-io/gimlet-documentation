@@ -1,6 +1,22 @@
+---
+layout: post
+title: "Deploying a Streamlit App Using Github Container Registry and Gimlet"
+date: "2023-07-12"
+image: no-image-yet.png
+description: "Deploying applications does not have to be complicated! In this guide, i will walk you through how to deploy a Streamlit app using GitHub Container Registry and Gimlet in a few easy steps..
+"
+author: Youcef Guichi
+authorAvatar: /youcef.jpg
+coAuthor: Laszlo Fogas
+coAuthorAvatar: /laszlo.jpg
+---
 ## Deploying a Streamlit App Using Github Container Registry and Gimlet
 
-I'm gonna walk you through how to deploy a Streamlit app using GitHub Container Registry and Gimlet. This blog aims to clarify the bluriness and the confusion that people have and they start.
+Deploying applications does not have to be complicated! In this guide, i will walk you through how to deploy a Streamlit app using GitHub Container Registry and Gimlet in a few easy steps.
+
+You will learn how to set up your GitHub repository with Gimlet, configure the deployment settings, and finally, launch your app with just a few clicks.
+
+Plus, I will cover how to manage new versions and roll back to previous ones seamlessly. Ready to get your app live? Let’s dive in!
 
 ## What You Will Need ?
 - A Streamlit app ready for deployment. Don’t have one? No worries! You can easily fork this Streamlit app [repository](https://github.com/YoucefGuichi/streamlit-app) to follow along.
@@ -9,13 +25,13 @@ I'm gonna walk you through how to deploy a Streamlit app using GitHub Container 
 
 ## Setup Gimlet
 
-First, log into Gimlet using either your GitHub or GitLab account. After you are logged in, you should see a list of repositories linked to your account. Or you can use thw search bar to find it
+First, log into Gimlet using either your GitHub or GitLab account. After you are logged in, you should see a list of repositories linked to your account. Or you can use the search bar to find it.
 
 When you locate it, click the **Import** button next to the repository, and then hit **I am done importing** to save your selection.
 
 And Voila! You have just connected your project to Gimlet!
 
-Before we start the magic, let's first connect gimlet to Github Container Registry, this step needed so you can work with private registries, as we assume most of your packages are private!
+Before we start the magic, let's first connect gimlet to Github Container Registry, this step is needed so you can work with private registries, as we assume most of your packages are private!
 
 ## Connect Gimlet to Github Container Registry
 
@@ -27,9 +43,7 @@ First, you will need a Personal Access Token (PAT) from GitHub. Make sure it has
 ### GitHub Container Registry Settings in Gimlet
 Once you have got your token, log back into Gimlet. Head to your environment settings by clicking **Environments** in the top menu and selecting your environment.
 
-![GitHub Container Registry settings in Gimlet](/docs/screenshots/registries/gimlet-io-github-container-registry.png)
-
-In the environment settings, choose the Container Registry tab on the left. Under the GitHub Container Registry settings, enter the following:
+In the environment settings, choose the Container Registry tab on the left. Under the **GitHub Container Registry** settings, enter the following:
 
 - **Login:** Your GitHub username.
 - **Token:** The personal access token that you generated from github earlier.
@@ -44,6 +58,8 @@ Alright no more go here and there, DEPLOY TIME!
 2. Choose the Web Application Template and select **Build with CI** for the container image option.
 3. Set Gimlet Registry to **GitHub Container Registry**, and for the Port, enter `8501` (which is the default for our Streamlit app example).
 
+![GitHub Container Registry settings in Gimlet](/docs/screenshots/streamlit-deployment/deployment-settings.png)
+
 That’s it! Your deployment settings are ready to go.
 
 ## Deploy, Deploy, Deploy
@@ -54,6 +70,8 @@ You can click on the app link under `Address`
 
 Don't firget to click **write configuration to git** tp persist your application.
 
+![GitHub Container Registry settings in Gimlet](/docs/screenshots/streamlit-deployment/service-card.png)
+
 Now your app will be listed under **Deployments**
 
 ## Deploy New Version and Perform Rollbacks
@@ -62,7 +80,7 @@ But wait, i want to rollback and deploy a new version also!
 
 Who does not love, *deploy -> rollback*
 
-I will break down the process into **CI** and **CD**
+I will break down the process into two parts **CI** and **CD**
 
 ### CI
 
@@ -85,4 +103,3 @@ After that, everything will be automatically applied, and your image will be pul
 What about rollbacks? Since all your images are tagged with commit hashes, you can deploy any commit hash as long as your images in the registry use commit hashes as tags.
 
 ![repo commits.](/docs/screenshots/streamlit-deployment/commits.png)
-
