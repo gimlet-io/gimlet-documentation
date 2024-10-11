@@ -5,7 +5,7 @@
 ## Requirements
 
 - A Streamlit app to deploy. If you don't have one, fork this [repository](https://github.com/YoucefGuichi/streamlit-app) to be able to try this tutorial.
-- We assume that you already have a CI process set up to push packages to GitHub's container registry. In this tutorial, we'll tag images using the commit hash. You can check out the CI pipeline we use here [streamlit app CI pipeline](https://github.com/YoucefGuichi/streamlit-app/blob/main/.github/workflows/pipeline.yaml#L29-L38)
+- We assume that you already have a CI process set up to push packages to GitHub's container registry. In this tutorial, we'll tag images using the commit hash. You can check out the CI pipeline we use here [streamlit app CI pipeline example](https://github.com/YoucefGuichi/streamlit-app/blob/main/.github/workflows/pipeline.yaml#L29-L38)
 
 ## Step 1: Getting Started with Gimlet
 
@@ -56,7 +56,7 @@ You can take a look at the application in your browser by clicking the link that
 
 ![Streamlit repository preview after successful deployment on Gimlet.](/docs/screenshots/streamlit-deployment/service-card.png)
 
-## Step 5: Deploy new version and rollbacks
+## Step 5: Deploy New Version and Perform Rollbacks
 
 ### CI
 
