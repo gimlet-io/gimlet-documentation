@@ -1,8 +1,7 @@
 ---
 layout: post
 title: "Deploying a Streamlit App Using Github Container Registry and Gimlet"
-date: "2023-07-12"
-image: no-image-yet.png
+date: "2024-10-11"
 description: "Deploying applications does not have to be complicated! In this guide, i will walk you through how to deploy a Streamlit app using GitHub Container Registry and Gimlet in a few easy steps..
 "
 author: Youcef Guichi
