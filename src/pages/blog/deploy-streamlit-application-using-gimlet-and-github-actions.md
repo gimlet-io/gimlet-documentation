@@ -9,7 +9,6 @@ authorAvatar: /youcef.jpg
 coAuthor: Laszlo Fogas
 coAuthorAvatar: /laszlo.jpg
 ---
-## Deploying a Streamlit App Using Github Container Registry and Gimlet
 
 Deploying applications does not have to be complicated! In this guide, i will walk you through how to deploy a Streamlit app using GitHub Container Registry and Gimlet in a few easy steps.
 
