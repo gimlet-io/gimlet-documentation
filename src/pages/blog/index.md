@@ -2,6 +2,10 @@
 title: Blog
 ---
 
+{% post name="Deploying a Streamlit App Using Github Container Registry and Gimlet" image="https://api.placid.app/u/ghvjld730lsgd?title[text]=Deploying%20a%20Streamlit%20App%20Using%20Github%20Container%20Registry%20and%20Gimlet" link="/blog/deploying-a-streamlit-app-using-github-container-registry-and-gimlet" date="2024-10-11" %}
+Deploying applications does not have to be complicated! In this guide, i will walk you through how to deploy a Streamlit app using GitHub Container Registry and Gimlet in a few easy steps.
+{% /post %}
+
 {% post name="Open-Source as a Bootstrapped Company – We Are Changing License" image="https://api.placid.app/u/ghvjld730lsgd?title[text]=Open-Source%20as%20a%20Bootstrapped%20Company%20-%20We%20Are%20Changing%20License" link="/blog/open-source-as-a-bootstrapped-company-we-are-changing-license" date="2024-09-16" %}
 Our story - open-source business models for a small bootsrapped company like Gimlet.io.
 {% /post %}
