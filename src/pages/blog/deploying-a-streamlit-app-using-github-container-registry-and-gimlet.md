@@ -20,11 +20,13 @@ Plus, I will cover how to manage new versions and roll back to previous ones sea
 
 ## Setup Gimlet
 
-First, log into Gimlet using either your GitHub or GitLab account. After you are logged in, you should see a list of repositories linked to your account. Or you can use the search bar to find it.
+First, log into Gimlet on [https://gimlet.io](https://gimlet.io) using either your GitHub account. After you are logged in, you should see a list of repositories linked to your account. Or you can use the search bar to find it.
 
 When you locate it, click the **Import** button next to the repository, and then hit **I am done importing** to save your selection.
 
 And Voila! You have just connected your project to Gimlet!
+
+!["Import repositories to Gimlet"](/blog/gimlet-io-import-repositories.png)
 
 Before we start the magic, let's first connect gimlet to Github Container Registry, this step is needed so you can work with private registries, as we assume most of your packages are private!
 
@@ -36,6 +38,9 @@ Now, let’s link your GitHub Container Registry to Gimlet so it knows where to 
 First, you will need a Personal Access Token (PAT) from GitHub. Make sure it has `repo` and `write:packages` permissions. If you don't know how to do it, please visit this link [GitHub's documentation](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens#creating-a-personal-access-token-classic).
 
 ### GitHub Container Registry Settings in Gimlet
+
+!["GitHub Container Registry Settings in Gimlet"](/blog/gimlet-io-github-container-registry-setup.png)
+
 Once you have got your token, log back into Gimlet. Head to your environment settings by clicking **Environments** in the top menu and selecting your environment.
 
 In the environment settings, choose the Container Registry tab on the left. Under the **GitHub Container Registry** settings, enter the following:
@@ -43,10 +48,10 @@ In the environment settings, choose the Container Registry tab on the left. Unde
 - **Login:** Your GitHub username.
 - **Token:** The personal access token that you generated from github earlier.
 
-
 That's it! Easy peasy!
 
 Alright no more go here and there, DEPLOY TIME!
+
 ## Set Up Deployment in Gimlet
 
 1. Navigate to your repository’s card in Gimlet and hit the **New deployment button**.
@@ -89,12 +94,20 @@ In the CD process, we ensure that your image is delivered to the correct environ
 
 If you navigate to the commits section, you will see the list of commits for your application.
 
-Based on the configuration we set up in Step 2, Gimlet expects that you are deploying images to your registry using the commit hash as the tag.
+![Github commits in Gimlet](/docs/screenshots/streamlit-deployment/commits.png)
 
 When you click deploy, Gimlet will select the commit hash and write the configuration to Git.
 
-After that, everything will be automatically applied, and your image will be pulled using its commit hash.
+What about rollbacks? Since all your images are tagged with commit hashes, you can deploy any commit hash at any point. We consider this a roll forward operation.
 
-What about rollbacks? Since all your images are tagged with commit hashes, you can deploy any commit hash as long as your images in the registry use commit hashes as tags.
+### Rollback
 
-![repo commits.](/docs/screenshots/streamlit-deployment/commits.png)
+Gimlet's rollback feature guarantees verbatim matching of any previous manifest that havs ever been deployed to Kubernetes. Gimlet is using a write only stream of git commits as Kubernetes state, hence we can revert to any previous git version.
+
+Open the deployment history on your service card, and roll back to any previous released version.
+
+![Rollbacks in Gimlet](/blog/gimlet-io-rollback.png)
+
+## Get started now
+
+You can get started on [https://app.gimlet.io](https://app.gimlet.io).
