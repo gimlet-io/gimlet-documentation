@@ -2,6 +2,10 @@
 title: Blog
 ---
 
+{% post name="Deploy a Cloud Shell" image="https://api.placid.app/u/ghvjld730lsgd?title[text]=Deploy%20a%20Cloud%20Shell" link="/blog/deploy-a-cloud-shell" date="2024-10-30" %}
+Tutorial to get kubectl access on Gimlet Cloud.
+{% /post %}
+
 {% post name="Deploying a Streamlit App Using Github Container Registry and Gimlet" image="https://api.placid.app/u/ghvjld730lsgd?title[text]=Deploying%20a%20Streamlit%20App%20Using%20Github%20Container%20Registry%20and%20Gimlet" link="/blog/deploying-a-streamlit-app-using-github-container-registry-and-gimlet" date="2024-10-11" %}
 Deploying applications does not have to be complicated! In this guide, i will walk you through how to deploy a Streamlit app using GitHub Container Registry and Gimlet in a few easy steps.
 {% /post %}
