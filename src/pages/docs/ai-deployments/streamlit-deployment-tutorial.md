@@ -48,7 +48,7 @@ ENTRYPOINT ["streamlit", "run", "st.py", "--server.port=8501", "--server.address
 
 Back to the Gimlet tab, set **Gimlet Registry** for the **Registry** option, and enter `8501` for the **Port** value to expose it.
 
-![Deployment settings for a Streamlit application in Gimlet.](/docs/screenshots/streamlit-deployment/gimlet-streamlit-configuration.png)
+![Deployment configuration settings for a Streamlit Application in Gimlet](/streamlit-deployment-configuration.png)
 
 Before deployment, make sure you have the correct domain, but Gimlet generates one for you in case you don't have one set up.
 

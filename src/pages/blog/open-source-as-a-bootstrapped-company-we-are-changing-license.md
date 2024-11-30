@@ -225,9 +225,9 @@ They remain open-source. They fit open-source.
 
 ![Gimlet Github star histpry](/blog/gimlet-star-history.png)
 
-**OneChart** is our general purpose Helm chart that serves as the default deployment template for workloads in Gimlet, but also used by hundreds of companies who are not Gimlet users otherwise. OneChart benefits from open-source more than Gimlet itself. Contributions and reported bugs are making OneChart better and better every week.
+**[OneChart](https://github.com/gimlet-io/onechart)** is our general purpose Helm chart that serves as the default deployment template for workloads in Gimlet, but also used by hundreds of companies who are not Gimlet users otherwise. OneChart benefits from open-source more than Gimlet itself. Contributions and reported bugs are making OneChart better and better every week.
 
-**Capacitor** Capacitor is a fresh open-source UI for Flux. In some regards, this is the project where we trully feel the pull of the ecosystem. The Github stars testify to that, but also the interest we are getting in Github issues. Capacitor remains open-source, a place where we perfect our integration with Flux, roll out new technical approaches, and connect with the ecosystem.
+**[Capacitor](https://github.com/gimlet-io/capacitor)** Capacitor is a fresh open-source UI for Flux. In some regards, this is the project where we trully feel the pull of the ecosystem. The Github stars testify to that, but also the interest we are getting in Github issues. Capacitor remains open-source, a place where we perfect our integration with Flux, roll out new technical approaches, and connect with the ecosystem.
 
 ## Our business model: charging money
 

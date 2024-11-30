@@ -3,7 +3,7 @@ export function Wide({ css, width, children }) {
     <>
     <div
       style={{width: "100vw", position: "relative", left: "calc(-50vw + 50%)"}}
-      className={`hidden sm:block ${css}`}
+      className={`hidden sm:block ${css} z-50`}
     >
       <div style={{width: width+"vw", position: "relative", left: "calc(-"+width/2+"vw + 50%)"}}>
         {children}
