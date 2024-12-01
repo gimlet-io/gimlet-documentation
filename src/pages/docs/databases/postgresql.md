@@ -160,7 +160,7 @@ values:
 +    existing-secret: postgresql-credentials
 ```
 
-## Verify and Set connection parameters
+## Verify PostgreSQL with pgAdmin
 
 The last step is to set the PostgreSQL connection parameters in your application.
 
