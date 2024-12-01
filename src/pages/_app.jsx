@@ -80,8 +80,7 @@ const navigation = [
   {
     title: 'Databases',
     links: [
-      { title: 'Redis', href: '/docs/databases/redis' },
-      { title: 'PostgreSQL', href: '/docs/databases/postgresql' },
+      { title: 'Redis and PostgreSQL', href: '/blog/the-redis-and-postgres-megapost' },
     ],
   },
   {
