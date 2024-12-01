@@ -2,6 +2,10 @@
 title: Blog
 ---
 
+{% post name="The Redis and PostgreSQL Megapost" image="https://api.placid.app/u/ghvjld730lsgd?title[text]=The%20Redis%20and%20PostgreSQL%20Megapost" link="/blog/the-redis-and-postgres-megapost" date="2024-11-30" %}
+Learn everything about deploying Redis and PostgreSQL alongside your app.
+{% /post %}
+
 {% post name="Deploy a Cloud Shell" image="https://api.placid.app/u/ghvjld730lsgd?title[text]=Deploy%20a%20Cloud%20Shell" link="/blog/deploy-a-cloud-shell" date="2024-10-30" %}
 Tutorial to get kubectl access on Gimlet Cloud.
 {% /post %}

@@ -78,6 +78,12 @@ const navigation = [
     ],
   },
   {
+    title: 'Databases',
+    links: [
+      { title: 'Redis and PostgreSQL', href: '/blog/the-redis-and-postgres-megapost' },
+    ],
+  },
+  {
     title: 'Monitoring',
     links: [
       { title: 'Loki', href: '/docs/monitoring/loki' },
