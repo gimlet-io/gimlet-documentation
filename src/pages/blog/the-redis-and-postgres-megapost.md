@@ -128,6 +128,10 @@ namespace: default
 +          name: bitnami
 +        interval: 10m
 +    values:
++      commonAnnotations:
++        gimlet.io/git-repository: laszlocph/my-app
++        gimlet.io/git-sha: '{{ .SHA }}'
++        gimlet.io/app: redis
 +      architecture: standalone
 +      #Uncomment the next 3 lines if you want your Redis to be highly available
 +      #architecture: replication
@@ -184,5 +188,40 @@ The `HelmRepository` resource is a mapping of the `https://charts.bitnami.com/bi
 
 The `HelmRelease` resource is the deployment parameters of the Helm chart template. If you are familiar with Helm, it correspondes to the `helm install` command. The `spec.values` field is where you do all Redis specific configuration. I provided a set of defaults, but you can configure it to your needs following the [chart documentation](https://artifacthub.io/packages/helm/bitnami/redis).
 
-The `SealedSecret` resource is an encrypted representation of the password you made note in Step 1) of this blog post. Notice that `spec.encryptedData.redis-password` is the same value as the one you deleted in `values.sealedSecrets.redis-password`. Make sure to copy over the encrypted value.
+The `SealedSecret` resource is an encrypted representation of the password you made note of in Step 1) of this blog post. Notice that `spec.encryptedData.redis-password` is the same value as the one you deleted in `values.sealedSecrets.redis-password`. Make sure to copy over the encrypted value.
+
+One final thing you need to do is to set the `gimlet.io/git-repository: laszlocph/my-app` line. Set the value to your Github repository owner and name. This line helps Gimlet to pair the deployment with the repository.
+
+### Step 3) - Deploy Redis
+
+Once you made a git commit of the file edits you made in step 2), locate the commit in Gimlet *Repositories > your repository > Commits tab* and deploy the commit with the *Deploy..* button.
+
+The Redis deployment shows up as a regular deployment, with the regular tools at your hands: logs, describe the deployments or restart it.
+
+{% wide css="" width=80 %}
+![Deploy Redis with Gimlet.io](/blog/gimlet-io-redis-deployment.png)
+{% /wide %}
+
+### Step 4) - Verify and Set Connection Parameters
+
+Once you deployed the manifests, you can verify Redis with the following commands:
+
+```
+$ kubectl exec -it redis-master-0 --namespace default -- bash
+I have no name!@my-redis-master-0:/$ redis-cli
+127.0.0.1:6379> auth super-secret-password-you-made-note-of
+OK
+127.0.0.1:6379> keys *
+(empty array)
+```
+
+To get Kubectl access on Gimlet cloud, check out [Deploy a cloud shell](deploy-a-cloud-shell) blog post.
+
+The last step is to set the Redis connection parameters in your application.
+
+The best practice is to use environment variables to configure your application. You can set them in the deployment configuration, and you can also use [secrets](/docs/deployment-settings/secrets).
+
+* Connection URL: `redis-master.default.svc.cluster.local`
+* Password: the one you made note of earlier
+
 
