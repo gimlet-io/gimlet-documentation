@@ -72,12 +72,6 @@ export function HomePage() {
           <Testimonials />
         </div>
       </div>
-      <div className="py-16 sm:py-32 sm:pb-56 p-4">
-        <CTA
-          title="Deploy your project now, for free."
-          list={["Cross OAuth & TLS off your to-do list", "Auto-deployments, previews & rollbacks", "Every language supported", "Migrate from Gimlet anytime"]}
-        />
-      </div>
       <Footer />
     </>
   )
