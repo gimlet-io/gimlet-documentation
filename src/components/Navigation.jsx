@@ -18,15 +18,6 @@ export function Navigation({ navigation, className, isDocsPage }) {
             </span>
           </Link>
         </li>
-        <li key="pricing" className="relative">
-          <Link href="/pricing">
-            <span
-              className="block w-full font-bold before:pointer-events-none before:absolute before:-left-1 before:top-1/2 before:h-1.5 before:w-1.5 before:-translate-y-1/2 before:rounded-full text-neutral-500 before:hidden before:bg-neutral-300 hover:text-neutral-600 hover:before:block dark:text-neutral-400 dark:before:bg-neutral-700 dark:hover:text-neutral-300"
-            >
-              Pricing
-            </span>
-          </Link>
-        </li>
         <li key="blog" className="relative">
           <Link href="/blog">
             <span

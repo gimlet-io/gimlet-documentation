@@ -175,7 +175,6 @@ export default function App({ Component, pageProps }) {
   let title = pageProps.markdoc?.frontmatter.title
 
   const router = useRouter()
-  let isPricingPage = router.pathname === '/pricing'
   let isYamlGeneratorPage = router.pathname === '/k8s-yaml-generator'
   let isFrontendPage = router.pathname === '/frontend'
   let isBackendPage = router.pathname === '/backend'
@@ -232,11 +231,6 @@ export default function App({ Component, pageProps }) {
     pageTitle = "AI";
     ogTitle = "Introduce Kubernetes to Your AI Project"
     description = "Introduce Kubernetes to Your AI Project"
-  }
-  if (isPricingPage) {
-    pageTitle = "Pricing";
-    ogTitle = "One Price Tag, One Year Access"
-    description = "For $300 a year, you’ll get every existing and brand new feature without usage restrictions."
   }
 
   useEffect(() => {

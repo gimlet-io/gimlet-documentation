@@ -2,7 +2,6 @@ import { useRouter } from 'next/router'
 import { useState, useEffect } from "react";
 
 import { HomePage } from '@/components/HomePage'
-import { PricingPage } from '@/components/Pricing'
 import { YamlGenerator } from '@/components/YamlGenerator'
 import { Prose } from '@/components/Prose'
 import { BlogPage } from './Blogpage'
@@ -17,7 +16,6 @@ export function Layout({ children, title, navigation, tableOfContents, pageProps
   let isDocsPage = router.pathname.startsWith('/docs') || router.pathname.startsWith('/concepts')
   let isBlogPage = router.pathname.startsWith('/blog')
   let isTOSPage = router.pathname === '/tos'
-  let isPricingPage = router.pathname === '/pricing'
   let isYamlGeneratorPage = router.pathname === '/k8s-yaml-generator'
   let isHomePage = router.pathname === '/'
   let isFrontendPage = router.pathname === '/frontend'
@@ -72,7 +70,6 @@ export function Layout({ children, title, navigation, tableOfContents, pageProps
       }
 
       {isHomePage && <HomePage />}
-      {isPricingPage && <PricingPage />}
       {isYamlGeneratorPage && <YamlGenerator />}
       {isFrontendPage && <FrontendPage />}
       {isBackendPage && <BackendPage />}
