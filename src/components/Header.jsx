@@ -71,9 +71,6 @@ export function Header({ navigation }) {
         }
         { !isDocsPage &&
         <ul className="hidden sm:flex space-x-8 font-semibold text-lg">
-          <li>
-            <Dropdown />
-          </li>
           <li className='hover:text-teal-500 dark:hover:text-teal-200'>
             <a href="/blog">Blog</a>
           </li>
@@ -88,32 +85,6 @@ export function Header({ navigation }) {
       
       </div>
     </header>
-    </div>
-  )
-}
-
-function Dropdown() {
-  return (
-    <div className="group relative dropdown cursor-pointer">
-      <a className="flex items-center text-center gap-1 rounded group-hover:text-teal-500 dark:group-hover:text-teal-200">
-        Use cases
-        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="3" stroke="currentColor" className="w-3 h-3 group-hover:-rotate-180 transition-all ease-in-out">
-          <path strokeLinecap="round" strokeLinejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
-        </svg>
-      </a>
-      <div className="group-hover:block absolute hidden h-auto -right-1/2" id="headlessui-popover-panel-:r1h:" tabIndex="-1" data-headlessui-state="open">
-        <div className="my-4 dropdown-menu p-6 rounded-3xl backdrop-blur-3xl text-neutral-200 bg-neutral-800 dark:bg-neutral-900/30 ring-1 ring-white/10">
-          <ul className="top-0 w-48 text-base">
-            {
-            // <>
-            //   <li><a className="block px-2 py-2 hover:text-neutral-200 bg-[radial-gradient(ellipse_at_center_200px,_var(--tw-gradient-stops))] hover:from-teal-400" data-headlessui-state="open" href="/frontend">Frontend</a></li>
-            //   <li><a className="block px-2 py-2 hover:text-neutral-200 bg-[radial-gradient(ellipse_at_center_200px,_var(--tw-gradient-stops))] hover:from-teal-400" data-headlessui-state="open" href="/backend">Backend</a></li>
-            // </>
-            }
-            <li><a className="block px-2 py-2 hover:text-neutral-200 bg-[radial-gradient(ellipse_at_center_200px,_var(--tw-gradient-stops))] hover:from-teal-400" data-headlessui-state="open" href="/ai-deployment">AI Deployment</a></li>
-          </ul>
-        </div>
-      </div>
     </div>
   )
 }

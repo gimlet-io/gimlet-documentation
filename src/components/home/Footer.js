@@ -16,7 +16,6 @@ const footerNav = [
 
     ],
     'Navigation': [
-      { title: 'Pricing', href: '/pricing?ref=footer' },
       { title: 'Blog', href: '/blog?ref=footer' },
       { title: 'Docs', href: '/docs?ref=footer' },
       { title: 'YAML Generator', href: '/k8s-yaml-generator?ref=footer' },
@@ -26,12 +25,7 @@ const footerNav = [
       { logo: discordLogo, title: 'Discord', href: 'https://discord.com/invite/ZwQDxPkYzE' },
       { logo: twitterLogo, title: 'Twitter', href: 'https://twitter.com/gimlet_io' },
       { logo: youtubeLogo, title: 'YouTube', href: 'https://www.youtube.com/channel/UCMQj-27fzpOWGTKL5nutajA' },
-    ],
-    'Gimlet Cloud': [
-      { title: 'Signup', href: 'https://app.gimlet.io' },
-      { title: 'Pricing', href: 'https://gimlet.io/pricing' },
-      { title: 'Terms of Service', href: 'https://gimlet.io/tos' },
-    ],
+    ]
   },
 ]
 
