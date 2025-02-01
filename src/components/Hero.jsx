@@ -20,20 +20,6 @@ export function Hero() {
                   Deploy and share your frontend, backend or AI project using open-source tooling and social auth
                 </h1>
                 <div className="pt-16 pb-2 md:flex md:space-x-4 space-x-2 sm:justify-center">
-                  <a
-                    href="https://app.gimlet.io"
-                    className="ctaButton !px-6 !py-3"
-                    onClick={() => Fathom.trackGoal('VEWYCI7B', 0)}
-                  >
-                    Start deploying
-                  </a>
-                  <a
-                    href="https://calendly.com/laszlo-i6m4/30min"
-                    className="secondaryCtaButton !px-6 !py-3"
-                    onClick={() => Fathom.trackGoal('VEWYCI7B', 0)}
-                  >
-                    Book a demo
-                  </a>
                 </div>
               </div>
             </div>

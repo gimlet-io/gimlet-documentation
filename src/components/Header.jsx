@@ -75,9 +75,6 @@ export function Header({ navigation }) {
             <Dropdown />
           </li>
           <li className='hover:text-teal-500 dark:hover:text-teal-200'>
-            <a href="/pricing">Pricing</a>
-          </li>
-          <li className='hover:text-teal-500 dark:hover:text-teal-200'>
             <a href="/blog">Blog</a>
           </li>
           <li className='hover:text-teal-500 dark:hover:text-teal-200'>
@@ -88,14 +85,7 @@ export function Header({ navigation }) {
       </div>
       
       <div className="relative flex basis-0 justify-end space-x-6 sm:space-x-8 md:flex-grow">
-        <ul className="hidden sm:flex items-center space-x-4">
-          <li>
-            <a href="https://app.gimlet.io" className="secondaryCtaButton" rel="noreferrer" target="_blank">Log in</a>
-          </li>
-          <li>
-            <a href="https://app.gimlet.io" className="ctaButton" rel="noreferrer" target="_blank">Signup</a>
-          </li>
-        </ul>        
+      
       </div>
     </header>
     </div>
